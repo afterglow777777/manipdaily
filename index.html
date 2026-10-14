@@ -8,70 +8,90 @@
   :root {
     --bg: #f5f6f8; --card: #ffffff; --border: #e4e7ec; --text: #1f2329;
     --muted: #6b7280; --accent: #2563eb; --accent-soft: #eff6ff;
-    --ok: #16a34a; --ok-soft: #f0fdf4;
+    --ok: #16a34a; --ok-soft: #f0fdf4; --star: #f59e0b; --star-soft: #fffbeb;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
          background: var(--bg); color: var(--text); line-height: 1.6; }
   .wrap { max-width: 920px; margin: 0 auto; padding: 0 16px 64px; }
 
-  header { padding: 28px 0 12px; }
+  header { padding: 26px 0 10px; display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; }
   header h1 { font-size: 26px; letter-spacing: .5px; }
   header h1 .dot { color: var(--accent); }
-  header .sub { color: var(--muted); font-size: 13px; margin-top: 4px; }
+  header .sub { color: var(--muted); font-size: 13.5px; }
 
-  .tabs { display: flex; gap: 6px; margin: 18px 0 14px; border-bottom: 1px solid var(--border); }
-  .tab { padding: 8px 16px; cursor: pointer; font-size: 14.5px; color: var(--muted);
+  .tabs { display: flex; gap: 6px; margin: 14px 0 12px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
+  .tab { padding: 8px 14px; cursor: pointer; font-size: 14.5px; color: var(--muted);
          border-bottom: 2px solid transparent; margin-bottom: -1px; user-select: none; }
   .tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
   .tab .badge { background: var(--accent-soft); color: var(--accent); border-radius: 10px;
                 font-size: 11.5px; padding: 0 7px; margin-left: 4px; }
+  .tab .badge.gold { background: var(--star-soft); color: var(--star); }
 
-  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
   .chip { padding: 4px 12px; border: 1px solid var(--border); border-radius: 16px;
           background: var(--card); font-size: 12.5px; cursor: pointer; color: var(--muted);
           user-select: none; transition: all .15s; }
   .chip.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); font-weight: 600; }
   .chip .rc { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
   .search { margin-left: auto; padding: 6px 12px; border: 1px solid var(--border);
-            border-radius: 8px; font-size: 13px; width: 200px; background: var(--card); outline: none; }
+            border-radius: 8px; font-size: 13px; width: 180px; background: var(--card); outline: none; }
   .search:focus { border-color: var(--accent); }
+  select.sortsel { padding: 5px 10px; border: 1px solid var(--border); border-radius: 8px;
+                   font-size: 12.5px; background: var(--card); color: var(--text); outline: none; cursor: pointer; }
 
-  .datenav { display: flex; align-items: center; gap: 12px; margin: 6px 0 14px; font-size: 14px; }
+  .statsbar { display: flex; gap: 18px; flex-wrap: wrap; background: var(--card); border: 1px solid var(--border);
+              border-radius: 10px; padding: 10px 16px; margin-bottom: 12px; font-size: 13px; color: var(--muted); }
+  .statsbar b { color: var(--text); font-size: 15px; }
+  .statsbar .fire { color: #ea580c; font-weight: 700; }
+  .progress { height: 6px; background: #eef0f3; border-radius: 3px; overflow: hidden; flex: 1; min-width: 120px; align-self: center; }
+  .progress i { display: block; height: 100%; background: var(--ok); border-radius: 3px; transition: width .3s; }
+
+  .datenav { display: flex; align-items: center; gap: 12px; margin: 4px 0 10px; font-size: 14px; }
   .datenav button { border: 1px solid var(--border); background: var(--card); border-radius: 6px;
                     padding: 3px 12px; cursor: pointer; font-size: 13px; color: var(--text); }
   .datenav button:disabled { opacity: .35; cursor: default; }
   .datenav .date { font-weight: 600; font-size: 15px; }
-  .datenav .fresh { color: var(--muted); font-size: 12px; }
+
+  .strip { display: flex; gap: 6px; margin-bottom: 14px; overflow-x: auto; padding-bottom: 4px; }
+  .sday { min-width: 44px; text-align: center; background: var(--card); border: 1px solid var(--border);
+          border-radius: 8px; padding: 5px 4px 3px; cursor: pointer; user-select: none; }
+  .sday .n { font-size: 13px; font-weight: 600; line-height: 1.2; }
+  .sday .c { font-size: 10.5px; color: var(--muted); line-height: 1.4; }
+  .sday.sel { border-color: var(--accent); background: var(--accent-soft); }
+  .sday .dots { display: flex; gap: 2px; justify-content: center; margin-top: 2px; }
+  .sday .dots i { width: 4px; height: 4px; border-radius: 50%; background: #d1d5db; }
+  .sday .dots i.r { background: var(--ok); }
+  .sday.today .n { color: var(--accent); }
 
   .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px;
           padding: 18px 20px; margin-bottom: 14px; transition: box-shadow .15s; }
   .card:hover { box-shadow: 0 2px 10px rgba(0,0,0,.05); }
-  .card.read { opacity: .62; background: #fafafa; }
+  .card.read { opacity: .66; background: #fafafa; }
   .card .top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
   .card h3 { font-size: 16px; line-height: 1.45; flex: 1; }
   .card h3 a { color: var(--text); text-decoration: none; }
   .card h3 a:hover { color: var(--accent); }
   .card .authors { color: var(--muted); font-size: 12.5px; margin-top: 5px; }
-  .card .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+  .card .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; align-items: center; }
   .tag { font-size: 11px; padding: 1.5px 9px; border-radius: 10px; font-weight: 500; }
   .tag.venue { background: #fef3c7; color: #92400e; }
   .tag.org { background: #f3e8ff; color: #6b21a8; text-transform: capitalize; }
-  .tag.pi { background: #fee2e2; color: #991b1b; }
+  .tag.date { background: #f1f5f9; color: #475569; }
   .tag.fallback { background: #f1f5f9; color: #475569; }
   .tag.quant { background: #dcfce7; color: #166534; }
   .tag.solid { background: #dbeafe; color: #1e40af; }
   .r-tag { font-size: 11px; padding: 1.5px 9px; border-radius: 10px; color: #fff; font-weight: 500; }
-  .abstract { font-size: 13.5px; color: #374151; margin-top: 10px; display: none; }
-  .abstract.open { display: block; }
+  .abstract { font-size: 13.5px; color: #374151; margin-top: 10px; }
   .contrib { background: var(--accent-soft); border-left: 3px solid var(--accent);
              border-radius: 0 8px 8px 0; padding: 9px 13px; margin-top: 10px; font-size: 13.5px; }
-  .contrib b { color: var(--accent); font-size: 12px; }
-  .card .actions { display: flex; gap: 10px; margin-top: 12px; align-items: center; flex-wrap: wrap; }
+  .contrib b { color: var(--accent); font-size: 12.5px; margin-right: 2px; }
+  .card .actions { display: flex; gap: 8px; margin-top: 12px; align-items: center; flex-wrap: wrap; }
   .btn { border: 1px solid var(--border); background: var(--card); border-radius: 7px;
-         padding: 4px 14px; font-size: 12.5px; cursor: pointer; color: var(--text); }
+         padding: 4px 13px; font-size: 12.5px; cursor: pointer; color: var(--text); }
   .btn:hover { border-color: var(--accent); color: var(--accent); }
   .btn.read-on { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); font-weight: 600; }
+  .btn.star-on { background: var(--star-soft); border-color: var(--star); color: var(--star); font-weight: 600; }
   .notebox { width: 100%; margin-top: 10px; border: 1px solid var(--border); border-radius: 8px;
              padding: 8px 10px; font-size: 13px; min-height: 54px; font-family: inherit;
              resize: vertical; outline: none; display: none; background: #fffdf5; }
@@ -87,55 +107,75 @@
   .archrow .t a:hover { color: var(--accent); }
   .archrow .n { color: var(--muted); font-size: 12px; }
   .exportbar { display: flex; gap: 10px; margin: 14px 0; }
-  footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border);
-           color: var(--muted); font-size: 12.5px; line-height: 1.8; }
-  footer a { color: var(--accent); text-decoration: none; }
+  .routebars { background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+               padding: 12px 16px; margin-bottom: 14px; font-size: 12.5px; }
+  .routebars .row { display: flex; align-items: center; gap: 10px; margin: 4px 0; }
+  .routebars .bar { height: 8px; border-radius: 4px; min-width: 2px; }
+  footer { margin-top: 40px; padding-top: 14px; border-top: 1px solid var(--border);
+           color: #9ca3af; font-size: 12px; text-align: center; }
+  .toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+           background: #1f2329; color: #fff; padding: 8px 20px; border-radius: 20px;
+           font-size: 13px; opacity: 0; pointer-events: none; transition: opacity .25s; z-index: 9; }
+  .toast.show { opacity: .92; }
   .loading { text-align: center; padding: 60px 0; color: var(--muted); font-size: 14px; }
-  @media (max-width: 640px) { .search { width: 100%; margin-left: 0; } }
+  @media (max-width: 640px) { .search { width: 100%; margin-left: 0; } .statsbar { gap: 10px; } }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <h1>ManipDaily<span class="dot">.</span></h1>
-    <div class="sub">机器人操作 · 学习 —— 每天 5 篇来自顶级课题组的精选，少于 5 篇自动补经典。不求量，求精。</div>
+    <div class="sub">机器人操作 · 学习 —— 每天 5 篇精选，不求量，求精。</div>
   </header>
 
   <div class="tabs">
     <div class="tab active" data-tab="daily">每日精选</div>
     <div class="tab" data-tab="classics">经典文献</div>
+    <div class="tab" data-tab="stars">⭐ 收藏 <span class="badge gold" id="starBadge">0</span></div>
     <div class="tab" data-tab="archive">已读归档 <span class="badge" id="readBadge">0</span></div>
   </div>
 
+  <div class="toolbar" id="toolbar">
+    <span id="chipsBox" style="display:contents"></span>
+    <input class="search" id="searchBox" placeholder="搜标题 / 作者…">
+    <select class="sortsel" id="sortSel" title="排序">
+      <option value="ai">AI 推荐序</option>
+      <option value="date">最新发布</option>
+      <option value="score">相关度</option>
+    </select>
+  </div>
+
   <div id="tab-daily">
+    <div class="statsbar" id="statsBar"></div>
     <div class="datenav">
       <button id="prevDay">← 前一天</button>
       <span class="date" id="dateLabel">—</span>
       <button id="nextDay">后一天 →</button>
-      <span class="fresh" id="freshLabel"></span>
     </div>
+    <div class="strip" id="dayStrip"></div>
     <div id="dailyList" class="loading">加载中…</div>
   </div>
 
   <div id="tab-classics" style="display:none">
-    <div class="toolbar" id="classicChips"></div>
     <div id="classicList"></div>
   </div>
 
+  <div id="tab-stars" style="display:none">
+    <div id="starList"></div>
+  </div>
+
   <div id="tab-archive" style="display:none">
+    <div id="archStats"></div>
     <div class="exportbar">
       <button class="btn" id="exportBtn">导出阅读记录 (JSON)</button>
-      <button class="btn" id="clearBtn">清空已读记录</button>
+      <button class="btn" id="clearBtn">清空记录</button>
     </div>
     <div id="archiveList"></div>
   </div>
 
-  <footer>
-    数据由 GitHub Actions 每天早上 8:30（北京时间）自动从 arXiv cs.RO 抓取并打分（5 条研究路线关键词 × 顶级课题组白名单 × 顶会发表去向）。
-    部署与自定义路线见 <a href="https://github.com/afterglow777777/zotero-arxiv-daily">项目仓库</a>。
-    已读标记与笔记仅保存在你自己的浏览器（localStorage），不上传。
-  </footer>
+  <footer>每天 8:30（北京时间）自动更新 · 数据来自 arXiv · 你的阅读记录仅保存在本地浏览器</footer>
 </div>
+<div class="toast" id="toast"></div>
 
 <script>
 const ROUTE_META = {
@@ -148,24 +188,39 @@ const ROUTE_META = {
 };
 
 let DAYS = [], CLASSICS = [], tab = "daily", dayIdx = 0;
-let activeRoutes = new Set();
-let query = "";
+let activeRoutes = new Set(), query = "", sortMode = "ai", starOnly = false;
 
 // ---------- localStorage ----------
-const getRead = () => JSON.parse(localStorage.getItem("manipdaily_read_v1") || "{}");
+const getRead  = () => JSON.parse(localStorage.getItem("manipdaily_read_v1")  || "{}");
 const getNotes = () => JSON.parse(localStorage.getItem("manipdaily_notes_v1") || "{}");
-const setRead = m => localStorage.setItem("manipdaily_read_v1", JSON.stringify(m));
+const getStars = () => JSON.parse(localStorage.getItem("manipdaily_star_v1")  || "{}");
+const setRead  = m => localStorage.setItem("manipdaily_read_v1",  JSON.stringify(m));
 const setNotes = m => localStorage.setItem("manipdaily_notes_v1", JSON.stringify(m));
+const setStars = m => localStorage.setItem("manipdaily_star_v1",  JSON.stringify(m));
 const today = () => new Date().toISOString().slice(0, 10);
-const isRead = id => getRead()[id] !== undefined;
+const isRead  = id => getRead()[id]  !== undefined;
+const isStar  = id => getStars()[id] !== undefined;
 
 // ---------- helpers ----------
+function toast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 1800);
+}
 function routeTags(routes) {
   return routes.filter(r => ROUTE_META[r]).map(r =>
     `<span class="r-tag" style="background:${ROUTE_META[r].color}">${ROUTE_META[r].name}</span>`).join("");
 }
+function allPapers() {
+  const m = {};
+  DAYS.forEach(d => d.papers.forEach(p => m[p.id] = p));
+  CLASSICS.forEach(c => m[c.id] = c);
+  return m;
+}
+function findPaper(id) { return allPapers()[id]; }
 function matchFilters(e) {
   if (activeRoutes.size && !(e.routes || []).some(r => activeRoutes.has(r))) return false;
+  if (starOnly && !isStar(e.id)) return false;
   if (query) {
     const hay = ((e.title || "") + " " + (e.authors || []).join(" ")).toLowerCase();
     if (!hay.includes(query.toLowerCase())) return false;
@@ -173,29 +228,28 @@ function matchFilters(e) {
   return true;
 }
 function cardHTML(e, opts = {}) {
-  const read = isRead(e.id);
-  const fallback = opts.fallback ? `<span class="tag fallback">经典补充</span>` : "";
+  const read = isRead(e.id), star = isStar(e.id);
+  const fallback = opts.fallback ? `<span class="tag fallback">经典</span>` : "";
   const venue = e.venue ? `<span class="tag venue">${e.venue}${e.year ? " " + e.year : ""}</span>` : "";
   const orgs = (e.orgs || []).map(o => `<span class="tag org">${o}</span>`).join("");
-  const pis = (e.top_pis || []).map(p => `<span class="tag pi">★ ${p}</span>`).join("");
+  const dateTag = e.published ? `<span class="tag date">📅 ${e.published}</span>` :
+                  (e.year ? `<span class="tag date">📅 ${e.year}</span>` : "");
   const quant = e.quant ? `<span class="tag quant" title="摘要含量化实验结果">量化结果</span>` : "";
   const solid = e.solid ? `<span class="tag solid" title="含数据集/基准/硬件/开源等资源型贡献">资源/系统</span>` : "";
-  const abs = e.abstract ? `<div class="abstract open" id="abs-${cssId(e.id)}"><b style="color:#6b7280">摘要</b>　${e.abstract}</div>` : "";
-  const contrib = e.contribution ? `<div class="contrib">${e.contribution}</div>` : "";
   return `<div class="card ${read ? "read" : ""}" id="card-${cssId(e.id)}">
-    <div class="top">
-      <h3><a href="${e.url}" target="_blank" rel="noopener">${e.title}</a></h3>
-    </div>
-    <div class="authors">${(e.authors || []).slice(0, 6).join(", ")}${(e.authors || []).length > 6 ? " et al." : ""}${e.published ? ` · 发布于 ${e.published}` : ""}</div>
-    <div class="meta">${venue}${quant}${solid}${routeTags(e.routes || [])}${orgs}${pis}${fallback}</div>
-    ${contrib}${abs}
+    <div class="top"><h3><a href="${e.url}" target="_blank" rel="noopener">${e.title}</a></h3></div>
+    <div class="authors">${(e.authors || []).slice(0, 6).join(", ")}${(e.authors || []).length > 6 ? " et al." : ""}</div>
+    <div class="meta">${venue}${dateTag}${quant}${solid}${routeTags(e.routes || [])}${orgs}${fallback}</div>
+    ${e.contribution ? `<div class="contrib">${e.contribution}</div>` : ""}
+    ${e.abstract ? `<div class="abstract" id="abs-${cssId(e.id)}"><b style="color:#6b7280">摘要</b>　${e.abstract}</div>` : ""}
     <div class="actions">
       <button class="btn ${read ? "read-on" : ""}" onclick="toggleRead('${jsId(e.id)}')">${read ? "✓ 已读" : "标记已读"}</button>
+      <button class="btn ${star ? "star-on" : ""}" onclick="toggleStar('${jsId(e.id)}')">${star ? "★ 已收藏" : "☆ 收藏"}</button>
+      <button class="btn" onclick="sharePaper('${jsId(e.id)}')">分享</button>
       <button class="btn" onclick="toggleNote('${jsId(e.id)}')">笔记</button>
     </div>
     <textarea class="notebox" id="note-${cssId(e.id)}" placeholder="记一下这篇自己打算怎么用…（自动保存到本地）"
       oninput="saveNote('${jsId(e.id)}', this.value)">${(getNotes()[e.id] || "")}</textarea>
-    ${abs ? "" : ""}
   </div>`;
 }
 function cssId(id) { return id.replace(/[^a-zA-Z0-9]/g, "_"); }
@@ -207,29 +261,80 @@ function toggleNote(id) {
 function saveNote(id, val) { const m = getNotes(); m[id] = val; setNotes(m); }
 function toggleRead(id) {
   const m = getRead();
-  if (m[id] !== undefined) delete m[id]; else m[id] = today();
+  if (m[id] !== undefined) { delete m[id]; toast("已移除已读"); } else { m[id] = today(); toast("已标记已读 ✓"); }
   setRead(m); renderAll();
 }
+function toggleStar(id) {
+  const m = getStars();
+  if (m[id] !== undefined) { delete m[id]; toast("已取消收藏"); } else { m[id] = today(); toast("已收藏 ★"); }
+  setStars(m); renderAll();
+}
+function sharePaper(id) {
+  const p = findPaper(id); if (!p) return;
+  let hl = "";
+  if (p.contribution) {
+    const txt = p.contribution.replace(/<br\s*\/?>/g, "\n").replace(/<[^>]+>/g, "");
+    const mm = txt.match(/亮点[：:]?\s*([^\n]+)/); hl = mm ? mm[1].trim() : "";
+  }
+  const md = `📄 ${p.title}\n🔗 ${p.url}${hl ? "\n✨ " + hl : ""}`;
+  const done = () => toast("已复制，可直接粘贴分享");
+  if (navigator.clipboard) navigator.clipboard.writeText(md).then(done).catch(() => fallbackCopy(md, done));
+  else fallbackCopy(md, done);
+}
+function fallbackCopy(text, done) {
+  const ta = document.createElement("textarea");
+  ta.value = text; document.body.appendChild(ta); ta.select();
+  try { document.execCommand("copy"); done(); } catch (e) {}
+  document.body.removeChild(ta);
+}
+
+// ---------- streak / stats ----------
+function readDates() { return new Set(Object.values(getRead())); }
+function streak() {
+  const ds = readDates(); let n = 0;
+  const d = new Date();
+  if (!ds.has(d.toISOString().slice(0, 10))) d.setDate(d.getDate() - 1);  // 今天还没读不打断连续
+  while (ds.has(d.toISOString().slice(0, 10))) { n++; d.setDate(d.getDate() - 1); }
+  return n;
+}
+function renderStatsBar() {
+  const day = DAYS[dayIdx];
+  const bar = document.getElementById("statsBar");
+  if (!day) { bar.innerHTML = ""; return; }
+  const total = day.papers.length;
+  const readN = day.papers.filter(p => isRead(p.id)).length;
+  bar.innerHTML = `<span>本期 <b>${total}</b> 篇</span>
+    <span>已读 <b>${readN}</b>/${total}</span>
+    <div class="progress"><i style="width:${total ? readN / total * 100 : 0}%"></i></div>
+    <span>🔥 连续阅读 <b class="fire">${streak()}</b> 天</span>`;
+}
+function renderStrip() {
+  const strip = document.getElementById("dayStrip");
+  const recent = DAYS.slice(0, 14).reverse();   // 旧→新
+  strip.innerHTML = recent.map(d => {
+    const idx = DAYS.indexOf(d);
+    return `<div class="sday ${idx === dayIdx ? "sel" : ""} ${d.date === today() ? "today" : ""}" onclick="jumpDay(${idx})">
+      <div class="n">${d.date.slice(5).replace("-", "/")}</div>
+      <div class="c">${d.papers.length}篇</div>
+      <div class="dots">${d.papers.map(p => `<i class="${isRead(p.id) ? "r" : ""}"></i>`).join("")}</div>
+    </div>`;
+  }).join("");
+}
+function jumpDay(i) { dayIdx = i; renderDaily(); }
 
 // ---------- daily ----------
-function hashDate(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) | 0; return Math.abs(h); }
-function fallbackClassics(dateStr, n, excludeIds) {
-  const pool = CLASSICS.filter(c => !excludeIds.has(c.id) && !matchFiltersExcl(c));
-  const out = [];
-  const start = hashDate(dateStr) % Math.max(pool.length, 1);
-  for (let i = 0; out.length < n && pool.length && i < pool.length; i++) {
-    const c = pool[(start + i) % pool.length];
-    if (!out.includes(c)) out.push(c);
-  }
-  return out;
+function sortPapers(list) {
+  const arr = [...list];
+  if (sortMode === "score") arr.sort((a, b) => (b.score || 0) - (a.score || 0));
+  if (sortMode === "date")  arr.sort((a, b) => (b.published || "").localeCompare(a.published || ""));
+  return arr;   // "ai" 保持原始推荐序
 }
-function matchFiltersExcl(c) { return activeRoutes.size && !(c.routes || []).some(r => activeRoutes.has(r)); }
-
+function hashDate(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) | 0; return Math.abs(h); }
 function renderDaily() {
   const list = document.getElementById("dailyList");
   if (!DAYS.length) {
     list.className = "empty";
-    list.innerHTML = "数据还没有生成。如果你是站长：在 GitHub 仓库手动触发一次 daily-papers workflow 即可。";
+    list.innerHTML = "还没有数据，明天早上 8:30 会自动更新。";
     return;
   }
   dayIdx = Math.min(dayIdx, DAYS.length - 1);
@@ -237,17 +342,25 @@ function renderDaily() {
   document.getElementById("dateLabel").textContent = day.date;
   document.getElementById("prevDay").disabled = dayIdx >= DAYS.length - 1;
   document.getElementById("nextDay").disabled = dayIdx <= 0;
-  document.getElementById("freshLabel").textContent = dayIdx === 0 ? "数据更新于 " + GEN_AT : "";
+  renderStatsBar(); renderStrip();
 
-  let papers = (day.papers || []).filter(matchFilters);
+  const papers = sortPapers(day.papers).filter(matchFilters);
   let fallbackHTML = "";
-  if (!activeRoutes.size && !query) {
+  if (!activeRoutes.size && !query && !starOnly) {
     const need = Math.max(0, 5 - day.papers.length);
     if (need > 0) {
       const exclude = new Set(day.papers.map(p => p.id));
-      const fb = fallbackClassics(day.date, need, exclude);
-      fallbackHTML = fb.map(c => cardHTML({...c, venue: c.venue, contribution: c.why + "<br><i>怎么用：</i>" + c.use_hint},
-        {fallback: true})).join("");
+      const pool = CLASSICS.filter(c => !exclude.has(c.id) &&
+        !(activeRoutes.size && !(c.routes || []).some(r => activeRoutes.has(r))));
+      const start = hashDate(day.date) % Math.max(pool.length, 1);
+      const fb = [];
+      for (let i = 0; fb.length < need && pool.length && i < pool.length; i++) {
+        const c = pool[(start + i) % pool.length];
+        if (!fb.includes(c)) fb.push(c);
+      }
+      fallbackHTML = fb.map(c => cardHTML({
+        ...c, contribution: `<b>🎯 为什么读</b> ${c.why}<br><b>💡 怎么用</b> ${c.use_hint}`
+      }, {fallback: true})).join("");
     }
   }
   list.className = "";
@@ -255,33 +368,47 @@ function renderDaily() {
     (papers.length || fallbackHTML ? "" : '<div class="empty">这个日期没有符合条件的论文。</div>');
 }
 
-// ---------- classics ----------
+// ---------- classics / stars / archive ----------
 function renderClassics() {
-  const list = document.getElementById("classicList");
   const papers = CLASSICS.filter(matchFilters);
-  list.innerHTML = papers.length ? papers.map(c => cardHTML({
-    ...c, contribution: `<b>为什么值得读：</b>${c.why}<br><b>怎么用：</b>${c.use_hint}`
+  document.getElementById("classicList").innerHTML = papers.length ? papers.map(c => cardHTML({
+    ...c, contribution: `<b>🎯 为什么读</b> ${c.why}<br><b>💡 怎么用</b> ${c.use_hint}`
   })).join("") : '<div class="empty">没有符合条件的经典。</div>';
 }
-
-// ---------- archive ----------
+function renderStars() {
+  const stars = getStars(), all = allPapers();
+  const list = Object.keys(stars).map(id => all[id]).filter(Boolean).filter(matchFilters);
+  document.getElementById("starList").innerHTML = list.length ? list.map(p => cardHTML(p)).join("")
+    : '<div class="empty">还没有收藏。看到值得精读的点一下 ☆ 收藏。</div>';
+}
 function renderArchive() {
-  const read = getRead();
-  const all = {};
-  DAYS.forEach(d => d.papers.forEach(p => all[p.id] = p));
-  CLASSICS.forEach(c => all[c.id] = c);
+  const read = getRead(), notes = getNotes(), all = allPapers();
   const entries = Object.entries(read).sort((a, b) => b[1].localeCompare(a[1]));
   document.getElementById("readBadge").textContent = entries.length;
+
+  const rc = {};
+  entries.forEach(([id]) => (all[id] || {routes: []}).routes.forEach(r => rc[r] = (rc[r] || 0) + 1));
+  const maxN = Math.max(...Object.values(rc), 1);
+  const bars = Object.entries(rc).sort((a, b) => b[1] - a[1]).map(([r, n]) => {
+    const meta = ROUTE_META[r] || {name: r, color: "#94a3b8"};
+    return `<div class="row"><span style="width:110px;color:var(--muted)">${meta.name}</span>
+      <div class="bar" style="width:${n / maxN * 60}%;background:${meta.color}"></div><b>${n}</b></div>`;
+  }).join("");
+  document.getElementById("archStats").innerHTML = entries.length ? `
+    <div class="statsbar"><span>累计阅读 <b>${entries.length}</b> 篇</span>
+      <span>🔥 连续 <b class="fire">${streak()}</b> 天</span>
+      <span>⭐ 收藏 <b>${Object.keys(getStars()).length}</b> 篇</span></div>
+    ${bars ? `<div class="routebars">${bars}</div>` : ""}` : "";
+
   const list = document.getElementById("archiveList");
   if (!entries.length) { list.innerHTML = '<div class="empty">还没有已读记录。读到一篇就点一下「标记已读」。</div>'; return; }
   let html = "", lastDate = "";
   for (const [id, date] of entries) {
     const p = all[id] || {title: id, url: "#", authors: [], routes: []};
     if (date !== lastDate) { html += `<div class="archdate">${date} 读</div>`; lastDate = date; }
-    const note = getNotes()[id];
+    const note = notes[id];
     html += `<div class="archrow">
       <div class="t"><a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>
-        ${routeTags(p.routes || []).replace(/style="[^"]*"/g, 'style="margin-left:6px;opacity:.85"')}
         ${note ? `<div class="n">📝 ${note}</div>` : ""}
       </div>
       <button class="btn" onclick="toggleRead('${jsId(id)}')">移除</button>
@@ -292,20 +419,24 @@ function renderArchive() {
 
 function renderAll() {
   document.getElementById("readBadge").textContent = Object.keys(getRead()).length;
+  document.getElementById("starBadge").textContent = Object.keys(getStars()).length;
   if (tab === "daily") renderDaily();
   if (tab === "classics") renderClassics();
+  if (tab === "stars") renderStars();
   if (tab === "archive") renderArchive();
 }
 
 // ---------- tabs & toolbar ----------
-document.querySelectorAll(".tab").forEach(el => el.onclick = () => {
-  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+const tabsEl = document.querySelectorAll(".tab");
+tabsEl.forEach(el => el.onclick = () => {
+  tabsEl.forEach(t => t.classList.remove("active"));
   el.classList.add("active"); tab = el.dataset.tab;
-  ["daily", "classics", "archive"].forEach(t =>
+  ["daily", "classics", "stars", "archive"].forEach(t =>
     document.getElementById("tab-" + t).style.display = t === tab ? "" : "none");
+  document.getElementById("toolbar").style.display = tab === "archive" ? "none" : "flex";
   renderAll();
 });
-const chipsBox = document.getElementById("classicChips");
+const chipsBox = document.getElementById("chipsBox");
 Object.entries(ROUTE_META).forEach(([key, meta]) => {
   const chip = document.createElement("span");
   chip.className = "chip";
@@ -316,30 +447,29 @@ Object.entries(ROUTE_META).forEach(([key, meta]) => {
   };
   chipsBox.appendChild(chip);
 });
-const search = document.createElement("input");
-search.className = "search"; search.placeholder = "搜标题 / 作者…";
+const starChip = document.createElement("span");
+starChip.className = "chip"; starChip.textContent = "⭐ 只看收藏";
+starChip.onclick = () => { starOnly = !starOnly; starChip.classList.toggle("on", starOnly); renderAll(); };
+chipsBox.appendChild(starChip);
+const search = document.getElementById("searchBox");
 search.oninput = () => { query = search.value.trim(); renderAll(); };
-chipsBox.appendChild(search);
+document.getElementById("sortSel").onchange = e => { sortMode = e.target.value; renderDaily(); };
 document.getElementById("prevDay").onclick = () => { dayIdx++; renderDaily(); };
 document.getElementById("nextDay").onclick = () => { dayIdx--; renderDaily(); };
 document.getElementById("exportBtn").onclick = () => {
-  const data = {exported_at: new Date().toISOString(), read: getRead(), notes: getNotes()};
+  const data = {exported_at: new Date().toISOString(), read: getRead(), stars: getStars(), notes: getNotes()};
   const blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
   const a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "manipdaily_reading_log.json";
-  a.click();
+  a.href = URL.createObjectURL(blob); a.download = "manipdaily_reading_log.json"; a.click();
 };
 document.getElementById("clearBtn").onclick = () => {
-  if (confirm("确定清空全部已读记录和笔记？此操作不可恢复（建议先导出）。")) {
-    localStorage.removeItem("manipdaily_read_v1");
-    localStorage.removeItem("manipdaily_notes_v1");
+  if (confirm("确定清空全部已读/收藏/笔记？此操作不可恢复（建议先导出）。")) {
+    ["manipdaily_read_v1", "manipdaily_notes_v1", "manipdaily_star_v1"].forEach(k => localStorage.removeItem(k));
     renderAll();
   }
 };
 
 // ---------- boot ----------
-let GEN_AT = "";
 (async function init() {
   try {
     const [pd, cd] = await Promise.all([
@@ -347,12 +477,10 @@ let GEN_AT = "";
       fetch("data/classics.json").then(r => r.json()),
     ]);
     DAYS = pd.days || [];
-    GEN_AT = pd.generated_at || "";
     CLASSICS = cd.papers || [];
   } catch (e) {
     document.getElementById("dailyList").className = "empty";
-    document.getElementById("dailyList").textContent =
-      "数据加载失败：请通过 HTTP 访问本页（GitHub Pages 或本地 python -m http.server），直接双击打开 file:// 无法读取 JSON。";
+    document.getElementById("dailyList").textContent = "数据加载失败，请稍后刷新重试。";
     return;
   }
   renderAll();
