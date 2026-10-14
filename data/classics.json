@@ -1,0 +1,254 @@
+{
+ "routes": {
+  "affordance": {"name": "可寻址与接触几何"},
+  "grasp": {"name": "抓取检测与位姿"},
+  "tactile": {"name": "触觉与闭环控制"},
+  "learn": {"name": "操作学习与策略"},
+  "data": {"name": "数据·仿真·基准"},
+  "survey": {"name": "综述·立场文章"}
+ },
+ "papers": [
+  {
+   "id": "cutkosky1989",
+   "title": "On Grasp Choice, Grasp Models, and the Design of Hands for Manufacturing Tasks",
+   "authors": ["Mark R. Cutkosky"],
+   "venue": "IEEE Trans. Robotics and Automation",
+   "year": 1989,
+   "routes": ["affordance"],
+   "url": "https://scholar.google.com/scholar?q=Cutkosky+On+grasp+choice+grasp+models+and+the+design+of+hands",
+   "why": "抓取分类学（grasp taxonomy）的祖师爷。要做接触几何约束 P(c)，先得知道人手到底怎么分类抓取——这篇是绕不开的理论源头。",
+   "use_hint": "设计 constraint 空间和接触类型枚举时回来看它的 16 类抓取分类。"
+  },
+  {
+   "id": "dexnet2",
+   "title": "Dex-Net 2.0: Deep Learning to Plan Robust Grasps with Synthetic Point Clouds and Analytic Grasp Metrics",
+   "authors": ["Jeffrey Mahler", "Jacky Liang", "Sherdil Niyaz", "Ken Goldberg et al."],
+   "venue": "Science Robotics",
+   "year": 2017,
+   "routes": ["grasp", "data"],
+   "url": "https://arxiv.org/abs/1703.09312",
+   "why": "『合成数据 + 解析抓取度量打标签 + GQ-CNN』的范式确立之作。你的 programmatic generator + carrier compiler 路线在精神上是它的后代。",
+   "use_hint": "对标 real-mined baseline 时绕不开；注意它 98% 可靠率背后的数据工程细节。"
+  },
+  {
+   "id": "vgn",
+   "title": "Closing the Loop for Robotic Grasping: A Real-time Generative Grasp Synthesis Approach (VGN)",
+   "authors": ["Martin Breyer", "Laurenz Jenninger", "Juan Nieto", "Roland Siegwart", "Cesar Cadena"],
+   "venue": "RSS",
+   "year": 2020,
+   "routes": ["grasp", "tactile"],
+   "url": "https://arxiv.org/abs/1911.04269",
+   "why": "TSDF → 全卷积网络直接吐 6-DoF 抓取位姿，20ms 级实时闭环。你的 grasp pipeline 对比对象之一。",
+   "use_hint": "VGN 是 compact_patch 的直接对比基线，重点看它的输出表示和推理延迟设计。"
+  },
+  {
+   "id": "contactgraspnet",
+   "title": "Mobile Manipulation everywhere / Contact-GraspNet: Efficient 6-DoF Grasp Generation in Cluttered Scenes",
+   "authors": ["Martin Sundermeyer", "Maximilian Durner", "Eric Y. Pu", "Rudolph Triebel et al."],
+   "venue": "ICRA",
+   "year": 2021,
+   "routes": ["grasp"],
+   "url": "https://arxiv.org/abs/2103.14127",
+   "why": "从接触点出发反推 6-DoF 抓取——和你的 inverse affordance『先约束接触几何再生成全局』思路血缘最近的一篇 baseline。",
+   "use_hint": "对比实验必引；注意它对遮挡场景的鲁棒性设计。"
+  },
+  {
+   "id": "graspnet1b",
+   "title": "GraspNet-1Billion: A Large-Scale Benchmark for General Object Grasping",
+   "authors": ["Hao-Shu Fang", "Chenxi Wang", "Minghao Gou", "Cewu Lu"],
+   "venue": "CVPR",
+   "year": 2021,
+   "routes": ["grasp", "data"],
+   "url": "https://arxiv.org/abs/2012.09588",
+   "why": "目前抓取领域最常用的统一 benchmark，97k 图像 / 10 亿抓取位姿。AP 指标和遮挡划分成了事实标准。",
+   "use_hint": "你的结果如果要被别人复现比较，接入 GraspNet 评测协议是最省事的公信力来源。"
+  },
+  {
+   "id": "gelsight2017",
+   "title": "GelSight: High-Resolution Robot Tactile Sensors for Estimating Geometry and Force",
+   "authors": ["Wenzhen Yuan", "Si Dong", "Edward H. Adelson"],
+   "venue": "Sensors",
+   "year": 2017,
+   "routes": ["tactile"],
+   "url": "https://scholar.google.com/scholar?q=GelSight+High-resolution+robot+tactile+sensors+Yuan+Dong+Adelson",
+   "why": "视触觉传感器的奠基综述。你 Part3 的 1D 触觉闭环不管用哪种传感器，感知端的物理原理都在这篇里。",
+   "use_hint": "设计触觉反馈信号（滑移/接触力估计）时，先看 GelSight 系列能提取哪些特征。"
+  },
+  {
+   "id": "digit2020",
+   "title": "DIGIT: A Low-Cost Custom High-Resolution Touch Sensor for Robotic Manipulation",
+   "authors": ["Mike Lambeta", "Po-Wei Chou", "Roberto Calandra", "Meta AI (FAIR)"],
+   "venue": "RA-L",
+   "year": 2020,
+   "routes": ["tactile"],
+   "url": "https://arxiv.org/abs/2005.14679",
+   "why": "开硬件设计、千元级成本、开数据集——触觉普及化的关键推手，很多 closed-loop grasping 工作的标配。",
+   "use_hint": "如果 Part3 从标量升级到图像触觉，DIGIT 是性价比最高的起点。"
+  },
+  {
+   "id": "qtopt",
+   "title": "QT-Opt: Scalable Deep Reinforcement Learning for Vision-Based Robotic Manipulation",
+   "authors": ["Dmitry Kalashnikov", "Alex Irpan", "Peter Pastor", "Sergey Levine et al."],
+   "venue": "CoRL",
+   "year": 2017,
+   "routes": ["learn", "tactile"],
+   "url": "https://arxiv.org/abs/1806.10221",
+   "why": "7 台机器人 × 58 万次抓取的 Q-learning 闭环，第一次把『闭环重抓取』（失败后调整再抓）做成可量化的能力。",
+   "use_hint": "你 Part3 闭环的『反馈信号怎么用』可以直接对标它的 retry 机制。"
+  },
+  {
+   "id": "levine_hand_eye",
+   "title": "Learning Hand-Eye Coordination for Robotic Grasping with Deep Learning and Large-Scale Data Collection",
+   "authors": ["Sergey Levine", "Peter Pastor", "Alex Krizhevsky", "Deirdre Quillen"],
+   "venue": "IJRR",
+   "year": 2018,
+   "routes": ["learn", "data"],
+   "url": "https://arxiv.org/abs/1609.05146",
+   "why": "80 万次真机抓取的自监督范式，IJRR 上被引最高的机器人学习论文之一。『数据驱动优于架构设计』的最早大规模实证。",
+   "use_hint": "写论文 motivation 时，这是『data quality 决定上限』叙事的经典锚点。"
+  },
+  {
+   "id": "openai_dex",
+   "title": "Learning Dexterous In-Hand Manipulation",
+   "authors": ["OpenAI: Marcin Andrychowicz", "Bowen Baker", "Maciek Chociej et al."],
+   "venue": "IJRR",
+   "year": 2020,
+   "routes": ["learn", "data"],
+   "url": "https://arxiv.org/abs/1910.07113",
+   "why": "大规模域随机化 sim-to-real 的标杆（Shadow Hand 转魔方）。也常被引用为『纯 RL 泛化代价极高』的反面教材。",
+   "use_hint": "讨论仿真保真度边界时引用；它的 ADR（自动域随机化）设计值得细读。"
+  },
+  {
+   "id": "transporter",
+   "title": "Transporter Networks: Rearranging the Visual World for Robotic Manipulation",
+   "authors": ["Andy Zeng", "Pete Florence", "Jonathan Tompson", "Stefan Welker", "Johnny Lee"],
+   "venue": "CoRL",
+   "year": 2020,
+   "routes": ["learn"],
+   "url": "https://arxiv.org/abs/2010.14415",
+   "why": "样本效率惊人的 pick-and-place 结构先验：深度网络只负责『匹配』，几何搬运交给显式变换。结构先验 > 端到端的经典论证。",
+   "use_hint": "你的 operation-first 思路（先结构后生成）和它一脉相承，可以在 related work 里对齐。"
+  },
+  {
+   "id": "diffusion_policy",
+   "title": "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+   "authors": ["Cheng Chi", "S. Feng", "Y. Du", "Zhenjia Xu", "Eric Cousineau", "Benjamin Burchfiel", "Shuran Song"],
+   "venue": "RSS",
+   "year": 2023,
+   "routes": ["learn"],
+   "url": "https://arxiv.org/abs/2303.04137",
+   "why": "把扩散模型做成策略表达，多模态动作分布的标准解法。虽是你淘汰的路线，但必须懂它为什么在 imitation 里强。",
+   "use_hint": "审稿人大概率会问『为什么不用 diffusion policy』——用你对它多模态优势/数据代价的分析回答。"
+  },
+  {
+   "id": "act_aloha",
+   "title": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware (ACT / ALOHA)",
+   "authors": ["Tony Zhao", "Viktor Makoviychuk", "Open X-Embodiment collaborators", "Chelsea Finn", "Animesh Garg et al."],
+   "venue": "RSS",
+   "year": 2023,
+   "routes": ["learn", "data"],
+   "url": "https://arxiv.org/abs/2304.13705",
+   "why": "低成本双臂 + CVAE+transformer 行为克隆，把『50 条演示学精细操作』做成现实，也引爆了整个 teleop 数据生态。",
+   "use_hint": "看它的 k 个 demonstration 就能 work 的条件——反过来支撑你『数据质量 > 数量』的主张。"
+  },
+  {
+   "id": "rt2",
+   "title": "RT-2: Vision-Language-Action Models Transfer Web Knowledge to Robotic Control",
+   "authors": ["Anthony Brohan", "Google DeepMind RT-2 team"],
+   "venue": "CoRL",
+   "year": 2023,
+   "routes": ["learn"],
+   "url": "https://arxiv.org/abs/2307.15818",
+   "why": "VLA 这个词正式登场的标志。语义泛化到动作的迁移效果第一次被系统性量化。",
+   "use_hint": "定义 VLA 术语和泛化分类（seen/unseen）时的标准引用。"
+  },
+  {
+   "id": "openvla",
+   "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
+   "authors": ["Moo Jin Kim", "Karl Pertsch", "Chelsea Finn", "Sergey Levine, Stanford/Berkeley"],
+   "venue": "CoRL",
+   "year": 2024,
+   "routes": ["learn"],
+   "url": "https://arxiv.org/abs/2406.09246",
+   "why": "开源 VLA 的参照系：7B 参数、LoRA 微调协议公开。学术圈做 VLA 实验事实上的起点。",
+   "use_hint": "要借用 evaluation 接口时从这里入手；它的微调成本数据对 6GB 显存很有参考价值。"
+  },
+  {
+   "id": "pi0",
+   "title": "π0: A Vision-Language-Action Flow Model for General Robot Control",
+   "authors": ["Kevin Black", "Noah Brown", "Danny Driess", "Physical Intelligence team"],
+   "venue": "arXiv (Physical Intelligence)",
+   "year": 2024,
+   "routes": ["learn"],
+   "url": "https://arxiv.org/abs/2410.24164",
+   "why": "VLM 骨干 + flow matching 动作头，工业级通用策略的代表。你正在精读的 RL Token Bootstrapping 就是这家公司的后续。",
+   "use_hint": "关注它动作 chunk + flow matching 的设计，和 online RL 论文对照读。"
+  },
+  {
+   "id": "tobin_dr",
+   "title": "Domain Randomization for Transferring Deep Neural Networks from Simulation to the Real World",
+   "authors": ["Josh Tobin", "Rachel Fong", "Alex Ray", "Pieter Abbeel", "Sergey Levine"],
+   "venue": "IROS",
+   "year": 2017,
+   "routes": ["data"],
+   "url": "https://arxiv.org/abs/1703.06907",
+   "why": "sim-to-real 域随机化的开山之作。所有讨论『仿真保真度够不够』的论文都要先过这一篇。",
+   "use_hint": "失败根因③（仿真保真度）的对策设计从这篇的 visual DR 清单开始。"
+  },
+  {
+   "id": "metaworld",
+   "title": "Meta-World: A Benchmark and Evaluation for Multi-Task and Meta Reinforcement Learning",
+   "authors": ["Tianhe Yu", "Deirdre Quillen", "Chelsea Finn", "Sergey Levine et al."],
+   "venue": "CoRL",
+   "year": 2019,
+   "routes": ["data"],
+   "url": "https://arxiv.org/abs/1910.11697",
+   "why": "50 个操作任务的统一 RL benchmark，多任务/元学习评测的事实标准之一。",
+   "use_hint": "选操作 RL baseline 环境时优先它，避免拿玩具任务被质疑。"
+  },
+  {
+   "id": "oxe",
+   "title": "Open X-Embodiment: Robotic Learning Datasets and RT-X Models",
+   "authors": ["Open X-Embodiment Collaboration (DeepMind + 33 labs)"],
+   "venue": "ICRA",
+   "year": 2024,
+   "routes": ["data"],
+   "url": "https://arxiv.org/abs/2310.08864",
+   "why": "百万级跨具身操作数据集的联合项目。『谁的 data design 更好』现在有了公认的对比池。",
+   "use_hint": "你的 data design 卖点可以表述为『在同等 token/样本预算下，inverse affordance 数据上限更高』。"
+  },
+  {
+   "id": "bohg_survey",
+   "title": "Data-Driven Grasp Synthesis — A Survey",
+   "authors": ["Jeannette Bohg", "Antonio Morales", "Tamim Asfour", "Danica Kragic"],
+   "venue": "IEEE T-RO",
+   "year": 2014,
+   "routes": ["survey", "grasp"],
+   "url": "https://scholar.google.com/scholar?q=Bohg+Data-driven+grasp+synthesis+a+survey+TRO",
+   "why": "数据驱动抓取的定位性综述：把所有方法按『输入表征-输出表示-策略』三轴分类。写 related work 的骨架直接抄它的分类轴。",
+   "use_hint": "论文 Introduction 的分类框架来源；审稿人默认你读过。"
+  },
+  {
+   "id": "mason2018",
+   "title": "Toward Robotic Manipulation",
+   "authors": ["Matthew T. Mason"],
+   "venue": "Annual Review of Control, Robotics, and Autonomous Systems",
+   "year": 2018,
+   "routes": ["survey"],
+   "url": "https://scholar.google.com/scholar?q=Mason+Toward+robotic+manipulation+Annual+Review",
+   "why": "操作领域大神的立场文章：把 manipulation 分成 mechanics / perception / control 三条历史脉络，讲清楚『抓取不是操作的全部』。",
+   "use_hint": "定位你的贡献边界（addressable/grasp/closed-loop 处在历史哪条线上）时引用。"
+  },
+  {
+   "id": "billard_kragic2019",
+   "title": "Trends and Challenges in Robot Manipulation",
+   "authors": ["Aude Billard", "Danica Kragic"],
+   "venue": "Science",
+   "year": 2019,
+   "routes": ["survey"],
+   "url": "https://scholar.google.com/scholar?q=Billard+Kragic+Trends+and+challenges+in+robot+manipulation+Science",
+   "why": "Science 级别的问题定义文：指出操作的核心挑战是『非结构化环境下的泛化』——正是你 unseen object demo 要打的靶子。",
+   "use_hint": "开题/答辩里定义领域挑战时的一手引用。"
+  }
+ ]
+}

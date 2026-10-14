@@ -1,0 +1,203 @@
+{
+ "generated_at": "2026-10-14 22:33",
+ "days": [
+  {
+   "date": "2026-10-14",
+   "papers": [
+    {
+     "id": "arxiv:2610.18822",
+     "title": "EgoMatrix: Physically Faithful Dexterous Robot Demonstrations from Egocentric Human Videos",
+     "authors": [
+      "Ziheng Wang",
+      "Yanming Shao",
+      "Ting Mao",
+      "Kaihan Chen",
+      "Yiqun Wang",
+      "Xuanye Wu",
+      "Yao Mu"
+     ],
+     "url": "https://arxiv.org/abs/2610.18822",
+     "abstract": "Egocentric human videos offer a scalable alternative to robot teleoperation for collecting dexterous manipulation data. However, two challenges limit their use as reliable training data: accurate hand-object interaction (HOI) reconstruction from monocular RGB and high-quality robot demonstrations, especially visual observations. We present EgoMatrix, an end-to-end data engine that converts monocular egocentric human videos into bimanual dexterous trajectories and paired robot observation videos, with the trajectories directly replayable on real robots. It reconstructs HOI with emphasis on relative geometry and contact rather than exact metric scene recovery, then uses retargeting and reinforcement learning (RL) to reproduce the demonstrated tasks in simulation. We jointly render robot hands and objects from these simulated trajectories to produce physically faithful observations synchronized with state and control records. Rendering the same trajectories in diverse, task-compatible backgrounds expands paired training data while preserving robot-object motion and contact. Across TACO, OakInk2, and self-collected data, EgoMatrix achieves 54.84% end-to-end success in simulation versus 14.52% for the strongest baseline. Reconstruction reaches state-of-the-art performance on most metrics of the two public benchmarks. Qualitative results show more faithful hand-object interactions than prior methods, while feature-space analysis shows closer alignment with real-robot observations than GPT-6 Astra.Our project page is available at https://spikew726.github.io/EgoMatrix/.",
+     "published": "2026-10-13",
+     "comment": "",
+     "score": 17.6,
+     "routes": [
+      "data",
+      "learn",
+      "affordance"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 2,
+      "data": 4
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "We present EgoMatrix, an end-to-end data engine that converts monocular egocentric human videos into bimanual dexterous trajectories and paired robot observation videos, with the trajectories directly replayable on real robots. Reconstruction reaches state-of-the-art performance on most metrics of the two public benchmarks.",
+     "summary_source": "heuristic"
+    },
+    {
+     "id": "arxiv:2610.17748",
+     "title": "I3L: Iterative Interactive Imitation Learning for Whole-Body Mobile Manipulation",
+     "authors": [
+      "Wensi Ai",
+      "Christopher Luey",
+      "Karthik Dharmarajan",
+      "Evans Han",
+      "Yunfan Jiang",
+      "Stef Ren",
+      "Jianwen Xie",
+      "Jiajun Wu",
+      "Li Fei-Fei",
+      "Ruohan Zhang"
+     ],
+     "url": "https://arxiv.org/abs/2610.17748",
+     "abstract": "Policies trained offline from teleoperated demonstrations can degrade outside their training distribution. This gap is particularly acute in long-horizon whole-body mobile manipulation, where long horizons amplify compounding errors and coordinated arm, torso, and base motion makes exhaustive demonstration coverage impractical. We introduce I3L, an integrated hardware and learning system that combines whole-body correction with iterative policy refinement to address this last-mile reliability gap. Its low-cost, open-source JoyLo+ interface uses policy-tracking leader arms and touch-triggered takeover to enable coordinated corrections across the body parts, while iterative deployment and retraining allow operators to target failures of the updated policy. We evaluate I3L across three robot embodiments and eight simulated and real-world tasks, including four long-horizon whole-body mobile manipulation tasks. Controlled simulation experiments show that four-round HG-DAgger achieves the highest final success on both tasks. Under this protocol, I3L improves autonomous success over the base policies by an average of 68.3 percentage points and achieves at least 90% success on every task, outperforming demonstration-only training by 35.6 percentage points on average with the same number of training trajectories. Averaged across tasks, takeover duration per episode decreases by 72% over four rounds. Together, these results show that I3L helps close the last-mile gap between offline training and reliable deployment and provides practical insights into collecting and using corrections for long-horizon whole-body mobile manipulation. Videos, visualizations, and appendix are at https://i-3l.github.io/.",
+     "published": "2026-10-13",
+     "comment": "Project website: https://i-3l.github.io/",
+     "score": 16.6,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 1
+     },
+     "top_pis": [
+      "li fei-fei",
+      "jiajun wu"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "We introduce I3L, an integrated hardware and learning system that combines whole-body correction with iterative policy refinement to address this last-mile reliability gap. Under this protocol, I3L improves autonomous success over the base policies by an average of 68.3 percentage points and achieves at least 90% success on every task, outperforming demonstration-only training by 35.6 percentage points on average with the same number of training trajectories.",
+     "summary_source": "heuristic"
+    },
+    {
+     "id": "arxiv:2610.17540",
+     "title": "TacitVLA: Reasoning Vision-Language-Action Models Without Reasoning Latency",
+     "authors": [
+      "Jack Lu",
+      "Yurong You",
+      "Boyi Li",
+      "Yulong Cao",
+      "Thomas Tian",
+      "Chaowei Xiao",
+      "Xiangyu Chen",
+      "Wenjie Luo",
+      "Boris Ivanovic",
+      "Marco Pavone",
+      "Yan Wang"
+     ],
+     "url": "https://arxiv.org/abs/2610.17540",
+     "abstract": "Textual reasoning before acting has improved vision-language-action (VLA) models, but at the cost of latency: every action conditioned on the reasoning text must wait for autoregressive decoding. We show that actions do not need to wait for or condition on the generated reasoning to benefit from it, because the reasoning supervision already improves the backbone representation. We introduce TacitVLA, a reasoning VLA whose action expert never attends to the reasoning it generates for the current call. On long-horizon tasks where the reasoning text also serves as episodic memory, it can generate each entry during action execution rather than before acting. We evaluate it in a controlled study on four benchmarks spanning manipulation and autonomous driving, memory and non-memory tasks: RoboMME, RMBench, LIBERO, and PhysicalAI-AV. On all four, TacitVLA matches the performance of its explicit-reasoning counterpart at up to 3.4x lower latency, and matches the latency of the same architecture trained without reasoning at up to +17.1% success. In absolute terms, it surpasses the best previously published results on the RoboMME Counting suite (82.7% vs. 66.8%) and RMBench (77.5% vs. 56.5%), and reaches 72.9% on LIBERO-Plus and a 52.5% scene score on the public split of the PhysicalAI-AV closed-loop driving challenge. Project page: https://tacitvla.github.io.",
+     "published": "2026-10-13",
+     "comment": "Project page: https://tacitvla.github.io",
+     "score": 15.4,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 3,
+      "data": 1
+     },
+     "top_pis": [
+      "marco pavone"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "We show that actions do not need to wait for or condition on the generated reasoning to benefit from it, because the reasoning supervision already improves the backbone representation. We introduce TacitVLA, a reasoning VLA whose action expert never attends to the reasoning it generates for the current call.",
+     "summary_source": "heuristic"
+    },
+    {
+     "id": "arxiv:2610.17208",
+     "title": "DexNinja: Learning Robust Dexterous Cutting Policy with a Real-to-Sim-to-Real Data Engine",
+     "authors": [
+      "Haozhe Lou",
+      "Runyi Yang",
+      "Wanqi Zhong",
+      "Caiyun Liu",
+      "Yicheng Liu",
+      "Wenhao Liu",
+      "Wenlong Ma",
+      "Jiawei Xia",
+      "Kanzhi Wu",
+      "Danda Pani Paudel",
+      "Luc Van Gool",
+      "Hang Zhao",
+      "Yiming Li"
+     ],
+     "url": "https://arxiv.org/abs/2610.17208",
+     "abstract": "Cutting a piece of food looks effortless in human hands. For a robot, however, every cut is a high-contact interaction with a deformable, elasto-plastic object whose behavior changes with pose, contact mode, and cutting stage. Collecting real-world data is expensive and wasteful: each trial typically contaminates or damages the food, so obtaining scalable real world data for dexterous cutting is expensive and difficult. Simulation is an appealing alternative, but a large sim-to-real gap exists in both physics and perception. This gap is especially severe for topology-changing interactions like cutting, where small errors in contact, friction, or material and elasticity responses quickly compound. We propose \\textsc{DexNinja}, a real2sim2real framework that turns a handful of real demonstrations into a dense and realistic training distribution. \\textsc{DexNinja} (i) reconstructs object instances from real captures, (ii) randomizes physically meaningful parameters under category-level constraints, and (iii) produces augmented dexterous manipulation episodes using a custom differentiable simulator that couples robot dynamics, tactile contact, and deformable cutting. We evaluate \\textsc{DexNinja} on a dexterous food-slicing task and show that (1) with tens of real demonstrations and hundreds of augmented simulator data, the success rate could reach more than 60\\%. (2) the augmented data consistently improves success rates when only using real data with more than 20\\% via sim-to-real, and (3) the resulting policies generalize to out-of-distribution objects with varying shapes and sizes.",
+     "published": "2026-10-12",
+     "comment": "",
+     "score": 15.0,
+     "routes": [
+      "data",
+      "tactile",
+      "learn"
+     ],
+     "route_hits": {
+      "tactile": 1,
+      "learn": 1,
+      "data": 4
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "We propose \\textsc{DexNinja}, a real2sim2real framework that turns a handful of real demonstrations into a dense and realistic training distribution.",
+     "summary_source": "heuristic"
+    },
+    {
+     "id": "arxiv:2610.17161",
+     "title": "Force-Modulated Dexterity: Unified Compliance for Contact-Rich Manipulation",
+     "authors": [
+      "Ying Yuan",
+      "David Held",
+      "Jitendra Malik",
+      "Haozhi Qi"
+     ],
+     "url": "https://arxiv.org/abs/2610.17161",
+     "abstract": "Teleoperation is widely used to collect high-quality demonstrations for robot learning. Dexterous manipulation, however, requires coordinated control of motion and contact forces. Operators can specify motion, but struggle to reproduce the subtle force adjustments of human manipulation without feeling the robot's contacts. We introduce Force-Modulated Dexterity (FOMO-Dex), a unified compliance formulation for contact-rich manipulation. FOMO-Dex expresses nominal actions in coordinates defined by task geometry and contact structure. It applies force-driven motion corrections along selected directions while leaving the remaining command components unchanged. Across card picking, paper cutting, screwdriving, and nut-and-bolt assembly, FOMO-Dex reduces excessive contact forces compared with stiff control. A user study shows that operators collect more successful demonstration data per hour after brief practice. For policy learning, imitating the corrected actions improves card-picking success over imitating raw operator commands. Policies trained on FOMO-Dex demonstrations also achieve more rotation in nut-and-bolt manipulation and screwdriving than those trained on demonstrations collected with the stiff controller. Videos are shown on https://yingyuan0414.github.io/fomo-dex/ .",
+     "published": "2026-10-12",
+     "comment": "Project page: https://yingyuan0414.github.io/fomo-dex/",
+     "score": 15.0,
+     "routes": [
+      "learn",
+      "data",
+      "affordance"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [
+      "david held"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": false,
+     "relevant": true,
+     "contribution": "We introduce Force-Modulated Dexterity (FOMO-Dex), a unified compliance formulation for contact-rich manipulation.",
+     "summary_source": "heuristic"
+    }
+   ]
+  }
+ ]
+}

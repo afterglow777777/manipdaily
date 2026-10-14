@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ManipDaily · 机器人操作每日精选</title>
+<style>
+  :root {
+    --bg: #f5f6f8; --card: #ffffff; --border: #e4e7ec; --text: #1f2329;
+    --muted: #6b7280; --accent: #2563eb; --accent-soft: #eff6ff;
+    --ok: #16a34a; --ok-soft: #f0fdf4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+         background: var(--bg); color: var(--text); line-height: 1.6; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 0 16px 64px; }
+
+  header { padding: 28px 0 12px; }
+  header h1 { font-size: 26px; letter-spacing: .5px; }
+  header h1 .dot { color: var(--accent); }
+  header .sub { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+  .tabs { display: flex; gap: 6px; margin: 18px 0 14px; border-bottom: 1px solid var(--border); }
+  .tab { padding: 8px 16px; cursor: pointer; font-size: 14.5px; color: var(--muted);
+         border-bottom: 2px solid transparent; margin-bottom: -1px; user-select: none; }
+  .tab.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
+  .tab .badge { background: var(--accent-soft); color: var(--accent); border-radius: 10px;
+                font-size: 11.5px; padding: 0 7px; margin-left: 4px; }
+
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 16px; }
+  .chip { padding: 4px 12px; border: 1px solid var(--border); border-radius: 16px;
+          background: var(--card); font-size: 12.5px; cursor: pointer; color: var(--muted);
+          user-select: none; transition: all .15s; }
+  .chip.on { border-color: var(--accent); color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+  .chip .rc { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
+  .search { margin-left: auto; padding: 6px 12px; border: 1px solid var(--border);
+            border-radius: 8px; font-size: 13px; width: 200px; background: var(--card); outline: none; }
+  .search:focus { border-color: var(--accent); }
+
+  .datenav { display: flex; align-items: center; gap: 12px; margin: 6px 0 14px; font-size: 14px; }
+  .datenav button { border: 1px solid var(--border); background: var(--card); border-radius: 6px;
+                    padding: 3px 12px; cursor: pointer; font-size: 13px; color: var(--text); }
+  .datenav button:disabled { opacity: .35; cursor: default; }
+  .datenav .date { font-weight: 600; font-size: 15px; }
+  .datenav .fresh { color: var(--muted); font-size: 12px; }
+
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+          padding: 18px 20px; margin-bottom: 14px; transition: box-shadow .15s; }
+  .card:hover { box-shadow: 0 2px 10px rgba(0,0,0,.05); }
+  .card.read { opacity: .62; background: #fafafa; }
+  .card .top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+  .card h3 { font-size: 16px; line-height: 1.45; flex: 1; }
+  .card h3 a { color: var(--text); text-decoration: none; }
+  .card h3 a:hover { color: var(--accent); }
+  .card .authors { color: var(--muted); font-size: 12.5px; margin-top: 5px; }
+  .card .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+  .tag { font-size: 11px; padding: 1.5px 9px; border-radius: 10px; font-weight: 500; }
+  .tag.venue { background: #fef3c7; color: #92400e; }
+  .tag.org { background: #f3e8ff; color: #6b21a8; text-transform: capitalize; }
+  .tag.pi { background: #fee2e2; color: #991b1b; }
+  .tag.fallback { background: #f1f5f9; color: #475569; }
+  .tag.quant { background: #dcfce7; color: #166534; }
+  .tag.solid { background: #dbeafe; color: #1e40af; }
+  .r-tag { font-size: 11px; padding: 1.5px 9px; border-radius: 10px; color: #fff; font-weight: 500; }
+  .abstract { font-size: 13.5px; color: #374151; margin-top: 10px; display: none; }
+  .abstract.open { display: block; }
+  .contrib { background: var(--accent-soft); border-left: 3px solid var(--accent);
+             border-radius: 0 8px 8px 0; padding: 9px 13px; margin-top: 10px; font-size: 13.5px; }
+  .contrib b { color: var(--accent); font-size: 12px; }
+  .card .actions { display: flex; gap: 10px; margin-top: 12px; align-items: center; flex-wrap: wrap; }
+  .btn { border: 1px solid var(--border); background: var(--card); border-radius: 7px;
+         padding: 4px 14px; font-size: 12.5px; cursor: pointer; color: var(--text); }
+  .btn:hover { border-color: var(--accent); color: var(--accent); }
+  .btn.read-on { background: var(--ok-soft); border-color: var(--ok); color: var(--ok); font-weight: 600; }
+  .notebox { width: 100%; margin-top: 10px; border: 1px solid var(--border); border-radius: 8px;
+             padding: 8px 10px; font-size: 13px; min-height: 54px; font-family: inherit;
+             resize: vertical; outline: none; display: none; background: #fffdf5; }
+  .notebox.open { display: block; }
+  .notebox::placeholder { color: #b8b09a; }
+  .empty { text-align: center; color: var(--muted); padding: 48px 0; font-size: 14px; }
+  .archdate { font-size: 13px; font-weight: 700; color: var(--muted); margin: 18px 0 8px; }
+  .archrow { display: flex; justify-content: space-between; align-items: center; gap: 10px;
+             background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+             padding: 10px 16px; margin-bottom: 8px; font-size: 13.5px; }
+  .archrow .t { flex: 1; }
+  .archrow .t a { color: var(--text); text-decoration: none; }
+  .archrow .t a:hover { color: var(--accent); }
+  .archrow .n { color: var(--muted); font-size: 12px; }
+  .exportbar { display: flex; gap: 10px; margin: 14px 0; }
+  footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border);
+           color: var(--muted); font-size: 12.5px; line-height: 1.8; }
+  footer a { color: var(--accent); text-decoration: none; }
+  .loading { text-align: center; padding: 60px 0; color: var(--muted); font-size: 14px; }
+  @media (max-width: 640px) { .search { width: 100%; margin-left: 0; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>ManipDaily<span class="dot">.</span></h1>
+    <div class="sub">机器人操作 · 学习 —— 每天 5 篇来自顶级课题组的精选，少于 5 篇自动补经典。不求量，求精。</div>
+  </header>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="daily">每日精选</div>
+    <div class="tab" data-tab="classics">经典文献</div>
+    <div class="tab" data-tab="archive">已读归档 <span class="badge" id="readBadge">0</span></div>
+  </div>
+
+  <div id="tab-daily">
+    <div class="datenav">
+      <button id="prevDay">← 前一天</button>
+      <span class="date" id="dateLabel">—</span>
+      <button id="nextDay">后一天 →</button>
+      <span class="fresh" id="freshLabel"></span>
+    </div>
+    <div id="dailyList" class="loading">加载中…</div>
+  </div>
+
+  <div id="tab-classics" style="display:none">
+    <div class="toolbar" id="classicChips"></div>
+    <div id="classicList"></div>
+  </div>
+
+  <div id="tab-archive" style="display:none">
+    <div class="exportbar">
+      <button class="btn" id="exportBtn">导出阅读记录 (JSON)</button>
+      <button class="btn" id="clearBtn">清空已读记录</button>
+    </div>
+    <div id="archiveList"></div>
+  </div>
+
+  <footer>
+    数据由 GitHub Actions 每天早上 8:30（北京时间）自动从 arXiv cs.RO 抓取并打分（5 条研究路线关键词 × 顶级课题组白名单 × 顶会发表去向）。
+    部署与自定义路线见 <a href="https://github.com/afterglow777777/zotero-arxiv-daily">项目仓库</a>。
+    已读标记与笔记仅保存在你自己的浏览器（localStorage），不上传。
+  </footer>
+</div>
+
+<script>
+const ROUTE_META = {
+  affordance: {name: "可寻址与接触几何", color: "#7c3aed"},
+  grasp:      {name: "抓取检测与位姿",  color: "#2563eb"},
+  tactile:    {name: "触觉与闭环控制",  color: "#ea580c"},
+  learn:      {name: "操作学习与策略",  color: "#16a34a"},
+  data:       {name: "数据·仿真·基准",  color: "#0d9488"},
+  survey:     {name: "综述·立场文章",   color: "#64748b"},
+};
+
+let DAYS = [], CLASSICS = [], tab = "daily", dayIdx = 0;
+let activeRoutes = new Set();
+let query = "";
+
+// ---------- localStorage ----------
+const getRead = () => JSON.parse(localStorage.getItem("manipdaily_read_v1") || "{}");
+const getNotes = () => JSON.parse(localStorage.getItem("manipdaily_notes_v1") || "{}");
+const setRead = m => localStorage.setItem("manipdaily_read_v1", JSON.stringify(m));
+const setNotes = m => localStorage.setItem("manipdaily_notes_v1", JSON.stringify(m));
+const today = () => new Date().toISOString().slice(0, 10);
+const isRead = id => getRead()[id] !== undefined;
+
+// ---------- helpers ----------
+function routeTags(routes) {
+  return routes.filter(r => ROUTE_META[r]).map(r =>
+    `<span class="r-tag" style="background:${ROUTE_META[r].color}">${ROUTE_META[r].name}</span>`).join("");
+}
+function matchFilters(e) {
+  if (activeRoutes.size && !(e.routes || []).some(r => activeRoutes.has(r))) return false;
+  if (query) {
+    const hay = ((e.title || "") + " " + (e.authors || []).join(" ")).toLowerCase();
+    if (!hay.includes(query.toLowerCase())) return false;
+  }
+  return true;
+}
+function cardHTML(e, opts = {}) {
+  const read = isRead(e.id);
+  const fallback = opts.fallback ? `<span class="tag fallback">经典补充</span>` : "";
+  const venue = e.venue ? `<span class="tag venue">${e.venue}${e.year ? " " + e.year : ""}</span>` : "";
+  const orgs = (e.orgs || []).map(o => `<span class="tag org">${o}</span>`).join("");
+  const pis = (e.top_pis || []).map(p => `<span class="tag pi">★ ${p}</span>`).join("");
+  const quant = e.quant ? `<span class="tag quant" title="摘要含量化实验结果">量化结果</span>` : "";
+  const solid = e.solid ? `<span class="tag solid" title="含数据集/基准/硬件/开源等资源型贡献">资源/系统</span>` : "";
+  const abs = e.abstract ? `<div class="abstract" id="abs-${cssId(e.id)}">${e.abstract}</div>` : "";
+  const contrib = e.contribution ? `<div class="contrib"><b>方法与贡献</b><br>${e.contribution}</div>` : "";
+  return `<div class="card ${read ? "read" : ""}" id="card-${cssId(e.id)}">
+    <div class="top">
+      <h3><a href="${e.url}" target="_blank" rel="noopener">${e.title}</a></h3>
+    </div>
+    <div class="authors">${(e.authors || []).slice(0, 6).join(", ")}${(e.authors || []).length > 6 ? " et al." : ""}</div>
+    <div class="meta">${venue}${quant}${solid}${routeTags(e.routes || [])}${orgs}${pis}${fallback}</div>
+    ${contrib}${abs}
+    <div class="actions">
+      <button class="btn ${read ? "read-on" : ""}" onclick="toggleRead('${jsId(e.id)}')">${read ? "✓ 已读" : "标记已读"}</button>
+      <button class="btn" onclick="toggleElems('${jsId(e.id)}')">笔记 / 摘要</button>
+    </div>
+    <textarea class="notebox" id="note-${cssId(e.id)}" placeholder="记一下这篇自己打算怎么用…（自动保存到本地）"
+      oninput="saveNote('${jsId(e.id)}', this.value)">${(getNotes()[e.id] || "")}</textarea>
+    ${abs ? "" : ""}
+  </div>`;
+}
+function cssId(id) { return id.replace(/[^a-zA-Z0-9]/g, "_"); }
+function jsId(id) { return id.replace(/\\/g, "\\\\").replace(/'/g, "\\'"); }
+function toggleElems(id) {
+  const abs = document.getElementById("abs-" + cssId(id));
+  const note = document.getElementById("note-" + cssId(id));
+  if (abs) abs.classList.toggle("open");
+  if (note) { note.classList.toggle("open"); if (note.classList.contains("open")) note.focus(); }
+}
+function saveNote(id, val) { const m = getNotes(); m[id] = val; setNotes(m); }
+function toggleRead(id) {
+  const m = getRead();
+  if (m[id] !== undefined) delete m[id]; else m[id] = today();
+  setRead(m); renderAll();
+}
+
+// ---------- daily ----------
+function hashDate(s) { let h = 0; for (const c of s) h = (h * 31 + c.charCodeAt(0)) | 0; return Math.abs(h); }
+function fallbackClassics(dateStr, n, excludeIds) {
+  const pool = CLASSICS.filter(c => !excludeIds.has(c.id) && !matchFiltersExcl(c));
+  const out = [];
+  const start = hashDate(dateStr) % Math.max(pool.length, 1);
+  for (let i = 0; out.length < n && pool.length && i < pool.length; i++) {
+    const c = pool[(start + i) % pool.length];
+    if (!out.includes(c)) out.push(c);
+  }
+  return out;
+}
+function matchFiltersExcl(c) { return activeRoutes.size && !(c.routes || []).some(r => activeRoutes.has(r)); }
+
+function renderDaily() {
+  const list = document.getElementById("dailyList");
+  if (!DAYS.length) {
+    list.className = "empty";
+    list.innerHTML = "数据还没有生成。如果你是站长：在 GitHub 仓库手动触发一次 daily-papers workflow 即可。";
+    return;
+  }
+  dayIdx = Math.min(dayIdx, DAYS.length - 1);
+  const day = DAYS[dayIdx];
+  document.getElementById("dateLabel").textContent = day.date;
+  document.getElementById("prevDay").disabled = dayIdx >= DAYS.length - 1;
+  document.getElementById("nextDay").disabled = dayIdx <= 0;
+  document.getElementById("freshLabel").textContent = dayIdx === 0 ? "数据更新于 " + GEN_AT : "";
+
+  let papers = (day.papers || []).filter(matchFilters);
+  let fallbackHTML = "";
+  if (!activeRoutes.size && !query) {
+    const need = Math.max(0, 5 - day.papers.length);
+    if (need > 0) {
+      const exclude = new Set(day.papers.map(p => p.id));
+      const fb = fallbackClassics(day.date, need, exclude);
+      fallbackHTML = fb.map(c => cardHTML({...c, venue: c.venue, contribution: c.why + "<br><i>怎么用：</i>" + c.use_hint},
+        {fallback: true})).join("");
+    }
+  }
+  list.className = "";
+  list.innerHTML = papers.map(p => cardHTML(p)).join("") + fallbackHTML +
+    (papers.length || fallbackHTML ? "" : '<div class="empty">这个日期没有符合条件的论文。</div>');
+}
+
+// ---------- classics ----------
+function renderClassics() {
+  const list = document.getElementById("classicList");
+  const papers = CLASSICS.filter(matchFilters);
+  list.innerHTML = papers.length ? papers.map(c => cardHTML({
+    ...c, contribution: `<b>为什么值得读：</b>${c.why}<br><b>怎么用：</b>${c.use_hint}`
+  })).join("") : '<div class="empty">没有符合条件的经典。</div>';
+}
+
+// ---------- archive ----------
+function renderArchive() {
+  const read = getRead();
+  const all = {};
+  DAYS.forEach(d => d.papers.forEach(p => all[p.id] = p));
+  CLASSICS.forEach(c => all[c.id] = c);
+  const entries = Object.entries(read).sort((a, b) => b[1].localeCompare(a[1]));
+  document.getElementById("readBadge").textContent = entries.length;
+  const list = document.getElementById("archiveList");
+  if (!entries.length) { list.innerHTML = '<div class="empty">还没有已读记录。读到一篇就点一下「标记已读」。</div>'; return; }
+  let html = "", lastDate = "";
+  for (const [id, date] of entries) {
+    const p = all[id] || {title: id, url: "#", authors: [], routes: []};
+    if (date !== lastDate) { html += `<div class="archdate">${date} 读</div>`; lastDate = date; }
+    const note = getNotes()[id];
+    html += `<div class="archrow">
+      <div class="t"><a href="${p.url}" target="_blank" rel="noopener">${p.title}</a>
+        ${routeTags(p.routes || []).replace(/style="[^"]*"/g, 'style="margin-left:6px;opacity:.85"')}
+        ${note ? `<div class="n">📝 ${note}</div>` : ""}
+      </div>
+      <button class="btn" onclick="toggleRead('${jsId(id)}')">移除</button>
+    </div>`;
+  }
+  list.innerHTML = html;
+}
+
+function renderAll() {
+  document.getElementById("readBadge").textContent = Object.keys(getRead()).length;
+  if (tab === "daily") renderDaily();
+  if (tab === "classics") renderClassics();
+  if (tab === "archive") renderArchive();
+}
+
+// ---------- tabs & toolbar ----------
+document.querySelectorAll(".tab").forEach(el => el.onclick = () => {
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  el.classList.add("active"); tab = el.dataset.tab;
+  ["daily", "classics", "archive"].forEach(t =>
+    document.getElementById("tab-" + t).style.display = t === tab ? "" : "none");
+  renderAll();
+});
+const chipsBox = document.getElementById("classicChips");
+Object.entries(ROUTE_META).forEach(([key, meta]) => {
+  const chip = document.createElement("span");
+  chip.className = "chip";
+  chip.innerHTML = `<span class="rc" style="background:${meta.color}"></span>${meta.name}`;
+  chip.onclick = () => {
+    if (activeRoutes.has(key)) activeRoutes.delete(key); else activeRoutes.add(key);
+    chip.classList.toggle("on"); renderAll();
+  };
+  chipsBox.appendChild(chip);
+});
+const search = document.createElement("input");
+search.className = "search"; search.placeholder = "搜标题 / 作者…";
+search.oninput = () => { query = search.value.trim(); renderAll(); };
+chipsBox.appendChild(search);
+document.getElementById("prevDay").onclick = () => { dayIdx++; renderDaily(); };
+document.getElementById("nextDay").onclick = () => { dayIdx--; renderDaily(); };
+document.getElementById("exportBtn").onclick = () => {
+  const data = {exported_at: new Date().toISOString(), read: getRead(), notes: getNotes()};
+  const blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "manipdaily_reading_log.json";
+  a.click();
+};
+document.getElementById("clearBtn").onclick = () => {
+  if (confirm("确定清空全部已读记录和笔记？此操作不可恢复（建议先导出）。")) {
+    localStorage.removeItem("manipdaily_read_v1");
+    localStorage.removeItem("manipdaily_notes_v1");
+    renderAll();
+  }
+};
+
+// ---------- boot ----------
+let GEN_AT = "";
+(async function init() {
+  try {
+    const [pd, cd] = await Promise.all([
+      fetch("data/papers.json").then(r => r.json()),
+      fetch("data/classics.json").then(r => r.json()),
+    ]);
+    DAYS = pd.days || [];
+    GEN_AT = pd.generated_at || "";
+    CLASSICS = cd.papers || [];
+  } catch (e) {
+    document.getElementById("dailyList").className = "empty";
+    document.getElementById("dailyList").textContent =
+      "数据加载失败：请通过 HTTP 访问本页（GitHub Pages 或本地 python -m http.server），直接双击打开 file:// 无法读取 JSON。";
+    return;
+  }
+  renderAll();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+name: daily-papers
+# 每天北京时间 08:30（UTC 00:30）自动抓取当天精选，并把整站发布到 GitHub Pages
+on:
+  schedule:
+    - cron: "30 0 * * *"
+  workflow_dispatch: {}   # 支持在 Actions 页面手动触发（测试用）
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Fetch and score today's papers
+        env:
+          # 可选：在仓库 Settings → Secrets → Actions 里配置后，每篇会生成中文"方法与贡献"总结
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: python scripts/fetch_papers.py
+
+      - name: Commit data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/papers.json
+          if git diff --cached --quiet; then
+            echo "No new papers today."
+          else
+            git commit -m "daily papers $(date -u +%F)"
+            git push
+          fi
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+  deploy:
+    needs: fetch
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
