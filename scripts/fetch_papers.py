@@ -257,7 +257,8 @@ def fmt_summary_html(text: str) -> str:
 
 
 def deepseek_contribution(e: dict, api_key: str) -> str | None:
-    """可选：DeepSeek 生成两句中文总结（方法 + 贡献）。失败返回 None。"""
+    """可选：DeepSeek 生成三段式中文总结。推理模型思考也吃 token，
+    截断（结尾不是完整标点）就加大预算重试，最多 2 次升级。失败返回 None。"""
     prompt = (
         "提炼这篇机器人论文，严格按以下三行输出（简体中文，不要空话套话，不要 markdown 符号）：\n"
         "贡献：<最核心贡献的精准描述，说清方法机制，1-2句>\n"
@@ -265,27 +266,31 @@ def deepseek_contribution(e: dict, api_key: str) -> str | None:
         "启发：<1-2条关键词或短语，指出可迁移的应用场景或对后续研究的启发点，用分号分隔>\n\n"
         f"标题: {e['title']}\n摘要: {e['abstract']}"
     )
-    body = json.dumps({
-        "model": "deepseek-flash",
-        "messages": [{"role": "user", "content": prompt}],
-        "temperature": 0.3,
-        # deepseek-flash 是推理模型，思考也要吃 token；三段式输出再放宽
-        "max_tokens": 1200,
-    }).encode("utf-8")
-    req = urllib.request.Request(
-        "https://api.deepseek.com/chat/completions",
-        data=body,
-        headers={"Content-Type": "application/json",
-                 "Authorization": f"Bearer {api_key}"},
-    )
-    try:
-        with urllib.request.urlopen(req, timeout=90) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
-        content = data["choices"][0]["message"]["content"].strip()
-        return fmt_summary_html(content) or None
-    except Exception as exc:
-        print(f"[warn] deepseek summary failed for {e['id']}: {exc}")
-        return None
+    for max_tokens in (1500, 2500, 4000):
+        body = json.dumps({
+            "model": "deepseek-flash",
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": 0.3,
+            "max_tokens": max_tokens,
+        }).encode("utf-8")
+        req = urllib.request.Request(
+            "https://api.deepseek.com/chat/completions",
+            data=body,
+            headers={"Content-Type": "application/json",
+                     "Authorization": f"Bearer {api_key}"},
+        )
+        try:
+            with urllib.request.urlopen(req, timeout=120) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            content = data["choices"][0]["message"]["content"].strip()
+            html = fmt_summary_html(content)
+            if html and html.rstrip().endswith(("。", "！", "）", ")", "%", "；", '"', "」")):
+                return html
+            print(f"[warn] summary truncated for {e['id']} (max_tokens={max_tokens}), retrying bigger")
+        except Exception as exc:
+            print(f"[warn] deepseek summary failed for {e['id']}: {exc}")
+            return None
+    return None
 
 
 def llm_select(pool: list, api_key: str) -> list | None:

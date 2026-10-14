@@ -76,7 +76,7 @@
     "grasp",
     "tactile"
    ],
-   "url": "https://arxiv.org/abs/1911.04269",
+   "url": "https://arxiv.org/abs/1804.05172",
    "why": "TSDF 点云进、6-DoF 抓取位姿场出，单次前向约 20ms，配合清除式执行策略实现杂乱场景下的闭环连续抓取，是实时生成式抓取的代表作。",
    "use_hint": "做实时抓取系统对比时它是标准 baseline；其『量化抓取质量场 + 逐次清除失败体』的闭环思路值得借鉴。",
    "figure": "images/vgn.jpg",
@@ -178,7 +178,7 @@
     "learn",
     "tactile"
    ],
-   "url": "https://arxiv.org/abs/1806.10221",
+   "url": "https://arxiv.org/abs/1806.10293",
    "why": "7 台机器人 × 58 万次真实抓取的分布式 Q-learning，首次系统展示『闭环重抓取』能力——失败后调整姿势再抓，抓取成功率因此提升显著。",
    "use_hint": "研究闭环抓取与 RL 规模化的必读；其 retry 机制和经验回放设计对任何闭环操作任务都有借鉴意义。",
    "figure": "images/qtopt.jpg",
@@ -200,11 +200,12 @@
     "learn",
     "data"
    ],
-   "url": "https://arxiv.org/abs/1609.05146",
+   "url": "https://arxiv.org/abs/1603.02199",
    "why": "80 万次真机抓取的自监督范式：用运动学信息自动标注抓取成败，免人工标注训练 CNN。IJRR 上被引最高的机器人学习论文之一。",
    "use_hint": "理解『大规模自监督数据采集』的原点之作；讨论数据规模与泛化关系时的标准引用。",
    "contribution": "<b>🎯 贡献</b> 用机器人运动学信息自动标注抓取成败，实现免人工的自监督大规模真机训练。<br><b>✨ 亮点</b> 80 万次真机抓取自监督训练，达到当时最优抓取水平。<br><b>💡 启发</b> 『自监督标注 + 规模化采集』范式的原点；讨论数据规模效应的标准引用。",
-   "citations": 2291
+   "citations": 2291,
+   "figure": "images/levine_hand_eye.jpg"
   },
   {
    "id": "openai_dex",
@@ -242,11 +243,12 @@
    "routes": [
     "learn"
    ],
-   "url": "https://arxiv.org/abs/2010.14415",
+   "url": "https://arxiv.org/abs/2010.14406",
    "why": "用『深度网络做空间匹配 + 显式 3D 变换搬运』的结构先验替代端到端策略，10 条演示即可学会排布任务，样本效率惊艳。",
    "use_hint": "样本极少的演示学习场景优先考虑这类结构先验方案；其『感知找对应、几何做执行』的分解思路可广泛迁移。",
    "contribution": "<b>🎯 贡献</b> 把操作策略分解为『深度网络找空间对应 + 显式 3D 变换执行』的结构先验。<br><b>✨ 亮点</b> 10 条演示即可学会多种排布任务，样本效率比端到端高一个量级。<br><b>💡 启发</b> 少样本操作任务的首选结构；『感知匹配 + 几何执行』分解思路可广泛迁移。",
-   "citations": 617
+   "citations": 617,
+   "figure": "images/transporter.jpg"
   },
   {
    "id": "diffusion_policy",
@@ -391,11 +393,12 @@
    "routes": [
     "data"
    ],
-   "url": "https://arxiv.org/abs/1910.11697",
+   "url": "https://arxiv.org/abs/1910.10897",
    "why": "50 个操作任务的统一 RL benchmark，提供多任务/元学习的标准化评测模式，是操作 RL 方向最常用的对比场之一。",
    "use_hint": "选操作 RL 实验环境时优先它，避免被质疑用玩具任务；也适合快速验证多任务想法的可行性。",
    "contribution": "<b>🎯 贡献</b> 统一 50 个操作任务的 RL benchmark，定义多任务/元学习的标准评测模式。<br><b>✨ 亮点</b> ML1/ML10/ML45/MT50 协议被操作 RL 方向广泛采用。<br><b>💡 启发</b> 操作 RL 实验环境首选；快速验证多任务想法的公共场。",
-   "citations": 1853
+   "citations": 1853,
+   "figure": "images/metaworld.jpg"
   },
   {
    "id": "oxe",
