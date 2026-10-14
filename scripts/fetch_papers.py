@@ -242,15 +242,18 @@ def heuristic_contribution(abstract: str) -> str:
 def deepseek_contribution(e: dict, api_key: str) -> str | None:
     """可选：DeepSeek 生成两句中文总结（方法 + 贡献）。失败返回 None。"""
     prompt = (
-        "用不超过两句简体中文概括这篇机器人论文的核心方法与主要贡献，"
-        "不要空话，直接讲方法机制和结果数字（如有）：\n\n"
+        "用一两句简体中文提炼这篇机器人论文最亮眼的部分："
+        "第一句点出最核心、最新颖的想法（说清机制，不堆术语）；"
+        "第二句给最亮眼的结果，有数字就带数字（成功率/提升幅度等）。"
+        "不要空话套话，直接给干货：\n\n"
         f"标题: {e['title']}\n摘要: {e['abstract']}"
     )
     body = json.dumps({
         "model": "deepseek-flash",
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.3,
-        "max_tokens": 200,
+        # deepseek-flash 是推理模型，思考也要吃 token，上限放宽避免正文被截断
+        "max_tokens": 800,
     }).encode("utf-8")
     req = urllib.request.Request(
         "https://api.deepseek.com/chat/completions",
