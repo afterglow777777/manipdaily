@@ -239,21 +239,38 @@ def heuristic_contribution(abstract: str) -> str:
     return " ".join(picked[:3]) if picked else sents[0] if sents else ""
 
 
+def fmt_summary_html(text: str) -> str:
+    """把"贡献/亮点/启发"三行解析成卡片用的 HTML；解析失败就原样返回。"""
+    found = {}
+    for raw in text.splitlines():
+        line = raw.strip()
+        for key in ("贡献", "亮点", "启发"):
+            for sep in ("：", ":"):
+                if line.startswith(key + sep):
+                    found[key] = line[len(key) + len(sep):].strip()
+    if not found:
+        return text.strip()
+    icons = {"贡献": "🎯", "亮点": "✨", "启发": "💡"}
+    return "<br>".join(
+        f"<b>{icons[k]} {k}</b> {found[k]}" for k in ("贡献", "亮点", "启发") if k in found
+    )
+
+
 def deepseek_contribution(e: dict, api_key: str) -> str | None:
     """可选：DeepSeek 生成两句中文总结（方法 + 贡献）。失败返回 None。"""
     prompt = (
-        "用一两句简体中文提炼这篇机器人论文最亮眼的部分："
-        "第一句点出最核心、最新颖的想法（说清机制，不堆术语）；"
-        "第二句给最亮眼的结果，有数字就带数字（成功率/提升幅度等）。"
-        "不要空话套话，直接给干货：\n\n"
+        "提炼这篇机器人论文，严格按以下三行输出（简体中文，不要空话套话，不要 markdown 符号）：\n"
+        "贡献：<最核心贡献的精准描述，说清方法机制，1-2句>\n"
+        "亮点：<最亮眼的结果，有数字必带数字（成功率/提升幅度等）>\n"
+        "启发：<1-2条关键词或短语，指出可迁移的应用场景或对后续研究的启发点，用分号分隔>\n\n"
         f"标题: {e['title']}\n摘要: {e['abstract']}"
     )
     body = json.dumps({
         "model": "deepseek-flash",
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.3,
-        # deepseek-flash 是推理模型，思考也要吃 token，上限放宽避免正文被截断
-        "max_tokens": 800,
+        # deepseek-flash 是推理模型，思考也要吃 token；三段式输出再放宽
+        "max_tokens": 1200,
     }).encode("utf-8")
     req = urllib.request.Request(
         "https://api.deepseek.com/chat/completions",
@@ -262,29 +279,81 @@ def deepseek_contribution(e: dict, api_key: str) -> str | None:
                  "Authorization": f"Bearer {api_key}"},
     )
     try:
-        with urllib.request.urlopen(req, timeout=60) as resp:
+        with urllib.request.urlopen(req, timeout=90) as resp:
             data = json.loads(resp.read().decode("utf-8"))
-        return data["choices"][0]["message"]["content"].strip()
+        content = data["choices"][0]["message"]["content"].strip()
+        return fmt_summary_html(content) or None
     except Exception as exc:
         print(f"[warn] deepseek summary failed for {e['id']}: {exc}")
         return None
 
 
+def llm_select(pool: list, api_key: str) -> list | None:
+    """AI 终审：从候选池里选出最值得精读的 5 篇。失败返回 None（回退分数序）。"""
+    if not api_key or len(pool) <= DAILY_PICK:
+        return None
+    lines = []
+    for i, e in enumerate(pool):
+        lines.append(
+            f"{i}. id={e['id']} | {e['title']}\n"
+            f"   路线:{','.join(e['routes'])} | 发表去向:{e['venue'] or '无'} | "
+            f"知名学者:{','.join(e['top_pis']) or '无'} | 机构:{','.join(e['orgs']) or '无'}\n"
+            f"   摘要:{e['abstract'][:400]}"
+        )
+    prompt = (
+        "你是机器人操作/学习方向的资深审稿人。从以下候选论文中选出 5 篇最值得精读的：\n"
+        "- 偏好贡献扎实的（新数据集/新系统/强实验/重要问题突破），压制增量改进\n"
+        "- 5 篇尽量覆盖不同研究方向，避免同一思路的工作重复占位\n"
+        "- 严格只输出 JSON 数组，按推荐度从高到低，例如："
+        '["arxiv:2610.12345", "arxiv:2610.23456", "arxiv:2610.34567", '
+        '"arxiv:2610.45678", "arxiv:2610.56789"]\n\n候选：\n' + "\n".join(lines)
+    )
+    body = json.dumps({
+        "model": "deepseek-flash",
+        "messages": [{"role": "user", "content": prompt}],
+        "temperature": 0.2,
+        "max_tokens": 3000,   # 12 篇候选的推理链较长，预算给足避免正文为空
+    }).encode("utf-8")
+    req = urllib.request.Request(
+        "https://api.deepseek.com/chat/completions", data=body,
+        headers={"Content-Type": "application/json",
+                 "Authorization": f"Bearer {api_key}"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        raw = data["choices"][0]["message"]["content"]
+        ids = json.loads(re.search(r"\[.*\]", raw, re.S).group(0))
+        by_id = {e["id"]: e for e in pool}
+        picked = [by_id[i] for i in ids if i in by_id][:DAILY_PICK]
+        if len(picked) >= 3:
+            print(f"[info] llm final selection: {len(picked)}/{len(pool)} candidates kept")
+            return picked
+        return None
+    except Exception as exc:
+        print(f"[warn] llm selection failed, fallback to score order: {exc}")
+        return None
+
+
 def pick_today(entries: list, api_key: str | None) -> list:
+    cutoff = (datetime.date.today() - datetime.timedelta(days=7)).isoformat()
     scored = []
     for e in entries:
+        if e["published"] < cutoff:          # 只要最近 7 天的提交
+            continue
         info = score_entry(e)
         if not info["relevant"]:
             continue
         e.update(info)
         scored.append(e)
     scored.sort(key=lambda x: -x["score"])
-    picks = scored[:DAILY_PICK]
+    pool = scored[:12]                       # 规则筛出候选池，AI 终审
+    picks = llm_select(pool, api_key) or pool[:DAILY_PICK]
     for e in picks:
         summary = None
         if api_key:
             summary = deepseek_contribution(e, api_key)
-        e["contribution"] = summary or heuristic_contribution(e["abstract"])
+        e["contribution"] = summary or ("<b>🎯 贡献</b> " + heuristic_contribution(e["abstract"]))
         e["summary_source"] = "deepseek" if summary else "heuristic"
     return picks
 
@@ -318,17 +387,18 @@ def main() -> int:
     seen = {p["id"] for day in store["days"] for p in day["papers"]}
     new_picks = [p for p in picks if p["id"] not in seen]
 
-    today_group = next((d for d in store["days"] if d["date"] == today), None)
-    if today_group is None:
-        today_group = {"date": today, "papers": []}
-        store["days"].insert(0, today_group)
     if new_picks:
+        today_group = next((d for d in store["days"] if d["date"] == today), None)
+        if today_group is None:
+            today_group = {"date": today, "papers": []}
+            store["days"].insert(0, today_group)
         today_group["papers"].extend(new_picks)
 
-    # 只保留今天/最近 MAX_KEEP_DAYS 天，按日期倒序
+    # 只保留最近 MAX_KEEP_DAYS 天，按日期倒序；空日期组一律丢弃（防午夜空组 bug）
     cutoff = (datetime.date.today() - datetime.timedelta(days=MAX_KEEP_DAYS)).isoformat()
-    store["days"] = sorted((d for d in store["days"] if d["date"] >= cutoff),
-                           key=lambda d: d["date"], reverse=True)
+    store["days"] = [d for d in sorted(
+        (d for d in store["days"] if d["date"] >= cutoff and d["papers"]),
+        key=lambda d: d["date"], reverse=True)]
 
     os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
     save(store)

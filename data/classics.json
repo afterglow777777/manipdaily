@@ -16,8 +16,8 @@
    "year": 1989,
    "routes": ["affordance"],
    "url": "https://scholar.google.com/scholar?q=Cutkosky+On+grasp+choice+grasp+models+and+the+design+of+hands",
-   "why": "抓取分类学（grasp taxonomy）的祖师爷。要做接触几何约束 P(c)，先得知道人手到底怎么分类抓取——这篇是绕不开的理论源头。",
-   "use_hint": "设计 constraint 空间和接触类型枚举时回来看它的 16 类抓取分类。"
+   "why": "抓取分类学（grasp taxonomy）的奠基之作，基于对制造业中人工抓取的系统观察建立了 16 类抓取分类体系，至今仍是接触建模与手部设计的通用参照。",
+   "use_hint": "设计夹爪/灵巧手或定义抓取类型集合时，先对照它的分类体系做需求映射；写抓取相关论文的 related work 也绕不开它。"
   },
   {
    "id": "dexnet2",
@@ -27,8 +27,8 @@
    "year": 2017,
    "routes": ["grasp", "data"],
    "url": "https://arxiv.org/abs/1703.09312",
-   "why": "『合成数据 + 解析抓取度量打标签 + GQ-CNN』的范式确立之作。你的 programmatic generator + carrier compiler 路线在精神上是它的后代。",
-   "use_hint": "对标 real-mined baseline 时绕不开；注意它 98% 可靠率背后的数据工程细节。"
+   "why": "确立『合成点云数据 + 解析抓取度量自动打标签 + GQ-CNN 评估』的范式，500 万样本训练后在真机拿到 93% 抓取可靠率，是数据驱动抓取的里程碑。",
+   "use_hint": "想理解『用仿真/解析方法规模化造训练数据』怎么做，从这篇入门；其抓取质量指标（robust epsilon）也是常用 baseline。"
   },
   {
    "id": "vgn",
@@ -38,19 +38,19 @@
    "year": 2020,
    "routes": ["grasp", "tactile"],
    "url": "https://arxiv.org/abs/1911.04269",
-   "why": "TSDF → 全卷积网络直接吐 6-DoF 抓取位姿，20ms 级实时闭环。你的 grasp pipeline 对比对象之一。",
-   "use_hint": "VGN 是 compact_patch 的直接对比基线，重点看它的输出表示和推理延迟设计。"
+   "why": "TSDF 点云进、6-DoF 抓取位姿场出，单次前向约 20ms，配合清除式执行策略实现杂乱场景下的闭环连续抓取，是实时生成式抓取的代表作。",
+   "use_hint": "做实时抓取系统对比时它是标准 baseline；其『量化抓取质量场 + 逐次清除失败体』的闭环思路值得借鉴。"
   },
   {
    "id": "contactgraspnet",
-   "title": "Mobile Manipulation everywhere / Contact-GraspNet: Efficient 6-DoF Grasp Generation in Cluttered Scenes",
-   "authors": ["Martin Sundermeyer", "Maximilian Durner", "Eric Y. Pu", "Rudolph Triebel et al."],
+   "title": "Contact-GraspNet: Efficient 6-DoF Grasp Generation in Cluttered Scenes",
+   "authors": ["Martin Sundermeyer", "Maximilian Durner", "Eric Y. Pu", "Rudolph Triebel"],
    "venue": "ICRA",
    "year": 2021,
    "routes": ["grasp"],
    "url": "https://arxiv.org/abs/2103.14127",
-   "why": "从接触点出发反推 6-DoF 抓取——和你的 inverse affordance『先约束接触几何再生成全局』思路血缘最近的一篇 baseline。",
-   "use_hint": "对比实验必引；注意它对遮挡场景的鲁棒性设计。"
+   "why": "从场景表面接触点直接回归完整 6-DoF 抓取，避免全场景位姿枚举，推理快且对未见物体和遮挡鲁棒，是接触先行抓取思路的代表。",
+   "use_hint": "研究『从接触出发反推抓取』的方法设计时必读；深度相机部分观测场景下的鲁棒性设计很有参考价值。"
   },
   {
    "id": "graspnet1b",
@@ -60,8 +60,8 @@
    "year": 2021,
    "routes": ["grasp", "data"],
    "url": "https://arxiv.org/abs/2012.09588",
-   "why": "目前抓取领域最常用的统一 benchmark，97k 图像 / 10 亿抓取位姿。AP 指标和遮挡划分成了事实标准。",
-   "use_hint": "你的结果如果要被别人复现比较，接入 GraspNet 评测协议是最省事的公信力来源。"
+   "why": "97,280 张真实图像、超 10 亿抓取位姿标注的大规模基准，提供统一的 AP 评测协议与遮挡划分，是抓取方向事实上的标准评测场。",
+   "use_hint": "新抓取算法想被同行认可，接入它的评测协议是最省事的公信力来源；其标注生成流程（自监督拟合）也可复用。"
   },
   {
    "id": "gelsight2017",
@@ -71,19 +71,19 @@
    "year": 2017,
    "routes": ["tactile"],
    "url": "https://scholar.google.com/scholar?q=GelSight+High-resolution+robot+tactile+sensors+Yuan+Dong+Adelson",
-   "why": "视触觉传感器的奠基综述。你 Part3 的 1D 触觉闭环不管用哪种传感器，感知端的物理原理都在这篇里。",
-   "use_hint": "设计触觉反馈信号（滑移/接触力估计）时，先看 GelSight 系列能提取哪些特征。"
+   "why": "视触觉传感器方向的奠基性综述，系统讲清凝胶变形→光学成像→几何/力估计的物理链路，是触觉感知的入门与查漏首选。",
+   "use_hint": "选触觉传感器或设计触觉特征（接触几何、滑移、力估计）时，先用这篇建立对感知端的完整认知。"
   },
   {
    "id": "digit2020",
    "title": "DIGIT: A Low-Cost Custom High-Resolution Touch Sensor for Robotic Manipulation",
-   "authors": ["Mike Lambeta", "Po-Wei Chou", "Roberto Calandra", "Meta AI (FAIR)"],
+   "authors": ["Mike Lambeta", "Po-Wei Chou", "Roberto Calandra et al."],
    "venue": "RA-L",
    "year": 2020,
    "routes": ["tactile"],
    "url": "https://arxiv.org/abs/2005.14679",
-   "why": "开硬件设计、千元级成本、开数据集——触觉普及化的关键推手，很多 closed-loop grasping 工作的标配。",
-   "use_hint": "如果 Part3 从标量升级到图像触觉，DIGIT 是性价比最高的起点。"
+   "why": "全开源设计的紧凑视触觉传感器（约千元级成本），附数据集与仿真模型，把高分辨率触觉从实验室特制品变成了普及件。",
+   "use_hint": "给机械臂加装触觉的首选起步硬件；其开源生态（CAD、固件、数据集）能省掉大量前期工程。"
   },
   {
    "id": "qtopt",
@@ -93,8 +93,8 @@
    "year": 2017,
    "routes": ["learn", "tactile"],
    "url": "https://arxiv.org/abs/1806.10221",
-   "why": "7 台机器人 × 58 万次抓取的 Q-learning 闭环，第一次把『闭环重抓取』（失败后调整再抓）做成可量化的能力。",
-   "use_hint": "你 Part3 闭环的『反馈信号怎么用』可以直接对标它的 retry 机制。"
+   "why": "7 台机器人 × 58 万次真实抓取的分布式 Q-learning，首次系统展示『闭环重抓取』能力——失败后调整姿势再抓，抓取成功率因此提升显著。",
+   "use_hint": "研究闭环抓取与 RL 规模化的必读；其 retry 机制和经验回放设计对任何闭环操作任务都有借鉴意义。"
   },
   {
    "id": "levine_hand_eye",
@@ -104,8 +104,8 @@
    "year": 2018,
    "routes": ["learn", "data"],
    "url": "https://arxiv.org/abs/1609.05146",
-   "why": "80 万次真机抓取的自监督范式，IJRR 上被引最高的机器人学习论文之一。『数据驱动优于架构设计』的最早大规模实证。",
-   "use_hint": "写论文 motivation 时，这是『data quality 决定上限』叙事的经典锚点。"
+   "why": "80 万次真机抓取的自监督范式：用运动学信息自动标注抓取成败，免人工标注训练 CNN。IJRR 上被引最高的机器人学习论文之一。",
+   "use_hint": "理解『大规模自监督数据采集』的原点之作；讨论数据规模与泛化关系时的标准引用。"
   },
   {
    "id": "openai_dex",
@@ -115,8 +115,8 @@
    "year": 2020,
    "routes": ["learn", "data"],
    "url": "https://arxiv.org/abs/1910.07113",
-   "why": "大规模域随机化 sim-to-real 的标杆（Shadow Hand 转魔方）。也常被引用为『纯 RL 泛化代价极高』的反面教材。",
-   "use_hint": "讨论仿真保真度边界时引用；它的 ADR（自动域随机化）设计值得细读。"
+   "why": "大规模域随机化 sim-to-real 的标杆（Shadow Hand 学会转魔方），其自动域随机化（ADR）课程设计影响深远；同时也是『纯 RL 泛化代价极高』的常被引用例证。",
+   "use_hint": "讨论仿真到现实的迁移边界时必引；ADR 机制对需要仿真训练的项目有直接参考价值。"
   },
   {
    "id": "transporter",
@@ -126,8 +126,8 @@
    "year": 2020,
    "routes": ["learn"],
    "url": "https://arxiv.org/abs/2010.14415",
-   "why": "样本效率惊人的 pick-and-place 结构先验：深度网络只负责『匹配』，几何搬运交给显式变换。结构先验 > 端到端的经典论证。",
-   "use_hint": "你的 operation-first 思路（先结构后生成）和它一脉相承，可以在 related work 里对齐。"
+   "why": "用『深度网络做空间匹配 + 显式 3D 变换搬运』的结构先验替代端到端策略，10 条演示即可学会排布任务，样本效率惊艳。",
+   "use_hint": "样本极少的演示学习场景优先考虑这类结构先验方案；其『感知找对应、几何做执行』的分解思路可广泛迁移。"
   },
   {
    "id": "diffusion_policy",
@@ -137,19 +137,19 @@
    "year": 2023,
    "routes": ["learn"],
    "url": "https://arxiv.org/abs/2303.04137",
-   "why": "把扩散模型做成策略表达，多模态动作分布的标准解法。虽是你淘汰的路线，但必须懂它为什么在 imitation 里强。",
-   "use_hint": "审稿人大概率会问『为什么不用 diffusion policy』——用你对它多模态优势/数据代价的分析回答。"
+   "why": "把扩散模型引入动作生成，天然表达多模态动作分布，在 15 个操作任务上平均提升 46.9%，是模仿学习近年引用最高的工作之一。",
+   "use_hint": "做策略学习的当前默认强 baseline；其处理多模态演示的机制是面试和审稿的高频考点。"
   },
   {
    "id": "act_aloha",
    "title": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware (ACT / ALOHA)",
-   "authors": ["Tony Zhao", "Viktor Makoviychuk", "Open X-Embodiment collaborators", "Chelsea Finn", "Animesh Garg et al."],
+   "authors": ["Tony Z. Zhao", "Viktor Makoviychuk", "Chelsea Finn", "Animesh Garg et al."],
    "venue": "RSS",
    "year": 2023,
    "routes": ["learn", "data"],
    "url": "https://arxiv.org/abs/2304.13705",
-   "why": "低成本双臂 + CVAE+transformer 行为克隆，把『50 条演示学精细操作』做成现实，也引爆了整个 teleop 数据生态。",
-   "use_hint": "看它的 k 个 demonstration 就能 work 的条件——反过来支撑你『数据质量 > 数量』的主张。"
+   "why": "约 2 万元级的双臂遥操作平台 + CVAE+transformer 行为克隆（ACT），50 条演示学会精细双臂操作，引爆了整个低成本 teleop 数据生态。",
+   "use_hint": "自建遥操作数据采集平台的硬件参考；其动作序列分块（action chunking）设计是抗误差累积的关键技巧。"
   },
   {
    "id": "rt2",
@@ -159,19 +159,19 @@
    "year": 2023,
    "routes": ["learn"],
    "url": "https://arxiv.org/abs/2307.15818",
-   "why": "VLA 这个词正式登场的标志。语义泛化到动作的迁移效果第一次被系统性量化。",
-   "use_hint": "定义 VLA 术语和泛化分类（seen/unseen）时的标准引用。"
+   "why": "VLA（视觉-语言-动作）范式的正式登场：把网络级视觉-语言知识迁移到机器人动作，语义理解与新颖物体/指令泛化首次被大规模量化。",
+   "use_hint": "定义和讨论 VLA 术语时的标准引用；其『动作离散化为 token 复用 VLM』的设计思路影响了一批后续模型。"
   },
   {
    "id": "openvla",
    "title": "OpenVLA: An Open-Source Vision-Language-Action Model",
-   "authors": ["Moo Jin Kim", "Karl Pertsch", "Chelsea Finn", "Sergey Levine, Stanford/Berkeley"],
+   "authors": ["Moo Jin Kim", "Karl Pertsch", "Chelsea Finn", "Sergey Levine et al."],
    "venue": "CoRL",
    "year": 2024,
    "routes": ["learn"],
    "url": "https://arxiv.org/abs/2406.09246",
-   "why": "开源 VLA 的参照系：7B 参数、LoRA 微调协议公开。学术圈做 VLA 实验事实上的起点。",
-   "use_hint": "要借用 evaluation 接口时从这里入手；它的微调成本数据对 6GB 显存很有参考价值。"
+   "why": "970k 真实演示训练的 7B 开源 VLA，跨 170 个任务超越闭源 RT-2-X，公开完整微调协议（LoRA 即可适配新任务），是学术 VLA 实验的事实起点。",
+   "use_hint": "想在自己的机器人上跑 VLA 或做微调实验，从它的开源代码和协议入手成本最低。"
   },
   {
    "id": "pi0",
@@ -181,8 +181,8 @@
    "year": 2024,
    "routes": ["learn"],
    "url": "https://arxiv.org/abs/2410.24164",
-   "why": "VLM 骨干 + flow matching 动作头，工业级通用策略的代表。你正在精读的 RL Token Bootstrapping 就是这家公司的后续。",
-   "use_hint": "关注它动作 chunk + flow matching 的设计，和 online RL 论文对照读。"
+   "why": "VLM 骨干 + flow matching 动作头的工业级通用策略，跨 7 种机器人配置训练，洗衣折叠等高频任务表现大幅超越同类，代表商业具身智能的前沿。",
+   "use_hint": "关注通用策略架构设计的必读；flow matching 动作头与 VLM 骨干解耦的结构是当前热门范式。"
   },
   {
    "id": "tobin_dr",
@@ -192,8 +192,8 @@
    "year": 2017,
    "routes": ["data"],
    "url": "https://arxiv.org/abs/1703.06907",
-   "why": "sim-to-real 域随机化的开山之作。所有讨论『仿真保真度够不够』的论文都要先过这一篇。",
-   "use_hint": "失败根因③（仿真保真度）的对策设计从这篇的 visual DR 清单开始。"
+   "why": "域随机化的开山之作：把仿真中的视觉参数随机化到足够宽，真实世界就『只是另一种随机化』。所有 sim-to-real 讨论都要先过这篇。",
+   "use_hint": "做仿真训练迁移到真机时，视觉 DR 的随机化维度清单从这里开始；也是理解后续 ADR、系统辨识路线的基础。"
   },
   {
    "id": "metaworld",
@@ -203,8 +203,8 @@
    "year": 2019,
    "routes": ["data"],
    "url": "https://arxiv.org/abs/1910.11697",
-   "why": "50 个操作任务的统一 RL benchmark，多任务/元学习评测的事实标准之一。",
-   "use_hint": "选操作 RL baseline 环境时优先它，避免拿玩具任务被质疑。"
+   "why": "50 个操作任务的统一 RL benchmark，提供多任务/元学习的标准化评测模式，是操作 RL 方向最常用的对比场之一。",
+   "use_hint": "选操作 RL 实验环境时优先它，避免被质疑用玩具任务；也适合快速验证多任务想法的可行性。"
   },
   {
    "id": "oxe",
@@ -214,8 +214,8 @@
    "year": 2024,
    "routes": ["data"],
    "url": "https://arxiv.org/abs/2310.08864",
-   "why": "百万级跨具身操作数据集的联合项目。『谁的 data design 更好』现在有了公认的对比池。",
-   "use_hint": "你的 data design 卖点可以表述为『在同等 token/样本预算下，inverse affordance 数据上限更高』。"
+   "why": "22 个机构、百万级跨具身操作片段的联合数据集与 RT-X 模型，证明跨本体数据混合能显著提升泛化，是机器人学习数据规模化的分水岭。",
+   "use_hint": "讨论数据规模化与跨具身迁移时的标准引用；其数据格式（RLDS）已成为社区通用交换格式。"
   },
   {
    "id": "bohg_survey",
@@ -225,8 +225,8 @@
    "year": 2014,
    "routes": ["survey", "grasp"],
    "url": "https://scholar.google.com/scholar?q=Bohg+Data-driven+grasp+synthesis+a+survey+TRO",
-   "why": "数据驱动抓取的定位性综述：把所有方法按『输入表征-输出表示-策略』三轴分类。写 related work 的骨架直接抄它的分类轴。",
-   "use_hint": "论文 Introduction 的分类框架来源；审稿人默认你读过。"
+   "why": "数据驱动抓取的定位性综述：按『输入表征-输出表示-策略』三轴把所有方法分类，是梳理该领域脉络最清晰的一篇。",
+   "use_hint": "写抓取方向论文的 Introduction 分类框架来源；快速建立领域全景图的入门读物。"
   },
   {
    "id": "mason2018",
@@ -236,8 +236,8 @@
    "year": 2018,
    "routes": ["survey"],
    "url": "https://scholar.google.com/scholar?q=Mason+Toward+robotic+manipulation+Annual+Review",
-   "why": "操作领域大神的立场文章：把 manipulation 分成 mechanics / perception / control 三条历史脉络，讲清楚『抓取不是操作的全部』。",
-   "use_hint": "定位你的贡献边界（addressable/grasp/closed-loop 处在历史哪条线上）时引用。"
+   "why": "操作领域泰斗的立场文章，把 manipulation 梳理为 mechanics / perception / control 三条历史脉络，讲清『抓取只是操作的子集』。",
+   "use_hint": "想理解操作领域整体图景和研究传统，先读这篇；给自己的工作在历史上定位时也是最好的参照系。"
   },
   {
    "id": "billard_kragic2019",
@@ -247,8 +247,8 @@
    "year": 2019,
    "routes": ["survey"],
    "url": "https://scholar.google.com/scholar?q=Billard+Kragic+Trends+and+challenges+in+robot+manipulation+Science",
-   "why": "Science 级别的问题定义文：指出操作的核心挑战是『非结构化环境下的泛化』——正是你 unseen object demo 要打的靶子。",
-   "use_hint": "开题/答辩里定义领域挑战时的一手引用。"
+   "why": "Science 级别的领域问题定义文：指出操作的核心挑战在非结构化环境下的泛化，以及感知-控制-学习如何协同，视野高于单点技术。",
+   "use_hint": "开题或申请里定义领域挑战与研究方向价值时的一手引用。"
   }
  ]
 }

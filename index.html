@@ -180,18 +180,18 @@ function cardHTML(e, opts = {}) {
   const pis = (e.top_pis || []).map(p => `<span class="tag pi">★ ${p}</span>`).join("");
   const quant = e.quant ? `<span class="tag quant" title="摘要含量化实验结果">量化结果</span>` : "";
   const solid = e.solid ? `<span class="tag solid" title="含数据集/基准/硬件/开源等资源型贡献">资源/系统</span>` : "";
-  const abs = e.abstract ? `<div class="abstract" id="abs-${cssId(e.id)}">${e.abstract}</div>` : "";
-  const contrib = e.contribution ? `<div class="contrib"><b>方法与贡献</b><br>${e.contribution}</div>` : "";
+  const abs = e.abstract ? `<div class="abstract open" id="abs-${cssId(e.id)}"><b style="color:#6b7280">摘要</b>　${e.abstract}</div>` : "";
+  const contrib = e.contribution ? `<div class="contrib">${e.contribution}</div>` : "";
   return `<div class="card ${read ? "read" : ""}" id="card-${cssId(e.id)}">
     <div class="top">
       <h3><a href="${e.url}" target="_blank" rel="noopener">${e.title}</a></h3>
     </div>
-    <div class="authors">${(e.authors || []).slice(0, 6).join(", ")}${(e.authors || []).length > 6 ? " et al." : ""}</div>
+    <div class="authors">${(e.authors || []).slice(0, 6).join(", ")}${(e.authors || []).length > 6 ? " et al." : ""}${e.published ? ` · 发布于 ${e.published}` : ""}</div>
     <div class="meta">${venue}${quant}${solid}${routeTags(e.routes || [])}${orgs}${pis}${fallback}</div>
     ${contrib}${abs}
     <div class="actions">
       <button class="btn ${read ? "read-on" : ""}" onclick="toggleRead('${jsId(e.id)}')">${read ? "✓ 已读" : "标记已读"}</button>
-      <button class="btn" onclick="toggleElems('${jsId(e.id)}')">笔记 / 摘要</button>
+      <button class="btn" onclick="toggleNote('${jsId(e.id)}')">笔记</button>
     </div>
     <textarea class="notebox" id="note-${cssId(e.id)}" placeholder="记一下这篇自己打算怎么用…（自动保存到本地）"
       oninput="saveNote('${jsId(e.id)}', this.value)">${(getNotes()[e.id] || "")}</textarea>
@@ -200,10 +200,8 @@ function cardHTML(e, opts = {}) {
 }
 function cssId(id) { return id.replace(/[^a-zA-Z0-9]/g, "_"); }
 function jsId(id) { return id.replace(/\\/g, "\\\\").replace(/'/g, "\\'"); }
-function toggleElems(id) {
-  const abs = document.getElementById("abs-" + cssId(id));
+function toggleNote(id) {
   const note = document.getElementById("note-" + cssId(id));
-  if (abs) abs.classList.toggle("open");
   if (note) { note.classList.toggle("open"); if (note.classList.contains("open")) note.focus(); }
 }
 function saveNote(id, val) { const m = getNotes(); m[id] = val; setNotes(m); }
