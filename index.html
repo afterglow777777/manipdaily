@@ -86,6 +86,8 @@
   .contrib { background: var(--accent-soft); border-left: 3px solid var(--accent);
              border-radius: 0 8px 8px 0; padding: 9px 13px; margin-top: 10px; font-size: 13.5px; }
   .contrib b { color: var(--accent); font-size: 12.5px; margin-right: 2px; }
+  .fig { display: block; width: 100%; max-height: 280px; object-fit: cover; object-position: center;
+         border: 1px solid var(--border); border-radius: 8px; margin-top: 10px; background: #fff; }
   .card .actions { display: flex; gap: 8px; margin-top: 12px; align-items: center; flex-wrap: wrap; }
   .btn { border: 1px solid var(--border); background: var(--card); border-radius: 7px;
          padding: 4px 13px; font-size: 12.5px; cursor: pointer; color: var(--text); }
@@ -125,7 +127,7 @@
 <div class="wrap">
   <header>
     <h1>ManipDaily<span class="dot">.</span></h1>
-    <div class="sub">机器人操作 · 学习 —— 每天 5 篇精选，不求量，求精。</div>
+    <div class="sub">每天早上 8:30，把机器人操作圈最新的 5 篇好论文挑好、嚼碎、端上来 —— 读得少，跟得紧。☕</div>
   </header>
 
   <div class="tabs">
@@ -241,6 +243,7 @@ function cardHTML(e, opts = {}) {
     <div class="authors">${(e.authors || []).slice(0, 6).join(", ")}${(e.authors || []).length > 6 ? " et al." : ""}</div>
     <div class="meta">${venue}${dateTag}${quant}${solid}${routeTags(e.routes || [])}${orgs}${fallback}</div>
     ${e.contribution ? `<div class="contrib">${e.contribution}</div>` : ""}
+    ${e.figure ? `<img class="fig" src="${e.figure}" loading="lazy" alt="论文代表图" onerror="this.remove()">` : ""}
     ${e.abstract ? `<div class="abstract" id="abs-${cssId(e.id)}"><b style="color:#6b7280">摘要</b>　${e.abstract}</div>` : ""}
     <div class="actions">
       <button class="btn ${read ? "read-on" : ""}" onclick="toggleRead('${jsId(e.id)}')">${read ? "✓ 已读" : "标记已读"}</button>
@@ -372,7 +375,8 @@ function renderDaily() {
 function renderClassics() {
   const papers = CLASSICS.filter(matchFilters);
   document.getElementById("classicList").innerHTML = papers.length ? papers.map(c => cardHTML({
-    ...c, contribution: `<b>🎯 为什么读</b> ${c.why}<br><b>💡 怎么用</b> ${c.use_hint}`
+    ...c,
+    contribution: c.contribution || `<b>🎯 为什么读</b> ${c.why}<br><b>💡 怎么用</b> ${c.use_hint}`
   })).join("") : '<div class="empty">没有符合条件的经典。</div>';
 }
 function renderStars() {
