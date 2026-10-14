@@ -81,6 +81,8 @@
   .tag.fallback { background: #f1f5f9; color: #475569; }
   .tag.quant { background: #dcfce7; color: #166534; }
   .tag.solid { background: #dbeafe; color: #1e40af; }
+  .tag.cite { background: #fff7ed; color: #9a3412; }
+  .tag.theory { background: #f5f3ff; color: #5b21b6; }
   .r-tag { font-size: 11px; padding: 1.5px 9px; border-radius: 10px; color: #fff; font-weight: 500; }
   .abstract { font-size: 13.5px; color: #374151; margin-top: 10px; }
   .contrib { background: var(--accent-soft); border-left: 3px solid var(--accent);
@@ -238,10 +240,12 @@ function cardHTML(e, opts = {}) {
                   (e.year ? `<span class="tag date">📅 ${e.year}</span>` : "");
   const quant = e.quant ? `<span class="tag quant" title="摘要含量化实验结果">量化结果</span>` : "";
   const solid = e.solid ? `<span class="tag solid" title="含数据集/基准/硬件/开源等资源型贡献">资源/系统</span>` : "";
+  const cite = e.citations ? `<span class="tag cite" title="Semantic Scholar 被引次数">被引 ${Number(e.citations).toLocaleString("en-US")}</span>` : "";
+  const theory = e.theory ? `<span class="tag theory" title="领域理论/奠基性工作">🧭 理论奠基</span>` : "";
   return `<div class="card ${read ? "read" : ""}" id="card-${cssId(e.id)}">
     <div class="top"><h3><a href="${e.url}" target="_blank" rel="noopener">${e.title}</a></h3></div>
     <div class="authors">${(e.authors || []).slice(0, 6).join(", ")}${(e.authors || []).length > 6 ? " et al." : ""}</div>
-    <div class="meta">${venue}${dateTag}${quant}${solid}${routeTags(e.routes || [])}${orgs}${fallback}</div>
+    <div class="meta">${venue}${dateTag}${cite}${theory}${quant}${solid}${routeTags(e.routes || [])}${orgs}${fallback}</div>
     ${e.contribution ? `<div class="contrib">${e.contribution}</div>` : ""}
     ${e.figure ? `<img class="fig" src="${e.figure}" loading="lazy" alt="论文代表图" onerror="this.remove()">` : ""}
     ${e.abstract ? `<div class="abstract" id="abs-${cssId(e.id)}"><b style="color:#6b7280">摘要</b>　${e.abstract}</div>` : ""}
@@ -373,7 +377,7 @@ function renderDaily() {
 
 // ---------- classics / stars / archive ----------
 function renderClassics() {
-  const papers = CLASSICS.filter(matchFilters);
+  const papers = [...CLASSICS].sort((a, b) => (b.citations || 0) - (a.citations || 0)).filter(matchFilters);
   document.getElementById("classicList").innerHTML = papers.length ? papers.map(c => cardHTML({
     ...c,
     contribution: c.contribution || `<b>🎯 为什么读</b> ${c.why}<br><b>💡 怎么用</b> ${c.use_hint}`
