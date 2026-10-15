@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-15 10:51",
+ "generated_at": "2026-10-15 13:02",
  "days": [
   {
    "date": "2026-10-15",
@@ -78,6 +78,216 @@
      "solid": true,
      "relevant": true,
      "contribution": "<b>🎯 贡献</b> 提出ForeTac预测接触引导框架，按表征-预测-评估-引导闭环，用当前触觉状态预测候选动作序列的触觉后果，并以成功/失败物理交互学习的接触质量目标评估，部署时经触觉预测器梯度引导动作生成且冻结预训练策略参数。<br><b>✨ 亮点</b> 在平面/曲面擦拭、卡片滑动、易碎物体抓取四类真实机器人任务中，结合扩散与流匹配策略，平均任务成功率由36.3%升至71.3%，平均接触成功率由20.0%升至66.3%，对比仅视觉Diffusion Policy。<br><b>💡 启发</b> 接触丰富操作的预测性触觉引导与接触质量评估；易碎抓取、擦拭、滑动等场景的风险预判与生成策略外挂模块。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.20320",
+     "title": "TacClaw-Infinity: A Large-Scale Vision-Tactile-Language-Action Dataset for Dexterous Manipulation",
+     "authors": [
+      "Fucai Zhu",
+      "Xidong Zhang",
+      "Yichi Zhang",
+      "Yipan Wang",
+      "Fubo Wang",
+      "Zibin Wu",
+      "Kaiqi Li",
+      "Jianhao Jiao",
+      "Shihan Lu",
+      "Di Hu",
+      "Mengdi Xu",
+      "Siyu Zhu",
+      "Xiaoxiao Long",
+      "Yao Yao",
+      "Xun Cao",
+      "Zhuo Xu",
+      "Koichi Hashimoto",
+      "Qifeng Chen",
+      "Zhe Li",
+      "Jianfei Yang",
+      "Haofei Lu",
+      "Danica Kragic",
+      "Shuicheng Yan",
+      "Jianghua Duan",
+      "Michael Yu Wang",
+      "Weihao Yuan"
+     ],
+     "url": "https://arxiv.org/abs/2610.20320",
+     "abstract": "Large-scale robot learning increasingly relies on diverse human demonstrations, yet tactile manipulation data remain difficult to scale, and existing multimodal datasets often lack consistent quality control and structured supervision. We present TacClaw-Infinity, a large-scale structured Vision-Tactile-Language-Action (VTLA) dataset for contact-rich manipulation, collected with TacClaw, a tactile-enabled UMI-style handheld interface that records synchronized visual observations, fingertip tactile signals, and end-effector trajectories without requiring a target robot during data collection. TacClaw-Infinity is built through a distributed worldwide collection across homes, laboratories, industrial workplaces, retail stores, and outdoor environments including tasks contributed by academic and industrial collaborators. Together, these efforts yield over 10,000 hours, 1 million episodes, and 1 billion frames spanning more than 1,000 task types. We develop a scalable pipeline for trajectory reconstruction, multimodal quality control, embodiment-aware filtering, and structured annotation, covering contact-centric segmentation, subtask description, and spatial grounding. We validate TacClaw-Infinity at both the data and model levels: At the data level, we assess the collection interface, the action-space compatibility of the curated demonstrations, and the structured annotations, while for the model level, we demonstrate cross-embodiment transfer across three heterogeneous robots without robot-specific demonstrations.",
+     "published": "2026-10-14",
+     "comment": "",
+     "score": 18.0,
+     "routes": [
+      "data",
+      "affordance",
+      "tactile",
+      "learn"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "tactile": 1,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [
+      "danica kragic"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出 TacClaw-Infinity 大规模结构化视觉-触觉-语言-动作数据集，用 TacClaw 触觉 UMI 式手持接口同步采集视觉、指尖触觉和末端轨迹，无需目标机器人；构建轨迹重建、多模态质控、具身过滤和结构化标注流水线。<br><b>✨ 亮点</b> 覆盖超 10000 小时、100 万个回合、10 亿帧、1000+ 任务类型，在三种异构机器人上实现无需机器人特定示范的跨具身迁移。<br><b>💡 启发</b> 触觉增强的跨具身灵巧操作与接触丰富任务基础模型预训练；全球分布式无机器人采集、多模态质控和结构化触觉标注管线可复用。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.19155",
+     "title": "FACT: A Multimodal Force-Action-Track Foundation Model for Human-to-Robot Dexterity",
+     "authors": [
+      "Zhi Cao",
+      "Yining Hong",
+      "Jiaolong Yang",
+      "Yejin Choi",
+      "Li Fei-Fei",
+      "Jiajun Wu",
+      "Huang Huang"
+     ],
+     "url": "https://arxiv.org/abs/2610.19155",
+     "abstract": "Human demonstrations offer a scalable alternative to costly robot data collection for dexterous manipulation, but most human datasets lack force measurements. Dexterous manipulation requires not only visual and proprioceptive understanding but also the ability to anticipate and regulate interaction forces. To scale force-aware human-robot co-training, we introduce EgoForce, a large-scale human tactile dataset capturing force-rich manipulation experience, and combine it with robot demonstrations for pretraining. We present FACT, a robot foundation model that cascades from prospective visual planning to force-aware refinement for dexterous manipulation. FACT comprises two jointly trained components. A Track-Guided Coarse Planner jointly predicts actions, future video, and visual tracks. Future video and visual tracks also provide a shared task representation that facilitates cross-embodiment knowledge transfer and coarse action generation. Building on this coarse plan, a Force-Action Joint Refiner jointly predicts future force and refines the coarse action, allowing anticipated force and action to shape each other during refinement. We evaluate the model on ten tasks requiring fine-grained coordination and force feedback, including tool use, musical instruments, and precision laboratory procedures. Using as few as 10 robot trajectories with 90 human trajectories for fine-tuning, FACT outperforms both baselines, with success-rate gains of up to 60 percentage points over T-Rex. Ablations show that force supervision in human pretraining data is crucial for downstream robot performance after fine-tuning, while visual track prediction and training with future-force prediction improve dexterous execution. Experiments varying the human-robot data ratio during fine-tuning further suggest that FACT learns from human demonstrations nearly as effectively as from robot demonstrations.",
+     "published": "2026-10-13",
+     "comment": "",
+     "score": 18.0,
+     "routes": [
+      "learn",
+      "data",
+      "tactile"
+     ],
+     "route_hits": {
+      "tactile": 1,
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [
+      "li fei-fei",
+      "jiajun wu"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出 EgoForce 大规模人类触觉数据集与 FACT 多模态基础模型，先用 Track-Guided Coarse Planner 联合预测动作、未来视频和视觉轨迹生成粗动作并共享跨本体任务表示，再由 Force-Action Joint Refiner 联合预测未来力并精炼粗动作，实现从人类示范到机器人灵巧操作的力感知迁移。<br><b>✨ 亮点</b> 在10个需精细协调和力反馈任务上，仅用10条机器人轨迹加90条人类轨迹微调，FACT 成功率比 T-Rex 最高提升60个百分点，消融显示人类预训练中的力监督对下游机器人性能关键。<br><b>💡 启发</b> 人类触觉数据规模化用于力感知预训练；视觉轨迹与未来力联合建模可迁移至工具使用、乐器和精密实验室等力反馈场景。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.20504",
+     "title": "Graph-Reweighted Behavior Cloning with Human Interventions for Precise Robotic Manipulation",
+     "authors": [
+      "Xiaoman Li",
+      "Zhiqiang Yang",
+      "Jiayu Hu",
+      "Jipeng Kong",
+      "Yang Zhang",
+      "Jingwei Zhang",
+      "Fangzheng Yan",
+      "Chunhua Shen",
+      "Chenjia Bai"
+     ],
+     "url": "https://arxiv.org/abs/2610.20504",
+     "abstract": "Long-horizon precise manipulation produces mixed-quality data for post-training vision-language-action (VLA) models: even successful demonstrations and intervention-assisted rollouts may contain detours, hesitations, failed attempts, and imperfect recoveries. The key challenge is to identify which action chunks actually advance the task, rather than uniformly cloning or discarding imperfect trajectories. We propose Graph-Reweighted Behavior Cloning (GR-BC), an offline iterative post-training framework that builds a task-conditioned goal-reachability graph over demonstrations and iteratively collected rollouts, including both successful and failed episodes with human interventions. Reverse graph search computes minimal remaining steps to task success within the dataset support, and each action chunk is weighted by how much its execution reduces this potential. This consequence-based weighting reuses recoverable segments from failed trajectories, leverages interventions as recovery paths, and down-weights locally regressive chunks even inside successful trajectories. New rollouts are incorporated by appending them to the graph and rerunning search, without training a reward model, action-conditioned critic, or progress predictor. Across four precise manipulation tasks and three VLA backbones, GR-BC improves single-round supervised fine-tuning and reaches 91% success after a few offline iterations, without trajectory comparisons or progress labels. More details and videos are available at: https://gr-bc.github.io",
+     "published": "2026-10-14",
+     "comment": "Accepted at CoRL 2026. 25 pages, 16 figures, including appendix. Project page: https://gr-bc.github.io/",
+     "score": 16.3,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 4,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出图重加权行为克隆（GR-BC）离线迭代后训练框架，在演示和含人工干预的成功/失败采样轨迹上构建任务条件目标可达图，反向搜索每个动作块到成功的最小剩余步数，并按该动作块减少此潜力的贡献重加权行为克隆。<br><b>✨ 亮点</b> 在4个精细操作任务和3种VLA骨干上提升单轮监督微调，经少量离线迭代达到91%成功率，无需轨迹比较或进度标签。<br><b>💡 启发</b> 失败轨迹与人工干预可作为可恢复路径复用；基于目标可达图的结果式加权可迁移至长程机器人数据筛选和离线后训练。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.19604",
+     "title": "ForceBench: Benchmarking Force Integration for Robotic Manipulation",
+     "authors": [
+      "Xuan Han",
+      "Zinuo Jin",
+      "Tianlin Li",
+      "Yunfan Lou",
+      "Xin Liu",
+      "Yuchen Xue",
+      "Yuanpeng He",
+      "Boxian Yao",
+      "Shuhan Zhan",
+      "Ruihai Wu",
+      "Zhibo Pang"
+     ],
+     "url": "https://arxiv.org/abs/2610.19604",
+     "abstract": "Force feedback provides vision-language-action (VLA) policies with physical observations that can guide action selection and execution. However, differences in tasks, demonstrations, and control settings across existing systems hinder reliable comparisons of force integration designs. We introduce ForceBench, a simulation benchmark for evaluating six-axis wrist-force integration under a unified protocol. ForceBench combines eight tasks spanning physical-property inference, resistance-dependent interaction, and contact-rich assembly with 1,600 synchronized demonstrations and task-specific success criteria. We compare one no-force baseline and six force integration designs on a shared $π_{0.5}$ backbone. Prompt Fusion achieves the highest observed mean simulation success of 35.31%, compared with 23.25% for the baseline, and improves success rates across all three task categories. Predictive and temporal gains in simulation concentrate on physical-property inference, while both temporal designs underperform the baseline on assembly. Real-world evaluation of eight systems across five tasks supports the main qualitative trends: Prompt Fusion and Dual-Path Fusion achieve 63.00% mean success, compared with 40.00% for the baseline, but only Prompt Fusion improves every task. These findings support ForceBench's practical value for identifying the benefits and limitations of force integration across manipulation demands. The project page is available at https://forcebench-platform.github.io/.",
+     "published": "2026-10-14",
+     "comment": "14 pages, 8 figures. Project page: https://forcebench-platform.github.io/",
+     "score": 15.4,
+     "routes": [
+      "learn",
+      "data",
+      "affordance"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 构建ForceBench，在统一协议下评测六轴腕部力觉集成，含8类任务、1600条同步示范和任务特定成功判据，并在共享π0.5骨干上对比无力反馈基线与六种力集成设计。<br><b>✨ 亮点</b> Prompt Fusion仿真平均成功率达35.31%，高于无力基线23.25%，且在物理属性推断、阻力交互、接触丰富装配三类任务均提升；真实世界5任务中Prompt Fusion和Dual-Path Fusion平均成功率达63.00%，高于基线40.00%，但仅Prompt Fusion各任务均提升。<br><b>💡 启发</b> 统一力觉基准与真实迁移验证；任务自适应力融合优先于固定时序融合，避免装配任务负迁移。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.20134",
+     "title": "Tactile-Guided Robot Learning: From Representation Learning to Foundation Models",
+     "authors": [
+      "Kiyanoush Nazari",
+      "Luchen Li",
+      "Haoshu Fang",
+      "Nima Fazeli",
+      "Zhibin Li",
+      "Fumiya Iida",
+      "Thomas George Thuruthel"
+     ],
+     "url": "https://arxiv.org/abs/2610.20134",
+     "abstract": "Tactile sensing is becoming central to robust, adaptive, and dexterous robotic manipulation. Beyond its traditional role in contact detection and reactive control, touch is increasingly used to learn transferable representations, condition manipulation policies, and support embodied physical reasoning. Yet existing surveys largely emphasize tactile hardware and perception, leaving the rapid shift toward learning-based tactile manipulation insufficiently synthesized. This paper reviews tactile-guided skill learning from a learning-centric perspective, organized by the functional role of touch across the learning and control pipeline. We examine tactile representation and policy learning, tactile foundation models, predictive and adaptive control, and generalization across objects, tasks, sensors, embodiments, and simulation-to-real transfer. Across these directions, we identify common design principles and remaining challenges in learning transferable physical representations, integrating semantic reasoning with contact-level control, and scaling tactile learning across heterogeneous data and hardware. Finally, we outline emerging directions toward tactile foundation and world models that can predict, reason about, and adapt physical interactions. Together, this review characterizes the transition of touch from a task-specific feedback signal toward a core modality for general-purpose embodied intelligence. An accompanying database of the reviewed literature and associated resources is available at https://sites.google.com/view/touch-in-robot-learning-review.",
+     "published": "2026-10-14",
+     "comment": "",
+     "score": 15.0,
+     "routes": [
+      "learn",
+      "data",
+      "tactile"
+     ],
+     "route_hits": {
+      "tactile": 1,
+      "learn": 3,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 以学习为中心综述触觉引导机器人技能学习，按触觉在学习与控制流程中的功能角色组织，覆盖触觉表征与策略学习、触觉基础模型、预测与自适应控制，以及对象、任务、传感器、本体和仿真到现实迁移的泛化。<br><b>✨ 亮点</b> 提出触觉正从任务特定反馈信号转向通用具身智能核心模态的框架，并给出触觉基础模型与世界模型的未来方向及配套文献资源库。<br><b>💡 启发</b> 触觉基础模型与世界模型；跨异构数据与硬件的规模化触觉学习；语义推理与接触级控制的融合；仿真到现实和跨本体迁移。",
      "summary_source": "deepseek"
     }
    ]
