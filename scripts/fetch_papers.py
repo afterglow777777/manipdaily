@@ -25,8 +25,8 @@ DATA_FILE = os.path.normpath(os.path.join(HERE, "..", "data", "papers.json"))
 
 DAILY_PICK = 5
 MAX_KEEP_DAYS = 45
-PAGES = 2                 # 每页 100 条，共抓最新 200 条 cs.RO
-PAGE_SLEEP = 3            # arXiv API 礼貌间隔（秒）
+PAGES = 1                   # 单页 100 条最新 cs.RO（避免限流；够用）
+PAGE_SLEEP = 5              # arXiv API 礼貌间隔（秒）
 ATOM_NS = {"a": "http://www.w3.org/2005/Atom"}
 
 # ---------------------------------------------------------------------------
@@ -146,13 +146,14 @@ def fetch_latest_csro() -> list:
             "max_results": 100,
         })
         url = f"{base}?{qs}"
-        for attempt in range(3):
+        for attempt in range(4):
             try:
                 xml_bytes = http_get(url)
                 break
-            except Exception as exc:  # 网络抖动重试
-                print(f"[warn] fetch page {page} attempt {attempt + 1} failed: {exc}")
-                time.sleep(5)
+            except Exception as exc:  # 网络抖动 / 429 限流：指数退避
+                wait = 10 * (attempt + 1)
+                print(f"[warn] fetch page {page} attempt {attempt + 1} failed: {exc}; sleep {wait}s", flush=True)
+                time.sleep(wait)
         else:
             continue
         root = ET.fromstring(xml_bytes)
