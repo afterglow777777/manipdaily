@@ -1,6 +1,83 @@
 {
- "generated_at": "2026-10-16 12:52",
+ "generated_at": "2026-10-17 12:52",
  "days": [
+  {
+   "date": "2026-10-17",
+   "papers": [
+    {
+     "id": "arxiv:2610.21349",
+     "title": "CQDC-Warp: GPU-Accelerated Differentiable Quasi-Dynamic Simulation for Contact-Rich Manipulation",
+     "authors": [
+      "Yanchen Ding",
+      "Jiayi Chen",
+      "Jianfeng Xu",
+      "Wei Zhao",
+      "Li Yi",
+      "He Wang"
+     ],
+     "url": "https://arxiv.org/abs/2610.21349",
+     "abstract": "Efficient synthesis of contact-rich manipulation trajectories is essential for downstream robot learning. Gradient-based planning offers a promising approach, but jointly optimizing motion and contact decisions remains challenging. Meanwhile, many existing planners run on CPUs with limited throughput. We present CQDC-Warp, a GPU-accelerated differentiable quasi-dynamic simulator for batched model predictive control (MPC). We use it to study contact-guided trajectory optimization, in which intended robot--object contacts are specified before planning and encouraged through soft costs, while the simulated dynamics determine contact geometry and frictional response without a prescribed contact-mode schedule. Across $17{,}408$ trials on the $17$-object Allegro in-hand rotation benchmark, our framework achieves $79.8\\%$ success, compared with $73.7\\%$ for CFree and $65.2\\%$ for IMPACT, and reduces mean trajectory-generation time by factors of $27.0$ and $50.2$, respectively. On a single NVIDIA RTX 4090 with $2{,}048$ parallel worlds, forward and backward throughput reach $2.06\\times10^5$ and $2.25\\times10^5$ world-steps per second, respectively. Further experiments cover manipulation with LEAP and Shadow hands, environmental contact exploitation, bimanual manipulation, whole-body control, and real-world trajectory replay on a Sharpa hand.",
+     "published": "2026-10-15",
+     "comment": "",
+     "score": 15.5,
+     "routes": [
+      "affordance",
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "affordance": 2,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [
+      "nvidia"
+     ],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出GPU加速的可微准动态模拟器CQDC-Warp用于批量模型预测控制，并在规划前指定预期机器人—物体接触、以软代价引导，接触几何与摩擦响应由模拟动力学决定而无需预设接触模式调度。<br><b>✨ 亮点</b> 在17物体Allegro灵巧手内旋转基准的17408次试验中成功率达79.8%，高于CFree的73.7%和IMPACT的65.2%，平均轨迹生成时间分别缩短27.0倍和50.2倍；单张RTX 4090、2048个并行世界下前向与反向吞吐达20.6万和22.5万世界步/秒。<br><b>💡 启发</b> 接触引导加可微软约束可迁移至多指灵巧手、双臂与全身控制；GPU批量可微仿真适合大规模MPC及真实机器人轨迹回放验证。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.22184",
+     "title": "Whole-Body Dexterity",
+     "authors": [
+      "Conor Mc Gartoll",
+      "An Dang",
+      "Pranay Thangeda",
+      "Arjun Gupta",
+      "Carolina Higuera",
+      "Nima Fazeli",
+      "Mustafa Mukadam",
+      "Manikantan Nambi"
+     ],
+     "url": "https://arxiv.org/abs/2610.22184",
+     "abstract": "Current humanoid dexterous manipulation remains largely confined to end-effectors and simple grasps, falling short of humans' ability to engage the entire body by bracing and sliding bulky objects against the arms and torso. We introduce Whole-Body Dexterity (WBD), a general framework that uses the robot's body and appendages as contact surfaces to grasp and manipulate objects. Our sim-to-real pipeline first generates a dataset of feasible whole-body grasps, then trains reinforcement-learning experts on a general any-to-any repositioning objective by sampling initial and goal grasps from the dataset, and distills these experts into a single policy that uses proprioception and object geometry. We show that the distilled policy transfers zero-shot to a real Unitree G1, where it repositions a basketball and a cardboard box to regions around the torso and completes a long-horizon task that stows a box under one arm, carries it from a shelf to a table, and places it. The controller operates interactively, steered by coarse motion references from a human teleoperator. Across real-world whole-body manipulation tasks, the distilled controller completes 90% of trials, compared with 18% for direct retargeting and 4% for a generalist whole-body controller.",
+     "published": "2026-10-15",
+     "comment": "20 pages, 13 figures",
+     "score": 11.4,
+     "routes": [
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 1,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出WBD框架，将机器人躯干和手臂等身体表面作为接触面，通过生成可行全身抓取数据集、训练任意初始到目标抓取重定位的强化学习专家并蒸馏为单一策略，实现仅凭本体感知和物体几何的全身操作。<br><b>✨ 亮点</b> 蒸馏策略零样本迁移到Unitree G1，真实全身操作试验成功率90%，显著高于直接重定向18%和通用全身控制器4%，并完成夹箱、从货架搬到桌面并放置的长时程任务。<br><b>💡 启发</b> 躯干和手臂作为接触面可拓展操作空间；任意到任意重定位加专家蒸馏可迁移至长时程搬运与遥操作辅助。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-10-16",
    "papers": [
