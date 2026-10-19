@@ -1,6 +1,98 @@
 {
- "generated_at": "2026-10-18 12:58",
+ "generated_at": "2026-10-19 13:06",
  "days": [
+  {
+   "date": "2026-10-19",
+   "papers": [
+    {
+     "id": "arxiv:2610.22496",
+     "title": "Scaling Online Exploration for Robot Agents",
+     "authors": [
+      "Runhan Huang",
+      "Xiangcheng Zhang",
+      "Haoyu Chen",
+      "Yitong Li",
+      "Yen-Jen Wang",
+      "Bohan Lyu",
+      "Haotian Ye",
+      "Chuye Hong",
+      "Yixuan Wang",
+      "Chloe Su",
+      "Haoyu Xiong",
+      "Yangzhen Wu",
+      "Enze Xie",
+      "Travis Manderson",
+      "Stefano Ermon",
+      "Pieter Abbeel",
+      "Antonio Torralba",
+      "Dawn Song",
+      "Weirui Ye",
+      "Yilun Du"
+     ],
+     "url": "https://arxiv.org/abs/2610.22496",
+     "abstract": "Robot learning has advanced by scaling demonstration datasets and model capacity; however, deploying a new robot embodiment or task typically necessitates a dedicated teleoperation corpus. The resulting policies remain bounded by their imitation distributions, limiting generalization and continual self-improvement. We introduce RAX (Robot Agent eXploration), an open-source framework for robot agents centered on scaling exploration: enabling agents to improve by acquiring online experience and synthesizing executable programs. In RAX, a general-purpose coding agent generates robot control code, operating without action demonstration data, hand-engineered action primitives, or value-function guidance. Through online exploration, the agent identifies decision sequences that achieve task goals and compiles them into modular programs encapsulating the full perception-planning-control loop. Using RAX, we present a systematic multi-embodiment study on scaling online exploration across precision and long-horizon manipulation tasks using single-arm, bimanual, dexterous, mobile, and humanoid systems in simulation and on real robots. Generalization performance on unseen environments improves consistently as exploration scales. In simulation, RAX outperforms top baseline models by +37.4% on average. On real robots, RAX autonomously learns memory-dependent, articulated, high-precision, deformable, and long-horizon mobile manipulation tasks without human demonstrations, continually improving performance by composing verified skills from prior exploration sessions. As exploration scales, we observe emergent capabilities including active perception, error recovery, safety guardrails, and human-robot collaboration. We open-source RAX as a generalist robot-agent platform in which new robot embodiments are integrated through their APIs alone, without teleoperated data collection or policy training.",
+     "published": "2026-10-15",
+     "comment": "Project website is at https://robot-agent-exploration.com/",
+     "score": 17.8,
+     "routes": [
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 1,
+      "data": 4
+     },
+     "top_pis": [
+      "abbeel",
+      "yilun du"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出开源机器人智能体框架RAX，用通用编程智能体在无动作演示、手工动作原语和价值函数下生成控制代码，通过在线探索识别达成目标的决策序列并编译为封装感知—规划—控制闭环的模块化程序，实现跨本体规模化探索。<br><b>✨ 亮点</b> 仿真中平均超过顶级基线+37.4%，未见环境泛化随探索规模持续提升；真实机器人无需人类演示即可学习记忆依赖、铰接、高精度、可变形和长时移动操作任务，并涌现主动感知、错误恢复、安全护栏和人机协作能力。<br><b>💡 启发</b> 代码智能体驱动的在线探索与技能编译；仅靠API集成新本体、免遥操作数据采集与策略训练。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.23849",
+     "title": "Blind Precise Assembly: Proprioceptive Sim-to-Real Peg-in-Hole for Diverse Parts",
+     "authors": [
+      "Antonia Bronars",
+      "Younghyo Park",
+      "Kushal Kedia",
+      "Pulkit Agrawal"
+     ],
+     "url": "https://arxiv.org/abs/2610.23849",
+     "abstract": "Every robot already carries high-resolution contact sensors: its own joints. Legged robots and humanoids exploit them to walk, run, and track whole-body motions without vision, but there the contacts are large and forceful. Is joint sensing also enough for precise, contact-rich assembly, where the robot must find a millimeter-scale opening, mesh gear teeth, or catch a thread through light contact? We study this question by training blind assembly policies that observe only a short history of joint positions, velocities, and their own actions, without visual, force, torque, or tactile sensing. The poses of both the fixture and the part are unknown to the policy, and the grasp is randomized substantially. The policy must therefore assemble the parts through contact, sensed exclusively through its own proprioception. Trained with reinforcement learning entirely in simulation over randomized parts, grasps, and contacts, such policies learn peg insertion, gear meshing, and nut threading. The peg insertion policy transfers zero-shot to the real world and inserts pegs of different shapes and sizes in 73% of trials. Controlled comparisons with matched visual policies in simulation show that blind policies generalize far better to unseen part shapes and sizes, though they can be slower. Training such policies needs thousands of different assemblies, each simulated with its clearance intact, so we also release an open-source generator that builds them procedurally from exact convex pieces for MuJoCo; it is more accurate and faster than convex decomposition or MuJoCo's signed-distance collision. Videos and interactive simulations are at https://younghyopark.me/blind-proprioceptive-assembly/.",
+     "published": "2026-10-16",
+     "comment": "21 pages, 15 figures, 7 tables. Antonia Bronars and Younghyo Park contributed equally. Project page: https://younghyopark.me/blind-proprioceptive-assembly/",
+     "score": 15.8,
+     "routes": [
+      "data",
+      "affordance",
+      "tactile",
+      "learn"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "tactile": 1,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [
+      "pulkit agrawal"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 仅用关节位置、速度和动作历史训练强化学习盲装配策略，在仿真中随机化工件与夹具位姿、抓取和接触，使机器人纯靠本体感觉通过接触完成插销插入、齿轮啮合和螺母拧入。<br><b>✨ 亮点</b> 插销策略零样本迁移到真实世界，对不同形状和尺寸插销成功率为73%，仿真对照显示盲策略对未见零件形状和尺寸的泛化明显优于视觉策略但速度较慢。<br><b>💡 启发</b> 无视觉/力触觉的接触丰富装配与本体感觉接触感知；精确间隙程序化仿真生成支撑sim-to-real。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-10-17",
    "papers": [
