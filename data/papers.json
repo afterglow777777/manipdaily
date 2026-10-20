@@ -1,6 +1,194 @@
 {
- "generated_at": "2026-10-19 13:06",
+ "generated_at": "2026-10-20 13:09",
  "days": [
+  {
+   "date": "2026-10-20",
+   "papers": [
+    {
+     "id": "arxiv:2610.26765",
+     "title": "HandsOn: A Large-Scale Simulation Benchmark for Generalizable Dexterous Manipulation",
+     "authors": [
+      "Tianwei Luo",
+      "Yiming He",
+      "Hongjin Wu",
+      "Ting Pan",
+      "Debin Ren",
+      "Haorui Guo",
+      "Junlin Yang",
+      "Yuxin Zuo",
+      "Zhehao Kou",
+      "Kaisen Yang",
+      "Zhuoqun Lai",
+      "Yi Ding",
+      "Jiale Yu",
+      "Yuchen Zhang",
+      "Zijie Qiu",
+      "Haozhan Li",
+      "Ning Ding"
+     ],
+     "url": "https://arxiv.org/abs/2610.26765",
+     "abstract": "General-purpose manipulation requires reliable behavior across embodiments, objects, and task demands. We introduce HandsOn, a composable simulation platform and benchmark for cross-embodiment dexterous manipulation. It supports five robotic arms, six dexterous hands, and approximately 200 rigid, articulated, and deformable assets in randomized scenes. The benchmark pairs 18,000 curated human demonstrations with 66 human-verified tasks: Core-50 supports demonstration-based learning and execution tests, while Transfer-16 evaluates asset and relation transfer, skill composition, and deformable manipulation without target-task training demonstrations. Qualitative real-robot rollouts illustrate sim-to-real transfer. Across diffusion, vision-language-action, world-action, and prompted VLM-based methods, the best trained multi-task policy achieves 29.1% Core-50 success. Without benchmark finetuning, GPT-6 using move_eef for palm-and-finger control achieves 5.2% on Core-50 and 1.9% on Transfer-16 over 660 trials. Trained-policy stage diagnostics expose failures in contact establishment, action coordination, and maintaining achieved goals, with additional sequencing errors in composed tasks. HandsOn provides a shared basis for investigating manipulation generalization and the limits of reliable physical interaction.",
+     "published": "2026-10-19",
+     "comment": "56 pages, including appendices",
+     "score": 19.4,
+     "routes": [
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 4
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出 HandsOn 可组合仿真平台与跨具身灵巧操作基准，统一支持 5 种机械臂、6 种灵巧手和约 200 种刚体、关节及可变形资产，并将 18000 条人类演示与 66 个任务配对，用 Core-50 评估演示学习执行、Transfer-16 在无目标任务演示下评估资产关系迁移、技能组合和可变形操作。<br><b>✨ 亮点</b> 最佳训练多任务策略在 Core-50 成功率达 29.1%；未基准微调的 GPT-6 用 move_eef 控制手掌与手指，在 660 次试验中仅达 Core-50 5.2%、Transfer-16 1.9%。<br><b>💡 启发</b> 跨具身灵巧操作基准可用于机器人基础模型泛化评测；接触建立、动作协调与目标保持诊断是后续可靠物理交互研究的关键切入点。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.26846",
+     "title": "GPT-6 Astra Is a Native Visuo-Tactile Policy for Contact-Rich Manipulation",
+     "authors": [
+      "Chen Yang",
+      "Linzhe Shi",
+      "Hang Zhang",
+      "Mu Xu",
+      "Jiansheng Fan",
+      "Chen Wang"
+     ],
+     "url": "https://arxiv.org/abs/2610.26846",
+     "abstract": "Recent advances in multimodal models have enabled GPT-6 Astra to perform robotic manipulation through in-context learning. Yet contact-rich control and tactile perception are often regarded as strengths of specialist policies, leaving open whether Astra can directly understand and use tactile observations. We provide, to our knowledge, the first demonstration that Astra directly interprets vision-based tactile images and uses their contact cues for manipulation. Tactile RGB images enter through its existing visual interface, enabling few-shot closed-loop control on nineteen simulated UniVTAC and OpenViTac tasks with 210 sampled scene seeds per setting. With visuo-tactile input, Astra achieves mean success rates of 93.8% and 81.8%, exceeding the strongest reported specialist baselines in our comparison by 22.9 and 13.1 percentage points, respectively. Vision-only performance also leads these baselines, reaching 76.3% and 80.6%. Trajectory analysis reveals active probing, cautious grasping, contact-guided alignment, and recovery, alongside difficulties with tangential loading and corrective execution. Our findings challenge the exclusivity of specialist policies in contact-rich manipulation and show that fine-grained vision can partially compensate for missing touch. They also identify vision-based tactile sensing as an interface for scaling contact understanding with foundation models and reveal signs of benchmark saturation. These results motivate joint visual-tactile pretraining, harder contact-rich evaluations, and physical-robot validation.",
+     "published": "2026-10-19",
+     "comment": "22 pages, 19 figures, 5 tables. Project page: https://tactalent.github.io/",
+     "score": 18.4,
+     "routes": [
+      "learn",
+      "affordance",
+      "grasp",
+      "tactile",
+      "data"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "grasp": 1,
+      "tactile": 1,
+      "learn": 2,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 首次证明GPT-6 Astra可通过现有视觉接口直接解释基于视觉的触觉RGB图像，并利用接触线索进行少样本闭环接触丰富操作。<br><b>✨ 亮点</b> 在19个仿真任务、每设置210个场景种子上，视觉-触觉平均成功率达93.8%和81.8%，分别超过最强专家基线22.9和13.1个百分点。<br><b>💡 启发</b> 视觉触觉传感可作为基础模型扩展接触理解的接口；后续可推进联合视觉-触觉预训练、更难接触丰富评测与实机验证。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.25785",
+     "title": "Long-Horizon Multi-Object Rearrangement via Distilled Tree Search over Continuous Actions",
+     "authors": [
+      "Kallol Saha",
+      "Yining Hong",
+      "Amber Li",
+      "Yejin Choi",
+      "Maxim Likhachev",
+      "David Held"
+     ],
+     "url": "https://arxiv.org/abs/2610.25785",
+     "abstract": "Despite recent advances in policy learning, long-horizon manipulation remains difficult because learned policies must avoid compounding errors while preserving future feasibility. While search-based planning can explicitly reason over such future consequences, it quickly becomes expensive in high-dimensional continuous action spaces. This raises a central question: how can long-horizon reasoning from search be transferred into policies in continuous action spaces? To this end, we propose DISCO: Distilled Tree Search over Continuous Actions. DISCO uses progressive-widening MCTS in physics simulation to generate long-horizon plans. During search, a learned policy proposes continuous actions, while a learned value function scores actions by their expected progress toward task completion. Using GPU-parallelized simulation, DISCO periodically distills MCTS-generated plans into the policy-value model, improving the action proposals and value estimates used in subsequent searches. Finally, the learned policy-value model can be directly deployed without the need for simulator-based search at test time. Across simulated and real-world rearrangement tasks, DISCO outperforms behavior cloning, reinforcement learning, and search-based baselines.",
+     "published": "2026-10-19",
+     "comment": "Accepted at CoRL 2026 (Oral). Project page: https://distilled-search.github.io",
+     "score": 16.5,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 4,
+      "data": 1
+     },
+     "top_pis": [
+      "david held"
+     ],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出DISCO，用渐进加宽MCTS在物理仿真中生成连续动作长程规划，学习策略提议动作、价值函数评估任务进展，并周期性将搜索计划蒸馏进策略价值模型，测试时直接部署策略而无需仿真搜索。<br><b>✨ 亮点</b> 在仿真与真实世界重排任务上优于行为克隆、强化学习和基于搜索的基线。<br><b>💡 启发</b> 长程连续动作规划的策略蒸馏；GPU并行仿真加速搜索并支持测试时免搜索部署。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.25691",
+     "title": "ReDOA: Real-World Distillation via Observation Alignment for Image-Based Manipulation Policy Learning",
+     "authors": [
+      "Kotaro Kajitsuka",
+      "Masaki Murooka",
+      "Fumio Kanehiro"
+     ],
+     "url": "https://arxiv.org/abs/2610.25691",
+     "abstract": "Data-driven learning for general-purpose robotic manipulation presents a fundamental trade-off between data-collection cost and adaptability to real-world environments. Imitation learning (IL) requires costly human demonstrations, whereas simulation-based learning is vulnerable to sim-to-real gaps in dynamics and sensor observations. We propose ReDOA (Real-World Distillation via Observation Alignment), a framework that decouples control learning from perception learning to learn image-based policies in the real world. A state-based teacher policy trained in simulation is executed on a real robot, and its control knowledge is distilled into an image-based student policy using the collected trajectories. Observation Alignment resolves observation mismatches between data collection and deployment. This framework collects successful, efficiently executed trajectories paired with real-world visual observations, without requiring demonstrations from human experts. In real-robot experiments on three non-prehensile manipulation tasks, including bimanual manipulation, our method achieves better overall performance when jointly considering task success and execution efficiency than both IL based on human demonstrations and policy distillation in simulation. https://isri-aist.github.io/redoa-project-page/",
+     "published": "2026-10-19",
+     "comment": "9 pages, 6 figures, 2 table",
+     "score": 16.0,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 4,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出ReDOA框架，将控制学习与感知学习解耦：先在仿真训练状态教师策略并在真实机器人执行采集轨迹，再通过观察对齐把控制知识蒸馏为图像学生策略，解决数据采集与部署间的观察不匹配。<br><b>✨ 亮点</b> 在3个非抓取操作任务（含双臂）的真实机器人实验中，综合任务成功率与执行效率优于人类示范模仿学习和仿真策略蒸馏，且无需人类专家示范。<br><b>💡 启发</b> 仿真教师到真实图像学生的观察对齐蒸馏；可迁移至低成本真实机器人策略学习与跨域部署。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.25534",
+     "title": "AQUAACT: A Joystick-Level Underwater Teleoperation Dataset and Closed-Loop Benchmark",
+     "authors": [
+      "Zhenqi Wu",
+      "Trung Tien Dong",
+      "Aditya Penumarti",
+      "Mohamed A. Fouad",
+      "Menna A. Fouad",
+      "Mingyang Mao",
+      "Jane Jaejeong Shin",
+      "Xiaomin Lin"
+     ],
+     "url": "https://arxiv.org/abs/2610.25534",
+     "abstract": "Underwater robots support a growing range of work, from inspecting offshore structures and pipelines to surveying reefs and accompanying divers. Most of these tasks, however, are still flown by hand by a pilot, which raises the question of whether they can be carried out autonomously instead. On land, vision-language-action (VLA) models already let robots carry out tasks autonomously from language instructions, which makes them a natural candidate for taking the pilot's place. Underwater, however, there is little data to train such models. We take inspiration from how these tasks are flown today: the pilot watches the camera image and steers with a joystick, whose commands the flight controller turns into motion. We therefore record the pilots and introduce AQUAACT, to our knowledge the first publicly available language-annotated underwater dataset pairing camera images with human joystick commands. It comprises 1.9 hours of real-world and 17.9 hours of simulated demonstrations, both flown by human pilots, together with the vehicle's inertial measurements. Experiments with AQUAACT show that its simulated demonstrations transfer to real data and greatly reduce the real demonstrations a policy needs. A closed-loop benchmark of seven policies in simulation, from imitation-learning baselines to VLA models, each trained with its default recipe, shows that these tasks remain far from solved: no policy completes more than a fifth of the episodes. Pretraining on land data gives large VLA models no advantage over small policies trained from scratch, a gap that land-trained models have yet to close underwater.",
+     "published": "2026-10-18",
+     "comment": "",
+     "score": 16.0,
+     "routes": [
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 4
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出首个公开的语言标注水下遥操作数据集AQUAACT，将相机图像与人类摇杆指令及惯性测量配对，并建立闭环基准，用人类驾驶机制连接感知、语言指令与飞行控制。<br><b>✨ 亮点</b> 包含1.9小时真实和17.9小时仿真人类演示，仿真演示可迁移到真实并减少真实演示需求；七个策略闭环测试中无策略完成超过五分之一回合，陆上预训练大VLA未优于小策略从零训练。<br><b>💡 启发</b> 水下机器人数据采集与遥操作接口可迁移到水下巡检和作业；后续应研究陆上VLA向水下感知与控制的迁移及闭环基准评测。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-10-19",
    "papers": [
