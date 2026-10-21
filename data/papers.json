@@ -1,6 +1,115 @@
 {
- "generated_at": "2026-10-20 13:09",
+ "generated_at": "2026-10-21 13:10",
  "days": [
+  {
+   "date": "2026-10-21",
+   "papers": [
+    {
+     "id": "arxiv:2610.27995",
+     "title": "Learning Tactile-Aware Hand Representations from Human Hand-Object Interaction Data",
+     "authors": [
+      "Yeonguk Yu",
+      "Jaehong Kim",
+      "Byungok Han"
+     ],
+     "url": "https://arxiv.org/abs/2610.27995",
+     "abstract": "Tactile representation learning for dexterous manipulation often requires substantial robot-side data collection, limiting its scalability across different hands and sensors. We explore whether large-scale human hand-object interaction (HOI) data can provide a useful prior for robotic tactile learning. To this end, we propose HuTact, a framework that pretrains tactile-aware hand representations from human HOI data without requiring real tactile signals during pretraining. HuTact transfers the interaction structure learned from human hand motions to robotic tactile observations and can be further adapted with a small amount of unlabeled robot interaction data. We evaluate HuTact on tactile perception and manipulation tasks, including grasp prediction, slip detection, object classification, and tactile-conditioned policy learning. Across these tasks, human HOI pretraining improves data efficiency and provides a strong initialization for downstream learning. Notably, with HOI pretraining followed by midtraining on unlabeled robot play data, HuTact achieves 88.26% Macro-F1 on grasp prediction using only 25\\% of the labeled downstream data, comparable to training from scratch on the full labeled dataset (88.23%). These results suggest that human interaction data can serve as a scalable complementary source for robotic tactile representation learning.",
+     "published": "2026-10-20",
+     "comment": "9 pages, 4 figures",
+     "score": 18.6,
+     "routes": [
+      "tactile",
+      "learn",
+      "data",
+      "affordance"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "tactile": 2,
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出HuTact，从人类手物交互数据预训练触觉感知手部表征，无需真实触觉信号即可学习交互结构并迁移到机器人触觉观测，还可用少量无标签机器人交互数据适配。<br><b>✨ 亮点</b> 人类HOI预训练加无标签机器人play数据中期训练后，仅用25%标注下游数据在抓取预测达到88.26% Macro-F1，接近全量标注从头训练的88.23%。<br><b>💡 启发</b> 人类交互数据可作为可扩展的机器人触觉表征先验；可迁移至跨手跨传感器触觉感知、少标注抓取预测、滑移检测与触觉条件策略学习。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.27242",
+     "title": "EmbodyHOI: Embodiment-Aware Generation of Hand-Object Interactions for Humanoid Dexterous Manipulation",
+     "authors": [
+      "Chaitanya Chawla",
+      "Kartik Sharma",
+      "Ananya Bal",
+      "Laszlo A. Jeni",
+      "Guanya Shi"
+     ],
+     "url": "https://arxiv.org/abs/2610.27242",
+     "abstract": "Humanoid dexterous manipulation needs reference motions that are both semantically rich and kinematically feasible for the target robot. Text-conditioned hand-object interaction (HOI) generators supply diverse, language-specified demonstrations, but they synthesize motion in human (MANO) space. The embodiment gap is therefore deferred to post-hoc retargeting, where trajectories deployed on the robot can fail to maintain contact with objects and also degrade policy learning. Our key idea is that robot reachability should constrain the interaction trajectories while they are being generated. We present EmbodyHOI, which runs a differentiable inverse-kinematics (IK) solver for a specific humanoid embodiment inside the sampling loop of a frozen flow-matching HOI trajectory generator. We feed back gradients from the embodiment-aware IK solver into the HOI sampler and jointly optimize the position of the humanoid with respect to the object. Because guidance acts only at inference, one HOI trajectory generator trained on human hand poses transfers across humanoid embodiments without retraining. On ARCTIC trajectories with two contrasting humanoids (Unitree G1 and H1-2), our proposed guidance-based method cuts the retargeted wrist error from 8.9 cm to 0.6 cm while leaving text-to-HOI generation quality intact, and raises task success from 68% to 79% on 50 random G1 tasks and from 62% to 76% on a four-task H1-2 suite. Critically, cheaper alternatives for bridging the embodiment gap fail to beat EmbodyHOI. Post-hoc wrist refinement and compute-matched best-of-N selection both reach lower IK energy than our guidance yet train worse policies. For simulation results, see our website: https://embodyhoi.github.io/",
+     "published": "2026-10-19",
+     "comment": "",
+     "score": 15.4,
+     "routes": [
+      "learn",
+      "data",
+      "affordance"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> EmbodyHOI 在冻结的 flow-matching 手物交互生成器采样循环内嵌入面向特定人形本体的可微逆运动学求解器，把 IK 梯度回传到 HOI 采样并联合优化人形相对物体位置，使机器人可达性在生成阶段约束轨迹，推理时引导且无需重训即可跨人形本体迁移。<br><b>✨ 亮点</b> 在 ARCTIC 上用 Unitree G1 与 H1-2 将重定向腕部误差从 8.9 cm 降至 0.6 cm，文本到 HOI 生成质量不降；50 个随机 G1 任务成功率从 68% 升至 79%，四任务 H1-2 套件从 62% 升至 76%，且事后腕部修正与等算力 best-of-N 均不如该方法训练出的策略。<br><b>💡 启发</b> 生成时注入具身可达性约束；用可微 IK 引导基础生成模型以缩小仿真到机器人重定向差距并改善策略学习。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.27998",
+     "title": "LocoPilot: Single-Operator Bilateral Teleoperation for Loco-Manipulation Policy Learning",
+     "authors": [
+      "Antonio Langella",
+      "Giovanni Minelli",
+      "Giovanni B. Dessy",
+      "Lorenzo Amatucci",
+      "Giulio Turrisi",
+      "Victor Barasuol",
+      "Claudio Semini"
+     ],
+     "url": "https://arxiv.org/abs/2610.27998",
+     "abstract": "Learning loco-manipulation policies requires demonstrations that capture coordinated base and arm motion on the target embodiment. Robot-free interfaces allow demonstrations to be collected independently of the target robot, increasing flexibility but without directly capturing platform-specific commands, proprioception, and body-mounted observations. On-robot teleoperation allows to capture these signals directly, but requires an interface capable of commanding the complete system concurrently. This paper presents LocoPilot, a single-operator bilateral teleoperation and data-collection framework implemented on a 12-DoF Unitree Go2 quadruped equipped with a 6-DoF AgileX Piper L manipulator, an Intel RealSense D435 wrist camera, and an Intel RealSense D405 head camera. A second 6-DoF Piper L arm, used as the leader and two handheld controllers provide simultaneous control of the base, body posture, manipulator, and gripper. The follower arm interaction forces are estimated without a dedicated force/torque sensor and rendered to the operator through a passivity-constrained haptic channel. A ROS~2 pipeline records synchronized multimodal observations together with a unified 11D action shared by teleoperation and policy deployment. Compared to prior work, LocoPilot uniquely unifies robot-in-the-loop legged data collection, force feedback without motion-capture instrumentation, and the same action interface at deployment. We evaluate the interface across multiple loco-manipulation tasks and validate the complete collection-to-deployment pipeline by fine-tuning MolmoAct2 \\cite{MOLMO} on pick-and-place demonstrations and deploying on the physical robot without action retargeting or additional inverse kinematics. Code available at: https://github.com/iit-DLSLab/LocoPilot",
+     "published": "2026-10-20",
+     "comment": "",
+     "score": 15.0,
+     "routes": [
+      "learn",
+      "grasp",
+      "data"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 3,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出LocoPilot单操作员双边遥操作数据采集框架，用第二6-DoF Piper L主臂和两个手持控制器同时控制四足底盘、机身姿态、机械臂与夹爪，无专用力/力矩传感器估计从臂交互力并经无源性约束触觉通道反馈，ROS 2同步记录多模态观测与统一11D动作。<br><b>✨ 亮点</b> 在12-DoF Unitree Go2四足加6-DoF Piper L从臂系统上打通采集到部署全流程，用pick-and-place示范微调MolmoAct2后部署实体机器人，无需动作重定向或额外逆运动学。<br><b>💡 启发</b> 无动捕、低传感器依赖的力反馈遥操作采集；统一动作接口贯通示教与部署并迁移至四足移动操作数据规模化。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-10-20",
    "papers": [
