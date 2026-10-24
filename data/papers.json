@@ -1,6 +1,211 @@
 {
- "generated_at": "2026-10-23 13:14",
+ "generated_at": "2026-10-24 12:55",
  "days": [
+  {
+   "date": "2026-10-24",
+   "papers": [
+    {
+     "id": "arxiv:2610.30136",
+     "title": "Agentic World Action Models",
+     "authors": [
+      "Zhuoyang Liu",
+      "Dantong Niu",
+      "Botong Zhang",
+      "Boning Shao",
+      "Jing Wang",
+      "Ruijie Zheng",
+      "Yuvan Sharma",
+      "Runyu Lu",
+      "Jiaming Liu",
+      "Renrui Zhang",
+      "Roei Herzig",
+      "Yutong Bai",
+      "Ken Goldberg",
+      "Danfei Xu",
+      "Yuke Zhu",
+      "Guanzhi Wang",
+      "Linxi \"Jim\" Fan",
+      "Trevor Darrell"
+     ],
+     "url": "https://arxiv.org/abs/2610.30136",
+     "abstract": "Recent world action models provide visual foresight and future prediction for robot manipulation, but lack explicit mechanisms for compositional skill reuse. Agentic robotics combines code-based planning and reasoning with reusable skills, but often lacks predictive grounding in physical dynamics. We introduce AW-0, an agentic world action model framework that integrates code-based planning with joint video and action prediction. We jointly model code, future video, and robot actions as three coupled generative streams within a unified mixture-of-transformers architecture. Within this architecture a code expert generates parameterized skill routines and control logic while video and action experts generate future visual states and low-level motor commands. Code serves two complementary roles: it structures multi-step prediction and control within the world model and represents skills as reusable programs for subsequent agentic execution. We further introduce an automated curation pipeline that labels robot and human video trajectories with aligned programs and consolidates recurring routines into reusable skill libraries. Evaluations on RoboTwin 2.0 and physical bimanual manipulation tasks show improved task performance over VLA and WAM baselines, alongside gains in language following, semantic reasoning and robustness, demonstrating that agentic code enables connection between planning, prediction and execution within WAMs.",
+     "published": "2026-10-21",
+     "comment": "Project page: https://agentic-wam.github.io/",
+     "score": 13.0,
+     "routes": [
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 2
+     },
+     "top_pis": [
+      "goldberg",
+      "danfei xu",
+      "yuke zhu"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出AW-0框架，将代码规划与视频/动作联合预测统一到混合Transformer中，把代码、未来视频、机器人动作作为三条耦合生成流联合建模，由代码专家生成参数化技能例程与控制逻辑，视频和动作专家生成未来视觉状态与底层动作。代码同时用于结构化多步预测控制，并将技能表示为可复用程序。<br><b>✨ 亮点</b> 在RoboTwin 2.0和物理双臂操作任务上优于VLA与WAM基线，并在语言跟随、语义推理和鲁棒性上取得提升（摘要未给具体数值）。<br><b>💡 启发</b> 代码化可复用技能程序连接规划、预测与执行；自动标注机器人/人类视频轨迹并沉淀技能库，可迁移到多任务操作和人视频学习。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.29997",
+     "title": "DONIC: Generalist Dexterous Bimanual Tracking Control from Human Demonstrations",
+     "authors": [
+      "Mingze Sun",
+      "Ziang Cao",
+      "Yuan Fei",
+      "Qiankuan Tao",
+      "Zihan Wang",
+      "Tianqi Liu",
+      "Junhao Chen",
+      "Haiwen Diao",
+      "Fangzhou Hong",
+      "Zhaoxi Chen",
+      "Ziwei Liu"
+     ],
+     "url": "https://arxiv.org/abs/2610.29997",
+     "abstract": "Despite recent progress in dexterous reference tracking, existing models focus primarily on single-hand manipulation and a limited range of interactions, leaving the bimanual dexterous behaviors common in real life unaddressed. The scarcity of contact-rich bimanual manipulation data and the increased complexity of coordinating contacts make developing a generalist bimanual tracker particularly challenging. Therefore, we present 1) DONIC, the first generalist bimanual tracker jointly trained across operation categories and human-motion sources, together with 2) BiHOI, a multi-view dataset of 1,575 sequences spanning 229 objects and emphasizing sustained bimanual interaction, where reconstructed interactions are retargeted into robot references. DONIC combines proximal policy optimization with behavioral cloning in a feedback loop that recycles verified successful executions into training demonstrations. An object-centered per-hand reward maintains object-motion feedback while supervising each hand according to its reference contact role. Clip-Centered Advantages remove reference-dependent advantage offsets while preserving within-trajectory differences. Together, these designs enable one single policy to learn coordinated manipulation across heterogeneous references. Without finetuning, a single checkpoint achieves 86.79% success on unseen trajectories of training objects and 57.32% on held-out objects, surpassing the state-of-the-art bimanual tracking baselines by 77.36 and 45.73 percentage points.",
+     "published": "2026-10-21",
+     "comment": "",
+     "score": 11.6,
+     "routes": [
+      "data",
+      "affordance",
+      "learn"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出首个跨操作类别与人体运动源联合训练的通用双手灵巧跟踪器DONIC，并构建含1575条序列、229个物体且重定向为机器人参考的BiHOI多视角数据集；方法将PPO与行为克隆闭环结合，回收验证成功执行作为示范，并用物体中心每手奖励和Clip-Centered Advantages实现异构参考下按接触角色监督单手并保持双手协调。<br><b>✨ 亮点</b> 单个检查点无需微调在训练物体未见轨迹达86.79%成功率、留出物体达57.32%，分别超现有双手跟踪基线77.36和45.73个百分点。<br><b>💡 启发</b> 人演示重定向到机器人双手控制；成功执行闭环回收与接触角色分解奖励；多源异构参考的通用跟踪策略。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.31661",
+     "title": "OpenTac: An Open Ecosystem for Customizable, Scalable, and Transferable 3D Tactile Sensing",
+     "authors": [
+      "Ariel Slepyan",
+      "Geeta Chandra Raju Bethala",
+      "Jiafeng Gu",
+      "Anagha Rajendra Dangle",
+      "Yinzhe Zhou",
+      "Hongyuan Fu",
+      "Jade Sim",
+      "Tuhin Basu",
+      "Xinyi Yin",
+      "Md Faizal Karim",
+      "Gregory Hager",
+      "Homanga Bharadhwaj",
+      "Anand Bhattad",
+      "Krishna Murthy Jatavallabhula",
+      "Nitish V. Thakor"
+     ],
+     "url": "https://arxiv.org/abs/2610.31661",
+     "abstract": "We present OpenTac, a novel sensor and a full-stack ecosystem for tactile skins that are highly customizable, scalable, and readily deployed in downstream robot control and learning applications. Our core contribution is twofold. First, we develop a scalable resistive tactile skin with a structured deformable overlay that converts tangential loading into spatially varying pressure. Differential responses across neighboring \"taxels\" support decoding of local shear vectors, and the common-mode response encodes normal force. Second, we provide a highly customizable sensor design tool that is able to automatically generate fabrication files for these tactile skins from 2D outlines and developable 3D surfaces, including from abstract descriptions such as text (e.g., \"design a sensor for a size 9 shoe insole\"). We develop an ecosystem around the OpenTac sensor, including the CAD design tool, a sensor simulator, cross-sensor transfer, and fast/adaptive data acquisition. We demonstrate the broad applicability of the OpenTac-CAD sensor design tool by designing and fabricating more than 30 sensors across a variety of robot embodiments. We characterize the three-dimensional tactile fields produced by OpenTac with a commercial, high-precision force/torque sensor. We demonstrate the broad applicability of 3D tactile sensing across contact-rich feedback control and manipulation policy learning on four real-world robot embodiments. Additionally, adaptive acquisition enables kilohertz-rate partial readouts, exceeding full-array raster scanning on the same sensor by 19.2X at 16 sampled taxels per update for a 1024-taxel skin. We provide all hardware, software, and result videos are at opentac.github.io",
+     "published": "2026-10-22",
+     "comment": "14 pages, 14 figures. Project website, open-source hardware and software, and demonstration videos: https://opentac.github.io",
+     "score": 12.0,
+     "routes": [
+      "learn",
+      "affordance",
+      "tactile"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "tactile": 1,
+      "learn": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> OpenTac提出电阻式触觉皮肤与结构化可变形覆盖层，将切向载荷转为空间变化压力，利用相邻taxel差分响应解码局部剪切、共模响应编码法向力，并配套可从2D轮廓、可展开3D表面及文本描述自动生成制造文件的设计工具与仿真、跨传感器迁移、自适应采集生态。<br><b>✨ 亮点</b> 已设计制造30多种传感器并覆盖多种机器人形态，在四个真实机器人上验证接触丰富反馈控制与操作策略学习；1024-taxel皮肤每次采样16个taxel时实现千赫兹级部分读出，比同传感器全阵列光栅扫描快19.2倍。<br><b>💡 启发</b> 可迁移至定制鞋垫与可穿戴、机器人全身触觉皮肤、接触丰富操作；结构化覆盖层加差分/共模解码实现三维力感知，文本到制造与跨传感器迁移可降低触觉部署成本。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.31166",
+     "title": "Memory before Goal: Role of Pre-History Memory for Humanoid Loco-Manipulation",
+     "authors": [
+      "Chenyuan Chen",
+      "Ran Ding",
+      "Lechen Zhang",
+      "Zewen He",
+      "Yoshihiko Nakamura"
+     ],
+     "url": "https://arxiv.org/abs/2610.31166",
+     "abstract": "Humanoid loco-manipulation in dynamic scenes is non-Markovian: cues vanish as objects change or are hidden, or leave the view as the robot turns and walks, yet whole-body vision-language-action (VLA) policies see only the present. We present WholeBodyMem, an object-guided perceptual memory that keeps the pre-history of object events seen before the robot acts on its goal. SAM3 tracks the task objects, and their events causally select key frames within an adaptive budget, which the action expert reads by cross-attention together with object tokens encoding appearance, geometry and time. We also contribute HuMeGo, a humanoid memory benchmark with six simulated and six real-world Unitree G1 tasks. Keeping the right frames rather than more frames, WholeBodyMem surpasses memoryless and uniform-memory baselines, raising its base policy's success from 29.1% to 72.6% in simulation and from 36.7% to 88.3% on the real robot, while also improving the standard SIMPLE tasks (70.2% to 86.9%).",
+     "published": "2026-10-22",
+     "comment": "8 pages, 4 figures, 5 tables. Submitted to IEEE Robotics and Automation Letters (RA-L). Project page: https://memory-before-goal.github.io",
+     "score": 14.9,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "RA-L",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出WholeBodyMem，用SAM3跟踪任务物体并按物体事件因果筛选自适应预算内的关键帧，将编码外观、几何和时间的目标token经交叉注意力注入全身VLA动作专家，使策略保留目标物体的预历史记忆而非只看当前帧。<br><b>✨ 亮点</b> 在HuMeGo的6个仿真和6个真实Unitree G1任务上，将基础策略成功率从仿真29.1%提升到72.6%、真实36.7%提升到88.3%，并把SIMPLE任务从70.2%提升到86.9%。<br><b>💡 启发</b> 事件驱动关键帧选择与自适应记忆预算可迁移到遮挡、转身和动态场景的机器人VLA；目标中心预历史记忆值得用于非马尔可夫loco-manipulation建模。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.30105",
+     "title": "Asymmetric On-Policy Distillation Learns In-Context Exploration",
+     "authors": [
+      "Sriyash Poddar",
+      "Yanda Bao",
+      "Jacob Krantz",
+      "Matthew Chang",
+      "Xavier Puig",
+      "Roozbeh Mottaghi",
+      "Natasha Jaques",
+      "Abhishek Gupta"
+     ],
+     "url": "https://arxiv.org/abs/2610.30105",
+     "abstract": "Sequential decision-making under partial observability is difficult because agents must explore to infer hidden, task-relevant information before acting effectively. Learning such information-gathering behaviors tabula rasa via online reinforcement learning is sample-inefficient, whereas offline imitation averages expert actions across hidden states and fails to learn exploration. In this work, we propose ASTEROID, a simple and effective student--teacher supervised learning framework that can learn test-time exploration. Although a privileged expert never needs to explore, we demonstrate that a history-conditioned student can learn to do so when trained with on-policy contexts: the student first collects on-policy context under partial observability, and the privileged expert provides action labels conditioned on that context. By distilling expert actions directly conditioned on the student's on-policy history, the student learns to systematically resolve partial observability, i.e., search while uncertain and exploit once the hidden state is revealed. This enables efficient test-time exploration (similar to Bayesian posterior sampling) without incurring the impractical training-data costs of reinforcement learning. Across a diverse range of eleven different environments, including discrete exploration benchmarks, robotic manipulation, navigation, and Procgen environments, ASTEROID achieves ~2x higher returns under fixed exploration budgets, uses ~100x fewer interactions than RL baselines, and outperforms frontier models at exploration. Finally, our method transfers policies trained in simulation to vision-denied real-world robot manipulation, exhibiting efficient exploration and increasing success by +40% over standard distillation. Overall, it provides a simple yet surprisingly effective framework to learn efficient test-time exploration.",
+     "published": "2026-10-21",
+     "comment": "",
+     "score": 12.8,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [
+      "abhishek gupta"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出ASTEROID学生-教师监督框架，让学生先在部分可观测环境中收集在线策略上下文，再由特权专家基于该上下文提供动作标签并直接蒸馏，从而学会测试时探索，即不确定时搜索、隐藏状态揭示后利用。<br><b>✨ 亮点</b> 在11类环境中固定探索预算下回报约2倍，交互量比RL基线少约100倍，探索优于前沿模型；迁移到视觉受限真实机器人操作，成功率较标准蒸馏提升40%。<br><b>💡 启发</b> 在线历史条件化的特权专家蒸馏；部分可观测机器人操作、导航及仿真到现实的测试时主动探索迁移。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-10-22",
    "papers": [
