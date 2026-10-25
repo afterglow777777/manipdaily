@@ -1,6 +1,83 @@
 {
- "generated_at": "2026-10-24 12:55",
+ "generated_at": "2026-10-25 13:07",
  "days": [
+  {
+   "date": "2026-10-25",
+   "papers": [
+    {
+     "id": "arxiv:2610.30438",
+     "title": "Tactile-Based Robotic Manipulation: From Mechanics-Driven to Data-Driven Perspectives",
+     "authors": [
+      "Jingyi Xiang",
+      "Yixuan Wang",
+      "Wenzhen Yuan"
+     ],
+     "url": "https://arxiv.org/abs/2610.30438",
+     "abstract": "Tactile sensing provides robots with direct access to physical interactions at the contact interface, making it a critical modality for robust and dexterous manipulation. Over the past several decades, tactile-based manipulation research has evolved from mechanics-driven approaches, which explicitly interpret tactile signals through contact mechanics and task-specific reasoning, to data-driven approaches that learn tactile representations and manipulation policies directly from data. This paper reviews the development of tactile-based manipulation from these two complementary perspectives. We first introduce the fundamentals of tactile sensing, and then review, from a mechanics-driven perspective, how those signals form manipulation-relevant state representations and subsequently influence the robot action. We then examine the recent advances in data-driven tactile manipulation, covering imitation learning, reinforcement learning, vision-language-action models, and predictive models. Finally, we discuss open challenges and future opportunities toward scalable, generalizable, and robust tactile-enabled robotic systems.",
+     "published": "2026-10-21",
+     "comment": "30 pages. Author accepted manuscript. Posted with permission from the Annual Review of Control, Robotics, and Autonomous Systems, Volume 10; copyright 2027 the author(s), https://www.annualreviews.org. Published version: https://doi.org/10.1146/annurev-control-032125-030330",
+     "score": 17.0,
+     "routes": [
+      "learn",
+      "tactile",
+      "data"
+     ],
+     "route_hits": {
+      "tactile": 1,
+      "learn": 4,
+      "data": 1
+     },
+     "top_pis": [
+      "wenzhen yuan"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 系统梳理触觉操作从接触力学显式解释触觉信号并形成操作相关状态表征，到从数据直接学习触觉表征与操作策略的两类互补范式。<br><b>✨ 亮点</b> 建立力学驱动与数据驱动统一的综述主线，并系统覆盖模仿学习、强化学习、视觉—语言—动作模型和预测模型四类数据驱动方法。<br><b>💡 启发</b> 接触力学先验与数据驱动策略融合；面向可扩展、可泛化、鲁棒触觉操作系统的跨任务迁移。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.30810",
+     "title": "Adaptive Aerial Loco-Manipulation Policy Learning via LLM-Assisted Proactive Task Generation",
+     "authors": [
+      "Jingyu Ru",
+      "Xiangyuan Xie",
+      "Lixuan Jin",
+      "Jian An",
+      "Xingming Zhang",
+      "Binghao Li",
+      "Siyu Wang",
+      "Xiang Zhou",
+      "Lei Yuan",
+      "Hongli Xu",
+      "Yang Yu"
+     ],
+     "url": "https://arxiv.org/abs/2610.30810",
+     "abstract": "Loco-manipulation extends the workspace of conventional manipulation by combining mobility with physical interaction, while aerial loco-manipulation further expands this capability into three-dimensional space, enabling robots to reach environments inaccessible to ground-based systems. Moving to an aerial platform, however, gives rise to a demanding control problem, since the vehicle must track trajectories accurately in three dimensions while the motion of the arm and its interaction with the environment continuously shift the center of mass, alter the inertia, and impose force and moment disturbances on the body. Conventional controllers address these effects through explicit models and estimation, whereas learning-based controllers infer dynamics from experience, yet control rewards provide no direct target for the response information retained from history, and fixed task sampling can leave persistent tracking difficulties insufficiently explored. We present ALMA, an aerial loco-manipulation framework for adaptive flight control under external arm commands. ALMA employs a contextual flight policy that adapts from recent measurements and actions, using action-conditioned prediction of future measurement representations to train its context to retain response information relevant to flight control. To expand the experience available for this adaptation, an evolutionary process uses a large language model (LLM) to analyze observed control difficulties and propose new structures of arm motion for subsequent training. In simulation, ALMA reduces position root-mean-square error (RMSE) by up to 24.7% relative to the strongest baseline, while the same policy transfers zero-shot to the aerial manipulator and reduces hover position RMSE by 79.6% during periodic arm motion relative to the real-world baseline.",
+     "published": "2026-10-22",
+     "comment": "",
+     "score": 13.6,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 3,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出ALMA空中移动作业框架，用动作条件预测未来测量表征来训练上下文飞行策略，使其从近期测量与动作自适应，并用LLM分析控制难点、进化生成手臂运动结构以扩展训练经验。<br><b>✨ 亮点</b> 仿真位置RMSE较最强基线最高降低24.7%；同一策略零样本迁移至空中机械臂，周期性手臂运动下悬停位置RMSE较真实世界基线降低79.6%。<br><b>💡 启发</b> LLM辅助主动任务生成扩展自适应经验；动作条件未来表征预测可迁移至扰动下飞行控制与空中接触作业。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-10-24",
    "papers": [
