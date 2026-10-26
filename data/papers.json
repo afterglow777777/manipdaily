@@ -1,6 +1,129 @@
 {
- "generated_at": "2026-10-25 13:07",
+ "generated_at": "2026-10-26 13:10",
  "days": [
+  {
+   "date": "2026-10-26",
+   "papers": [
+    {
+     "id": "arxiv:2610.31779",
+     "title": "FLORA: An Open Model Suite for Scaling Robotics Data Engines",
+     "authors": [
+      "Sicong Leng",
+      "Yunze Man",
+      "Zhiqi Li",
+      "Jing Wang",
+      "Yuhe Zhang",
+      "Ryan Punamiya",
+      "Siddharth Patki",
+      "Kaiyuan Zheng",
+      "Zi-ang Cao",
+      "Zhiding Yu",
+      "Sifei Liu",
+      "Danfei Xu",
+      "Ben Levin",
+      "Jan Kautz",
+      "Yuke Zhu",
+      "Johan Bjorck",
+      "Linxi \"Jim\" Fan"
+     ],
+     "url": "https://arxiv.org/abs/2610.31779",
+     "abstract": "The life-cycle of robotics foundation models crucially depends on data labels. Outcome reward labels are needed for monitoring real-world deployments. Process reward labels are needed during RL post-training. Timestamped captions are needed for filtering and balancing pretraining data. We present Flora, an industrial-quality data engine used for training GR00T models, that simultaneously covers these capabilities. Flora achieves SOTA scores on the captioning benchmark WGO-Bench and reward benchmarks RoboReward and Robometer. On internal benchmarks it is competitive with GPT-6 Astra while beating other frontier models. The model is substantially cheaper than API-based alternatives, roughly 125 times cheaper than GPT-6 Astra. Florais battle tested at scale, labeling 200,000 hours of data per day across 512 GB300s. By open-sourcing our data engine, we enable researchers to scale custom robotics datasets and explore emerging applications such as physical auto-research and human-to-robot transfer.",
+     "published": "2026-10-22",
+     "comment": "",
+     "score": 13.0,
+     "routes": [
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [
+      "danfei xu",
+      "yuke zhu"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> Flora是面向GR00T训练的工业级机器人数据引擎，以统一模型同时生成结果奖励、过程奖励和时间戳描述标签，覆盖部署监控、强化学习后训练及预训练数据筛选平衡。<br><b>✨ 亮点</b> 在WGO-Bench描述基准和RoboReward/Robometer奖励基准达SOTA，内部基准可比GPT-6 Astra且优于其他前沿模型，成本约低125倍，日标注20万小时、用512块GB300s。<br><b>💡 启发</b> 开源数据引擎可迁移至自定义机器人数据集扩展、部署监控与RL后训练；物理自动研究、人到机器人迁移等新应用。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.30991",
+     "title": "UniFlowWAM: A Unified World-Action Model with Visual Semantics and 4D Geometry",
+     "authors": [
+      "Jialin Tian",
+      "Zhuofan Li",
+      "Xinkai Wang",
+      "Bokai Lin",
+      "Chenyi Wang",
+      "Xinyu Zhan",
+      "Cewu Lu",
+      "Lixin Yang"
+     ],
+     "url": "https://arxiv.org/abs/2610.30991",
+     "abstract": "Robot demonstrations record what the robot saw and what it did. They do not specify how the 3D world changed in between. Scene-level 3D flow describes it by tracking 3D scene points, providing the world representation with 4D geometry. Prior work has used flow to improve robot policies. Flow served as an intermediate prediction that a separate model converts into actions, as a prior injected at inference time, or as an extra output learned together with the action. In all of these designs, flow stays outside the policy, as a separate module or as an extra prediction head. We introduce UniFlowWAM, a Unified World-Action Model that makes 3D scene flow a third modality on par with vision and action. Its world representation therefore covers both visual semantics, through future visual features, and 4D geometry, through 3D flow, and flow receives its own supervision. UniFlowWAM is a diffusion transformer with one expert per modality, and the three experts exchange information through joint attention. We train UniFlowWAM under a ten-objective role grid, where each objective assigns every modality exactly one of three roles, namely target, condition, or absent. The same model thus serves as a policy, as forward and inverse dynamics, and as a predictor of future visual features or 3D flow. We evaluate UniFlowWAM on RoboCasa-GR1, LIBERO, and LIBERO-Plus in simulation, and on four real-world bimanual manipulation tasks. On RoboCasa-GR1, UniFlowWAM raises the success rate of its base model without flow from 52.1% to 56.4%. It preserves in-distribution success on LIBERO at 98.1% and reaches 87.7% zero-shot on LIBERO-Plus. On the real robot, it achieves 87.0% average success, compared with 68.5% for the strongest baseline.",
+     "published": "2026-10-22",
+     "comment": "14 pages, 5 figures, 4 tables. Project page: https://kksham111.github.io/UniFlowWAM_ProjectPage/",
+     "score": 10.4,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 1,
+      "data": 1
+     },
+     "top_pis": [
+      "cewu lu"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 将3D场景流设为与视觉、动作并列的第三模态，用每模态一个专家的扩散Transformer经联合注意力交互，并以十目标角色网格训练，使同一模型统一承担策略、正逆向动力学及未来视觉特征或3D流预测。<br><b>✨ 亮点</b> RoboCasa-GR1成功率由52.1%升至56.4%，LIBERO保持98.1%，LIBERO-Plus零样本达87.7%，真实双臂平均成功率87.0%高于最强基线68.5%。<br><b>💡 启发</b> 将3D场景流作为一等模态联合建模视觉语义与4D几何；用角色网格训练统一策略、正逆向动力学和多模态预测。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.32312",
+     "title": "MAST-VLA: Skill-Conditioned Adaptation with Trajectory-Affordance Priors for Multi-Skill Robot Manipulation",
+     "authors": [
+      "Jiachi Yang",
+      "Zhiyi Xu",
+      "Hongquan Zhang",
+      "Xin Tan",
+      "Zhizhong Zhang",
+      "Jingyu Gong",
+      "Yuan Xie"
+     ],
+     "url": "https://arxiv.org/abs/2610.32312",
+     "abstract": "Generalist robot manipulation requires a single vision-language-action (VLA) policy to execute diverse skills across scenes and instructions. However, current multi-skill VLA policies often leave two aspects of an instruction insufficiently modeled: which primitive skill to execute and where/how to contact and move objects. We propose MAST-VLA (Multi-skill Adaptation with Skill-conditioned experts and Trajectory-affordance priors), a dual-conditioning framework for robot manipulation. MAST-VLA introduces skill-conditioned LoRA Mixture-of-Experts (LoRA-MoE) adapters in the LLM backbone, where skill-query tokens and routing biases guide low-rank expert specialization, and converts a predicted affordance heatmap into a patch-level trajectory-affordance spatial prior for the action head. On the CALVIN ABC$\\rightarrow$D long-horizon multi-skill cross-scene generalization setting, MAST-VLA achieves state-of-the-art performance, reaching an Avg. Len of 4.65 over five-subtask evaluation sequences. Real-robot multi-skill sequence experiments further validate its deployability under real perception and control noise.",
+     "published": "2026-10-23",
+     "comment": "Accepted to CoRL 2026",
+     "score": 13.5,
+     "routes": [
+      "learn",
+      "affordance"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出MAST-VLA双条件框架，在LLM主干中用技能查询令牌与路由偏置驱动技能条件化LoRA-MoE专家特化，并把预测的affordance热图转为动作头的patch级轨迹-可供性空间先验。<br><b>✨ 亮点</b> 在CALVIN ABC→D长程多技能跨场景泛化设置上达到SOTA，五子任务评估序列平均长度4.65，并用真实机器人多技能序列实验验证部署性。<br><b>💡 启发</b> 技能条件化LoRA-MoE路由可迁移到多技能具身策略与跨任务专家分配；轨迹-可供性先验可用于接触丰富操作和跨场景泛化。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-10-25",
    "papers": [
