@@ -1,6 +1,213 @@
 {
- "generated_at": "2026-10-26 13:10",
+ "generated_at": "2026-10-27 13:25",
  "days": [
+  {
+   "date": "2026-10-27",
+   "papers": [
+    {
+     "id": "arxiv:2610.34356",
+     "title": "RynnVLA-Latent: Scaling Robotic Manipulation Foundation Models with 3D-Grounded Latent Actions",
+     "authors": [
+      "Haoyu Zhao",
+      "Xingyue Zhao",
+      "Zhian Su",
+      "Bohan Hou",
+      "Yinzhou Tang",
+      "Fengyi Wang",
+      "Kehan Li",
+      "Yuming Jiang",
+      "Siteng Huang",
+      "Xin Li",
+      "Zhenyu Zeng",
+      "Mingxiu Chen",
+      "Deli Zhao",
+      "Zhongyu Li"
+     ],
+     "url": "https://arxiv.org/abs/2610.34356",
+     "abstract": "Scaling vision-language-action (VLA) models is constrained by scarce action-labeled demonstrations and incompatible control spaces across robot embodiments. We present RynnVLA-Latent, a framework that turns heterogeneous interaction videos into scalable supervision for robot policy pretraining. At its core, RynnLAM learns continuous, 3D-grounded latent actions from visual transitions without requiring native robot controls. By combining residual future-feature prediction, camera-compensated 3D-flow supervision, and camera-motion decoupling, RynnLAM encourages representations that capture control-relevant motion rather than appearance changes alone. We apply RynnLAM to 30.1K hours of human, robot, and simulation videos, producing 745.52M latent-action descriptors. RynnVLA-Latent then learns to predict latent-action chunks from visual observations and language through flow matching, before adapting its pretrained backbone and action expert to embodiment-specific robot actions. The resulting 4B policy achieves 98.8% success on LIBERO, 84.7% on LIBERO-Plus without benchmark-specific adaptation, 51.9% average success across five VLABench tracks, and 88.6% average success on the RoboTwin 2.0 bimanual benchmark. It also achieves the highest observed success rates among the compared methods on six real-world manipulation tasks across dexterous-hand and mobile-gripper platforms. Together with representation ablations and data-scaling results, these findings demonstrate the potential of latent-action supervision for scaling robot policy learning beyond native action-labeled data.",
+     "published": "2026-10-25",
+     "comment": "Project page: https://alibaba-damo-academy.github.io/RynnVLA-Latent.github.io/, GitHub: https://github.com/alibaba-damo-academy/RynnVLA-Latent",
+     "score": 21.4,
+     "routes": [
+      "learn",
+      "data",
+      "grasp"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 4,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出RynnVLA-Latent，将异构交互视频转化为机器人策略预训练监督；其RynnLAM无需原生机器人控制，通过残差未来特征预测、相机补偿3D流监督和相机运动解耦，从视觉转移中学习连续、3D接地的潜在动作。<br><b>✨ 亮点</b> 基于30.1K小时视频生成745.52M潜在动作描述符，4B策略在LIBERO达98.8%、LIBERO-Plus无基准适配达84.7%、VLABench五赛道平均51.9%、RoboTwin 2.0双臂平均88.6%，并在六项真实操作任务上取得对比方法最高成功率。<br><b>💡 启发</b> 用3D接地潜在动作替代原生动作标签，可扩展到跨本体、人视频和仿真数据预训练；相机运动解耦与3D流监督可迁移到真实机器人控制表征学习。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.34051",
+     "title": "Behavior Spatial Benchmark: Evaluating Spatial Understanding for Robotics",
+     "authors": [
+      "Sirui Chen",
+      "Huang Huang",
+      "Qineng Wang",
+      "Wenlong Huang",
+      "Manling Li",
+      "Ruohan Zhang",
+      "Li Fei-Fei",
+      "Jiajun Wu"
+     ],
+     "url": "https://arxiv.org/abs/2610.34051",
+     "abstract": "Robot tasks require grounding spatial language in physical scenes, but task success alone cannot establish whether spatial instructions are followed. We present BEHAVIOR-Spatial, a benchmark built on BEHAVIOR-1K that measures spatial question answering, point-based target grounding, and robot action to examine how VLM spatial understanding relates to VLA behavior. It comprises 3,256 spatial questions across 49 activities, 1,240 grounding queries across 14 manipulation tasks, and action evaluations covering those 14 tasks and 10 navigation tasks. Our manipulation protocol evaluates held-out configurations and instruction following when the requested target changes within a fixed training layout. The baseline achieves 41.6% on held-out configurations but only 16.1% under changed instructions. VLM adaptation and robot-data pretraining provide limited improvements, whereas oracle visual target cues raise these rates to 60.3% and 38.0%, respectively. Perception evaluations reveal policy-dependent correlations between VLM question-answering and grounding accuracy and VLA manipulation performance. Together, these findings motivate evaluating spatial instruction following alongside task completion and examining when spatial perception performance translates into robot behavior. Project website: https://arielchen07.github.io/behavior-spatial/.",
+     "published": "2026-10-25",
+     "comment": "",
+     "score": 16.4,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 1
+     },
+     "top_pis": [
+      "li fei-fei",
+      "jiajun wu"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出基于BEHAVIOR-1K的BEHAVIOR-Spatial基准，用空间问答、点目标定位和机器人动作三层评测，并通过held-out配置与固定布局下改变指令的协议检验空间指令遵循。其机制是将VLM空间理解与VLA行为关联，区分任务成功和指令遵循。<br><b>✨ 亮点</b> 基线在held-out配置仅41.6%、改变指令时仅16.1%，oracle视觉目标线索分别提升至60.3%和38.0%，而VLM适配和机器人数据预训练提升有限。<br><b>💡 启发</b> 空间指令遵循与任务完成联合评测；空间感知到VLA行为的转化边界与训练评测。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.35862",
+     "title": "Learning Force-Reactive Humanoid Loco-Manipulation",
+     "authors": [
+      "Sihang Li",
+      "Xiaofeng Guo",
+      "Jinkun Cao",
+      "Charlie Cheng",
+      "Ruihan Yang",
+      "Chen Feng",
+      "Guanya Shi",
+      "Haozhi Qi"
+     ],
+     "url": "https://arxiv.org/abs/2610.35862",
+     "abstract": "Many everyday tasks require controlling contact force as well as motion. On a humanoid, this force must often be coordinated across both hands and the whole body, and cannot be specified by kinematic trajectories alone. Therefore, we present FLORE, a framework for learning force-reactive humanoid loco-manipulation. We collect robot-free demonstrations using two force-sensing UMI-style handheld grippers for hand motion and contact wrenches, and wearable trackers for body motion. A force-reactive diffusion policy takes vision, proprioception, and measured wrenches as input, then predicts actions and per-hand force commands. A hybrid compliance whole-body controller with force tracking executes these commands while maintaining balance: an integral of the force error measured by real force/torque (F/T) sensors lets each hand track force accurately along the commanded direction and remain compliant along the others. In simulation, the controller tracks per-hand force commands of varied magnitude and direction, with little loss in whole-body motion accuracy. Across three contact-rich tasks on the robot, the force-reactive policy succeeds in 80% of rollouts, compared with 26.7% for a position-only policy trained on the same demonstrations and executed by the same controller. For more details, please visit our website: https://louis-leee.github.io/FLoRe/.",
+     "published": "2026-10-26",
+     "comment": "9 pages, 6 figures",
+     "score": 12.6,
+     "routes": [
+      "learn",
+      "affordance",
+      "grasp",
+      "data"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "grasp": 1,
+      "learn": 2,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出FLORE，用双手力传感UMI式手持夹爪和可穿戴追踪器采集无机器人演示，训练以视觉、本体感知和接触力为输入的力反应扩散策略输出动作与每手力指令，并由带力跟踪的混合柔顺全身控制器在保持平衡下执行。<br><b>✨ 亮点</b> 在三个接触丰富任务中，力反应策略成功率为80%，而同一演示和控制器下的纯位置策略仅26.7%。<br><b>💡 启发</b> 无机器人力觉演示采集；力反应策略与全身柔顺控制协同用于人形接触丰富操作。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.34527",
+     "title": "How High Can GPT-6 Astra Climb in Contact-Rich Manipulation? PhysLadder: A Hierarchical, Matched Sim-Real Benchmark for Physical Interaction",
+     "authors": [
+      "Haibao Yu",
+      "Jiaqi Meng",
+      "Zijian Zhang",
+      "Bowen Jing",
+      "Lei Yang",
+      "Yue Hu",
+      "Chenchen Ge",
+      "Yiming Hou",
+      "Chenbo Xin",
+      "Dawen Ye",
+      "Haifang Qin",
+      "Jin Li",
+      "Weitao Zhou",
+      "Jianing Qiu",
+      "Jiankai Sun",
+      "Dandan Zhang",
+      "Zaiqing Nie",
+      "Ping Luo",
+      "Ding Zhao"
+     ],
+     "url": "https://arxiv.org/abs/2610.34527",
+     "abstract": "We introduce PhysLadder, a hierarchical Sim-Real benchmark for evaluating physical interaction capabilities in contact-rich manipulation. Its 16 household tasks span three cumulative levels: contact selection and geometric alignment (L1), force regulation within sustained contact (L2), and coordinated contact reconfiguration and force regulation (L3). Each task is instantiated in physically and visually matched simulated and real-world environments, with shared task definitions and success criteria. We evaluate GPT-6 Astra zero-shot with three trials per task in each environment. Real-world success rates decline from 80.0% at L1 to 47.6% at L2 and 0.0% at L3, with corresponding simulation rates of 66.7%, 47.6%, and 0.0%. Ten of the 16 tasks have identical success counts across environments; the remaining six differ by one success out of three trials. Across both environments, recurring difficulties in spatial reasoning, contact selection, force regulation, and coordination often prevent local physical progress from accumulating into task completion. These findings characterize Astra's observed capability boundary across increasing interaction demands and, for this model, support matched simulation as a repeatable, scalable testbed for studying the sustained, coordinated physical interactions that limit reliable manipulation.",
+     "published": "2026-10-25",
+     "comment": "31 pages, 11 figures",
+     "score": 14.4,
+     "routes": [
+      "data",
+      "affordance",
+      "learn"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出PhysLadder分层匹配仿真-现实基准，用16个家庭任务按接触选择与几何对齐、持续接触力调节、接触重配置与力调节协调三级累积评测，并让仿真与现实共享任务定义和成功标准。<br><b>✨ 亮点</b> GPT-6 Astra零样本每任务三次试验下，真实成功率从L1的80.0%降至L2的47.6%、L3的0.0%，仿真为66.7%/47.6%/0.0%，16项中10项两环境成功次数一致，其余仅差1/3次。<br><b>💡 启发</b> 分层接触任务可诊断空间推理、接触选择、力调节与协调瓶颈；匹配仿真-现实基准可作为可重复、可扩展的物理交互评测平台。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.35462",
+     "title": "DEX-PHD: A Dexterous Portable Handheld Device for Multimodal Data Collection",
+     "authors": [
+      "Jooyoung Hong",
+      "Noboru Myers",
+      "Obin Kwon",
+      "Yixian Yang",
+      "Joohyung Kim"
+     ],
+     "url": "https://arxiv.org/abs/2610.35462",
+     "abstract": "Existing manipulation data collection methods typically offer either accurate robot-state acquisition through kinematic-chain-based teleoperation or convenient, portable operation through vision-based approaches. We present DEX-PHD, a portable handheld device that combines these advantages for dexterous manipulation by integrating a dexterous robot hand, continuous per-finger control, and multimodal logging. The system records proprioceptive information, fingertip contact data, and wrist-camera video, while the operator directly controls the robot hand through joint-level mapping. Its untethered design enables data collection across diverse environments. We demonstrate DEX-PHD on contact-rich tasks requiring coordinated multi-finger manipulation and deploy the collected demonstrations through open-loop replay on a physical humanoid robot. The results show that open-loop replay preserves the main temporal patterns of finger motion and task-relevant contact. Therefore, DEX-PHD provides a practical platform for portable, multimodal dexterous manipulation data collection.",
+     "published": "2026-10-26",
+     "comment": "",
+     "score": 10.0,
+     "routes": [
+      "data",
+      "affordance",
+      "learn"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> DEX-PHD将灵巧机器人手、逐指连续关节级映射控制与多模态记录集成到无缆便携手持设备中，同步采集本体感觉、指尖接触和腕部相机视频，实现跨环境灵巧操作数据采集。<br><b>✨ 亮点</b> 在接触丰富的多指协调任务上验证，采集示范可在实体人形机器人上开环回放，并保留手指运动的主要时间模式和任务相关接触。<br><b>💡 启发</b> 便携多模态灵巧操作数据采集平台；接触与视频融合的示范数据用于人形机器人开环回放验证及后续策略学习。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-10-26",
    "papers": [
