@@ -1,6 +1,164 @@
 {
- "generated_at": "2026-10-27 13:25",
+ "generated_at": "2026-10-28 14:04",
  "days": [
+  {
+   "date": "2026-10-28",
+   "papers": [
+    {
+     "id": "arxiv:2610.36823",
+     "title": "TAPESTRY: A Single Backbone for Video Generation and Robot Control",
+     "authors": [
+      "Jeremy A. Collins",
+      "Seungjae Lee",
+      "Rachanon Wachakorn",
+      "Krishnan Srinivasan",
+      "Animesh Garg",
+      "Vitor Campagnolo Guizilini",
+      "Paarth Shah"
+     ],
+     "url": "https://arxiv.org/abs/2610.36823",
+     "abstract": "Pretrained video generation models encode rich priors about physical interactions, but leveraging them for robot control typically requires either resource-intensive video generation at test time or action heads trained from scratch that do not fully utilize the pretrained backbone. We introduce Tokenizing Actions as Video Patches in a Shared Transformer Policy (TAPESTRY), a world action model that repurposes a pretrained video diffusion transformer into a robotic policy without requiring video generation at inference. Our key idea is to treat robot actions as single-patch tokens in the video model's latent space. A lightweight linear projection maps each action timestep to the patch dimensions of the pretrained VAE, and the resulting tokens are processed by the same patchifying layers and transformer backbone used for video. The shared backbone is optimized through three diffusion objectives sampled per minibatch element: Video diffusion uses VAE latents from robot and human videos to establish dynamics priors. Joint video+action diffusion trains on robot demonstrations using a coupled diffusion timestep and an asymmetric attention mask. Action-only diffusion denoises actions conditioned on clean image latents. At test time, the model generates a compact action token sequence in a single DDIM step from pure noise, producing smooth action chunks at 84 ms per action chunk on consumer hardware and avoiding the cost of full video generation. Across simulation benchmarks and real-robot experiments, TAPESTRY achieves strong performance with substantially lower inference cost than comparable joint video--action policies. More information can be found at https://tapestry-wam.github.io.",
+     "published": "2026-10-27",
+     "comment": "Accepted to Conference on Robot Learning (CoRL) 2026",
+     "score": 10.5,
+     "routes": [
+      "data"
+     ],
+     "route_hits": {
+      "data": 2
+     },
+     "top_pis": [
+      "animesh garg"
+     ],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 将机器人动作编码为视频模型潜空间中的单patch token，经轻量线性投影对齐预训练VAE的patch维度，并与视频共用patchify层和Transformer骨干；通过视频扩散、联合视频+动作扩散、动作仅扩散三种目标混合训练，推理时无需生成视频。<br><b>✨ 亮点</b> 测试时仅用单步DDIM从纯噪声生成紧凑动作token序列，在消费级硬件上每动作块耗时84 ms，仿真与真机性能强且推理成本显著低于联合视频-动作策略。<br><b>💡 启发</b> 动作token化复用视频扩散先验；单步动作生成支撑低成本实时机器人控制；可迁移到世界动作模型与多模态策略预训练。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.36598",
+     "title": "OpenJaws: An Open Hardware UMI Framework with Stereo Localization for Generalist Manipulation",
+     "authors": [
+      "Adithyavairavan Murali",
+      "Yash Oza",
+      "Karanbir Chahal",
+      "Neel Jawale",
+      "Silas De Vries",
+      "Hesam Rabeti",
+      "Erwin Coumans",
+      "Balakumar Sundaralingam",
+      "Stan Birchfield"
+     ],
+     "url": "https://arxiv.org/abs/2610.36598",
+     "abstract": "Handheld data-collection interfaces such as the Universal Manipulation Interface (UMI) allow manipulation demonstrations to be gathered in the wild without a robot in the loop, but the quality of the resulting action labels is bounded by the accuracy of vision-based localization. Existing systems recover end-effector pose from monocular visual-inertial odometry, which is subject to scale ambiguity and drift, or delegate tracking to closed-source modules and external infrastructure that reintroduce cost and setup burden. We present OpenJaws, a fully open hardware and software framework for sensorized UMI that improves localization and simplifies deployment across robot platforms. OpenJaws pairs a modular, 3D-printed gripper exposing a standardized ISO adapter with a low-cost stereo camera to recover metric camera trajectories. We further introduce UMI-Loc-Bench-v1, a benchmark quantifying real-world localization accuracy for handheld data-collection devices, and show that stereo localization substantially outperforms monocular alternatives. Finally, we demonstrate that policies trained on data collected with OpenJaws can be deployed on a real robot across multiple tasks. Hardware, software, and data are released under a commercially permissive license. Code, data, and videos are available at https://open-jaws.github.io/",
+     "published": "2026-10-27",
+     "comment": "Project page: https://open-jaws.github.io/",
+     "score": 10.0,
+     "routes": [
+      "grasp",
+      "tactile",
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "tactile": 1,
+      "learn": 1,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出全开源软硬件UMI框架OpenJaws，用带ISO标准适配器的模块化3D打印夹爪与低成本双目相机恢复公制相机轨迹，并发布UMI-Loc-Bench-v1量化手持采集设备的真实定位精度。<br><b>✨ 亮点</b> 双目定位显著优于单目方案，缓解尺度歧义与漂移；用OpenJaws采集数据训练的策略可在真实机器人多任务部署。<br><b>💡 启发</b> 低成本双目定位与开源硬件可降低野外示范采集和跨平台部署门槛；UMI-Loc-Bench-v1可推动手持采集设备定位精度的标准化评测。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.36539",
+     "title": "CARD: Contact-Anchored Retargeting for Dexterous Manipulation",
+     "authors": [
+      "Cunxi Dai",
+      "Botao He",
+      "Francois R Hogan",
+      "Wei Pan",
+      "Rao Fu",
+      "Wen-Han Hsieh",
+      "Ruoshi Liu",
+      "Jitendra Malik",
+      "Guanya Shi",
+      "Akash Sharma"
+     ],
+     "url": "https://arxiv.org/abs/2610.36539",
+     "abstract": "Humans are dexterous, but traditional data collection paradigms such as teleoperation, kinesthetic teaching, and wearable exoskeletons force humans to act through the robot embodiment, bottlenecking their dexterity. Retargeting can avoid this. However, existing methods purely translate kinematics and ignore the real-world contact dynamics essential for task success. We present CARD: Contact-Anchored Retargeting for Dexterous Manipulation, a simulator and object-free framework that retargets human demonstrations to robot actions by explicitly preserving contact force targets. CARD unifies human data sources including video, motion capture, and tactile gloves via a shared hand--contact representation and generates explicit contact force targets in addition to kinematics. To maintain these contact targets during hardware open-loop replay, CARD also introduces a tactile tracking controller. For video which does not contain an explicit tactile source, we present Vid-HACO, our video-to-contact model that sets a new state of the art. Across our video, glove, motion-capture data and the GRAB dataset, CARD maintains contact on $43$--$78\\%$ of contact frames, while kinematic and object-aware retargeting methods maintain contact on $<10\\%$ and $22.5\\%$ of the frames respectively. Further, integrating our formulation into physics-based retargeting improves strict task success from 12\\% to 32\\% on GRAB dataset. Finally, we show that our tactile tracker is critical to reproduce demonstrated forces during hardware replay. These results establish that contact preservation via CARD is a scalable interface for transferring human dexterity to robots.",
+     "published": "2026-10-27",
+     "comment": "Project webpage: https://card-retargeting.github.io/",
+     "score": 13.0,
+     "routes": [
+      "data",
+      "tactile",
+      "learn"
+     ],
+     "route_hits": {
+      "tactile": 1,
+      "learn": 1,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> CARD将视频、动捕和触觉手套统一为手-接触表示，在无物体、无仿真器条件下生成显式接触力目标并重定向为机器人动作，配合触觉跟踪控制器在硬件开环回放中维持接触，并用Vid-HACO从视频预测接触。<br><b>✨ 亮点</b> 在视频、手套、动捕及GRAB数据上接触帧保持率为43%至78%，显著高于运动学方法的<10%和物体感知方法的22.5%；接入物理重定向后GRAB严格任务成功率由12%提升至32%，触觉跟踪器对硬件复现接触力关键。<br><b>💡 启发</b> 统一接触表示跨视频、动捕和触觉手套；接触力目标加触觉闭环跟踪可迁移到无物体数据采集与跨具身灵巧操作。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.36859",
+     "title": "ActiveAlign: Aligning Egocentric Manipulation via Active Perception",
+     "authors": [
+      "Ri-Zhao Qiu",
+      "Bowen Wen",
+      "Yifeng Jiang",
+      "Chen Tessler",
+      "Eric Heiden",
+      "Xue Bin Peng",
+      "Xiaolong Wang",
+      "Stan Birchfield",
+      "Erwin Coumans"
+     ],
+     "url": "https://arxiv.org/abs/2610.36859",
+     "abstract": "Real-to-Sim-to-Real (Real2Sim2Real) enables structured world representations for planning, interpretability, and safe execution. Most existing approaches rely on passive perception, which creates real2sim gaps due to imperfect observation. Inspired by how humans perceive actively through actions, we propose ActiveAlign, a framework that leverages active perception to align the Real2Sim2Real gap from interactions. ActiveAlign introduces two complementary modules: (i) ActiveAlign-Waving, which performs hand-eye calibration by exploiting active hand motions and differentiable rendering, and (ii) ActiveAlign-Touching, which refines object alignment through tactile feedback to achieve millimeter-level precision. Together, these capabilities enable strong real2sim alignment. We demonstrate that ActiveAlign-Waving can be used to curate simulation environments for open-sourced uncalibrated robot manipulation datasets, and demonstrate on a real Unitree G1 robot that ActiveAlign enables fine manipulation of millimeter-scale objects such as pressing buttons and moving sliders.",
+     "published": "2026-10-27",
+     "comment": "",
+     "score": 17.0,
+     "routes": [
+      "data",
+      "tactile",
+      "learn"
+     ],
+     "route_hits": {
+      "tactile": 1,
+      "learn": 1,
+      "data": 4
+     },
+     "top_pis": [
+      "xiaolong wang"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出ActiveAlign，利用交互中的主动感知对齐Real2Sim2Real间隙，含ActiveAlign-Waving以主动手部运动结合可微渲染做手眼标定，以及ActiveAlign-Touching以触觉反馈细化物体对齐。<br><b>✨ 亮点</b> 在真实Unitree G1机器人上实现按按钮、移动滑块等毫米级精细操作，触觉对齐达到毫米级精度。<br><b>💡 启发</b> 主动感知标定与触觉精细对齐；未标定机器人操作数据集的仿真环境构建。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-10-27",
    "papers": [
