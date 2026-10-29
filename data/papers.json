@@ -1,6 +1,124 @@
 {
- "generated_at": "2026-10-28 14:04",
+ "generated_at": "2026-10-29 14:17",
  "days": [
+  {
+   "date": "2026-10-29",
+   "papers": [
+    {
+     "id": "arxiv:2610.37215",
+     "title": "Retrieve to Act: Motion Primitive Graph Retrieval for Robust VLA Execution",
+     "authors": [
+      "Pham Tri Quang",
+      "Bao-Ngoc Dao",
+      "Minh Duc Nguyen",
+      "Duc-Duy Nguyen",
+      "Hung T. Ho",
+      "Linh Dang Le",
+      "Trong-Bao Ho",
+      "Thien-Loc Ha",
+      "Tan Q. Nguyen",
+      "Tuan Dam",
+      "Vu N. Duong",
+      "Daniel Sonntag",
+      "Ngan Le",
+      "Khoa D. Doan",
+      "Jan Peters",
+      "An Thai Le",
+      "Duy M. H. Nguyen",
+      "Vien Anh Ngo"
+     ],
+     "url": "https://arxiv.org/abs/2610.37215",
+     "abstract": "Vision-Language-Action (VLA) policies demonstrate remarkable semantic generalization, yet remain highly vulnerable to out-of-distribution (OOD) visual shifts during execution. While existing test-time methods attempt to suppress spurious visual cues, they fundamentally overlook the rich, uncorrupted kinematic priors embedded in the policy's own training experience. We introduce Retrieve to Act (R2A), a test-time scaling framework that formulates OOD robustness purely as a geometric motion primitive retrieval problem. R2A bypasses fragile visual features by structuring successful training demonstrations into an offline spatiotemporal motion primitive graph. During inference, a query-dependent Graph Neural Network dynamically localizes the robot's ongoing execution within this graph, retrieving structurally compatible future motion primitives. These retrieved geometric priors are then seamlessly harmonized with the frozen VLA's predicted actions via a learned, dimension-wise gating mechanism, adaptively rectifying erroneous spatial trajectories while preserving the policy's local reactivity. Extensive experiments across three state-of-the-art VLA architectures, GR00T N1.7, $π_{0.5}$, and StableVLA, demonstrate that R2A consistently and significantly enhances robustness against diverse contextual perturbations. R2A achieves absolute success rate improvements of up to +12% in simulation benchmarks (LIBERO-Plus, RoboTwin2.0-Plus) and +40% in real-world deployments, without requiring any finetuning of the base policies. Project page: https://retrieve2act.github.io/r2a/",
+     "published": "2026-10-27",
+     "comment": "20 pages, 9 figures, 7 tables",
+     "score": 14.6,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [
+      "jan peters"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> R2A将OOD鲁棒性转化为几何运动基元检索，离线把成功演示构建为时空运动基元图，推理时用查询相关GNN定位当前执行并检索结构兼容的未来基元，再经学习式逐维门控与冻结VLA预测动作融合以校正轨迹并保留局部反应性。<br><b>✨ 亮点</b> 在GR00T N1.7、π0.5、StableVLA上无需微调即显著提升鲁棒性，仿真基准LIBERO-Plus与RoboTwin2.0-Plus绝对成功率最高提升12%，真实部署绝对成功率最高提升40%。<br><b>💡 启发</b> 利用训练运动先验做测试时OOD校正；冻结策略加轻量图检索与门控融合；可迁移至机器人操作鲁棒执行和VLA部署。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.37378",
+     "title": "VLA-Stem: A Lightweight Safety Mechanism for Vision-Language-Action Models via Reinforcement Learning",
+     "authors": [
+      "Bojun Zou",
+      "Wenhao Yu",
+      "Jiaohao Li",
+      "Jiaxuan Lin",
+      "Guanting Ye",
+      "Haohan Geng",
+      "Weihao Yu",
+      "Yanyong Zhang",
+      "Jianmin Ji"
+     ],
+     "url": "https://arxiv.org/abs/2610.37378",
+     "abstract": "Vision-Language-Action (VLA) models integrate high-level reasoning with low-level action execution for end-to-end robotic control. However, most VLA models target static manipulation in unconstrained environments, overlooking spatial constraints and dynamic obstacles. Fine-tuning VLAs on obstacle-avoidance data is a straightforward solution, but collecting such data is costly, especially for dynamic scenarios, and may degrade their original task capabilities. To address these limitations, we propose VLA-Stem, a lightweight, reinforcement-learning-based safety mechanism for VLA systems. Without fine-tuning the underlying VLA policy, VLA-Stem converts its action chunks into motion references and uses trajectory-level guidance to preserve their spatial intent while allowing flexible motion and timing adjustments. Conditioned on these references, robot proprioception, and local obstacle information, the Stem policy adaptively modifies execution at inference time, preserving the original task intent while enabling responsive adaptation to spatial constraints and dynamic obstacles. For robust and sample-efficient training, we combine teacher-student distillation with curriculum learning. We evaluate VLA-Stem on reference following, static spatial constraints, and dynamic obstacle avoidance. Across six constrained simulation settings, VLA-Stem achieves 52.8% average collision-free task success versus 23.7% for the strongest safety baseline, while preserving base-policy performance in obstacle-free settings; real-world experiments further show consistent collision reductions under static and dynamic obstacles. These results demonstrate that VLA-Stem couples high-level VLA task intent with rapid, reflex-like responses to immediate physical risks, providing a brainstem-inspired mechanism for robust robot execution.",
+     "published": "2026-10-27",
+     "comment": "12 pages, 5 figures",
+     "score": 13.6,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 4,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出轻量强化学习安全机制VLA-Stem，不微调底层VLA策略，而将其动作块转为轨迹级运动参考，在保留空间意图下允许运动与时机调整；Stem策略结合参考、机器人本体感受和局部障碍信息，在推理时自适应修正执行，并用教师学生蒸馏与课程学习训练。<br><b>✨ 亮点</b> 六种受限仿真设置平均无碰撞任务成功率52.8%，显著高于最强安全基线23.7%，提升29.1个百分点约2.2倍，无障碍设置保持基策略性能，真实静态和动态障碍下碰撞一致减少。<br><b>💡 启发</b> 将VLA动作块作为轨迹参考并由轻量强化学习策略做推理时安全修正的分层架构；教师学生蒸馏加课程学习提升安全策略样本效率，可迁移到动态障碍移动操作、服务机器人实时避障与安全过滤。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.35733",
+     "title": "Multi-Objective Reinforcement Learning Using Routed Ensembles and Trajectory Attribution",
+     "authors": [
+      "Zhenshuo Zhang",
+      "Ruoxuan Xiong",
+      "Hongyang R. Zhang"
+     ],
+     "url": "https://arxiv.org/abs/2610.35733",
+     "abstract": "Multi-objective reinforcement learning is a fundamental problem for modern AI, with applications spanning post-training, reasoning models, and robotic control. A central challenge is to learn policies that balance competing objectives, such as helpfulness versus honesty in safety and alignment, or speed versus energy in robotics. The optimal policy can vary sharply with objective-weighting combinations, and the extent of this variation depends crucially on the degree of conflict among objectives, making per-preference policy learning sample-inefficient. In this paper, we introduce objective-conflict coefficients and derive near-optimal regret bounds for online settings using this measure, thereby quantifying the impact of misalignment on learning efficiency. Then, we design routed ensemble policy learning, an algorithm that maintains a small set of basis policies and dynamically routes trajectories to the policy with the highest potential reward. Finally, we consider trajectory selection as another approach to mitigate objective conflict, and design a kernel surrogate trajectory attribution algorithm that estimates how feedback signals from a set of trajectories influence policy learning on other trajectories. The kernel can capture nonlinear interactions such as synergy and antagonism between trajectories. We evaluate our approach across diverse environments and benchmarks: routed ensembles improve average performance by 4.3% over baselines for online environments from Meta-World and MO-Gymnasium, and kernel surrogate attribution improves correlation with leave-one-out analysis over existing baselines by 50%. When applied to trajectory selection, kernel-based attribution yields a 27% improvement in reward over baseline attribution methods.",
+     "published": "2026-10-26",
+     "comment": "30 pages. To appear at NeurIPS 2026 (extended version)",
+     "score": 12.9,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "NeurIPS",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出目标冲突系数并给出在线近最优遗憾界，同时设计路由集成策略学习，维护少量基策略并按潜在奖励动态路由轨迹，另用核代理轨迹归因估计轨迹反馈对策略学习的非线性影响。<br><b>✨ 亮点</b> 路由集成在Meta-World和MO-Gymnasium在线环境平均性能提升4.3%，核代理归因与留一分析相关性提升50%，用于轨迹选择时奖励提升27%。<br><b>💡 启发</b> 多目标冲突度量与自适应策略路由；核代理轨迹归因用于数据筛选、经验回放和偏好学习。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-10-28",
    "papers": [
