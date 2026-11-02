@@ -1,6 +1,83 @@
 {
- "generated_at": "2026-11-01 14:40",
+ "generated_at": "2026-11-02 14:39",
  "days": [
+  {
+   "date": "2026-11-02",
+   "papers": [
+    {
+     "id": "arxiv:2610.40828",
+     "title": "From Teleoperation to Long-Horizon Dexterity: Evaluating Visuomotor Skills and Offline Proxies for Dexterous Manipulation",
+     "authors": [
+      "Ammar N. Abbas",
+      "Aayush Jain",
+      "Prashanth Viswanath",
+      "Nivesh Gadipudi",
+      "Giulia Vilone",
+      "Jim Gibbons"
+     ],
+     "url": "https://arxiv.org/abs/2610.40828",
+     "abstract": "Imitation learning policies are intended to make robotic manipulation robust to variations in object pose, appearance, and environment that challenge pre-programmed motion. However, real-world performance remains difficult to predict, as conventional optimization signals such as validation loss show no consistent relationship with robot success. To identify the design choices that govern real-world performance, 281 imitation-learning policies spanning seven policy families were evaluated in approximately 1,700 real-robot trials of RJ45 connector grasping and insertion using a five-fingered robotic hand. Controlled ablations showed that observation and action representations dominated conventional optimizer and sampling choices. For point-cloud policies, region-of-interest cropping, representation in the robot-base frame, and normalization within the point encoder each improved success by 70-100 percentage points. For the vision-language-action policy, absolute rather than relative action prediction improved insertion success by up to 70 percentage points. Skill decomposition, multi-view perception, and recovery demonstrations were associated with the strongest-performing systems, although their effects were not independently isolated. Of 67 offline metrics evaluated, only five measures of predicted-motion smoothness and directness reliably correlated with insertion success (r = -0.70 to -0.80), and only within a single policy family. These results identify representation choices as key determinants of real-world imitation-learning performance and show that offline metrics can shortlist policies, but cannot replace real-robot evaluation.",
+     "published": "2026-10-29",
+     "comment": "Accepted at CoRL 2026 Workshop",
+     "score": 18.5,
+     "routes": [
+      "learn",
+      "data",
+      "grasp"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 3,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 在五指机器人RJ45抓取插入任务上以281个策略、约1700次真机试验开展受控消融，发现观察与动作表征而非优化器或采样选择主导真实世界性能，并系统检验67个离线代理指标。<br><b>✨ 亮点</b> 点云策略的ROI裁剪、机器人基座坐标系表示和点编码器内归一化各提升成功率70至100个百分点，VLA绝对动作预测使插入成功率最多提升70个百分点；67个离线指标中仅5个运动平滑性与直接性指标与插入成功相关（r=-0.70至-0.80）且仅限单一策略族。<br><b>💡 启发</b> 优先做坐标系、ROI裁剪、归一化和动作空间等表征工程；离线指标只用于初筛策略而不能替代真机评估，长时程灵巧操作可关注技能分解、多视角感知与恢复演示。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2610.41377",
+     "title": "MolmoSpaces-CommonSense: Evaluating Commonsense in Robotic Manipulation Policies",
+     "authors": [
+      "Arjun Guru",
+      "Max Argus",
+      "Jae Sung Park",
+      "Jiafei Duan",
+      "Ali Farhadi",
+      "Ranjay Krishna"
+     ],
+     "url": "https://arxiv.org/abs/2610.41377",
+     "abstract": "Real-world robotic manipulation requires reasoning about cluttered scenes, partially observable or hidden objects, and semantically appropriate actions, in addition to low-level execution within those scenes. However, existing simulation benchmarks primarily test the latter and remain dominated by comparatively clean environments with limited clutter and narrowly scoped task structure, leaving many forms of commonsense reasoning untested. We address this by introducing a taxonomy of reasoning processes for robotic manipulation grounded in developmental cognitive science. We operationalize this taxonomy through a new benchmark of robot tasks, MolmoSpaces-CommonSense, that requires reasoning about occlusion, containment, support relations, semantically correct grasp points, spatial affordances, and hidden objects. These evaluations require policies not only to recognize relevant scene structure but also to execute correct actions in them. We evaluate several zero-shot generalist manipulation policies. Across model types and architectures, we observe consistent failures in commonsense reasoning: success rates in cluttered scenes drop by over 50% as distractors increase, policies act on incorrect objects in cluttered settings 30% of the time, and affordance-sensitive grasping remains unreliable even with highly specific language prompts, with correct object part selection happening only about 50% of the time. Further, VLM-based success estimation struggles to reliably evaluate rollouts in these settings, suggesting that the challenge extends beyond control to the broader perception-reasoning-action stack. Our results suggest that existing benchmarks may substantially overestimate zero-shot real-world readiness. Code and policy leaderboard link at https://github.com/allenai/molmospaces.",
+     "published": "2026-10-30",
+     "comment": "Project page: https://github.com/allenai/molmospaces",
+     "score": 14.4,
+     "routes": [
+      "data",
+      "affordance",
+      "grasp",
+      "learn"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "grasp": 1,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出基于发展认知科学的机器人操作推理分类法，并操作化为MolmoSpaces-CommonSense基准，覆盖遮挡、包含、支撑、语义抓取点、空间可供性与隐藏物体，评测零样本通用操作策略。<br><b>✨ 亮点</b> 杂乱场景中干扰物增加使成功率下降超50%，30%时间作用错误物体，具体语言提示下正确物体部件选择仅约50%，且VLM成功估计不可靠。<br><b>💡 启发</b> 将遮挡、容器、支撑与可供性推理纳入训练评测；需联合感知-推理-行动全栈并专门校准rollout成功估计。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-10-30",
    "papers": [
