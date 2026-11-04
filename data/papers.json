@@ -1,6 +1,207 @@
 {
- "generated_at": "2026-11-03 15:08",
+ "generated_at": "2026-11-04 14:54",
  "days": [
+  {
+   "date": "2026-11-04",
+   "papers": [
+    {
+     "id": "arxiv:2611.03815",
+     "title": "AIRoA-0: Long-Horizon, Precise, Cross-Embodiment Manipulation from Handheld Data",
+     "authors": [
+      "Yueh-Hua Wu",
+      "Kei Ota",
+      "Hanlong Li",
+      "Hayata Yuasa",
+      "Jason Wang",
+      "Kengo Ikeuchi",
+      "Kensuke Chiyoma",
+      "Makoto Sugiura",
+      "Masafumi Takahashi",
+      "Masatoshi Tateno",
+      "Naoaki Kanazawa",
+      "Nicola Scianca",
+      "Petr Khrapchenkov",
+      "Satoshi Otsubo",
+      "Takehiko Ohkawa",
+      "Takuya Okubo",
+      "Tatsuya Matsushima",
+      "Yuki Noguchi",
+      "Yuma Shin",
+      "Zixuan Zhong"
+     ],
+     "url": "https://arxiv.org/abs/2611.03815",
+     "abstract": "AIRoA-0 (A-0) is a bimanual manipulation system learned from 16,151 hours of handheld demonstrations, with no robot data collected at any stage. The demonstrations are recorded with YUBI, our open-source handheld gripper, which lets people record manipulation data anywhere with no robot present. From a single instruction, A-0 sorts more than a dozen small parts into their numbered cells and changes the mop pads and brush of a robot vacuum; among other tasks, it unzips a pencil case and folds a towel. It performs these tasks using only a camera on each wrist, with no head or scene camera, at a site where none of its training data was recorded. Across the ten tasks of our evaluation, it averages a success rate of 78%, against 27% for the strongest of four other vision-language-action models post-trained on the same task demonstrations. We collect no teleoperation data and use no reinforcement learning or on-robot corrections, and the robot appears only at test time. The system learns which regions of each wrist view matter for the task, predicts the stage the task has reached, and decodes actions as a continuous stream. A-0 is embodiment-agnostic: it runs on robots that mount the YUBI gripper, such as a bimanual Franka, TX-G2, OpenArm and UR. We are releasing the dataset, to our knowledge the largest open dataset of handheld-gripper demonstrations with task and subtask instructions, together with the pre-trained weights and the post-training recipe. Videos of A-0 on every task are on the project page, https://a-0.airoa.io. Anyone can build the gripper, record a task of their own and post-train the model on it in under four hours on a single node of eight H200 GPUs.",
+     "published": "2026-11-02",
+     "comment": "18 pages. Project page: https://a-0.airoa.io",
+     "score": 15.6,
+     "routes": [
+      "learn",
+      "data",
+      "grasp"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 3,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出AIRoA-0，用16,151小时YUBI手持夹爪演示训练双臂操作策略，不采集机器人数据、不遥操作、不用强化学习或机器人纠正，仅靠双腕相机，通过任务相关腕视图区域学习、任务阶段预测和连续动作流解码实现长时程精确跨具身操作。<br><b>✨ 亮点</b> 仅用双腕相机、无头或场景相机，在未采集训练数据的地点完成10个任务，平均成功率78%，最强基线仅27%。<br><b>💡 启发</b> 手持演示替代机器人遥操作采集，降低数据门槛并支持跨具身部署；任务阶段预测与连续动作解码可迁移到长时程精密双臂操作及低成本后训练复现。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.03648",
+     "title": "Pixel: A Co-Designed Full-Stack Robot System for Learning General-Purpose Mobile Manipulation",
+     "authors": [
+      "Tony Tao",
+      "Jason Jingzhou Liu",
+      "Ruslan Salakhutdinov",
+      "Deepak Pathak"
+     ],
+     "url": "https://arxiv.org/abs/2611.03648",
+     "abstract": "General-purpose mobile manipulation requires a combination of capable robot hardware, scalable demonstration collection, expressive whole-body control, and effective policy learning. Yet these components are often developed independently, creating mismatches that limit the capabilities of the complete system. We present Pixel, a co-designed full-stack system for learning general-purpose mobile manipulation. Pixel combines a low-cost wheeled humanoid with human-aligned kinematics and compliant grippers, multiple teleoperation and robot-free human data-collection interfaces, a unified whole-body controller, and a common policy learning pipeline across human and robot demonstrations. A hierarchical learning stack further enables language-conditioned visuomotor control and long-horizon task execution. We evaluate the system across hardware, data collection, and policy learning, and demonstrate mobile-manipulation behaviors requiring dexterity, active perception, navigation, and whole-body coordination. We hope that Pixel provides an integrated and extensible foundation for studying how robot hardware, data, control, and learning can be designed together for robot learning. More results at https://pixel-robot.com/pixel",
+     "published": "2026-11-02",
+     "comment": "More results at https://pixel-robot.com/pixel",
+     "score": 13.0,
+     "routes": [
+      "learn",
+      "grasp",
+      "data"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 2,
+      "data": 1
+     },
+     "top_pis": [
+      "deepak pathak"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出Pixel全栈协同设计的低成本轮式人形移动操作系统，整合人类对齐运动学与柔顺夹爪、多种遥操作与无机器人人类数据采集接口、统一全身控制器，以及跨人类和机器人演示的共享策略学习管线，并用分层学习支持语言条件视觉运动控制与长时任务执行。<br><b>✨ 亮点</b> 在硬件、数据采集和策略学习三层面完成系统级验证，演示了同时需要灵巧操作、主动感知、导航和全身协调的移动操作行为。<br><b>💡 启发</b> 低成本轮式人形加人类对齐数据采集；统一全身控制加跨人类/机器人共享策略学习。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.03520",
+     "title": "PanoTac: A Dense Three-Axis Tactile Sensor for Robust Touch-Centric Manipulation",
+     "authors": [
+      " Binglin",
+      " Wang",
+      " Xiaole",
+      " Jiang",
+      "Zicheng Teng",
+      "Xinqi Liu",
+      "Yunzhu Li",
+      "Lerrel Pinto",
+      "Zichen Jeff Cui",
+      "Binghao Huang"
+     ],
+     "url": "https://arxiv.org/abs/2611.03520",
+     "abstract": "Contact-rich manipulation benefits from tactile feedback that captures both detailed contact geometry and interaction forces. When scooping grains, contact patterns help infer spoon orientation, while resistance transmitted through the grasp guides motion. To provide these complementary sensing capabilities, we present PanoTac, a low-cost, compliant tactile fingertip designed for dense three-axis tactile sensing. Each fingertip provides a $12 \\times 32 \\times 3$ tactile representation, with one normal ($z$) and two shear ($x$, $y$) response components at each taxel. The sensor operates at 60 Hz and costs less than $50 per fingertip. Sensor characterization quantifies response repeatability and consistency across sensor instances and contact locations. We integrate PanoTac into a robotic system with a visuo-tactile pipeline. Across test-tube preparation, grain scooping, and salt pouring, the resulting policies outperform vision-only baselines by an average of 46.7 percentage points. Ablations show that removing either spatial contact information or shear feedback reduces overall performance across the task suite. Our project page is available at https://panotac.github.io.",
+     "published": "2026-11-02",
+     "comment": "Project page: https://panotac.github.io",
+     "score": 16.0,
+     "routes": [
+      "affordance",
+      "tactile",
+      "learn"
+     ],
+     "route_hits": {
+      "affordance": 2,
+      "tactile": 1,
+      "learn": 1
+     },
+     "top_pis": [
+      "lerrel pinto",
+      "yunzhu li"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出低成本柔性触觉指尖PanoTac，以每指尖12×32×3的密集三轴触觉表征（每个触觉点含法向与双剪切响应）和60Hz采集，集成视触觉策略实现触觉中心操作。<br><b>✨ 亮点</b> 在试管准备、舀谷物和倒盐任务中较纯视觉基线平均提升46.7个百分点，消融显示移除空间接触信息或剪切反馈均会降低整体性能。<br><b>💡 启发</b> 密集三轴触觉与视触觉融合用于接触丰富操作；低成本柔性传感器迁移到抓取、倾倒和颗粒介质操作。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.04492",
+     "title": "Hybrid Particle-Voxel Dynamics for Multimodal 3D World Simulation",
+     "authors": [
+      "Jimmy Wang",
+      "Yifan Chou",
+      "Kaifeng Zhang",
+      "Yixuan Wang",
+      "Binghao Huang",
+      "Tao Yu",
+      "Saleh Nabi",
+      "Yunzhu Li"
+     ],
+     "url": "https://arxiv.org/abs/2611.04492",
+     "abstract": "Predicting how the world evolves in response to robot actions is central to policy learning, evaluation, and planning. However, many action-conditioned world models predict future observations in 2D image or video space without explicitly modeling the underlying 3D scene, making spatial consistency across viewpoints and over long-horizon interactions challenging. We introduce 3D World Simulator, an action-conditioned multimodal world modeling framework that jointly predicts appearance, geometry, and tactile observations from a unified 3D representation. Our approach combines a hybrid particle-voxel autoencoder that compresses point clouds into compact 3D voxel latents with an action-conditioned latent dynamics model that predicts their evolution. The shared 3D representation supports geometrically consistent rendering from arbitrary viewpoints and flexible integration of spatially aligned tactile signals. Our experiments demonstrate interactive, long-horizon, multimodal prediction at 50 Hz. We then show how our model enables scalable data generation for policy training and evaluation using tactile and multi-view visual observations, including wrist-mounted and novel camera views. Furthermore, we scale our method to large datasets containing diverse objects and demonstrate model-based planning with unseen objects and robot configurations. Together, these results highlight the potential of hybrid particle-voxel dynamics as a foundation for multimodal 3D world simulation.",
+     "published": "2026-11-03",
+     "comment": "",
+     "score": 13.0,
+     "routes": [
+      "data",
+      "tactile",
+      "learn"
+     ],
+     "route_hits": {
+      "tactile": 1,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [
+      "yunzhu li"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出动作条件多模态3D世界模拟器，用混合粒子-体素自编码器将点云压缩为紧凑3D体素潜变量，并由动作条件潜动力学预测其演化，统一联合预测外观、几何和触觉。<br><b>✨ 亮点</b> 实现50 Hz的交互式长时多模态预测，支持触觉与多视角观测下的策略训练评估数据生成，并可对未见物体和机器人配置进行基于模型规划。<br><b>💡 启发</b> 统一3D潜表示驱动多模态世界模型；触觉与多视角数据生成及基于模型规划。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.05080",
+     "title": "CRONOS: Benchmarking Non-Episodic Reinforcement Learning for Robotic Manipulation",
+     "authors": [
+      "Po-Yi Wu",
+      "Djengo Cyun-Jyun Fang",
+      "Dian Cheng",
+      "Tsung-Wei Ke"
+     ],
+     "url": "https://arxiv.org/abs/2611.05080",
+     "abstract": "Reinforcement learning (RL) is promising for adapting robot policies to unstructured real-world environments. However, standard RL pipelines rely on episodic training with frequent scene resets, which is impractical for real-world deployment due to the need for substantial human intervention. While prior work has studied non-episodic RL in relatively small policies trained from scratch, its behavior when fine-tuning modern large-scale pre-trained vision-language-action (VLA) models remains underexplored. In this work, we introduce CRONOS, a simulation benchmark for RL fine-tuning of VLAs under non-episodic scene resets. CRONOS leverages high-fidelity physics simulators and adopts shared-scene multi-task settings. Using CRONOS, we show that naively fine-tuning pre-trained policies fails in non-episodic settings due to shifts in object configurations and end-effector poses; however, these challenges can be mitigated through targeted reset allocation and by addressing biases in pre-trained models. Moreover, we find that non-episodic training enhances long-horizon manipulation and improves generalization to previously unseen object configurations and task sequences. Project page: https://embodiedai-ntu.github.io/cronos/",
+     "published": "2026-11-03",
+     "comment": "",
+     "score": 14.0,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 3,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出 CRONOS 非情景重置下 VLA 强化学习微调的仿真基准，基于高保真物理仿真器与共享场景多任务设置，系统评估直接微调在物体配置和末端位姿偏移下的失效机制及缓解策略。<br><b>✨ 亮点</b> 揭示朴素非情景微调会因物体配置和末端位姿偏移失败，而定向重置分配与纠正预训练偏差可缓解，非情景训练还提升长程操作及对未见物体配置和任务序列的泛化。<br><b>💡 启发</b> 真实机器人持续学习减少场景重置与人工干预；面向 VLA 的非情景 RL 需联合设计重置分配与预训练偏差校正。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-03",
    "papers": [
