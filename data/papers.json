@@ -1,6 +1,147 @@
 {
- "generated_at": "2026-11-04 14:54",
+ "generated_at": "2026-11-05 15:12",
  "days": [
+  {
+   "date": "2026-11-05",
+   "papers": [
+    {
+     "id": "arxiv:2611.05567",
+     "title": "MESA: An Evaluation Framework for Compositional, Semantic, and Spatial Generalization in Robotics",
+     "authors": [
+      "Albert Wilcox",
+      "Frank Chang",
+      "Nhi Nguyen",
+      "Aishani Chakraborty",
+      "Jeremy A. Collins",
+      "Vaibhav Saxena",
+      "Benjamin Joffe",
+      "Siddharth Karamcheti",
+      "Animesh Garg"
+     ],
+     "url": "https://arxiv.org/abs/2611.05567",
+     "abstract": "Despite growing interest in foundation models for robotic manipulation, systematic evaluation of their capabilities remains elusive. Existing benchmarks are either narrow and saturated, offering little signal on SOTA methods, broadly scoped, providing diversity at the cost of controlled experimentation, or require training on large, messy open-source datasets. We introduce MESA, an evaluation framework designed for precise, reproducible measurement of language-conditioned policy generalization. MESA provides five evaluation suites that isolate in-distribution performance and four distinct axes of generalization: spatial configuration, object instance, object category, and subtask composition, enabling researchers to diagnose where and why policies fail, not just whether they fail. To populate these suites at scale, we develop MESA-Gen, a pipeline for task and demonstration generation built by improving MimicGen. We instantiate the framework on two platforms and release both: the single-arm MESA suite, and BiMESA, the first large-scale benchmark for bimanual generalization. We evaluate seven baseline methods spanning diffusion policies, VLM-based approaches, and pretrained VLAs, finding that the strongest model achieves only 52% on MESA and 49% on BiMESA, providing meaningful signal while leaving ample room for progress. MESA rankings are broadly consistent with RoboArena scores, suggesting that MESA captures method-level differences relevant beyond simulation. Project website: https://pairlab.github.io/MESA.",
+     "published": "2026-11-03",
+     "comment": "51 pages, 12 figures, including appendices. Conference on Robot Learning (CoRL), 2026. Project website: https://pairlab.github.io/MESA",
+     "score": 18.1,
+     "routes": [
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 3
+     },
+     "top_pis": [
+      "animesh garg"
+     ],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出MESA评测框架，用五个套件隔离分布内性能与空间配置、物体实例、物体类别、子任务组合四类泛化，并用改进MimicGen的MESA-Gen规模化生成任务与演示，覆盖单臂MESA和双臂BiMESA。<br><b>✨ 亮点</b> 评测七类基线后，最强模型仅达MESA 52%、BiMESA 49%，且MESA排名与RoboArena分数总体一致。<br><b>💡 启发</b> 按泛化轴诊断策略失败原因；构建可复现双臂泛化评测与自动化演示生成管线。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.05295",
+     "title": "GSBR: Geometric Support Behavior Regularization for Online RL",
+     "authors": [
+      "Charles Xu",
+      "Jacob Berg",
+      "Liyiming Ke",
+      "Sergey Levine"
+     ],
+     "url": "https://arxiv.org/abs/2611.05295",
+     "abstract": "Regularizing online reinforcement learning (RL) toward a pretrained base policy can improve sample efficiency and learning stability, but regularization that is too restrictive limits how much the policy can improve. Base policies -- typically diffusion or flow-matching models trained by imitation learning on large, diverse datasets -- capture many behaviors that are reasonable but suboptimal. Existing regularizers using such base policies are too restrictive in one of two ways: behavioral cloning regularizers pull the actor toward the full base-policy distribution, penalizing it for discarding suboptimal modes, while hard support constraints forbid improvements that lie just outside the base policy's support. We propose Geometric Support Behavior Regularization (GSBR), which penalizes actions by their distance from the base policy's support. Actions within the support incur no penalty, so the actor can concentrate on high-value modes; outside the support, where value estimates are less reliable, the penalty grows smoothly with distance while still permitting improvement when the value gained outweighs the penalty. GSBR estimates this distance from a finite set of base-policy samples, so it requires only sample access to the base policy. Across 19 tasks on four robotic benchmarks, GSBR raises the average success rate from 33% for the base policy to 95%, achieving the highest average success rate and throughput among all compared methods, with about 23% higher normalized throughput than the next-best RL method. Project website and open-source code at https://charlesxu0124.github.io/gsbr/ .",
+     "published": "2026-11-03",
+     "comment": "",
+     "score": 14.4,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [
+      "levine"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> GSBR以动作到底层策略支撑集的距离作正则，支撑集内不惩罚以聚焦高价值模式，支撑集外惩罚随距离平滑增长且收益超过惩罚时仍允许改进，并用底层策略有限样本估计距离。<br><b>✨ 亮点</b> 在四个机器人基准19个任务上，平均成功率从底层策略33%提升到95%，平均成功率和吞吐均最高，归一化吞吐比次优RL方法高约23%。<br><b>💡 启发</b> 扩散/流匹配先验的在线微调；支撑集距离正则平衡先验约束与探索改进；基于样本的几何约束用于机器人控制。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.05163",
+     "title": "RoboTryOn: Synthesizing Dexterous Robot Demonstrations from Human Videos via Virtual Try-On",
+     "authors": [
+      "Seungyong Lee",
+      "Suhyeok Jang",
+      "Minyoung Kim",
+      "Jinwoo Shin"
+     ],
+     "url": "https://arxiv.org/abs/2611.05163",
+     "abstract": "Robot foundation models have shown remarkable performance in robot control, yet adapting them to a new task still relies heavily on teleoperated demonstrations. Egocentric human videos offer a scalable substitute, but overlaying rendered robots on human videos or retargeting human poses into robot actions leaves significant visual or action gaps for high-DoF robot embodiments. To address this limitation, we propose RoboTryOn, which treats human-to-robot translation as virtual try-on: try-on keeps the person and swaps the garment, RoboTryOn keeps the demonstrated motion and swaps the human for the robot. Specifically, RoboTryOn converts a human video into a video of the target robot specified by a reference image, while preserving the original task, objects, and background. To maintain visual consistency, we translate selected keyframes autoregressively and use them to guide video synthesis with motion conditioned on the human hand skeleton. Additionally, we use an inverse dynamics model (IDM) that incorporates depth features to infer action labels from synthesized videos for policy learning. Our experiments across multiple humanoid embodiments show that policies trained with our synthetic data improve the average success rate on novel tasks, including challenging bimanual manipulation, from 2% to 60%, without any real robot demonstration of those tasks. Moreover, training with our synthetic data matches the performance of policies trained solely on teleoperated demonstrations at approximately a third of the collection cost, demonstrating the cost efficiency of our approach.",
+     "published": "2026-11-03",
+     "comment": "29 pages, 15 figures, 13 tables. Project page: https://ryan-seungyong-lee.github.io/RoboTryOn",
+     "score": 11.6,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 3,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 将人到机器人转换建模为虚拟试穿：保留人类演示的运动、物体与背景，按参考图把人类替换为目标机器人；通过自回归翻译关键帧并以人手骨架为运动条件合成视频，再用融合深度特征的逆动力学模型生成动作标签训练策略。<br><b>✨ 亮点</b> 在多种人形机器人上，无需目标任务真实机器人演示，合成数据训练的策略将新任务（含双臂操作）平均成功率从2%提升到60%，并以约三分之一的数据采集成本达到仅用遥操作演示训练的性能。<br><b>💡 启发</b> 虚拟试穿式跨具身数据合成；人手骨架运动条件与深度IDM自动标注；低成本高自由度双臂操作策略学习。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.06673",
+     "title": "Which Physical Tactile Cues Matter for Contact-Rich Imitation Learning? A Controlled Real-Robot Study",
+     "authors": [
+      "Xuhao Qin",
+      "Xiyan Huang",
+      "Haoyu Dong",
+      "Xi Zhang",
+      "Chenxi Xiao"
+     ],
+     "url": "https://arxiv.org/abs/2611.06673",
+     "abstract": "Vision-based tactile sensors capture multiple aspects of physical interaction within a single image stream, including contact appearance, geometry, indentation depth, and tangential deformation. However, existing visuo-tactile policies often directly process tactile observations as images, making it difficult to determine which physical cues contribute to policy learning. This paper presents a controlled real-robot study that compares physically interpretable tactile signals using the LeRobot platform, enhanced with our visuo-tactile perception system. From the same tactile stream, we derive tactile RGB images, normal/depth maps, and marker-flow fields, representing contact appearance, geometry, and tangential deformation, respectively. Using identical task demonstrations and the same policy backbone, we evaluate the individual and combined contributions of these tactile cues. We further compare tactile encoders and visuo-tactile fusion strategies. Evaluation across 720 real-robot trials yields four key findings: (1) tactile perception substantially improves the overall success rate from 57.8% to 78.9%, although its contribution varies across task stages; (2) marker flow is the most effective individual cue, achieving a success rate of 74.4% and playing a particularly important role in regulating established contact; (3) cue-factorized encoding consistently improves performance, highlighting that different physical cues require tailored processing techniques; and (4) although the effectiveness of tactile fusion is task-dependent, cross-attention offers a lightweight solution with performance comparable to that of pretrained tactile encoders.",
+     "published": "2026-11-04",
+     "comment": "6 pages, 5 figures, 2 tables. Accepted to IEEE ROBIO 2026",
+     "score": 14.4,
+     "routes": [
+      "learn",
+      "affordance",
+      "tactile"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "tactile": 1,
+      "learn": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 从同一视觉触觉流解耦出接触外观、几何和切向形变三类物理线索，在相同任务演示与策略骨干下做720次真机对照，识别各线索对接触丰富模仿学习的独立与组合作用，并比较触觉编码器和视觉触觉融合策略。<br><b>✨ 亮点</b> 触觉感知将总体成功率从57.8%提升到78.9%，marker flow作为单一线索达到74.4%且在调节已建立接触中作用突出，线索因子化编码持续提升性能。<br><b>💡 启发</b> 按物理线索定制编码并对触觉融合采用轻量cross-attention；切向形变与接触阶段线索可迁移到装配、擦拭等接触丰富机器人操作。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-04",
    "papers": [
