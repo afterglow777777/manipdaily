@@ -1,6 +1,190 @@
 {
- "generated_at": "2026-11-05 15:12",
+ "generated_at": "2026-11-06 15:12",
  "days": [
+  {
+   "date": "2026-11-06",
+   "papers": [
+    {
+     "id": "arxiv:2611.07881",
+     "title": "TactileLab: Sim-to-Real Dexterous Robot Manipulation with Efficient Shear-Sensitive Tactile Simulation",
+     "authors": [
+      "Yijiong Lin",
+      "Wenhao He",
+      "Toby Jack",
+      "Max Yang",
+      "Haoran Li",
+      "Nathan F. Lepora"
+     ],
+     "url": "https://arxiv.org/abs/2611.07881",
+     "abstract": "Robotic simulators that represent shear within tactile sensing are becoming increasingly important for contact-rich manipulation. However, simulating contact shear with high-fidelity deformable or soft-body simulation is computationally demanding, limiting scalability to large-scale reinforcement learning. Here we introduce \\textit{TactileLab}, a scalable multimodal tactile simulation framework built on IsaacLab, with a particular focus on a new optical-flow-based tactile representation termed \\textit{simulated tactile flow}. Instead of relying on soft-body physics to model shear deformation, TactileLab uses rigid-body simulation to efficiently estimate dense tangential motion at the contact interface, producing tactile flow fields that encode shear-relevant contact dynamics. This flow field complements geometric features from a contact depth field. We further introduce a novel policy architecture for jointly processing long-horizon proprioceptive signals and rich tactile observations. Across multiple contact-rich tasks, policies trained using simulated tactile flow learn efficiently at scale and exhibit emergent contact-aware behaviours. To facilitate sim-to-real policy deployment, we then propose a novel real-to-sim tactile translation method that maps real tactile image streams to simulated tactile flow and depth fields, together with a new tactile data collection method, and validate it across diverse tactile sensor designs. Using this pipeline, we demonstrate real-world deployment on tasks encompassing dual-arm and dexterous in-hand manipulation. Overall, TactileLab provides an end-to-end sim-to-real framework for scalable tactile policy learning, enabling diverse shear-sensitive manipulation across heterogeneous tactile robotic systems.",
+     "published": "2026-11-05",
+     "comment": "",
+     "score": 22.0,
+     "routes": [
+      "learn",
+      "data",
+      "affordance",
+      "tactile"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "tactile": 1,
+      "learn": 3,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出基于IsaacLab的可扩展多模态触觉仿真框架TactileLab，用刚体仿真估计接触界面稠密切向运动生成模拟触觉流而非依赖软体物理，并与接触深度场互补，配套联合处理长时本体信号与触觉观测的策略架构及真实触觉图像到仿真触觉流/深度场的真实到仿真翻译。<br><b>✨ 亮点</b> 在多个富接触任务上实现策略大规模高效学习并涌现接触感知行为，经跨多种触觉传感器设计验证后完成真实世界双臂与灵巧手内操作部署。<br><b>💡 启发</b> 触觉流作为剪切敏感表征可替代高成本软体仿真并支撑大规模强化学习；真实到仿真触觉翻译可打通异构触觉传感器与双臂/灵巧手操作的sim-to-real迁移。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.08209",
+     "title": "RoboARCade: Benchmarking Agentic Robot Control",
+     "authors": [
+      "Satvik Sharma",
+      "Hengyuan Hu",
+      "Mihika Kamat",
+      "Dorsa Sadigh",
+      "Jeannette Bohg"
+     ],
+     "url": "https://arxiv.org/abs/2611.08209",
+     "abstract": "Improvements in multi-modal capabilities have enabled agents to act directly as robot policies, a setting we refer to as agentic robot control (ARC). We introduce RoboARCade, a benchmark of long-horizon manipulation tasks across three embodiments designed to test in-context adaptation, memory, and reasoning for precise control. The tasks build on existing open-source benchmarks, which we make harder by widening the range of initial conditions. RoboARCade is easy to use and extend: all tasks run on a single simulation backend, MuJoCo, each task is a self-contained data pack, and agents connect through interchangeable interfaces, so new tasks, agents, and interfaces can be added independently. The benchmark separates leading agents: GPT-6 Astra achieves 49.8% compared with 43.6% for Claude Fable 5.1, leaving substantial room for improvement. Comparing two interfaces, we find that a richer visual interface adds only 1.5 to 6.8 points at 1.7 to 2.3 times the cost. Failures stem mostly from choosing a poor manipulation strategy or executing a good one imprecisely, rarely from misunderstanding the scene, and agents incorrectly claim success on 24% to 39% of attempted subtasks. Agents can also improve without human input: one successful demonstration in context raises Astra's score from 53.5% to 73.0% on a five-task subset, and a prompt the agent writes and revises itself reaches 72.0%. Code, videos and full traces are available at roboarcade.org.",
+     "published": "2026-11-05",
+     "comment": "",
+     "score": 16.4,
+     "routes": [
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [
+      "dorsa sadigh",
+      "jeannette bohg"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出RoboARCade机器人智能体控制基准，以MuJoCo单一后端和自包含数据包承载三种具身的长时程操作任务，并通过扩大初始条件范围提升难度，独立测试上下文适应、记忆与精确控制推理。<br><b>✨ 亮点</b> GPT-6 Astra达49.8%，高于Claude Fable 5.1的43.6%；丰富视觉接口仅提升1.5到6.8分却带来1.7到2.3倍成本，单次上下文示范使Astra在五任务子集从53.5%升至73.0%。<br><b>💡 启发</b> 长时程策略选择与精确执行是主要瓶颈；上下文示范和自写提示可驱动机器人智能体自改进，单后端可扩展基准适合迁移到系统化评测。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.07417",
+     "title": "MessyNav: Zero-Shot Navigation via Manipulation in Messy Environments",
+     "authors": [
+      "Kenneth Llontop",
+      "Cherie Ho",
+      "Dylan Zhou",
+      "Anuva Banwasi",
+      "Priya Sundaresan",
+      "Carlota Parés-Morlans",
+      "Jeannette Bohg"
+     ],
+     "url": "https://arxiv.org/abs/2611.07417",
+     "abstract": "Real-world environments are messy, with paths often blocked by everyday objects like chairs and toys, requiring robots to perform interactive navigation by manipulating obstacles to clear a path. Existing methods rely on extensive simulation-based learning or per-scene instructions specifying which objects to avoid or manipulate. They struggle to generalize across novel objects, diverse environments, and varied contexts such as a cart of fragile glassware that should be avoided while an empty one can be pushed. We formalize this problem as open-world interactive navigation and present MessyNav, a zero-shot framework based on vision-language models (VLMs). At its core, MessyNav performs explicit VLM-based affordance reasoning before task planning to decide whether to swipe, pick up, or avoid an object and produce a high-level plan. Evaluated on a mobile manipulator across real-world indoor and outdoor environments, MessyNav improves success rate by 27 percentage points (pp) over the strongest baseline in real-robot trials and achieves statistically significant gains in a larger-scale offline evaluation, without task-specific training.",
+     "published": "2026-11-05",
+     "comment": "CoRL 2026",
+     "score": 13.5,
+     "routes": [
+      "affordance",
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 1,
+      "data": 1
+     },
+     "top_pis": [
+      "jeannette bohg"
+     ],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> MessyNav提出基于视觉语言模型的零样本开放世界交互导航框架，在任务规划前显式进行可供性推理，判断障碍物应推开、拾取还是避开，并生成高层清障计划。<br><b>✨ 亮点</b> 真实移动操作机器人室内外试验中成功率较最强基线提升27个百分点，大规模离线评估也取得统计显著提升且无需任务特定训练。<br><b>💡 启发</b> 杂乱家庭与仓储环境的移动操作清障；将VLM前置可供性推理迁移至开放世界机器人决策。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.07229",
+     "title": "Spatial-UMI-Dream: Scaling World Action Models with Metric Geometry for UMI Manipulation",
+     "authors": [
+      "Weiduo Yuan",
+      "Ze Yuan",
+      "Sihan Liu",
+      "Jionghao Wang",
+      "Liang Heng",
+      "Zhenyu Zhao",
+      "Yue Wang"
+     ],
+     "url": "https://arxiv.org/abs/2611.07229",
+     "abstract": "The Universal Manipulation Interface (UMI) enables scalable demonstration collection independently of a specific robot. However, its moving, close-range gripper cameras entangle camera and object motion without a stable external view, leaving the metric geometry needed for precise manipulation implicit in RGB. We introduce Spatial-UMI-Dream, a 5B spatial World Action Model (WAM) pretrained on 605 hours of RGB-D UMI data through two-stage training -- world-only adaptation followed by joint world-action learning -- to jointly predict future RGB, fisheye-aligned metric depth, and actions. Stereo-derived depth makes scene scale and spatial relationships explicit within a unified dual-gripper RGB-D representation. Furthermore, evaluating UMI policies requires testing whether UMI's robot-independent demonstration collection translates into policy generalization across robot embodiments, alongside robustness to environmental changes. We introduce RoboTwin-UMI, a twenty-task simulation benchmark built on RoboTwin with UMI wrist-mounted fisheye observations, enabling controlled, repeatable evaluation of UMI policies under environment and embodiment changes separately and jointly without additional fine-tuning. On RoboTwin-UMI, Spatial-UMI-Dream achieves 79.10% in-domain success and 72.15% under combined embodiment and environment shifts, exceeding the strongest evaluated baseline in each setting by 4.65 and 10.30 percentage points, respectively. It also exhibits the smallest success-rate drop under embodiment transfer among the evaluated policies. In a matched pretraining ablation, RGB-only pretraining leads to a 5.75-percentage-point decrease in in-domain success compared with RGB-D pretraining. Across six real-world tasks, Spatial-UMI-Dream achieves 85.0% average success, exceeding the strongest baseline by 24.2 percentage points. Project page: https://weiduoyuan.com/spatial-umi-dream/",
+     "published": "2026-11-04",
+     "comment": "Project page: https://weiduoyuan.com/spatial-umi-dream/",
+     "score": 12.4,
+     "routes": [
+      "data",
+      "grasp",
+      "learn"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出5B空间世界动作模型Spatial-UMI-Dream，在605小时RGB-D UMI数据上先做世界模型适配、再做世界-动作联合学习，联合预测未来RGB、鱼眼对齐度量深度和动作，并用立体深度显式建模尺度与空间关系；同时构建RoboTwin-UMI以分测环境和本体变化下的UMI策略泛化。<br><b>✨ 亮点</b> RoboTwin-UMI域内成功率79.10%、本体与环境联合迁移72.15%，分别超最强基线4.65和10.30个百分点；真实六任务平均成功率85.0%，超最强基线24.2个百分点；RGB-only预训练较RGB-D域内成功率低5.75个百分点。<br><b>💡 启发</b> 度量深度显式化可用于移动近距相机与腕戴操作；世界-动作联合预训练加跨本体/环境解耦基准可迁移到机器人泛化评测。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.08458",
+     "title": "Latent RL Priors for Data-Efficient Dexterous Manipulation",
+     "authors": [
+      "Yixiao Wang",
+      "Peiyi Chen",
+      "Mustafa Mukadam",
+      "Shreekant Gayaka",
+      "Masayoshi Tomizuka",
+      "Son Tran"
+     ],
+     "url": "https://arxiv.org/abs/2611.08458",
+     "abstract": "Learning dexterous manipulation from limited visual demonstrations is challenging because policies must acquire both perceptual grounding and precise control, while reinforcement learning (RL) in simulation can acquire rich control behaviors from large-scale interaction with privileged information. We introduce \\textbf{Latent RL Prior}, a two-stage framework that reuses this control knowledge for data-efficient visual policy learning. During privileged pretraining, we distill large-scale RL rollouts into a flow-matching action decoder conditioned on proprioception and latent task context. During visual adaptation, we freeze the decoder and learn a visual interface that maps images to its latent context using action supervision alone, without privileged labels or latent targets. The same decoder can further be shared across arms by learning coordinated visual contexts for bimanual manipulation. Across three simulated tasks, our method outperforms full-parameter fine-tuning of $π_{0.5}$ and GR00T N1.7 in the low-data regime; on door lifting and bimanual assembly, it surpasses full-data baselines using $10\\times$ and $5\\times$ fewer demonstrations, respectively. Further analysis shows that direct visual-to-latent conditioning improves adaptation performance and training stability over routing visual predictions through the pretrained state encoder. Robustness to unseen mass variation and greater linear accessibility of contact-force information in decoder representations further provide evidence of retained RL-acquired control knowledge. Project website: https://yixiaowang7.github.io/latent-rl-prior-page/.",
+     "published": "2026-11-05",
+     "comment": "",
+     "score": 10.8,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 3,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出Latent RL Prior两阶段框架，先把大规模特权RL轨迹蒸馏为以本体感知和潜在任务上下文为条件的流匹配动作解码器，视觉适应时冻结解码器，仅用动作监督学习图像到潜在上下文的视觉接口，并可共享解码器实现双臂协调。<br><b>✨ 亮点</b> 低数据下优于π0.5与GR00T N1.7全参数微调；在开门和双臂装配任务中，分别用少10倍和5倍演示超过全数据基线。<br><b>💡 启发</b> 复用仿真RL控制先验做低数据视觉策略；冻结动作解码器、仅学视觉到潜在上下文接口以降低特权标签依赖；双臂共享解码器与协调潜在上下文。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-05",
    "papers": [
