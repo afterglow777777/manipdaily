@@ -1,6 +1,60 @@
 {
- "generated_at": "2026-11-06 15:12",
+ "generated_at": "2026-11-07 14:26",
  "days": [
+  {
+   "date": "2026-11-07",
+   "papers": [
+    {
+     "id": "arxiv:2611.06881",
+     "title": "VABAR: A Variational Automation Benchmark for Agentic Robotics",
+     "authors": [
+      "Shuangyu Xie",
+      "Kaiyuan Chen",
+      "Uksang Yoo",
+      "Xinyue Zhu",
+      "Meadow Shen",
+      "Jaimyn Drake",
+      "Eugen Solowjow",
+      "Lionel Gulich",
+      "Alexander Millane",
+      "Rafael Cathomen",
+      "Tuur Stuyck",
+      "Sangeeta Subramanian",
+      "Yichao Pan",
+      "Bruce McGowan",
+      "Michael Benedict",
+      "Linxi Fan",
+      "Yuke Zhu",
+      "Spencer Huang",
+      "Ken Goldberg"
+     ],
+     "url": "https://arxiv.org/abs/2611.06881",
+     "abstract": "For robots to operate reliably in commercial and industrial applications, they must persistently perform specific tasks with known variations in object shape and pose. We call this Variational Automation (VA) to differentiate these settings from fixed automation. Inspired by recent papers on Agentic Robotics, where pretrained LLM and VLM coding agents combine interpretable robot programming with the open-world adaptability of model free policies, we propose a general set of agentic robotics benchmark design criteria that includes accessibility, repeatability, diversity, relevance to agentic robotics and practical applications, physical realizability, resistance to benchmark saturation, and computational efficiency. We instantiate these principles in six manipulation task classes spanning industrial, medical, and infrastructure applications: tool sorting, tool hanging, gear meshing, syringe packing, cable insertion, and cable routing. We introduce the Variational Automation Benchmark for Agentic Robotics (VABAR), an open, easily replicable, simulation-based manipulation benchmark to systematically evaluating agentic robotics systems. Built fully on open-source tools, VABAR features detailed implementations using the Newton physics engine, standardized task variations, difficulty tiers, success metrics, and a library of 33 generalizable skills with human-authored programmatic reference solutions. We provide initial baseline evaluations using an open agentic manipulation harness, Graph-as-Policy (GaP), and Isaac Lab Arena.",
+     "published": "2026-11-04",
+     "comment": "",
+     "score": 14.0,
+     "routes": [
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [
+      "goldberg",
+      "yuke zhu"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出面向变体自动化（VA）的agentic机器人基准设计准则，并实例化为VABAR，基于开源工具和Newton物理引擎构建含标准化任务变化、难度层级、成功指标及人工参考解的仿真评测基准。<br><b>✨ 亮点</b> 覆盖工业、医疗、基础设施3类应用的6个操作任务类，提供33个可泛化技能库，并给出Graph-as-Policy与Isaac Lab Arena两组基线评估。<br><b>💡 启发</b> 可迁移至工业/医疗/基础设施的变体操作评测；以标准化变化、技能库和程序化参考解评估LLM/VLM编码智能体，并关注基准饱和与计算效率。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-06",
    "papers": [
