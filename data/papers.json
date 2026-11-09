@@ -1,6 +1,160 @@
 {
- "generated_at": "2026-11-08 14:33",
+ "generated_at": "2026-11-09 15:02",
  "days": [
+  {
+   "date": "2026-11-09",
+   "papers": [
+    {
+     "id": "arxiv:2611.09036",
+     "title": "ToolDex: An Ego-Exo Human Demonstration Dataset for Creative Physical Tool Use",
+     "authors": [
+      "Mohamed Elmoghany",
+      "Kehan Li",
+      "Ruoqu Chen",
+      "Tarun Chiruvolu",
+      "Shutong Zhang",
+      "Ryan Wang",
+      "Stephen Tian",
+      "Yaru Niu",
+      "Michelle Guo",
+      "Ding Zhao",
+      "Weiyu Liu",
+      "Mengdi Xu",
+      "Li Fei-Fei",
+      "Jiajun Wu"
+     ],
+     "url": "https://arxiv.org/abs/2611.09036",
+     "abstract": "Creative tool use is a fundamental human capability and an important step toward general-purpose embodied intelligence. It requires agents to reason about object affordances, physical constraints, and manipulation strategies, especially when standard tools are unavailable. However, progress in this area is limited by the lack of real-world datasets that capture human tool-use behavior with sufficient scale, fidelity, and diversity. Existing benchmarks are often simulation-based, focus on simplified interactions, or lack detailed observations and annotations. We introduce ToolDex, a large-scale egocentric-exocentric (ego-exo) human demonstration dataset for creative physical tool use. ToolDex captures scenarios in which humans select, adapt, and repurpose available objects as tools. Using synchronized egocentric cameras and eight exocentric cameras, the dataset provides high-fidelity multi-view observations and rich annotations for hands, tools, target objects, and their deformable interactions. Beyond data collection, we establish a benchmark suite characterizing three core capabilities: physical tool-use reasoning, sparse-view 3D and 4D reconstruction, and robot policy learning. ToolDex provides a foundation for studying human tool-use behavior and developing embodied agents that can adaptively use tools in complex real-world environments. Dataset visualizations and benchmarking results are available at https://tooluse-dataset.github.io/.",
+     "published": "2026-11-06",
+     "comment": "",
+     "score": 20.0,
+     "routes": [
+      "data",
+      "learn",
+      "affordance"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 2,
+      "data": 3
+     },
+     "top_pis": [
+      "li fei-fei",
+      "jiajun wu"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 构建ToolDex大规模自我中心-外中心人类演示数据集，采集人类选择、改造和再利用现成物体作工具的创意物理工具使用行为，并提供1路自我中心与8路外中心同步多视角观测及手、工具、目标物和可变形交互标注。<br><b>✨ 亮点</b> 以1个自我中心加8个外中心相机提供高保真多视角数据，并建立覆盖物理工具使用推理、稀疏视角3D/4D重建和机器人策略学习的三类基准。<br><b>💡 启发</b> 真实复杂环境中的自适应工具选择与改造；多视角ego-exo演示用于3D/4D重建和机器人策略学习。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.08939",
+     "title": "RevoSim: Scalable Multimodal Tactile Simulation for Dexterous Manipulation",
+     "authors": [
+      "Ke Zhang",
+      "Lixin Xu",
+      "Ziyi Wang",
+      "Xiyue Dong",
+      "Jie Tan",
+      "Lianghu Shao",
+      "Xianpeng Wang",
+      "Chuanyu Li",
+      "Renjing Xu"
+     ],
+     "url": "https://arxiv.org/abs/2611.08939",
+     "abstract": "We present RevoSim, a scalable and high-fidelity multimodal tactile simulator for the BrainCo Revo3 hand that jointly models 285 piezoresistive taxels and five visuotactile fingertips. RevoSim efficiently generates synchronized pressure, depth, RGB, and marker-displacement observations; on a single RTX 5090, its depth-conditioned marker-displacement configuration supports up to 4,096 parallel environments. We train in-hand manipulation and grasping policies entirely in simulation, establishing a foundation for future sim-to-real transfer. Project page: https://braincotech.github.io/RevoSim-web/.",
+     "published": "2026-11-06",
+     "comment": "",
+     "score": 17.0,
+     "routes": [
+      "data",
+      "grasp",
+      "tactile",
+      "learn"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "tactile": 1,
+      "learn": 1,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出面向BrainCo Revo3手的可扩展高保真多模态触觉仿真器RevoSim，联合建模285个压阻触觉单元和5个视触觉指尖，并同步生成压力、深度、RGB与标记位移观测。<br><b>✨ 亮点</b> 在单张RTX 5090上，深度条件标记位移配置支持最多4096个并行环境，并完全在仿真中训练手内操作与抓取策略。<br><b>💡 启发</b> 多模态触觉仿真支撑大规模并行强化学习；为视触觉传感器建模和仿真到现实迁移提供可复用管线。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.08577",
+     "title": "Meituan-Robotics-0: A Vision-Language-Action Foundation Model for Desktop Manipulation",
+     "authors": [
+      " Meituan Robotics Team",
+      "Caicheng Wang",
+      "Chen Zhao",
+      "Chengpeng Jin",
+      "Duo Xu",
+      "Fengjiao Chen",
+      "Guanglu Wan",
+      "Heqing Yang",
+      "Jia Wang",
+      "Jiacong Zhou",
+      "Jie Hu",
+      "Jiyuan Ru",
+      "Lingfeng Zhang",
+      "Linjiang Huang",
+      "Manyuan Zhang",
+      "Ningchu Liu",
+      "Shijie Zhou",
+      "Si Liu",
+      "Shuo Li",
+      "Tianyi Zhang",
+      "Xi Zhang",
+      "Xin Chen",
+      "Xuezhi Cao",
+      "Xunliang Cai",
+      "Yanbin Zeng",
+      "Yang Yang",
+      "Yang Yi",
+      "Yanli Tan",
+      "Yifu Xu",
+      "Yimeng Jia",
+      "Yuchen Tang",
+      "Yuchen Xie",
+      "Yuxiang Zheng",
+      "Zerwei Chng",
+      "Zilong Huang",
+      "Zipeng Ye",
+      "Ziyuan Qin",
+      "Ziqin Wang"
+     ],
+     "url": "https://arxiv.org/abs/2611.08577",
+     "abstract": "We present Meituan-Robotics-0 (MR0), a vision-language-action foundation model and embodied-agent system for stationary-base desktop manipulation. MR0 combines 147 million vision-language samples with 15,060 hours of curated robot trajectories spanning 12 embodiments. A three-stage training recipe aligns multimodal representations with robot behavior through discrete action-token pre-training, transfers these priors to continuous cross-embodiment control through flow-matching mid-training, and adapts the policy through real-world post-training. We introduce Rollback, which pairs replaced policy segments with human corrections to provide positive and negative supervision for CFG-DAgger without value learning or advantage labeling. A unified end-effector interface supports heterogeneous embodiments, while asynchronous action-chunk merging maintains smooth execution under variable inference latency. An event-driven agent maintains persistent task events and reassesses plans when progress or feasibility changes, enabling cross-task retrieval and conditional task resumption. MR0 achieves 93.6% success on RoboTwin 2.0 and ranks fifth in the RoboDojo VLA track. Under matched HG-DAgger post-training, MR0 achieves higher average success rate and progress score than $π_{0.5}$ across three real-robot tasks. On Ethernet insertion, CFG-DAgger trained with Rollback data reaches 70% success and a progress score of 0.90. Qualitative agent deployments demonstrate cross-task event retrieval and recovery from temporarily unsatisfied task conditions.",
+     "published": "2026-11-05",
+     "comment": "25 pages. Project page: https://meituan-robotics.github.io/Meituan-Robotics-0/ ; Code: https://github.com/Meituan-Robotics/Meituan-Robotics-0",
+     "score": 13.6,
+     "routes": [
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 4
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出MR0桌面操作视觉语言动作基础模型，融合1.47亿视觉语言样本与15060小时、12种本体的机器人轨迹，经离散动作token预训练、流匹配跨本体中训练和真实世界后训练对齐多模态表示与机器人行为。提出Rollback，将替换策略片段与人工纠正配对，为CFG-DAgger提供无需价值学习和优势标注的正负监督。<br><b>✨ 亮点</b> RoboTwin 2.0成功率达93.6%，RoboDojo VLA赛道排名第五；真实机器人三任务在匹配HG-DAgger后训练下平均成功率和进度分高于π0.5，Ethernet insertion用Rollback数据训练CFG-DAgger达70%成功率和0.90进度分。<br><b>💡 启发</b> 跨本体统一末端接口与异步动作块合并；Rollback式人机纠正正负监督与事件驱动任务恢复。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-07",
    "papers": [
