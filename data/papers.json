@@ -1,6 +1,217 @@
 {
- "generated_at": "2026-11-09 15:02",
+ "generated_at": "2026-11-10 15:39",
  "days": [
+  {
+   "date": "2026-11-10",
+   "papers": [
+    {
+     "id": "arxiv:2611.12177",
+     "title": "Embodied First Exam",
+     "authors": [
+      "Kangrui Wang",
+      "Qineng Wang",
+      "Changhe Chen",
+      "Pingyue Zhang",
+      "Chi Gui",
+      "Feishi Wang",
+      "Canyu Chen",
+      "Wenli Xiao",
+      "Xiaoyu Huang",
+      "Tonghe Zhang",
+      "Linjie Li",
+      "Zihan Wang",
+      "Minyeong Kim",
+      "Yiyou Sun",
+      "Mingkai Deng",
+      "Jinyu Hou",
+      "Qi Zhu",
+      "Han Liu",
+      "Eric P. Xing",
+      "Huaxiu Yao",
+      "Zhiwen Fan",
+      "Yuejiang Liu",
+      "Dawn Song",
+      "Pieter Abbeel",
+      "Li Fei-Fei",
+      "Jiajun Wu",
+      "Yuke Zhu",
+      "Guanya Shi",
+      "Ruohan Zhang",
+      "Manling Li"
+     ],
+     "url": "https://arxiv.org/abs/2611.12177",
+     "abstract": "Early successes on agentic robotics point to a potential paradigm shift toward using coding agents to control robots. Existing robotics benchmarks are built around visuomotor policy learning, leaving it open whether coding agents can reliably control diverse robots under physical-world constraints. We therefore introduce the Embodied First Exam, a unified, comprehensive, and agent-native evaluation framework where coding agents can choose their own control approach: direct control, code to control, or train a policy to control. We hope it serves as a first exam for coding agents before they enter the physical world, with 1,156 tasks in 35 suites on 47 robots, including 9 new suites that go beyond pick-and-place to spatial puzzles, dexterous manipulation, multi-robot interaction, dynamic whole-body control, and sim-to-sim engineering. Each task can be run in up to three evaluation settings. The Standard Setting mimics the real world: the agent receives only sensor observations and, by default, cannot reset the environment. Its Realtime variant keeps the environment running while the agent reasons. The Privileged Setting gives the agent access to the full simulator state and unlimited resets, allowing it to search for an oracle solution for training purposes. Success rates in this setting serve as an approximate upper bound. On the 456 core tasks, the strongest of eight agents, GPT-6 Astra in Codex, achieves a success rate of 34% in the Standard Setting, leaving much room for improvement. To see where agents fail, we label the stage at which failed attempts go wrong and compare failures across agents, settings, and stage categories.",
+     "published": "2026-11-09",
+     "comment": "Preprint version",
+     "score": 21.8,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [
+      "abbeel",
+      "li fei-fei",
+      "jiajun wu",
+      "yuke zhu"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出Embodied First Exam统一评估框架，让编码智能体在物理约束下自主选择直接控制、代码控制或训练策略控制，并以标准、实时、特权三种设置覆盖47台机器人、1156项任务。<br><b>✨ 亮点</b> 在456项核心任务的标准设置中，八种智能体里最强的GPT-6 Astra in Codex成功率仅34%，说明物理世界控制仍有很大提升空间。<br><b>💡 启发</b> 作为编码智能体进入物理世界前的统一准入测试；用失败阶段标注定位跨设置、跨机器人的能力瓶颈。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.12676",
+     "title": "VLA Adaptation with Real and Simulated Data: A Case Study on Robotic Chess",
+     "authors": [
+      "Matěj Kripner",
+      "Milan Straka"
+     ],
+     "url": "https://arxiv.org/abs/2611.12676",
+     "abstract": "Vision-language-action (VLA) models are trained as general-purpose foundation models for robot learning, and require fine-tuning for each downstream task and robot. This raises practical questions such as how much data and training updates are needed, how checkpoints should be selected, and whether simulation can be leveraged to alleviate the cost of real data collection. We study these questions on a task that requires both precise manipulation and spatial understanding of the scene. In this task, an SO-101 arm moves a chess king between two squares that are given only by their names, such as e4 and a5. We fine-tune $π_{0.5}$ with various dataset sizes and update budgets, using teleoperated demonstrations as well as simulated demonstrations from a randomized scripted expert that imitates the variability of human demonstrations. In simulation, the success rate scales with both data and updates. Importantly, we find that a short learning-rate cool-down adds up to 31 points and is necessary for comparing checkpoints, and that validation loss and action error are unreliable for model selection. On the real arm, we fine-tune on up to 256 teleoperated demonstrations and evaluate ten policies in 25 trials each. Partial results indicate that pretraining on the simulated demonstrations helps substantially, most clearly when real data is scarce. We also present a negative result, in which training on the policy's own rollouts with filtered behavior cloning, RECAP-style advantage conditioning, corrections from an automatic coach, or residual reinforcement learning did not yield a measurable improvement over plain behavior cloning in our setting. We release the simulator, the expert and the real demonstrations.",
+     "published": "2026-11-09",
+     "comment": "CoRL 2026 Workshop \"Pretrain to Adapt: What Makes a Pretrained Policy Adaptable?\". 8 pages main text, 15 pages total, 15 figures, 4 tables",
+     "score": 20.5,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 6,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 在SO-101按格名移动国际象棋王的任务上，用真实遥操作和随机脚本专家模拟演示微调π0.5 VLA，系统分析数据量、更新预算、检查点选择及仿真预训练对真实机器人适配的影响，并发布模拟器、专家和真实演示。<br><b>✨ 亮点</b> 学习率短冷却最多带来31个百分点提升且是比较检查点所必需，验证损失和动作误差不适合作模型选择；真实数据稀缺时仿真演示预训练帮助显著，真实臂最多用256条遥操作演示并每策略25次试验评估10个策略。<br><b>💡 启发</b> 仿真预训练缓解真实数据稀缺；检查点和模型选择应以任务成功率为准而非验证损失或动作误差。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.12806",
+     "title": "Learning Heterogeneous Tactile Representation for General Dexterous Manipulation",
+     "authors": [
+      "Bing Han",
+      "Yichuan Peng",
+      "Haoyu Dong",
+      "Yuanmeng Hu",
+      "Yongyi Jia",
+      "Fangjing Wang",
+      "Kecheng Zheng",
+      "Yiming Zhang",
+      "Yanhong Zeng",
+      "Xiaoqing Zhang",
+      "Chen Song",
+      "Rundong Zou",
+      "Anqi Dong",
+      "Yuan Guan",
+      "Ka Leong Cheng",
+      "Xing Zhu",
+      "Yujun Shen",
+      "Nan Xue",
+      "Wei Ning"
+     ],
+     "url": "https://arxiv.org/abs/2611.12806",
+     "abstract": "Tactile sensing is an indispensable modality for contact-rich dexterous manipulation, a capability that hints at the ultimate frontiers of embodied intelligence. However, commercially available tactile sensors are still at a relatively early stage of development, with each type of sensor offering irreplaceable strengths alongside its own drawbacks. A key challenge is thus to free tactile understanding from sensor-specific physics, so that embodied models can effectively leverage heterogeneous tactile data. To this end, we develop LingBot-Touch, a tactile foundation model characterized by the following properties. (i) Our model yields a unified representation across different tactile sensors (i.e., piezoresistive, magnetic, and visuotactile sensors), and is easily extensible to new sensor types. (ii) The resulting tactile tokens are plug-and-play: they can be seamlessly integrated into policy models across paradigms, from diffusion policy to vision-language-action (VLA) models such as $π_{0.5}$ and LingBot-VLA, consistently enhancing manipulation dexterity. (iii) Extensive experiments, spanning simulation and real-robot deployments across multiple hardware platforms, demonstrate that our tactile representation substantially benefits complex manipulation tasks while maintaining strong computational efficiency. We believe the findings in this work demonstrate the potential of leveraging cross-sensor data to scale tactile learning, and offer encouraging insights for the design of future hardware and embodied models.",
+     "published": "2026-11-09",
+     "comment": "",
+     "score": 20.0,
+     "routes": [
+      "learn",
+      "data",
+      "affordance",
+      "tactile"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "tactile": 1,
+      "learn": 4,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出LingBot-Touch触觉基础模型，将压阻、磁性与视触觉等异质传感器数据映射为统一触觉token表征，支持新传感器扩展，并可即插即用接入扩散策略与VLA等策略模型。<br><b>✨ 亮点</b> 在压阻、磁性、视触觉三类传感器上实现统一表征，触觉token集成到diffusion policy、π0.5和LingBot-VLA后一致提升复杂灵巧操作表现，并在仿真与真机多硬件平台验证且保持强计算效率。<br><b>💡 启发</b> 跨传感器触觉数据规模化学习与硬件协同设计；触觉token作为通用策略接口。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.11798",
+     "title": "PAIR: Proprioception-Aligned Image-Ray Representations for Viewpoint-Robust Manipulation",
+     "authors": [
+      "Sung-Wook Lee",
+      "Xuhui Kang",
+      "Dylan Losey",
+      "Yen-Ling Kuo"
+     ],
+     "url": "https://arxiv.org/abs/2611.11798",
+     "abstract": "While imitation learning has made substantial progress toward generalizable robot manipulation through scaling, viewpoint robustness remains a major bottleneck. Visuomotor policies rely heavily on visual inputs, yet images provide an inherently ambiguous signal under viewpoint change: similar scenes may appear markedly different across viewpoints, while distinct states may share certain visual overlaps. A policy must therefore infer not only the task-relevant state, but also how it is visually projected under a particular camera configuration. This entanglement of viewpoint-dependent appearance and task-relevant state can make learning inefficient and limit generalization to unseen viewpoints. Recent work has begun to address this challenge through camera-ray conditioning and representation learning using geometric cues to induce invariance. However, providing camera information as additional context does not by itself ground visual representations in how the task scene is visually projected, while geometric alignment without camera context can introduce spurious correspondences by ignoring viewpoint-dependent projection. We propose PAIR, a contrastive learning framework that aligns joint image-ray representations using robot proprioception. PAIR encourages observations with similar robot states to remain close in representation space across viewpoints, providing a structured grounding signal for learning viewpoint-robust features. PAIR is a highly adaptable framework: it can be used to train Diffusion Policy (DP) or post-train vision-language-action (VLA) models. In simulated and real-world manipulation benchmarks with camera variation, PAIR consistently outperforms the behavior cloning baseline without ray conditioning by 12.7% and 26.7% points, respectively, demonstrating stronger generalization to unseen viewpoints. Project website: PAIRrobot.github.io.",
+     "published": "2026-11-09",
+     "comment": "",
+     "score": 15.6,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 5,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> PAIR 是对比学习框架，利用机器人本体感受对齐图像-射线联合表示，使相似机器人状态在不同视角下保持接近，从而为视角鲁棒特征学习提供结构化接地信号，并可训练 Diffusion Policy 或后训练 VLA。<br><b>✨ 亮点</b> 在相机变化的仿真与真实操作基准中，分别比无射线条件的行为克隆基线提升 12.7 和 26.7 个百分点。<br><b>💡 启发</b> 多相机与未知视角下的机器人操作；将本体感受作为跨视角对比对齐监督信号，迁移至 VLA 后训练和 Diffusion Policy 训练。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.11941",
+     "title": "Flip Anything with Agentic Robotics Self-Learning",
+     "authors": [
+      "Shuangyu Xie",
+      "Kaiyuan Chen",
+      "Ken Goldberg"
+     ],
+     "url": "https://arxiv.org/abs/2611.11941",
+     "abstract": "Flipping is a fundamental robotic manipulation skill that requires reorienting a target object in a stable pose on a planar support surface by rotating it 180$^\\circ$ about an axis parallel to the support surface -- think of flipping a coin from heads to tails. Although flipping is a common objective in industrial tasks such as parts inspection, mechanical assembly, and tool use, coding a bimanual robot with grippers to flip diverse objects is a significant challenge. In this paper, we show that a coding agent can autonomously develop and refine object-flipping strategies through iterative learning in physics simulations across diverse object geometries. Progressive skill acquisition, from basic handover to toppling and pushing, robust grasping and sensing, and thin-object manipulation with recovery, improves task success from 24.7% to 95.0%. The resulting graph-based code integrates high-level strategy selection with reactive control, enabling multi-stage flipping on physical robots.",
+     "published": "2026-11-09",
+     "comment": "CoRL 2026 late breaking. Project webpage https://berkeleyautomation.github.io/flipanything/",
+     "score": 15.1,
+     "routes": [
+      "grasp",
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "grasp": 2,
+      "learn": 1,
+      "data": 1
+     },
+     "top_pis": [
+      "goldberg"
+     ],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": true,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 编码智能体通过在多样物体几何的物理仿真中迭代学习，自主生成并细化从交接、倾倒到推拨、鲁棒抓取与感知、薄物体操作及恢复的翻转策略，并将高层策略选择与反应控制整合为图式代码。<br><b>✨ 亮点</b> 任务成功率由24.7%提升至95.0%，且图式代码在物理机器人上实现多阶段物体翻转。<br><b>💡 启发</b> 仿真迭代自学习与图式代码策略调度；工业零件检测、装配和工具使用中的多样物体翻转。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-09",
    "papers": [
