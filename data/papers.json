@@ -1,6 +1,121 @@
 {
- "generated_at": "2026-11-10 15:39",
+ "generated_at": "2026-11-11 14:58",
  "days": [
+  {
+   "date": "2026-11-11",
+   "papers": [
+    {
+     "id": "arxiv:2611.13160",
+     "title": "How Much of Your VLA Is kNN",
+     "authors": [
+      "Denis Grachev",
+      "Damien LaRocque",
+      "Omar Moured"
+     ],
+     "url": "https://arxiv.org/abs/2611.13160",
+     "abstract": "Vision-language-action (VLA) models now exceed 95% success on the LIBERO simulation benchmark, yet it remains unclear how much of this performance requires generalization beyond the training demonstrations. In this work, we show that retrieving nearby demonstrations and reusing their action chunks achieves a success rate of 91.7 % on LIBERO without policy training. Under LIBERO-Plus perturbations, retrieval shows the smallest drop of all evaluated policies. Across nine publicly available VLAs, fine-tuning mostly makes the vision-language backbone a better retrieval key, and the actions of the VLAs remain close to the demonstrations. In addition, we introduce Local Action Consistency (LAC), an offline metric that measures whether nearby observations in representation space are also associated with similar future actions. We show that LAC tracks the success rate of retrieval and can guide the training of a retrieval key. Our evaluation and source code are available at https://github.com/sereact/lerobot_knn.",
+     "published": "2026-11-09",
+     "comment": "21 pages, 10 figures, accepted to the CoRL 2026 G2A/TAG workshop",
+     "score": 14.1,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 证明无需训练策略，仅用表征检索邻近示范并复用其动作块即可在LIBERO达到91.7%，并提出离线指标LAC衡量表征空间邻近观测是否对应相似未来动作、可指导检索键训练。<br><b>✨ 亮点</b> 检索在LIBERO成功率91.7%，在LIBERO-Plus扰动下下降幅度为所有评估策略中最小；九个公开VLA微调后动作仍接近示范，主要让视觉语言骨干成为更好的检索键。<br><b>💡 启发</b> 示范检索与动作块复用可作VLA强基线；LAC可迁移至表征-动作一致性评估与检索键训练。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.14092",
+     "title": "DexSeed: Expanding Human Hand-Object Interactions into Robot Demonstrations for Dexterous Policy Learning",
+     "authors": [
+      "Huaijin Pi",
+      "Zehong Shen",
+      "Yong Wang",
+      "Kechun Xu",
+      "Changpeng Wang",
+      "Dingkun Wei",
+      "Xueyang Wang",
+      "Wenjia Wang",
+      "Xing Zhu",
+      "Yujun Shen",
+      "Taku Komura"
+     ],
+     "url": "https://arxiv.org/abs/2611.14092",
+     "abstract": "We study how to generate diverse, physically executable robot demonstrations for dexterous vision-language-action (VLA) learning. Existing demonstration-generation methods typically rely on costly teleoperated examples. Meanwhile, human hand--object datasets provide a reusable source, but existing transfer methods mainly reproduce given interactions. Turning these interactions into VLA training data further requires coverage of different objects and manipulation locations, together with executable arm and finger actions, and visual observations. To achieve this, we present DexSeed, a framework for low-cost generation of dexterous robot data from human hand--object interactions. Our key idea is to expand human sequences while preserving their grasps and realizing the resulting motions under arm-tracking dynamics in physics simulation. Specifically, we organize source sequences by grasp mode with shared language descriptions. InteractionMesh-based retargeting and arm trajectory augmentation adapt these sequences to the robot hand, different object geometries, and pick-and-place locations while preserving local hand--object relationships. An RL finger-control policy produces executable rollouts, while the arm tracks precomputed trajectories. Rendered observations and recorded actions from successful rollouts are paired with grasp descriptions to fine-tune a VLA. Experiments show improved contact fidelity in retargeting and more reliable whole-arm execution than the evaluated baselines. Simulation evaluation and real-world deployment further demonstrate that a VLA fine-tuned solely on the generated demonstrations can execute language-specified grasps. Project page: https://robbyant-research.github.io/DexSeed/.",
+     "published": "2026-11-10",
+     "comment": "Project page: https://robbyant-research.github.io/DexSeed/",
+     "score": 20.0,
+     "routes": [
+      "learn",
+      "data",
+      "affordance"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 4,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> DexSeed将人手-物体交互序列按抓取模式与共享语言描述组织，通过InteractionMesh重定向和手臂轨迹增强保留局部手物关系并适配不同物体几何与抓放位置，再用RL手指控制策略和手臂轨迹跟踪生成可执行rollout，以渲染观测和动作微调VLA。<br><b>✨ 亮点</b> 重定向接触保真度和整臂执行可靠性优于所评估基线，仅用生成示范微调的VLA可在仿真与真实部署中执行语言指定抓取，摘要未给具体数值。<br><b>💡 启发</b> 人手交互数据可低成本扩展为机器人VLA训练数据；保留抓取关系的重定向加物理仿真rollout加渲染观测可迁移到其他灵巧操作数据生成。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.12286",
+     "title": "VLA-MOPD: On-Policy Distillation for Multi-Task VLA Policy Consolidation",
+     "authors": [
+      "Yongxuan Lv",
+      "Zhen Fang",
+      "Lichen Man",
+      "Hao Li",
+      "Pu Li",
+      "Hengyi Wang",
+      "Langfeng Cao",
+      "Lin Chen",
+      "Jie Huang",
+      "Xiu Su",
+      "Shan You",
+      "Fei Wang",
+      "Feng Zhao"
+     ],
+     "url": "https://arxiv.org/abs/2611.12286",
+     "abstract": "Physical intelligence requires embodied agents to ground language in observations and execute actions while retaining useful skills. Vision-language-action (VLA) policies offer a shared interface, but task-specific post-training often produces separate specialists. Consolidation is difficult: mixed-task reinforcement learning provides sparse trajectory-level credit, while offline distillation may miss student-visited observations and endpoint distillation does not supervise intermediate action-generation states. We introduce VLA Multi-teacher On-Policy Distillation (VLA-MOPD), a protocol for consolidating flow-matching VLA specialists. After acquiring task or suite experts, a shared student collects robot rollouts and queries the instruction-routed frozen teacher at each visited observation and intermediate ordinary differential equation (ODE) state. Detached per-flow-step transition targets supervise valid action chunks through a masked local matching loss; an optional reference-policy term supports retention on other tasks. Starting from one trajectory per LIBERO task, VLA-MOPD raises mean success-once from 75.4% to 98.9%, compared with 98.15% for endpoint action distillation. It improves mean RoboTwin 2.0 success from 73.0% to 89.3%; on a Piper robot, two consolidation rounds improve average success from 70.0% to 90.0%. In a near-matched Spatial-adaptation study, reference matching limits the Object suite decrease to 3.0 points, versus 13.2 without the reference term.",
+     "published": "2026-11-09",
+     "comment": "",
+     "score": 10.9,
+     "routes": [
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 3
+     },
+     "top_pis": [],
+     "orgs": [
+      "physical intelligence"
+     ],
+     "venue": "",
+     "quant": true,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出VLA-MOPD多教师同策略蒸馏协议，共享学生采集机器人rollout，并在每个访问观测和flow-matching ODE中间状态查询指令路由的冻结教师，用掩码局部匹配损失对有效动作块进行逐flow步去耦转移目标监督，可选参考策略项用于保留其他任务能力。<br><b>✨ 亮点</b> LIBERO每任务仅一条轨迹即把mean success-once从75.4%升至98.9%，高于端点动作蒸馏的98.15%；RoboTwin 2.0从73.0%升至89.3%；Piper两轮整合从70.0%升至90.0%；参考匹配把Object suite下降限制为3.0点，对比无参考项的13.2点。<br><b>💡 启发</b> 多教师同策略蒸馏用于多任务VLA策略合并；ODE中间状态监督提升动作生成蒸馏；参考策略正则缓解多任务整合遗忘；可迁移到机器人多专家整合与持续学习场景。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-10",
    "papers": [
