@@ -1,6 +1,189 @@
 {
- "generated_at": "2026-11-12 15:34",
+ "generated_at": "2026-11-13 15:04",
  "days": [
+  {
+   "date": "2026-11-13",
+   "papers": [
+    {
+     "id": "arxiv:2611.15981",
+     "title": "DexRemo: A Force-Sensing Hand Platform and Task Suite for Contact-Rich Removal Manipulation",
+     "authors": [
+      "Liman Wang",
+      "Hanyang Zhong",
+      "Sun Zhaole",
+      "Wenting Cao",
+      "Babar Jamil",
+      "Andy Tyrrell",
+      "Shan Luo",
+      "Jihong Zhu"
+     ],
+     "url": "https://arxiv.org/abs/2611.15981",
+     "abstract": "Many manipulation tasks require separating adhered, embedded, contaminated, or mechanically constrained targets. We study this setting as removal manipulation, where progress depends on evolving contact states that are only partially observable from vision and kinematics. We introduce DexRemo, a three-finger robotic hand with high-force actuation, modular fingertips, and three-axis fingertip force sensing, together with a nine-scenario real-robot task suite spanning adhesive detachment, surface cleaning and self-cleaning, and occluded retrieval. To make multi-finger force observations easier to fuse, we express fingertip forces in a shared wrist-centered frame, giving force components consistent geometric meaning across fingers and time. Using an Action Chunking Transformer backbone, policies fuse multi-view vision, proprioception, fingertip pose, and force observations to predict closed-loop action chunks from demonstrations. Evaluation uses six core benchmark tasks for controlled fingertip-input and force-frame ablations, plus three extension scenarios for additional held-out coverage. Across these evaluations, the learned policies achieve consistent removal performance, and ablations show that wrist-frame forces, especially with fingertip pose, improve stability and generalization over local-frame force inputs and no-force baselines. Project website: https://dexremo.github.io",
+     "published": "2026-11-11",
+     "comment": "Accepted for publication in IEEE Transactions on Robotics (T-RO), 2026. Project website: https://dexremo.github.io",
+     "score": 13.5,
+     "routes": [
+      "affordance",
+      "tactile",
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "tactile": 1,
+      "learn": 1,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "T-RO",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出三指高力驱动、模块化指尖与三轴力传感的DexRemo平台及九场景任务套件，并在共享腕中心坐标系表达指尖力，用Action Chunking Transformer融合多视角视觉、本体感知、指尖位姿与力预测闭环动作块。<br><b>✨ 亮点</b> 在6个核心基准任务和3个扩展场景上实现稳定移除操作，消融显示腕坐标系力尤其结合指尖位姿，相比局部坐标系力和无力基线提升稳定性与泛化。<br><b>💡 启发</b> 共享坐标系下的多指力觉融合与闭环动作块；可迁移至粘附分离、表面清洁和遮挡取物等接触丰富操作。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.15078",
+     "title": "CrowdMAPS: Crowdsourcing Multiple Actions per State for Real-World Imitation Learning",
+     "authors": [
+      "Yilong Song",
+      "Harshvardhan Chandirasekar",
+      "Karthik Desingh",
+      "Chen Zhu-Tian"
+     ],
+     "url": "https://arxiv.org/abs/2611.15078",
+     "abstract": "Real-world robot imitation learning is often limited by the cost of collecting physical demonstrations, which typically yield only one action label per visited state. We present CrowdMAPS, a web-based crowdsourcing paradigm for augmenting real-robot datasets with Multiple Actions per State (MAPS). After or during standard robot data collection, CrowdMAPS distributes visited robot states to remote annotators through a web-based 3D interface, where they specify alternative valid actions without requiring access to physical robot hardware. This expands robot datasets along a complementary \"width\" dimension--by increasing the number of actions per visited state--rather than only by collecting more trajectories. We evaluate CrowdMAPS using keyframe-centric goal-pose annotations supplied by non-expert annotators and train imitation policies on the resulting MAPS data. Across five real-world manipulation tasks, increasing MAPS width from one to ten actions per state improves sample efficiency and increases average success rates by 35.6 percentage points for keypose policies and 33.0 percentage points for trajectory policies. These results show that software-mediated human annotations can augment physical robot data to afford denser supervision, establishing CrowdMAPS as a scalable digital layer for real-robot data collection.",
+     "published": "2026-11-11",
+     "comment": "Conference on Robot Learning (CoRL) 2026",
+     "score": 10.5,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> CrowdMAPS将机器人已访问状态通过网页3D界面分发给远程非专家标注者，为每个状态补充多个可行替代动作，从而在不使用物理机器人硬件的情况下沿“每状态动作数”宽度维度扩增真实机器人数据集，并用关键帧目标位姿标注训练模仿策略。<br><b>✨ 亮点</b> 在五个真实操作任务中，将每状态动作数从1增至10，关键位姿策略平均成功率提升35.6个百分点，轨迹策略提升33.0个百分点，并提高样本效率。<br><b>💡 启发</b> 低成本众包数据扩增与非专家3D标注；每状态多动作监督和“数字层”叠加真实机器人数据用于后续模仿学习研究。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.15491",
+     "title": "What Makes a VLA Reactive? A Study of Execution Strategies for Dynamic Manipulation",
+     "authors": [
+      "Zhuoyue Li",
+      "Zhendong Han",
+      "Pankhuri Vanjani",
+      "Wenting Li",
+      "Rudolf Lioutikov"
+     ],
+     "url": "https://arxiv.org/abs/2611.15491",
+     "abstract": "Vision-language-action (VLA) models predict chunks of future actions, and when objects move, those chunks go stale before they are executed. We study what makes a pretrained VLA reactive, using \\pihalf{} on two dynamic simulation benchmarks and three real-robot tasks. We vary the prediction and execution horizons, compare synchronous and asynchronous inference, test methods that deliver actions sooner or keep successive chunks continuous, and adapt the policy with motion cues and latent-space reinforcement learning. The best prediction horizon is about one second, and the best execution horizon depends on the checkpoint. Short horizons help more with asynchronous execution, and methods that keep the trajectory continuous outperform those that only reduce latency. Adapting the policy repairs targeted failures, but on the conveyor task changing the execution horizon gained as much. Reactivity depends on the execution pipeline as much as on the policy, so both should be evaluated together.",
+     "published": "2026-11-11",
+     "comment": "13 pages, 7 figures, Efficient Foundation Models for Real-Time Embodied AI, CoRL 2026 Workshop",
+     "score": 19.5,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 5,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 系统拆解预训练VLA在动态操作中的反应性来源，通过调节预测与执行时域、同步/异步推理、动作提前交付与连续chunk机制，并结合运动线索和潜空间强化学习适配，在2个动态仿真基准和3个真实机器人任务上比较执行策略。<br><b>✨ 亮点</b> 最佳预测时域约1秒，最佳执行时域依赖检查点；短时域对异步执行帮助更大，保持轨迹连续优于仅降低延迟，传送带任务中改执行时域与策略适配收益相当。<br><b>💡 启发</b> 反应性需将策略与执行管线联合评估；可迁移到动态抓取、传送带分拣等场景，优先异步执行、短预测时域与轨迹连续，并用运动线索或潜空间RL做定向修复。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.16423",
+     "title": "VOKE: Visual Object Kinematics Estimator for Dexterous In-Hand Manipulation",
+     "authors": [
+      "Shengjia Zhu",
+      "Wenqiang Xu",
+      "Lin Shao"
+     ],
+     "url": "https://arxiv.org/abs/2611.16423",
+     "abstract": "Vision-based dexterous in-hand manipulation requires knowing not only where an object is, but also how it moves. However, most robotic manipulation systems rely on off-the-shelf visual perception models whose outputs are limited to static object masks, geometry, or 6D poses, leaving downstream controllers to infer object dynamics implicitly from noisy visual observations. We present VOKE, a kinematics-aware perception framework that augments existing object and hand-object pose estimators to recover a complete object kinematic state comprising pose, linear and angular velocity, and linear and angular acceleration. VOKE contains two core perception modules and a downstream application study. First, a Pluggable Kinematics Module (PKM) attaches to the output of a standard pose estimator and predicts the object's linear and angular velocity and acceleration from temporal visual features. Second, a Kinematics-guided Pose Refinement Module (KPRM) converts this motion vector into a second-order, motion-prior reference pose and refines the per-frame pose estimates. We evaluate VOKE on DexYCB and OakInk, where it consistently improves object pose estimation across three different backbones and substantially reduces velocity and acceleration estimation error compared with pose differencing. As a downstream application, we use Kinematics-Augmented Reinforcement Learning (KARL) to compare a kinematics-augmented policy with a pose-history baseline. After training the policies in simulation, we transfer the kinematics-augmented policy to the physical robot without policy fine-tuning, demonstrating the complete perception-to-control pathway in the target domain.",
+     "published": "2026-11-12",
+     "comment": "8 pages, 4 figures, 6 tables. Submitted to the 2027 IEEE International Conference on Robotics and Automation (ICRA 2027). Project page: https://voke-project.pages.dev/",
+     "score": 12.5,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "ICRA",
+     "quant": false,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出VOKE运动学感知框架，通过可插拔运动学模块PKM从时序视觉特征预测物体线/角速度与加速度，并用运动学引导位姿细化模块KPRM以二阶运动先验参考位姿逐帧优化位姿。<br><b>✨ 亮点</b> 在DexYCB和OakInk上跨三种backbone一致提升物体位姿估计，较位姿差分显著降低速度与加速度估计误差，且运动学增强策略从仿真零微调迁移到真实机器人。<br><b>💡 启发</b> 可插拔运动学估计用于动态视觉伺服与抓取操作；运动先验位姿细化提升动态感知稳定性；仿真到真实策略迁移验证感知到控制闭环。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.16374",
+     "title": "ManiLadder: Benchmarking Robot Manipulation Through a Categorized and Multi-Difficulty Level Task Ladder",
+     "authors": [
+      "Chongkai Gao",
+      "Jieao Shi",
+      "Zhaoyu Mu",
+      "Yudi Lin",
+      "Xuanwei Liu",
+      "Wei Ken Ng",
+      "Baiye Cheng",
+      "Anqi Chen",
+      "Kerun Liu",
+      "Zhuoran Li",
+      "Xuchuan Huang",
+      "Haoyang Li",
+      "Shengjia Zhu",
+      "Nga Teng Chan",
+      "Yuxuan Zhang",
+      "Xingyu Chen",
+      "Lin Shao"
+     ],
+     "url": "https://arxiv.org/abs/2611.16374",
+     "abstract": "Recent advances in robotic manipulation have enabled increasingly complex and dexterous behaviors, yet existing benchmarks still focus on simple pick-and-place tasks and lack a systematic framework for measuring progress in robot learning along the axis of task difficulty. We present ManiLadder, a large-scale and organized simulation benchmark for robotic manipulation. ManiLadder contains 112 carefully designed tasks stratified into 4 difficulty levels, with 8 categories in each level, spanning rigid-body and deformable-object manipulation, single-arm and dual-arm settings, and gripper and dexterous-hand end-effectors. To calibrate difficulty, we fix the data amount the same for every task and use a unified flow- matching imitation learning policy under the same training and evaluation protocols, then use its evaluation success rate as an operational empirical difficulty signal. All tasks are iteratively refined until they fall into target difficulty ranges, which are then verified across different random seeds, policies, and agentic learning systems. We further analyze the task properties, compare different policy performances and training settings, analyze task transfer and data scaling behaviors, and conduct real-world experiments showing that the designed tasks preserve their difficulty ordering beyond simulation. ManiLad- der provides a calibrated ladder for measuring, comparing, and advancing robotic manipulation capabilities. More results are available at https://maniladder-benchmark.github.io/.",
+     "published": "2026-11-12",
+     "comment": "",
+     "score": 17.0,
+     "routes": [
+      "data",
+      "learn",
+      "grasp"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 2,
+      "data": 4
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出ManiLadder大规模仿真机器人操作基准，将112个任务按4个难度等级和每级8类组织，覆盖刚体/可变形物体、单/双臂及夹爪/灵巧手，并用固定数据量和统一流匹配模仿学习策略的成功率作为经验难度信号迭代校准任务。<br><b>✨ 亮点</b> 基准含112个任务、4个难度等级、每级8类，经不同随机种子、策略和智能体学习系统验证，真实实验显示任务难度排序在仿真外仍保持。<br><b>💡 启发</b> 难度阶梯式基准可服务课程学习与数据缩放研究；固定数据统一策略的难度校准可迁移到其他操作基准与真实世界评测。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-11",
    "papers": [
