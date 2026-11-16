@@ -1,6 +1,129 @@
 {
- "generated_at": "2026-11-15 15:00",
+ "generated_at": "2026-11-16 15:07",
  "days": [
+  {
+   "date": "2026-11-16",
+   "papers": [
+    {
+     "id": "arxiv:2611.17619",
+     "title": "TouchTwin: Scaling Human Touch Data via Real-to-Sim-to-Real",
+     "authors": [
+      "Huiwen Han",
+      "Nuo Chen",
+      "Ziyao Zeng",
+      "Dayou Li",
+      "Hao Wang",
+      "Amir Hossein Rahmati",
+      "Xiaoning Qian",
+      "Bangya Liu",
+      "Zhiwen Fan"
+     ],
+     "url": "https://arxiv.org/abs/2611.17619",
+     "abstract": "Human demonstrations are becoming the main source of data for dexterous manipulation, and real-to-sim-to-real pipelines multiply each demonstration in simulation. These pipelines rebuild the interaction from vision, which recovers how the hand moves. Which fingers touch, when, and how hard remain unobserved, because a hand pose shows where each finger stops on the surface rather than how far it is driven to close. This gap is a force gap: on held-out recordings, a hand policy that imitates the observed pose grips with 0.31x the recorded force, and a policy trained on physics replays of vision-tracked poses grips with 1.55x. TouchTwin closes the gap with measured human touch. Each selected TouchScale recording, captured with head and wrist RGB-D cameras and an 880-taxel glove, is rebuilt in MuJoCo. Coding agents write the objects as physics-tested programs, and a per-subject tactile hand replays the interaction with the recorded touch setting the contact and the closing force of each finger. In simulation, a policy trained on touch-grounded replays grips at 0.99x the recorded force and succeeds in 20/20 trials on held-out recordings and 35/36 unseen perturbations; a contact predictor trained on them misses 13% of real contact frames, against 32% for vision-based replays. Each replay also seeds perturbed demonstrations with simulated contact and force labels, rendered as realistic video in new views and scenes.",
+     "published": "2026-11-13",
+     "comment": "",
+     "score": 12.6,
+     "routes": [
+      "data",
+      "tactile",
+      "learn"
+     ],
+     "route_hits": {
+      "tactile": 1,
+      "learn": 1,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> TouchTwin 用带880-taxel手套和头腕RGB-D采集的真实触觉数据，在MuJoCo中逐条重建人-物交互，并由按受试者建模的触觉手以记录的接触与每指闭合力重放，从而把视觉姿态无法观测的力信息补进 real-to-sim-to-real 流程。<br><b>✨ 亮点</b> 触觉重放训练的策略抓取力为记录值的0.99倍，在留出录制上20/20成功、在未见扰动上35/36成功；触觉数据训练的接触预测器仅漏检13%真实接触帧，视觉重放为32%。<br><b>💡 启发</b> 触觉力标注驱动的可扩展灵巧操作数据生成；接触与力感知策略的仿真到现实迁移；视觉重建与触觉重放互补的多模态机器人学习。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.18562",
+     "title": "Training Reasoning Models in Simulation to Natively Use Real Robots",
+     "authors": [
+      "Jiaming Tang",
+      "Zhuoyang Zhang",
+      "Junxian Guo",
+      "Fangzhou Zhao",
+      "Yilong Zhao",
+      "Zekai Li",
+      "Xingyang Li",
+      "Yuyang Zhao",
+      "Song Bian",
+      "Zhijian Liu",
+      "Song Han"
+     ],
+     "url": "https://arxiv.org/abs/2611.18562",
+     "abstract": "Robot-use agents (RUAs) have emerged as a promising approach to general-purpose robot control. However, strong performance has so far been achieved only by frontier proprietary models such as GPT-6 Astra and Claude Fable 5.2, whereas open-weight models remain substantially less capable. We show that an open-weight 27B reasoning model can be trained to use real robots natively through reinforcement learning, entirely in simulation and without demonstrations. Like a computer-use agent (CUA), the model observes the environment, reasons in a chain of thought, and generates the next end-effector pose, without any harness. We build a Post-training Engine for Agentic Robotics (PEAR) and use it to train the model on simulated robot tasks at scale with robot-use reinforcement learning (RURL), mirroring how frontier models acquire computer use. We find that the skills acquired in simulation generalize well beyond the training tasks: they transfer to an unseen robot, to the real world, and to novel instructions. After training on LIBERO and RoboDojo in simulation, the model succeeds in 60% of our trials on a real dual-arm robot, whereas the base model succeeds in none. On LIBERO, training raises the success rate from 1.6% to 74.4%, approaching GPT-6 Astra and GPT-6.1 Sol at maximum reasoning effort. Compared with $π_{0.5}$, a vision-language-action model fine-tuned on demonstrations, our model is substantially more robust to changes in the task itself. On LIBERO-Pro, $π_{0.5}$ succeeds in only 0.75% of episodes when assigned a new task in a familiar scene whereas our model succeeds in 57.4%. Finally, the model retains its general capabilities, with no measurable degradation on nine reasoning, coding and vision benchmarks. These results highlight robot-use reinforcement learning as a promising component of foundation-model post-training.",
+     "published": "2026-11-13",
+     "comment": "",
+     "score": 12.4,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 构建PEAR并用机器人使用强化学习RURL，在全仿真、无演示条件下训练开放权重27B推理模型，使其像CUA一样观察环境、链式思考并直接生成末端位姿，无需额外harness即可原生使用真实机器人。<br><b>✨ 亮点</b> 真实双臂机器人任务成功率从基座模型的0提升到60%，LIBERO成功率从1.6%提升到74.4%，LIBERO-Pro上新任务成功率57.4%而π0.5仅0.75%，且九项推理、编程和视觉基准无 measurable 退化。<br><b>💡 启发</b> 仿真到真实、跨机器人和新指令的泛化能力；将RURL作为基础模型后训练组件，用于通用机器人智能体。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.17394",
+     "title": "Agentic-Teacher: An Agentic Data Engine for Failure-Driven VLA Post-Training",
+     "authors": [
+      "Gongyue Teng",
+      "Yuqing Xie",
+      "Yixian Zhang",
+      "Feng Gao",
+      "Shu'ang Yu",
+      "Jiaji Rao",
+      "Sukai Wang",
+      "Guanghui Ren",
+      "Ya Zhang",
+      "Maoqing Yao",
+      "Yu Wang",
+      "Chao Yu",
+      "Xinlei Chen"
+     ],
+     "url": "https://arxiv.org/abs/2611.17394",
+     "abstract": "Improving a pretrained vision-language-action (VLA) model requires demonstrations that address its weaknesses and provide effective supervision for learning. Coding agents can autonomously generate demonstrations through environment interaction, yet successful execution alone does not ensure effective supervision for VLA learning. We introduce Agentic-Teacher, an autonomous data engine for failure-driven VLA post-training. Given a VLA checkpoint, a task specification, and configured environment tools, the engine analyzes failed rollouts, selects intervention states, and iteratively develops closed-loop code policies through execution feedback. Validated policies become reusable demonstration generators that collect successful continuations from states where the VLA struggles. To make these demonstrations suitable for learning, Agentic-Teacher introduces temporally correlated action noise to broaden state-action coverage, removes idle frames while preserving gripper transitions, and filters trajectories using the frozen base model's flow-matching loss. The resulting demonstrations are combined with successful VLA rollouts for post-training, yielding an updated policy that operates without coding-agent assistance. Agentic-Teacher thus connects the weaknesses of a target VLA to both the generation and curation of its training data. In simulation, it improves $π_0$ success rates from 79.4% to 87.8% on LIBERO-10, from 80.4% to 90.6% on MetaWorld-10, and from 0% to 30.0% across three RoboCasa tasks.",
+     "published": "2026-11-12",
+     "comment": "",
+     "score": 11.4,
+     "routes": [
+      "learn",
+      "grasp",
+      "data"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 2,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> Agentic-Teacher是面向VLA后训练的失败驱动自主数据引擎，分析失败回放并选择干预状态，迭代生成闭环代码策略，验证后复用为演示生成器，从VLA失败状态采集成功继续轨迹，并用时间相关动作噪声、去空闲帧保留夹爪转换、冻结基座模型流匹配损失筛选轨迹后与成功回放混合后训练。<br><b>✨ 亮点</b> π0在LIBERO-10成功率从79.4%提升至87.8%，在MetaWorld-10从80.4%提升至90.6%，在三个RoboCasa任务上从0%提升至30.0%。<br><b>💡 启发</b> 失败驱动数据闭环；代码代理演示生成与基座损失筛选可迁移至其他VLA和机器人操作策略的后训练数据构建。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-13",
    "papers": [
