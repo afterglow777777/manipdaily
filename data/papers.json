@@ -1,6 +1,192 @@
 {
- "generated_at": "2026-11-16 15:07",
+ "generated_at": "2026-11-17 16:20",
  "days": [
+  {
+   "date": "2026-11-17",
+   "papers": [
+    {
+     "id": "arxiv:2611.21143",
+     "title": "WinDEX: Metric 3D Hand Motion Reconstruction in the Wild for Dexterous Teleoperation and Policy Learning",
+     "authors": [
+      "Hongyu Ma",
+      "Hairong Qu",
+      "Shiqi Zhao",
+      "Yongsong Yang",
+      "Kai Shi",
+      "Jiahao Ai",
+      "Xin You",
+      "Peng Yin"
+     ],
+     "url": "https://arxiv.org/abs/2611.21143",
+     "abstract": "Human manipulation data are widely used to train robots for human-like dexterity. However, low-cost, large-scale collection in the wild remains challenging. Existing methods remain limited in geometrically grounded metric-scale reconstruction, real-world generalization and inference speed. We present WinDEX, integrating (1) geometric-temporal optimization for metric 3D hand annotation from in-the-wild egocentric stereo videos, combined with visual-inertial SLAM for world-frame reconstruction; (2) WinDEX-Net, an end-to-end, fisheye-native network combining calibrated stereo, local detail and temporal context, with a data-model flywheel of model-assisted annotation and retraining; (3) distilled models for offline reconstruction and causal streaming, supporting reinforcement learning and teleoperation; and (4) low-cost CyberCap stereo-inertial capture, forming the WinDEX-Hand dataset with 1,000 hours of training annotations and held-out human-annotated in-the-wild 2D and independent optical motion-capture evaluation sets. Offline reconstruction runs at 43.61 FPS and causal streaming at 171 FPS. On held-out data, offline reconstruction achieves state-of-the-art accuracy: 14.5 pixels in-the-wild reprojection error and, with visual-inertial odometry, 37.29 mm world-frame joint error. We achieve 7.6 and 3.6 times the task success rates of reinforcement learning policies trained with WiLoR and HaWoR motion references, respectively, and demonstrate real-time arm-hand teleoperation. Project website: https://fruitrabbit.github.io/WinDEX/.",
+     "published": "2026-11-16",
+     "comment": "",
+     "score": 16.0,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 3,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出WinDEX，用几何-时序优化和视觉惯性SLAM从野外第一视角双目视频重建度量世界坐标3D手部运动，并以鱼眼原生端到端WinDEX-Net及蒸馏模型支持离线与因果流式重建，服务灵巧遥操作和策略学习。<br><b>✨ 亮点</b> 离线重建43.61 FPS、因果流式171 FPS，野外重投影误差14.5像素、世界坐标关节误差37.29 mm，强化学习任务成功率分别为WiLoR和HaWoR参考的7.6倍和3.6倍。<br><b>💡 启发</b> 低成本立体惯性采集与模型辅助标注数据飞轮；因果流式度量手部重建用于实时灵巧遥操作和强化学习策略参考。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.20718",
+     "title": "TaF-Foundation: Wrench-Grounded Cross-Sensor Tactile Representations",
+     "authors": [
+      "Jiaming Jiang",
+      "Yuzhe Huang",
+      "Baokun Yang",
+      "Hao Liang",
+      "Li Gao",
+      "Haoran Guo",
+      "Pei Lin",
+      "Shengcheng Luo",
+      "Chenxi Xiao",
+      "Wanlin Li",
+      "Ziyuan Jiao"
+     ],
+     "url": "https://arxiv.org/abs/2611.20718",
+     "abstract": "Tactile sensing is essential for contact-rich manipulation, yet heterogeneous sensing mechanisms and observation formats hinder cross-hardware transfer. Since physical contact is governed by Newtonian mechanics, we ground tactile representations in six-dimensional wrenches, establishing a common physical reference across sensing mechanisms. Specifically, we pair tactile observations from all sensors with wrench measurements, enabling shared physical supervision without requiring direct tactile-to-tactile pairing between sensors. To support learning at scale, we develop a dedicated acquisition platform and collect over 100 million paired tactile observations and wrench measurements from 24 sensors spanning four families of sensing principles. Building on this dataset, our framework combines sensor-specific input adaptation with a shared tactile encoder. By learning to reconstruct wrenches, the encoder maps observations from different sensors into a shared, continuous feature space grounded in contact physics. To leverage these representations for manipulation, we introduce TaF-Policy, which integrates tactile features with visual observations and robot states to generate action chunks. We evaluate the learned representations through wrench estimation, cross-sensor retrieval, few-shot adaptation to unseen sensors, and robotic manipulation. On the core benchmark, our method reduces single-frame force RMSE by 17.1% and improves cross-sensor retrieval R@1 by 13.11 percentage points over the strongest baseline. In manipulation experiments, TaF-Policy achieves average success rates of 51.33% across three simulated tasks and 46.25% across four real-world tasks, compared with 47.33% and 23.75%, respectively, for the strongest baselines evaluated on the same task sets. Project page: https://mrjiangjm.github.io/TaF-Foundation/.",
+     "published": "2026-11-16",
+     "comment": "17 pages, 6 figures, including supplementary material",
+     "score": 14.4,
+     "routes": [
+      "data",
+      "affordance",
+      "tactile",
+      "learn"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "tactile": 1,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 以六维力/力矩为跨传感机制的共同物理锚点，将24种传感器触觉观测与力/力矩测量配对，结合传感器特定输入适配和共享触觉编码器，通过重建力/力矩学习统一触觉表征，并由TaF-Policy融合触觉、视觉与机器人状态生成动作块。<br><b>✨ 亮点</b> 单帧力RMSE降低17.1%，跨传感器检索R@1提升13.11个百分点；操作平均成功率在三个仿真任务达51.33%、四个真实任务达46.25%，对比最强基线47.33%和23.75%。<br><b>💡 启发</b> 以统一物理量监督跨硬件触觉表征；可迁移至多传感器机器人操作、触觉基础模型和新传感器少样本适配。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.20460",
+     "title": "Stochastic Self-Distillation for Flow-Based Vision-Language-Action Models",
+     "authors": [
+      "Jingru Guo",
+      "Alessandra Russo",
+      "Joey Bose",
+      "Christos Ziakas"
+     ],
+     "url": "https://arxiv.org/abs/2611.20460",
+     "abstract": "Flow-based vision-language-action (VLA) models achieve strong performance in robotics through imitation learning, yet fine-tuning them with on-policy reinforcement learning (RL) is limited. In group-based RL methods like Group Relative Policy Optimization (GRPO), every rollout step requires multi-step ODE integration, and the sampler's limited stochasticity leads to rollout groups with low variance. We propose VLA-SSD, which addresses both high inference latency and limited stochasticity. In particular, our method self-distills a pretrained flow-matching action head into a stochastic one-step policy by conditioning a single-jump generator on a Brownian path. We derive a conditional action density via our stochastic one-step policy, enabling efficient post-training via likelihood-ratio RL algorithms. We show that distilling VLA-SSD from the $π_0$ VLA reduces the action head's forward-pass time by a factor of 7.7, at the cost of a 5.5% relative decrease in the success rate on the LIBERO benchmark. However, by leveraging the increased sample diversity of VLA-SSD during group generation, post-training a $π_{0.5}$ VLA using GRPO yields a 20.6% relative improvement.",
+     "published": "2026-11-16",
+     "comment": "",
+     "score": 13.6,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 4,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出VLA-SSD，将单跳生成器以布朗路径为条件，把预训练流匹配动作头自蒸馏为随机一步策略，并导出条件动作密度以支持似然比强化学习后训练。<br><b>✨ 亮点</b> 动作头前向耗时降低7.7倍，LIBERO成功率相对下降5.5%；利用组生成样本多样性，对π0.5 VLA做GRPO后训练取得20.6%相对提升。<br><b>💡 启发</b> 随机一步蒸馏提升RL rollout多样性；低延迟且可算密度的策略适合在线VLA强化学习与GRPO后训练。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.20273",
+     "title": "DexFormer 2.0: Towards a Cross-Embodiment Foundation Policy for Dexterous Grasping",
+     "authors": [
+      "Lixin Xu",
+      "Ke Zhang",
+      "Xinyu Liu",
+      "Jie Tan",
+      "Senming Tan",
+      "Jiaju Yin",
+      "Yating Feng",
+      "Xiaoyi Lin",
+      "Xiyue Dong",
+      "Renjing Xu"
+     ],
+     "url": "https://arxiv.org/abs/2611.20273",
+     "abstract": "Dexterous grasping policies are usually trained for one arm paired with one hand. Every new pairing then needs its own policy, and the number of policies grows with every arm and hand added. We ask whether a single policy can control many arm-hand combinations and transfer to pairings and hands it has never seen. This is hard because robots differ in the number, layout, and dynamics of their joints, so their observations and actions share no common interface. We present DexFormer 2.0, a single reinforcement learning policy for cross-embodiment dexterous grasping. It maps every robot to a canonical joint interface with validity masks, encodes each joint's morphology with attention biased by the kinematic tree, and uses a Transformer-XL memory to infer embodiment-dependent dynamics from recent interaction. Trained on 18 combinations of four arms and six hands, it reaches 89% stable success on seen combinations and 51% on six held-out arm-hand pairs, outperforming GRU and DexFormer 1.0 baselines. Without fine-tuning, it also grasps with four new hand types and, through retargeting, with parallel grippers. Ablations show that memory, the kinematic-tree bias, and broader pairing coverage each matter for transfer. On a physical Flexiv arm, distilled students transfer zero-shot from simulation with two hands, including a held-out pair. Project website: https://davidlxu.github.io/dexformer2-web/.",
+     "published": "2026-11-15",
+     "comment": "",
+     "score": 13.6,
+     "routes": [
+      "grasp",
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "grasp": 2,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出单一跨本体强化学习抓取策略 DexFormer 2.0，将不同机械臂-手映射到带有效性掩码的规范关节接口，并用运动树偏置注意力编码关节形态、Transformer-XL 记忆从近期交互推断本体相关动力学。<br><b>✨ 亮点</b> 在4臂6手18个组合上训练后，已见组合稳定成功率89%，6个未见过臂手组合达51%，无微调适配4种新手型并可重定向至平行夹爪，实体Flexiv上蒸馏学生零样本迁移两种手且含未见过组合。<br><b>💡 启发</b> 跨本体统一关节接口与有效性掩码；运动树偏置注意力和交互记忆提升迁移；可迁移至多机械臂多手抓取、灵巧操作基础策略和零样本仿真到现实部署。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.21059",
+     "title": "Multi-CONDOR: Learning Multistable Motion Primitives from Demonstration",
+     "authors": [
+      "Gabriele Giuseppe Di Marzo",
+      "Mariano Ramírez Montero",
+      "Maximilian Stölzle",
+      "Rodrigo Pérez-Dattari",
+      "Cosimo Della Santina"
+     ],
+     "url": "https://arxiv.org/abs/2611.21059",
+     "abstract": "Dynamical-system-based motion policies provide a framework for learning reactive robot motions with stability and convergence properties. Many manipulation tasks, however, admit several distinct goals or a continuous set of acceptable outcomes, requiring motion primitives that preserve these alternatives. Accommodating both goal structures within a unified framework with continuous, autonomous dynamics remains an open challenge. We propose a CONDOR-based framework, multi-CONDOR, for learning motion primitives with either multiple discrete attractors or a continuous attracting goal contour. The approach combines imitation learning with losses that encourage agreement between the learned task dynamics and latent reference systems encoding the desired attraction structure. We provide a Lyapunov-based analysis of the convergence properties of the learned motion dynamics. We evaluate the framework on simulated benchmarks with discrete goals, qualitative examples with continuous goal contours, and robotic grasping experiments. In simulation, multi-CONDOR reduces trajectory RMSE by approximately 72% compared with separately learned single-goal motion primitives selected by a state machine. For tasks with two and three goals, respectively, it reduces the fraction of evaluated initial states ending outside the goal tolerance from StableNODE's 0.31% and 7.29% to 0% in both settings. Experiments with a Franka Emika robot arm demonstrate successful grasping of a container by either of its two handles using motions learned from demonstrations. Together, these results show multi-CONDOR combines motion reproduction with the flexibility to converge to alternative valid outcomes.",
+     "published": "2026-11-16",
+     "comment": "",
+     "score": 13.4,
+     "routes": [
+      "learn",
+      "data",
+      "grasp"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出 multi-CONDOR，将模仿学习与潜在参考系统一致性损失结合，从示教中学习具有多个离散吸引子或连续吸引目标轮廓的运动基元，并用 Lyapunov 分析保证学习动力学的收敛性。<br><b>✨ 亮点</b> 仿真中轨迹 RMSE 较状态机选择的单目标基元降低约 72%；两目标与三目标任务中初始状态落在目标容差外比例由 StableNODE 的 0.31% 和 7.29% 均降至 0%；Franka 机械臂成功从示教运动实现双把手容器抓取。<br><b>💡 启发</b> 多吸引子与目标流形运动基元；多解操作与抓取任务；Lyapunov 约束下的示教学习与稳定性保证。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-16",
    "papers": [
