@@ -1,6 +1,198 @@
 {
- "generated_at": "2026-11-17 16:20",
+ "generated_at": "2026-11-18 15:51",
  "days": [
+  {
+   "date": "2026-11-18",
+   "papers": [
+    {
+     "id": "arxiv:2611.21908",
+     "title": "From Human Videos to Bimanual Dexterous Manipulation Data: Confidence-Guided RL Refinement of Video Priors",
+     "authors": [
+      "Yanghong Liu",
+      "Yang Chen",
+      "Kailang Xu",
+      "Bang Du",
+      "Feiyang Yang",
+      "Jiawei Xia",
+      "Zhengtao Yao",
+      "Yubiao Zhang",
+      "Masayoshi Tomizuka",
+      "Ruihai Wu",
+      "Wei Zhan"
+     ],
+     "url": "https://arxiv.org/abs/2611.21908",
+     "abstract": "Collecting demonstrations for bimanual dexterous manipulation is costly, motivating the use of human videos as a source of robot training data. However, uncertainty in video-derived motion estimates and differences between human and robot embodiments make direct motion transfer challenging. In this work, we introduce PriDex, a framework that transforms human-video Priors into executable robot Dexterous manipulation demonstrations through reinforcement learning in simulation. PriDex preserves task-relevant interaction structure while allowing embodiment-specific behavior to be regenerated for the robot. Human-object interactions provide affordance cues for selecting task-relevant, robot-specific grasps from geometry-based candidates. For motion refinement, object trajectories provide a task-level reference, while relative bimanual wrist trajectories offer complementary guidance for coordinated motion. Since object-motion estimates can become unreliable under occlusion or visual ambiguity, PriDex uses object-motion confidence to adaptively balance these two priors, emphasizing object-level guidance when confidence is high and increasing the contribution of wrist-level guidance as confidence decreases. Reinforcement learning refines these video-derived priors under the robot's kinematic and physical constraints, and the resulting policies are rolled out to generate robot demonstrations for training a vision-based diffusion policy. We evaluate PriDex on four bimanual dexterous manipulation tasks, including pouring, sweeping into a dustpan, bottle-cap unscrewing, and plate cleaning, assessing both simulation-based robot data generation and downstream visuomotor policy learning.",
+     "published": "2026-11-16",
+     "comment": "",
+     "score": 14.8,
+     "routes": [
+      "learn",
+      "data",
+      "affordance"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 4,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出PriDex，将人类视频先验经仿真强化学习细化为可执行的双臂灵巧操作演示；用人类物体交互可供性选取机器人抓取，以物体轨迹和双臂腕相对轨迹为任务与协调先验，并按物体运动置信度自适应融合后在机器人运动学物理约束下用RL生成策略与演示。<br><b>✨ 亮点</b> 在倒水、扫入簸箕、拧瓶盖、擦盘子四类双臂灵巧任务上验证仿真机器人数据生成及下游视觉扩散策略学习。<br><b>💡 启发</b> 人类视频到机器人演示的跨具身数据生成；置信度驱动的多先验融合与仿真RL细化用于扩散策略训练。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.22395",
+     "title": "CoBoVLA: Decoupling Language from Action with Discrete Codes for Robust and Interpretable Robot Manipulation",
+     "authors": [
+      "Mehul Arora",
+      "Dhruv Agarwal",
+      "Ambuj Agrawal"
+     ],
+     "url": "https://arxiv.org/abs/2611.22395",
+     "abstract": "Vision-Language-Action (VLA) models achieve high success rates on the LIBERO benchmark but remain sensitive to paraphrasing. Existing VLAs ranging from 0.6B to 7.5B parameters experience a 22-52 point performance drop on LIBERO-Para while SmolVLA exhibits an even larger decline, from 83\\% to 8\\%. Because most VLAs jointly learn language understanding and action generation, it is difficult to determine whether a failure originates from misunderstanding an instruction or executing it incorrectly. To address these challenges, we introduce CoBoVLA, or CodeBookVLA, a 250M-parameter VLA that decouples language understanding, planning, and control through learned discrete interpretable codes. A text encoder maps the instructions to shared step codes, which a visual planner then converts into action code sequences executed by a language-independent actor. This design improves robustness to instruction paraphrasing while allowing failures to be traced to individual stages. It also enables efficient real-time control on resource-constrained hardware by encoding instructions only once and using compact discrete representations to keep each component lightweight. CoBoVLA achieves 91.4\\% success on LIBERO-Goal, compared with 82.8\\% for SmolVLA, under a matched protocol, with 17 ms per control step latency. On LIBERO-Para, it achieves 81.1\\% across 4,092 unseen paraphrases and 78.5\\% on matched episodes, compared with 36.5\\% for SmolVLA LoRA fine-tuned on paraphrases. Without two-step demonstrations, CoBoVLA completes 48.8\\% of 160 free-form two-step tasks. Finally, success reaches 91\\% when instructions are correctly encoded but falls to 27.2\\% otherwise, identifying language understanding as the main source of remaining failures. Together, these results demonstrate that decoupling language understanding and control can improve instruction robustness while making VLA failures easier to diagnose.",
+     "published": "2026-11-17",
+     "comment": "16 pages, 3 figures, 4 tables, and supplemental material included",
+     "score": 10.0,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 3,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出250M参数CoBoVLA，用可学习离散可解释码将语言理解、规划与控制解耦，文本编码器把指令映射为共享步骤码，视觉规划器转为动作码序列并由语言无关执行器执行。<br><b>✨ 亮点</b> LIBERO-Goal达91.4%（SmolVLA为82.8%），LIBERO-Para在4092条未见改写上达81.1%、匹配episode达78.5%（SmolVLA LoRA为36.5%），控制步延迟17 ms，无误导示范完成48.8%的160个自由两步任务，指令编码正确时成功率91%、否则27.2%。<br><b>💡 启发</b> 可迁移到资源受限实时机器人控制和指令改写鲁棒性场景；后续可基于离散码做分阶段故障定位与语言-动作解耦诊断。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.22609",
+     "title": "Task Convergent Flow Matching for Generative Robotics",
+     "authors": [
+      "Lorenzo Paiola",
+      "Maximilian Stölzle",
+      "Giorgio Grioli",
+      "Daniela Rus",
+      "Cosimo Della Santina"
+     ],
+     "url": "https://arxiv.org/abs/2611.22609",
+     "abstract": "Successful manipulation requires the manipulated objects to progress toward a desired task outcome. Generative policies can produce plausible robot motions without ensuring this progress, allowing successive action chunks to stall or undo earlier changes to the scene. We introduce a task-centric inference-time refinement framework for flow matching policies that evaluates candidate action chunks through parallel physics-based rollouts and searches for motions satisfying sufficient conditions for task convergence. Task-level performance funnels bound temporary regressions while requiring net progress over each chunk. We establish sufficient conditions under which repeated funnel satisfaction yields convergence throughout execution, and use interval-wise Lipschitz bounds to verify continuous-time funnel satisfaction from sampled rollouts. To accommodate contact-rich hybrid dynamics, we refine the flow's source seeds using derivative-free Covariance Matrix Adaptation Evolution Strategy (CMA-ES), constrained to radial quantile bands of the source distribution to help retain the learned motion prior. This formulation supports both Euclidean and pose-valued Riemannian Flow Matching (RMFM) policies. On PushT and three-cube stacking, refinement raises success from 31.3% to 88.5% and from 77.0% to 86.0%. On PushT, whose coverage score responds continuously to the motion of the block, a learned funnel lowers the average maximum loss of achieved progress by 19% relative to constraining the endpoint of each chunk alone, at a similar success rate. With the radial band, 11.3% of the executed motion windows are out of distribution, a rate within the range of held-out demonstrations, compared with 34.1% for an unconstrained search.",
+     "published": "2026-11-17",
+     "comment": "Submitted to L4DC 2027",
+     "score": 9.4,
+     "routes": [
+      "affordance",
+      "learn"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 1
+     },
+     "top_pis": [
+      "daniela rus"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出面向流匹配生成策略的任务收敛推理时精炼框架：并行物理rollout评估候选动作块，以任务级性能漏斗和区间Lipschitz界验证收敛充分条件，并用受源分布径向分位带约束的无导数CMA-ES搜索源种子。<br><b>✨ 亮点</b> PushT成功率从31.3%提升到88.5%，三立方堆叠从77.0%提升到86.0%；学习漏斗使PushT平均最大进度损失降低19%，径向带将执行动作窗口OOD率从34.1%降至11.3%。<br><b>💡 启发</b> 接触丰富操作的任务收敛推理精炼与先验保持搜索；用物理rollout、漏斗和Lipschitz验证增强长时序生成策略。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.23056",
+     "title": "RFW-S: Everyday Deformable Objects with Independent Simulation Verification",
+     "authors": [
+      "Jiarui Guo",
+      "Saining Zhang",
+      "Jiaying Wan",
+      "Jiawei Weng",
+      "Junhao Chen",
+      "Rui Zhang",
+      "Yuanbo Lyu",
+      "Zhiheng Lee",
+      "Peishuo Li",
+      "Jingrun Du",
+      "Weiqing Xiao",
+      "Weiyi Lin",
+      "Zenan Meng",
+      "Hu Wei",
+      "Lin Qu",
+      "Zongzheng Zhang",
+      "Hao Zhao",
+      "Chaojian Li"
+     ],
+     "url": "https://arxiv.org/abs/2611.23056",
+     "abstract": "Large-scale robotic simulation requires diverse deformable objects with executable physical properties and realistic interaction behaviors. However, existing 3D asset collections primarily emphasize visual diversity, while scalable physical construction and verification remain challenging. We introduce RFW-S, a large-scale dataset of 83,365 simulation-verified assets spanning 485 everyday categories across five structural families: soft solids, cloth sheets, shells, garments, and bags. We develop an automated pipeline integrating reference-guided 3D generation, structure-aware physical modeling, and LLM-assisted parameter estimation and calibration. To ensure physical reliability, we introduce an independent simulation verification framework that evaluates object behaviors under interactions distinct from those used for parameter calibration. Extensive experiments demonstrate the effectiveness of independent verification and characterize deformable responses under different physical configurations. We further evaluate robotic grasping in terms of both task success and object integrity, and demonstrate the physical realism of our simulated objects through sim-to-real replay of fragile-object manipulation. RFW-S provides a scalable foundation for physically grounded simulation and embodied robotic learning.",
+     "published": "2026-11-17",
+     "comment": "34 pages, 19 figures. Project Page: https://sjijs.github.io/RFW-S_website/",
+     "score": 12.0,
+     "routes": [
+      "data",
+      "grasp",
+      "learn"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 1,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出RFW-S大规模日常可变形物体数据集，融合参考引导3D生成、结构感知物理建模、LLM辅助参数估计与校准的自动化流程，并用独立仿真验证框架在不同于参数标定的交互下检验物理可靠性。<br><b>✨ 亮点</b> 覆盖83,365个仿真验证资产、485个日常类别和5类结构；独立验证有效，并通过脆弱物体操作的sim-to-real回放证明仿真物体物理真实性。<br><b>💡 启发</b> 可变形物体机器人抓取与脆弱物体操作；独立仿真验证与sim-to-real迁移，结构感知物理建模可迁移到其他仿真资产生成。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.22001",
+     "title": "DreamFAR: Real-Time and Long-Horizon Interaction with Diverse Objects",
+     "authors": [
+      "Yiming Dou",
+      "Botao He",
+      "Antonio Loquercio",
+      "Andrew Owens",
+      "Jitendra Malik",
+      "Sumedh Anand Sontakke",
+      "Ruoshi Liu"
+     ],
+     "url": "https://arxiv.org/abs/2611.22001",
+     "abstract": "World models have shown great potential in serving as a simulator for robot manipulation. However, existing models are either fit to a single environment or lack ability to simulate long-horizon contact-rich events. We present DreamFAR, a world model whose dynamics model is trained from scratch on a large robot-native teleoperation dataset, with no internet-video pretraining. We present an architecture and learning recipe designed for training on robot-native data. DreamFAR is significantly smaller than the high-performance video generation models, yet shows better understanding of contact and causality, and runs 10 FPS on a commercial GPU. Experimentally, DreamFAR significantly outperforms existing models in predicting the long-horizon future. We further demonstrate various applications where DreamFAR can be used, including policy evaluation and mixed-data co-training. Project page: https://www.yimingdou.com/DreamFAR/",
+     "published": "2026-11-16",
+     "comment": "Project page: https://www.yimingdou.com/DreamFAR/",
+     "score": 9.0,
+     "routes": [
+      "data",
+      "affordance",
+      "learn"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出DreamFAR世界模型，其动力学模型仅用大规模机器人原生遥操作数据从零训练、不做互联网视频预训练，并配套面向该类数据的架构与学习配方以模拟长时程接触丰富操作。<br><b>✨ 亮点</b> 模型显著小于高性能视频生成模型，却在接触与因果理解上更优，在商用GPU上达10 FPS，并在长时程未来预测上显著优于现有模型。<br><b>💡 启发</b> 策略评估与混合数据协同训练；机器人原生数据从零训练世界模型及接触因果建模。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-17",
    "papers": [
