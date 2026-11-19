@@ -1,6 +1,201 @@
 {
- "generated_at": "2026-11-18 15:51",
+ "generated_at": "2026-11-19 15:47",
  "days": [
+  {
+   "date": "2026-11-19",
+   "papers": [
+    {
+     "id": "arxiv:2611.23676",
+     "title": "Finetuning VLAs for Dexterous Manipulation: The Right Checkpoint Is All You Need",
+     "authors": [
+      "Artur Kuramshin",
+      "Charlotte Cloutier",
+      "Michael Przystupa",
+      "Kirsty Ellis",
+      "Mohammad S. Akhter",
+      "Glen Berseth"
+     ],
+     "url": "https://arxiv.org/abs/2611.23676",
+     "abstract": "Vision-Language-Action models have demonstrated strong manipulation capabilities. A limitation of VLA models is that most manipulation datasets focus on parallel-jaw gripper systems, making transfer to multi-finger hands challenging, particularly as teleoperation datasets are harder to collect with multi-fingered robots. In this work, we study how to best adapt VLAs to dexterous hands by pairing supervised fine-tuning (SFT) with diffusion-steering reinforcement learning (DSRL). Using $π_{0.5}$ and a LEAP hand, we evaluate five fine-tuning recipes across two simulation tasks using only a handful of demonstrations. Our empirical analysis yields three key insights: (1) SFT success is poorly correlated with post-DSRL success, meaning the best SFT checkpoint is rarely the most effective to steer; (2) freezing the vision-language model (VLM) and tuning only the action expert produces the most steerable policy for both training and out-of-distribution placements; and (3) low-rank adaptation (LoRA) is the least steerable approach. Consequently, we recommend an adaptation recipe that freezes the VLM, fully trains the action expert, and eschews SFT rollout success as a checkpoint selection metric.",
+     "published": "2026-11-18",
+     "comment": "Accepted to the Workshop on Dexterous Manipulation at CoRL 2026",
+     "score": 23.5,
+     "routes": [
+      "learn",
+      "data",
+      "grasp"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 4,
+      "data": 4
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "CoRL",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 基于π0.5和LEAP多指手，将监督微调与扩散引导强化学习结合，系统比较五种VLA适配配方，提出冻结视觉语言模型、仅全量训练动作专家、且不以SFT rollout成功率选检查点的微调机制。<br><b>✨ 亮点</b> 仅用少量示教在2个仿真任务评估5种方案，发现冻结VLM仅训动作专家最具可引导性且LoRA最差，SFT成功率与DSRL后成功率弱相关。<br><b>💡 启发</b> 多指手VLA少样本适配；SFT检查点选择应看DSRL可引导性；冻结VLM加全训动作专家可迁移至真实多指机器人。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.24360",
+     "title": "Towards Pose-Robust Few-Shot Vision-Language-Action Models",
+     "authors": [
+      "Wenhao Li",
+      "Zhongyi Han",
+      "Yuhao Wei",
+      "Liang Han",
+      "Yilong Yin",
+      "Liqiang Nie"
+     ],
+     "url": "https://arxiv.org/abs/2611.24360",
+     "abstract": "Fine-tuning a vision-language-action (VLA) model on a few dozen demonstrations is the standard way to put a manipulation policy on a robot, yet the resulting policy silently assumes that the camera and the robot base stay exactly where they were during data collection: a bumped tripod or a base re-docked a few centimetres away makes it reach for the wrong place. We show that both failures are one phenomenon, a change of the camera-to-base extrinsic that the policy has memorised, and that the robot carries everything needed to undo it. We introduce WACO, a world-anchored canonicalization framework for VLA models: the arm, placed by forward kinematics at the measured joint angles, serves as a metric calibration target, and the static scene serves as the world anchor that tells a moved camera from a moved robot. From a single RGB-D frame, WACO estimates both shifts without ground-truth extrinsics or extra data, canonicalises the image to the calibration viewpoint and the state, action and start pose to the calibration base frame, and fine-tunes the unmodified policy under the artefacts of its own estimator. We also introduce LIBERO-PoseShift, the first benchmark for RGB VLAs with graded camera, base and compound shifts. Across LIBERO-PoseShift, the LIBERO-Plus camera track and four real-world tasks on a UR5e robot, WACO consistently outperforms the standard few-shot recipe and prior viewpoint-robust methods, raising shifted success by 13.2 points in simulation and by 36.7 points on the real robot, recovering 90% of the simulation gap to a ground-truth oracle and 87% of the real-robot gap, and establishing a new state of the art among methods that use no perturbed training data, with no test-time calibration. Project page: https://peacelwh.github.io/WACO/.",
+     "published": "2026-11-18",
+     "comment": "17 pages, 13 figures, 17 tables (including supplementary material). Project page: https://peacelwh.github.io/WACO/",
+     "score": 15.6,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 4,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出WACO，把相机与机器人底座外参变化视为同一现象，利用正运动学机械臂作为度量标定靶、静态场景作为世界锚，从单帧RGB-D估计相机和底座位移，无需真值外参或额外数据，并将图像、状态、动作和起始位姿规范化到标定视角与基座坐标系，再在自身估计误差下微调原策略。<br><b>✨ 亮点</b> 在LIBERO-PoseShift、LIBERO-Plus相机轨迹和UR5e真实任务上，位姿偏移下成功率仿真提升13.2、真机提升36.7个百分点，恢复90%仿真与87%真机相对GT oracle的差距，在不用扰动训练数据且无测试时标定条件下达到SOTA。<br><b>💡 启发</b> 机械臂作标定靶与静态场景作世界锚可迁移到移动底座、多相机重定位和长期部署漂移校正；用自估计器伪影微调策略可推广到其他外参变化下的鲁棒学习。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.24836",
+     "title": "DiWALI: Diffusion Policy Learning in World Models via Latent Action Inference from Human and Robot Play",
+     "authors": [
+      "Akshay L Chandra",
+      "Iman Nematollahi",
+      "Lingyue Zhao",
+      "Daria Kulikova",
+      "Angela P. Schoellig",
+      "Fabien Despinoy",
+      "Abhinav Valada"
+     ],
+     "url": "https://arxiv.org/abs/2611.24836",
+     "abstract": "Learning robot manipulation is constrained by the availability of action-labeled robot data, for both imitation and world models. Humans can demonstrate skills in seconds, but their demonstrations lack the required robot actions. We introduce DiWALI, a framework that learns and improves diffusion policies within a world model trained on human and robot play. DiWALI infers latent actions from consecutive frames using an inverse dynamics model, enabling world model training without action labels, and grounds them in robot commands through a decoder trained separately on robot play. Skill policies are trained over latent actions from action-free human demonstrations and improved with reinforcement learning in imagination. On the CALVIN benchmark, DiWALI policies trained solely from human demonstrations substantially outperform baselines trained with robot demonstrations. Incorporating human play into the world model training also yields stronger policies after fine-tuning than using the same amount of robot play alone. Experiments on a physical robot show that skills learned primarily from human demonstrations are further improved in imagination with a world model trained on human and robot play. Together, these results demonstrate that human experience can support both manipulation skill acquisition and subsequent policy improvement, reducing reliance on action-labeled robot data. Videos, dataset and code are available at https://diwali.cs.uni-freiburg.de.",
+     "published": "2026-11-18",
+     "comment": "",
+     "score": 15.0,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 4,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> DiWALI用逆动力学从连续帧推断潜在动作，使世界模型无需动作标签即可从人类和机器人play训练，并用机器人play单独训练解码器将潜在动作映射为机器人命令，再在想象中用强化学习改进扩散策略。<br><b>✨ 亮点</b> CALVIN上仅用人类演示训练的策略显著优于用机器人演示训练的基线；加入人类play训练世界模型后微调优于等量机器人play；物理机器人验证了从人类演示学技能并可继续在想象中改进。<br><b>💡 启发</b> 无动作人类视频/play可用于世界模型与潜在动作预训练；逆动力学加动作解码器可弥合人机动作鸿沟；世界模型想象强化学习可降低真实机器人动作标注依赖。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.23961",
+     "title": "3DTouch: A Tactile-aware VLA Model with 3D Geometric Relations for Dexterous Manipulation",
+     "authors": [
+      "Xin Zhang",
+      "Shiqi Zhang",
+      "Siyuan Cao",
+      "Juncheng Cai",
+      "Yedong Shen",
+      "Yuxuan Gao",
+      "Dianlong Wen",
+      "Kaixue Long",
+      "Lu Zhang",
+      "Yao Li",
+      "Jiajun Deng",
+      "Yanyong Zhang"
+     ],
+     "url": "https://arxiv.org/abs/2611.23961",
+     "abstract": "In contact-rich dexterous manipulation, occlusion by the fingers and interacting objects obscures local geometry, preventing visual observations from fully capturing contact locations. Visually similar scenes may also differ subtly in the relative positions of interacting objects, leading to different contact states. We propose 3DTouch, a tactile-geometric conditioning approach for vision-language-action (VLA) models. 3DTouch constructs a shared 3D visuo-tactile representation by expressing RGB-D scene points and dense five-finger tactile measurements in the robot-base frame, preserving each taxel's spatial location and force vector. Hand-object and object-object relations derived from hand landmarks and pose-aligned reconstructed surfaces explicitly describe the relative arrangement of interacting entities. Together, these representations condition the VLA action expert on spatially localized contact forces and relative surface geometry, providing explicit cues for contact adjustment and object alignment. We evaluate 3DTouch on five real-world contact-rich dexterous manipulation tasks using a UR7e robot arm equipped with an XHand dexterous hand. 3DTouch improves the average success rate by 42 percentage points over the corresponding VLA baseline and by 20 percentage points over the strongest evaluated alternative. Ablation studies reveal the complementary benefits of scene geometry and spatial tactile feedback, with further gains from shared spatial grounding and explicit geometric relations.",
+     "published": "2026-11-18",
+     "comment": "",
+     "score": 14.8,
+     "routes": [
+      "learn",
+      "affordance",
+      "tactile",
+      "data"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "tactile": 1,
+      "learn": 3,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出3DTouch触觉-几何条件方法，将RGB-D场景点与五指密集触觉测量统一到机器人基座坐标系构建共享3D视触表征，并基于手部关键点和位姿对齐重建表面显式建模手-物、物-物几何关系，以此条件化VLA动作专家。<br><b>✨ 亮点</b> 在UR7e机械臂配XHand灵巧手的五个真实接触丰富操作任务上，平均成功率较对应VLA基线提升42个百分点，较最强评估替代方案提升20个百分点。<br><b>💡 启发</b> 可迁移至遮挡严重和接触密集的装配、抓取与精细操作；后续研究可关注共享空间grounding与显式几何关系增强多模态VLA。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.24938",
+     "title": "Phoenix: Learning Scene Structure Representations for Generalizable World-Action Models",
+     "authors": [
+      "Yupeng Zheng",
+      "Chaoyue Li",
+      "Linbo Wang",
+      "Xiang Li",
+      "Yuhang Zheng",
+      "Xiaotong Su",
+      "Songen Gu",
+      "Yichen Zhang",
+      "Zebin Xing",
+      "Shuai Tian",
+      "Jingxiang Guo",
+      "Jing Li",
+      "Zhiyong Zhao",
+      "Zhongpu Xia",
+      "Qichao Zhang",
+      "Haoran Li",
+      "Shuicheng Yan",
+      "Dongbin Zhao"
+     ],
+     "url": "https://arxiv.org/abs/2611.24938",
+     "abstract": "World-action models jointly predict future observations and actions, yet reconstruction-oriented visual representations do not explicitly emphasize the spatial relationships and object-state changes needed for manipulation. We introduce Phoenix, which learns representations of scene structure for world-action modeling. Specifically, Phoenix Encoder enriches DINOv3's general visual semantics through dual-teacher distillation of geometric and spatiotemporal semantic knowledge. Next, CS-VAE causally aggregates and compresses Phoenix Encoder features into generative latents while preserving scene information and spatial layout. Finally, Phoenix jointly predicts these latents, complementary appearance latents, and robot actions, linking scene evolution with action generation. To study pretraining data efficiency, we curate approximately 39,000 hours of egocentric and robot manipulation data for representation learning and use the robot demonstration subset for WAM pretraining. Following benchmark-specific post-training, Phoenix achieves state-of-the-art performance across simulation and real-robot benchmarks spanning single-arm, bimanual, and dexterous manipulation. It demonstrates strong robustness to perturbations, achieving success rates of 94.8% on LIBERO-Plus and 72.4% on RoboTwin 2.0 C2R, alongside strong cross-embodiment transfer and real-world manipulation performance on Bench2Dex and RoboDojo-RealWorld, respectively. Pretraining-scale analysis shows larger performance gains from data scaling than a video-VAE-only baseline, indicating stronger scaling benefits and more effective data utilization. Moreover, Phoenix maintains high success rates when adapted with limited downstream demonstrations, demonstrating strong few-shot adaptation. Our code, pretraining data, and models are available on the project page to help the community reproduce our results.",
+     "published": "2026-11-18",
+     "comment": "",
+     "score": 12.6,
+     "routes": [
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 1,
+      "data": 4
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出 Phoenix 世界动作模型，通过双教师蒸馏将几何与时空语义注入 DINOv3，并用 CS-VAE 因果聚合压缩为保留场景信息与空间布局的生成潜变量，再联合预测场景结构潜变量、外观潜变量和机器人动作。<br><b>✨ 亮点</b> 在 LIBERO-Plus 达 94.8%、RoboTwin 2.0 C2R 达 72.4%，并在单臂/双臂/灵巧操作仿真与真实机器人基准取得最优性能；用约 3.9 万小时自我中心与机器人操作数据预训练，数据扩展收益高于仅视频 VAE 基线。<br><b>💡 启发</b> 场景结构表征与几何/时空双教师蒸馏可迁移到跨具身操作世界模型；数据扩展与少样本适配指向通用世界动作模型的高效预训练。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-18",
    "papers": [
