@@ -1,6 +1,230 @@
 {
- "generated_at": "2026-11-19 15:47",
+ "generated_at": "2026-11-20 15:39",
  "days": [
+  {
+   "date": "2026-11-20",
+   "papers": [
+    {
+     "id": "arxiv:2611.26293",
+     "title": "LocoMuJoCo: A Comprehensive Imitation Learning Benchmark for Whole-Body Control",
+     "authors": [
+      "Firas Al-Hafez",
+      "Davide Tateo",
+      "Oleg Kaidanov",
+      "Aditya Bhatt",
+      "Artur Zelik",
+      "Zhengyi Luo",
+      "Jan Peters"
+     ],
+     "url": "https://arxiv.org/abs/2611.26293",
+     "abstract": "LocoMuJoCo is an open-source benchmark for imitation learning (IL) and reinforcement learning (RL) on whole-body control. The library couples MuJoCo (CPU) with MJX and the MjWarp backend (GPU) under a single API, exposes 9 humanoid, 3 (musculo-)skeletal, and 4 quadruped embodiments, and ships a curated native motion-capture dataset for every humanoid, to which it can also retarget AMASS and LAFAN1. A modular plug-in architecture makes observations, rewards, control modes, terrains, and domain randomization fully interchangeable, while compact JAX implementations of many RL and IL algorithms provide JIT-compiled end-to-end training, and the companion loco-mujoco-real repository provides sim-to-real deployment. We describe the design, the SMPL-to-robot and robot-to-robot retargeting pipeline, and a usage example. LocoMuJoCo is released under MIT at https://github.com/robfiras/loco-mujoco.",
+     "published": "2026-11-19",
+     "comment": "26 pages, 11 figures, 4 tables. Code: https://github.com/robfiras/loco-mujoco",
+     "score": 19.5,
+     "routes": [
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 4
+     },
+     "top_pis": [
+      "jan peters"
+     ],
+     "orgs": [
+      "mit"
+     ],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出开源全身控制模仿学习/强化学习基准LocoMuJoCo，在同一API下耦合MuJoCo CPU与MJX/MjWarp GPU后端，提供多本体、原生动捕、AMASS/LAFAN1重定向及可互换的观测/奖励/控制/地形/域随机化模块，并集成JAX算法与sim-to-real部署。<br><b>✨ 亮点</b> 覆盖9个人形、3个（肌）骨骼、4个四足共16种本体，每个人形配原生动捕数据，支持AMASS/LAFAN1重定向和JIT编译端到端训练。<br><b>💡 启发</b> 多本体统一基准与模块化接口可迁移到全身控制算法评测；动捕重定向管线加sim-to-real仓库支撑从数据到真实机器人部署。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.25251",
+     "title": "WEVO: World Model-Enabled VLA Optimization for Whole-Body Loco-Manipulation",
+     "authors": [
+      "Qianzhong Chen",
+      "Muyuan Lin",
+      "Yuyin Sun",
+      "Mac Schwager",
+      "Cheng-Hao Kuo",
+      "Roberto Martín-Martín"
+     ],
+     "url": "https://arxiv.org/abs/2611.25251",
+     "abstract": "Reinforcement learning (RL) can improve vision-language-action (VLA) policies beyond imitation, but humanoid exploration is unsafe and simulator RL can exploit residual sim-to-real gaps. We present WEVO, a teleoperation-free framework for post-training a whole-body humanoid VLA in an action-conditioned video world model (WM). Simulated manipulation and locomotion play data improve contact-dynamics and viewpoint-change prediction. A VLA trained on synthetic demonstrations collects 20 autonomous real robot rollouts per task to align the WM with deployment observations. The VLA, whole-body controller (WBC), and video WM then form a closed-loop RL environment with dense progress rewards. Across three real robot tasks, play data improves every evaluated WM metric and downstream policy success; video WM RL raises mean success from 23.3% to 75.0%, compared with 48.3% for real robot RL. We therefore leverage the complementary strengths of both environments: simulation provides policy initialization and broad coverage, while the video WM offers a deployment-aligned environment for policy improvement. Project website: https://qianzhong-chen.github.io/wevo.github.io/.",
+     "published": "2026-11-18",
+     "comment": "",
+     "score": 19.4,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 4,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出无需遥操作的WEVO框架，在动作条件视频世界模型中后训练全身人形VLA，并用20条真实机器人自主rollout对齐世界模型，将VLA、全身控制器与视频世界模型组成闭环RL环境，以稠密进度奖励优化策略。<br><b>✨ 亮点</b> 视频世界模型RL将真实机器人平均成功率从23.3%提升到75.0%，显著高于真实机器人RL的48.3%，且仿真play数据提升全部评估世界模型指标和下游策略成功率。<br><b>💡 启发</b> 用部署对齐视频世界模型替代高风险真机探索；仿真提供初始化与覆盖、世界模型提供部署对齐策略改进，可迁移至人形全身移动操作后训练。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.26405",
+     "title": "TacInno: Teaching Vision-Language-Action Models the Contact Dynamics Beyond Vision and Action",
+     "authors": [
+      "Weile Li",
+      "Yunfan Lou",
+      "Muqing Shi",
+      "Zihao Zhang",
+      "Zhenbiao Huang",
+      "Boxian Yao",
+      "Xiyu Zhu",
+      "Zhibo Pang"
+     ],
+     "url": "https://arxiv.org/abs/2611.26405",
+     "abstract": "Vision-Language-Action (VLA) models have recently been equipped with tactile sensing to perceive visually subtle contact events in contact-rich manipulation. However, adding tactile input yields inconsistent gains, and some visuo-tactile VLA models rely little on tactile input, because much of the tactile change, such as the gel deformation during gripper closure, is predictable from visual observations and executed actions. To address this problem, we introduce TacInno, which isolates the contact dynamics that vision and executed actions cannot explain, termed tactile innovation, and uses tactile innovation only as a training target. Specifically, the TacInno tokenizer, conditioned on visual observations and executed actions, compresses the future tactile change into a discrete code, and the policy, TacInno-VLA, learns to predict the code, adding no module for the code at deployment. TacInno-VLA achieves average success rates of 87.5% across six simulation tasks and 70.5% across four real-world tasks, outperforming the strongest visuo-tactile baseline by 10.7 and 9.0 percentage points, respectively. Ablation studies validate the contributions of visual and action conditioning, multi-frame encoding, and auxiliary code prediction. Together, these results demonstrate the effectiveness of tactile innovation as a supervision signal for contact-rich manipulation.",
+     "published": "2026-11-19",
+     "comment": "11 pages, 4 figures, 4 tables. Project page: https://tacinno.github.io",
+     "score": 16.6,
+     "routes": [
+      "learn",
+      "affordance",
+      "grasp",
+      "tactile",
+      "data"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "grasp": 1,
+      "tactile": 1,
+      "learn": 3,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> TacInno将视觉和已执行动作无法解释的触觉变化定义为触觉创新，并用条件于视觉与动作的tokenizer把未来触觉变化压缩为离散码，仅作为训练目标让策略预测，部署时不增加模块。<br><b>✨ 亮点</b> TacInno-VLA在六项仿真任务平均成功率达87.5%，四项真实任务达70.5%，分别比最强视触觉基线高10.7和9.0个百分点。<br><b>💡 启发</b> 以不可解释触觉残差作为监督信号；可迁移到接触丰富操作、触觉辅助预训练和部署轻量化研究。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.25683",
+     "title": "TipDex-VTLA: Learning When to Refine Actions with Touch for Dexterous Manipulation",
+     "authors": [
+      "Xudi Ge",
+      "Yepeng Liu",
+      "Haifeng Liu",
+      "Enze Shi",
+      "Liangqi Zhang",
+      "Yongchao Xu"
+     ],
+     "url": "https://arxiv.org/abs/2611.25683",
+     "abstract": "Changes in illumination can induce action drift in dexterous manipulation even when the physical state remains unchanged. Although existing vision--tactile--language--action (VTLA) policies incorporate tactile feedback, when and how touch refines actions under changing visual conditions remains challenging. We introduce \\textbf{TipDex-VTLA}, a VTLA policy that combines estimated visual action reliability and tactile forecast verification to regulate execution-time refinement. Specifically, Visual Action Sensitivity Estimation (VASE) learns visual reliability from a frozen reference policy's action sensitivity to illumination perturbations. Tactile Anticipation and Correction during Execution (TACE) compares predicted and measured touch at matched times and combines the resulting discrepancy with visual reliability to gate bounded feature corrections for unexecuted actions. This effectively helps to refine actions under challenging unseen visual conditions. We evaluate TipDex-VTLA on four real-world dexterous manipulation tasks and the UniVTAC simulation benchmark. TipDex-VTLA trained on data collected under normal visual conditions, achieves average full-task success rates of 87.5% (resp. 73.8%) under normal (resp. challenging unseen) lighting in real-world tasks, significantly outperforming some state-of-the-art methods. We will release the collected data and source code.",
+     "published": "2026-11-19",
+     "comment": "",
+     "score": 14.6,
+     "routes": [
+      "data",
+      "tactile",
+      "learn"
+     ],
+     "route_hits": {
+      "tactile": 1,
+      "learn": 1,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出TipDex-VTLA，用冻结参考策略对光照扰动的动作敏感性估计视觉动作可靠性，并在执行时将触觉预测与实测差异同该可靠性结合，门控未执行动作的有界特征修正，从而决定何时用触觉精修动作。<br><b>✨ 亮点</b> 仅用正常光照数据训练，真实任务在正常和挑战未见光照下平均全任务成功率分别达87.5%和73.8%，显著优于部分最先进方法。<br><b>💡 启发</b> 可靠性门控的触觉修正；视觉退化下的精细操作与执行时纠偏。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.26444",
+     "title": "Mind2Act World: A Diagnostic Benchmark for Embodied Mind, Physical Action, and Mind-Action Composition in Robotic Manipulation",
+     "authors": [
+      "Yuzhi Huang",
+      "Jie Wu",
+      "Fanding Huang",
+      "Junchao Lin",
+      "Weichen Zhang",
+      "Ziyi Xiong",
+      "Yang Li",
+      "Zhengwei Xie",
+      "Zhimin Wang",
+      "Zhen Liu",
+      "Jiazhen Huang",
+      "Yuzheng Zhang",
+      "Yuche Liu",
+      "Hongyi Yang",
+      "Chen Tang",
+      "Shixiang Tang",
+      "Hakan Aktas",
+      "Adam Wu",
+      "Duo Wu",
+      "Kangye Ji",
+      "Shuzhao Xie",
+      "Huanan Liu",
+      "Weijue Bu",
+      "Chenxin Li",
+      "Xinyuan Wang",
+      "Tianyi Bai",
+      "Yinan Mao",
+      "Jiawei Wang",
+      "Minglei Li",
+      "Heng Yu",
+      "Ehsan Adeli",
+      "Minchen Li",
+      "Yong-Lu Li",
+      "Cengiz Öztireli",
+      "Huazhe Xu",
+      "Chao Yu",
+      "Jing Zhang",
+      "Shanghang Zhang",
+      "Weitao Zhou",
+      "Wenwu Zhu",
+      "Cheng Chi",
+      "Jingyan Jiang",
+      "Zhi Wang"
+     ],
+     "url": "https://arxiv.org/abs/2611.26444",
+     "abstract": "Embodied intelligence aims to let robots perform complex physical tasks with human-like adaptability and reliability, which requires three complementary capabilities: history-based cognitive reasoning, precise and timely physical execution, and the composition of reasoning and execution through environmental feedback. Yet existing benchmarks either evaluate reasoning and execution within the same tasks or assess them separately without their composition, so they reveal little about whether a failure comes from reasoning, execution, or their composition. We introduce Mind2Act World, a diagnostic benchmark of 30 simulated manipulation tasks from five real-world application domains. Each task has three difficulty levels and two scene settings (Clean and Random), yielding 180 configurations. The tasks form three views: Mind tests decisions based on past observations, Act tests precise and timely execution, and Mind2Act combines both in closed-loop tasks where action outcomes guide later decisions. Comparing the three views shows whether a system lacks a capability or fails to compose capabilities it already has. A diagnosis harness further attributes the failed episodes of three representative systems to Mind, Act, or their composition and summarizes each system in a profile card. Our evaluation of multimodal agents, vision-language-action models (VLAs), and world-action models (WAMs) shows that competence in a single view does not carry over to Mind2Act tasks. Even the strongest agent succeeds in 52.7% of Mind and 39.0% of Act episodes but in only 12.0% of Mind2Act episodes. The strongest agent retains task state but struggles with sustained contact, whereas end-to-end policies execute practiced motions but retain little task state. These findings point to composing reasoning and execution through environmental feedback as the main open problem.",
+     "published": "2026-11-19",
+     "comment": "",
+     "score": 14.4,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 2,
+      "data": 1
+     },
+     "top_pis": [
+      "huazhe xu"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出Mind2Act World诊断基准，将机器人操作能力拆成基于历史观察的认知推理（Mind）、精确及时物理执行（Act）和由环境反馈闭环组合二者的Mind2Act，覆盖5个应用域30个任务、3难度×2场景共180种配置，并用诊断工具把失败归因到推理、执行或二者组合。<br><b>✨ 亮点</b> 最强智能体在Mind和Act分别达52.7%和39.0%，但在Mind2Act仅12.0%；单视图能力不能迁移到闭环组合，强智能体能保留任务状态却难以维持接触，端到端策略能执行熟练动作但任务状态保留很少。<br><b>💡 启发</b> 以环境反馈闭环组合推理与执行是核心开放问题；可迁移到VLA/WAM诊断评测、失败归因和接触丰富操作研究。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-19",
    "papers": [
