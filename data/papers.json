@@ -1,6 +1,214 @@
 {
- "generated_at": "2026-11-24 18:17",
+ "generated_at": "2026-11-25 17:00",
  "days": [
+  {
+   "date": "2026-11-25",
+   "papers": [
+    {
+     "id": "arxiv:2611.32476",
+     "title": "ViTacLab: Physically Consistent Visuo-Tactile Simulation, Benchmarking, and Representation Learning for Robotic Manipulation",
+     "authors": [
+      "Linjing You",
+      "Zeming Yang",
+      "Zhenhao Shen",
+      "Shengqiang Xu",
+      "Guanda Li",
+      "Wenxuan Li",
+      "Jiyu Guo",
+      "Jasper Lu",
+      "Kyle Xu",
+      "Shawn Xie",
+      "Junjie Zhu",
+      "Siyu Wu",
+      "Jian Liu",
+      "Changhao Zhang",
+      "Rongchong Li",
+      "Zeyi Li",
+      "Hengshuang Zhao",
+      "Ruihai Wu"
+     ],
+     "url": "https://arxiv.org/abs/2611.32476",
+     "abstract": "Tactile sensing is essential for contact-rich robotic manipulation, but existing visuo-tactile simulators trade physical fidelity for scalability, and benchmarks largely focus on two-finger grippers. We present ViTacLab, a framework comprising ViTacSim, ViTacBench, and ViTacPolicy. ViTacSim uses a tri-modal tactile primitive: a global sparse contact-force lattice, a local dense force array, and tactile images. Anchored to PhysX contact-solver outputs, it corrects normal inconsistency through local stiffness alignment and reconstructs tangential forces under decoupled slip-stick regimes while preserving GPU parallelism. A joint projection preserves the sparse wrench and enforces local friction cones. ViTacBench spans parallel grippers, dexterous hands, and bimanual systems, with tasks ranging from vision-dominant to tactile-dominant regimes. ViTacPolicy aggregates variable numbers of heterogeneous tactile inputs using spatial-pose embeddings and a Transformer, and aligns force-array and tactile-image modalities through a two-stream VQ-VAE with a shared codebook. Controlled Hertzian-reference indentation and real-sensor sliding tests reduce normal and tangential force RMSE from 2.31 and 1.85 N to 0.42 and 0.53 N, respectively. Throughput reaches 2,482.9 tactile-pipeline FPS at 256 parallel environments. Simulation and real-world experiments show gains on several contact-rich tasks, while low absolute success on tactile-dominant tasks highlights the remaining difficulty of purely tactile control.",
+     "published": "2026-11-24",
+     "comment": "8 pages, 5 figures, 4 tables",
+     "score": 19.0,
+     "routes": [
+      "data",
+      "affordance",
+      "grasp",
+      "tactile",
+      "learn"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "grasp": 1,
+      "tactile": 1,
+      "learn": 1,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> ViTacLab提出三模态触觉primitive（全局稀疏接触力格、局部密集力阵列、触觉图像）并锚定PhysX接触求解器，通过局部刚度对齐、滑粘解耦切向力重建和联合投影保持稀疏wrench与局部摩擦锥；配套ViTacBench跨平行夹爪、灵巧手和双臂，以及用空间姿态嵌入、Transformer和共享码本双流VQ-VAE聚合异质触觉输入的ViTacPolicy。<br><b>✨ 亮点</b> 法向与切向力RMSE分别从2.31、1.85 N降至0.42、0.53 N，256个并行环境下触觉管线吞吐达2,482.9 FPS，并在多个接触丰富任务上取得提升。<br><b>💡 启发</b> 高保真GPU并行触觉仿真与跨本体基准可迁移至接触丰富操作数据生成；共享码本异质触觉表征与摩擦锥投影可启发多模态策略学习，纯触觉主导任务成功率偏低提示需强化闭环控制。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.32582",
+     "title": "Design, Control, and Teleoperation of a Dexterous Robotic Hand with Soft-Rigid Hybrid Fingers",
+     "authors": [
+      "Chao Liu",
+      "Wil J. Norton",
+      "Brandon Romero",
+      "Daniela Rus"
+     ],
+     "url": "https://arxiv.org/abs/2611.32582",
+     "abstract": "Adding compliance to robot hands results in higher grasp quality and robust contact with the environment. Soft hands are inherently compliant, but are typically more complex to control and model than rigid equivalents. We extend prior work on soft-rigid hybrid robot fingers into a five-fingered dexterous gripper --- an integrated tendon-driven hand that is highly compliant and controllable. Structural compliance combined with a rigid skeleton, when realized in a five-fingered hand, allow us to use linear control to achieve soft-grasping generality. We evaluate the use of this hand in a variety of teleoperated manipulation tasks, demonstrating the effectiveness of the overall mechanical design and control strategy. Our contributions include: (1) Mechanical design of the a five-fingered Soft-Rigid Hybrid Hand, composed of 12 active degrees of freedom, demonstrating a high degree on generalization enabled by the soft-rigid architecture, with our gripper, able to complete 28 of the 33 (84.8\\%) grasp postures in the human range. (2) Precise, high bandwidth (up to 1432deg/s extension speed, compared with 700deg/s for the equivalent human joint). (3) Position and task space controllers for the soft-rigid hybrid finger and whole hand. (4) A teleoperation framework for control of this hand, as well as demonstrations of its efficacy in a variety of grasping and manipulation tasks Further tests illustrate the hand's advantages in completing non-rigid manipulation tasks, such as picking up thin deformable objects (such as a dollar bill or folding cloth) as well as in interfacing with soft or delicate targets.",
+     "published": "2026-11-24",
+     "comment": "9 pages,10 figures",
+     "score": 17.0,
+     "routes": [
+      "grasp",
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "grasp": 3,
+      "learn": 1,
+      "data": 2
+     },
+     "top_pis": [
+      "daniela rus"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 将软硬混合手指扩展为12主动自由度的五指腱驱动灵巧手，结合刚性骨架与结构柔顺，以线性控制实现软抓取通用性，并提供位置/任务空间控制器与遥操作框架。<br><b>✨ 亮点</b> 可完成33种人手抓握姿态中的28种，完成率84.8%；延伸速度最高1432度/秒，约为等效人关节700度/秒的2倍。<br><b>💡 启发</b> 软硬混合结构加低复杂度控制可迁移至假肢、协作机器人和遥操作精细抓取；高带宽柔顺手适合薄软/易损物体操作与非刚性任务。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.32101",
+     "title": "Ego2Real: Learning Bimanual Dexterous Manipulation from Egocentric Visuo-Tactile Demonstrations",
+     "authors": [
+      "Ange Bao",
+      "Haishan Zhang",
+      "Lingzi Xie",
+      "Shuang Li",
+      "Pei Zhao",
+      "Ling Shi",
+      "Bidan Huang"
+     ],
+     "url": "https://arxiv.org/abs/2611.32101",
+     "abstract": "Learning dexterous manipulation from egocentric human demonstrations offers a scalable path toward robot skill acquisition. Vision alone, however, provides limited information about physical contacts and the demonstrator's force intent, leading to ambiguities in interpreting hand-object interactions. Capturing human touch via tactile sensing is therefore crucial for reliable human-to-robot dexterous skill transfer. We present Ego2Real, a framework that leverages egocentric demonstrations and tactile gloves to transfer bimanual dexterous manipulation skills to robotic hands. Ego2Real incorporates tactile supervision at two complementary stages: (1) tactile-guided hand-object interaction reconstruction, which uses measured tactile signals to refine hand poses and contact geometry; and (2) contact-informed reinforcement learning, which translates human contact patterns into robotic contact rewards. By combining refined motion references with physical contact rewards during training, Ego2Real guides anthropomorphic robotic hands to emulate demonstrated contact behaviors while adapting to their own morphology and actuation. Experiments show that incorporating tactile supervision into both reconstruction and policy learning yields higher manipulation success rates, underscoring the importance of enriching egocentric demonstrations with tactile observations to improve their quality and transferability.",
+     "published": "2026-11-24",
+     "comment": "19 pages, 9 figures",
+     "score": 15.8,
+     "routes": [
+      "learn",
+      "affordance",
+      "tactile",
+      "data"
+     ],
+     "route_hits": {
+      "affordance": 2,
+      "tactile": 1,
+      "learn": 3,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出Ego2Real框架，用第一视角演示和触觉手套把双手灵巧操作技能迁移到机器人手，并在两阶段引入触觉监督：先用触觉信号修正手部姿态与接触几何以重建手物交互，再把人类接触模式转化为强化学习的接触奖励，引导拟人手在适应自身形态与驱动的同时模仿演示接触行为。<br><b>✨ 亮点</b> 将触觉监督同时用于交互重建与策略学习后，操作成功率较无触觉方案更高。<br><b>💡 启发</b> 用触觉手套采集第一视角演示以补足视觉缺失的接触与力意图信息；将人类接触模式转为奖励函数，支撑跨形态的技能迁移与接触感知策略学习。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.32654",
+     "title": "DexWAC: A Unified World-Actor-Critic Model for Dexterous Robot Manipulation",
+     "authors": [
+      "Hongjia Liu",
+      "Dacheng Zhou",
+      "Minghao Fu",
+      "Chuanjun Guo",
+      "Tianze Wang",
+      "Qingtao Liu",
+      "He Wang",
+      "Li Yi"
+     ],
+     "url": "https://arxiv.org/abs/2611.32654",
+     "abstract": "Robot demonstrations provide more than actions to imitate: they reveal how actions change the world and how those changes contribute to task success. Recent world-action models (WAMs) extend vision-language-action (VLA) models with the first signal by jointly predicting actions and future observations, yet this predictive ability serves only as an auxiliary loss for policy learning. Meanwhile, most policy improvement methods learn dynamics and values in separate models, increasing training overhead and limiting representation sharing between these complementary objectives. We introduce DexWAC, a unified world-actor-critic model that jointly learns an actor, an action-conditioned world model, and a bootstrapped critic in a single robot pretraining stage. Our key insight is that visual prediction encourages control-relevant features, while value supervision promotes task-relevant representations; together, they shape a representation suited to policy learning. Built on an image-editing backbone, DexWAC predicts, for each action chunk, the visual latent and proprioception at its endpoint together with its reward and continuation, so the world model alone efficiently yields complete imagined transitions without generating intermediate video frames. After adapting the world model and critic on real rollouts, we improve the pretrained actor through either PPO on imagined rollouts or critic-guided best-of-$N$ selection. DexWAC surpasses the large-scale pretrained VLA and WAM baselines in simulation and achieves 75% average success on two real-world tasks, compared with 45% for $π_{0.5}$. Its world model is more accurate and faster than video-based baselines, and ablations confirm that learning dynamics and value together improves the policy.",
+     "published": "2026-11-24",
+     "comment": "",
+     "score": 15.6,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 4,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出DexWAC统一世界模型-演员-评论家模型，在单阶段机器人预训练中联合学习演员、动作条件世界模型和自举评论家；世界模型基于图像编辑骨干，仅预测每个动作块端点的视觉潜变量、本体感觉及奖励/延续，无需生成中间视频帧即可构造完整想象转移。<br><b>✨ 亮点</b> 仿真中超过大规模预训练VLA和WAM基线，真实两任务平均成功率达75%，对比π0.5的45%；世界模型比视频基线更准更快。<br><b>💡 启发</b> 用端点潜变量预测替代逐帧视频生成以降低规划开销；将世界模型与价值学习联合预训练并用于PPO或评论家引导的best-of-N策略改进，可迁移至灵巧操作和长时程机器人策略优化。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.32260",
+     "title": "EgoLoAF: Learning Humanoid Loco-Manipulation from Egocentric Demonstrations with Hand-Object Affordances",
+     "authors": [
+      "Yiming Zeng",
+      "Jiangyuxuan Dai",
+      "Yuheng Na",
+      "Tan Zhu Xuan",
+      "Zihan Lin",
+      "Xinfang Qi",
+      "Shijian Zhang",
+      "Chengqi Shi",
+      "Yihan Kuang",
+      "Zhide Zhong",
+      "Junjie He",
+      "Junfeng Li",
+      "Zimu Han",
+      "Naipeng Li",
+      "Haoang Li"
+     ],
+     "url": "https://arxiv.org/abs/2611.32260",
+     "abstract": "Training humanoid vision-language-action (VLA) models relies heavily on costly real-robot teleoperation. Recent efforts convert egocentric human demonstrations into humanoid training data. However, most methods still require wearable motion trackers and leave important hand-object interaction cues implicit. Many also mix in real-robot teleoperation data for VLA post-training. These dependencies limit scalable data collection, while implicit interaction cues make precise contact harder to learn. To overcome these limitations, we propose EgoLoAF, the first paradigm to derive all training data for humanoid loco-manipulation directly from egocentric demonstrations without wearable motion trackers. We post-train the VLA on the converted data alone, without real-robot teleoperation demonstrations, and use explicit hand-object interaction cues to guide action generation. Specifically, to obtain humanoid action targets, we estimate torso motion from recorded camera poses and reconstruct both hand trajectories from video. From the same recording, we use each hand's current pose relative to the object to represent hand-object affordances. During post-training, we inject these affordances into the action expert through cross-attention while keeping the vision-language backbone frozen. Additionally, we release 128,400 egocentric demonstration episodes spanning 1,000 hours and 1,284 tasks, together with converted humanoid action trajectories and rendered robot-view observations. Across four real-world tasks, EgoLoAF nearly achieves teleoperation performance (73.1 vs. 74.4 in mean Task Progress Score), while achieving a mean 4.03 times improvement in data-collection efficiency.",
+     "published": "2026-11-24",
+     "comment": "",
+     "score": 15.0,
+     "routes": [
+      "learn",
+      "affordance",
+      "data"
+     ],
+     "route_hits": {
+      "affordance": 2,
+      "learn": 3,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出EgoLoAF，首个无需可穿戴动捕、仅用第一视角人类演示生成人形机器人移动操作训练数据的范式；其从相机位姿估躯干运动、从视频重建双手轨迹，并以当前手相对物体位姿显式表示手物可供性，通过交叉注意力注入动作专家且冻结视觉语言主干，仅用转换数据后训练VLA。<br><b>✨ 亮点</b> 四个真实任务平均任务进度73.1，接近遥操作74.4，数据采集效率平均提升4.03倍，并发布128,400条演示、1,000小时、1,284个任务的数据。<br><b>💡 启发</b> 低成本第一视角人类视频规模化人形VLA数据；显式手物可供性引导接触密集操作；冻结主干加动作专家交叉注意力的后训练机制。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-24",
    "papers": [
