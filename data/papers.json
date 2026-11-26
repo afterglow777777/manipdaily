@@ -1,6 +1,187 @@
 {
- "generated_at": "2026-11-25 17:00",
+ "generated_at": "2026-11-26 16:47",
  "days": [
+  {
+   "date": "2026-11-26",
+   "papers": [
+    {
+     "id": "arxiv:2611.34741",
+     "title": "ELMO: Emergent Representations In Imitation Learning Via Dynamic Hierarchical Action Chunking",
+     "authors": [
+      "Jasper Gerigk",
+      "Yang Xu",
+      "Nicholas Rhinehart",
+      "Igor Gilitschenski"
+     ],
+     "url": "https://arxiv.org/abs/2611.34741",
+     "abstract": "Robot trajectories naturally decompose into variable-length phases with distinct semantic intents, such as reaching, grasping, and lifting. However, training policies to minimize MSE treats all actions as equal, obscuring their semantic structure. While latent action models attempt to create a structured prediction target by compressing action chunks into latent representations, existing approaches rely on two-stage training and context-blind decoders. Consequently, their representations are context-agnostic motion codes (e.g., \"move down\") which fail to capture behavioural intent (e.g., \"pick up the block\"). To overcome these bottlenecks, we introduce the Emergent Latent-action MOdel (ELMO), an end-to-end framework that encodes robot trajectories as grounded semantic codes -- representations that ground task-level behavioural intent in the current environment. ELMO jointly trains a VLA planner and an observation-conditioned decoder over dynamically chunked trajectories, learning a semantically grounded action space without separate pretraining. Across standard benchmarks, ELMO outperforms comparable prior methods by 9.6 percentage points on LIBERO-Plus and by 0.75 in average task length on CALVIN. Furthermore, on Blocks -- our shortcut-free simulation and real-world generalization benchmark -- ELMO reaches a 38.6% success rate while all baselines remain below 5%, demonstrating its ability to capture the semantic structure of demonstrations. Website: https://uoft-isl.github.io/elmo.github.io/",
+     "published": "2026-11-25",
+     "comment": "",
+     "score": 13.6,
+     "routes": [
+      "learn",
+      "data",
+      "grasp"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出ELMO端到端框架，动态分层切分机器人轨迹并联合训练VLA规划器与观测条件解码器，将任务级行为意图锚定到当前环境，学习语义化动作空间且无需单独预训练。<br><b>✨ 亮点</b> LIBERO-Plus较同类方法提升9.6个百分点，CALVIN平均任务长度提升0.75，Blocks成功率38.6%而所有基线低于5%。<br><b>💡 启发</b> 动态分层动作分块结合观测条件解码构建语义动作码；可迁移至长时序机器人操作的分层模仿学习与免两阶段预训练方法。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.34914",
+     "title": "Cairn: Object-Centric 3D Trajectory Priors for Steering Frozen VLAs",
+     "authors": [
+      "Agelos Kratimenos",
+      "Kostas Daniilidis",
+      "Evangelos Chatzipantazis"
+     ],
+     "url": "https://arxiv.org/abs/2611.34914",
+     "abstract": "Vision-language-action models (VLAs) are capable low-level controllers, but they tie where objects go to the layouts they were trained on: when objects are moved or obstacles block the way, they carry them to the wrong place or into collisions. Fine-tuning on new layouts needs robot data for each one and erodes skills the model already has. We introduce Cairn, which keeps the VLA frozen and steers it at test time along learned 3D trajectories of the object in its gripper. A small prior reads point clouds of the scene and the held object, along with its pose when grasped and the instruction, and samples SE(3) trajectories up to its release that lead it around obstacles and turn it to fit through gaps. The prior and the VLA form the two levels of a hierarchical planner in which feedback runs both ways: the VLA's intended motion chooses and reshapes the trajectories, and the chosen one guides the VLA's denoising. Its predicted actions, mapped to the held object's poses through the grasp, are pulled toward the next waypoint, while the VLA's weights stay untouched. Across 1,941 held-out LIBERO scenes with displaced objects and obstacles, Cairn raises the success rate of a frozen π0.5 from 24.5% to 95.1%, above that of a π0.5 fine-tuned on our training layouts, without hurting standard LIBERO. On the third-party LIBERO-PRO benchmark, it raises success from 27.3% to 38.0%, and from 54.4% to 81.1% on the episodes it steers. On a real Franka, with a prior trained purely in simulation, it guides the frozen DROID π0.5 around an obstacle and to a placement at the limit of the arm's reach, where it otherwise fails. All code, models and data will be made public.",
+     "published": "2026-11-25",
+     "comment": "",
+     "score": 13.4,
+     "routes": [
+      "learn",
+      "data",
+      "grasp"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> Cairn保持VLA冻结，用小型先验从场景与夹持物体点云、抓取位姿和指令采样物体SE(3)轨迹，并与VLA构成双向反馈分层规划，将预测动作经抓取映射拉向轨迹路点。<br><b>✨ 亮点</b> 在1941个LIBERO位移与障碍场景中，冻结π0.5成功率从24.5%升至95.1%，超过按训练布局微调的π0.5且不损标准LIBERO；LIBERO-PRO从27.3%升至38.0%，受引导片段从54.4%升至81.1%。<br><b>💡 启发</b> 冻结大模型加测试时物体中心3D轨迹先验；双向分层规划与抓取映射可迁移到布局变化、障碍绕行和仿真到真实部署。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.34538",
+     "title": "Dynamic Task Update Benchmark (DTU-Bench): Evaluating Runtime Task Adaptation in Robotic Manipulation",
+     "authors": [
+      "Yanran Jiang",
+      "Cécile Paris",
+      "Dana Kulić",
+      "Leimin Tian"
+     ],
+     "url": "https://arxiv.org/abs/2611.34538",
+     "abstract": "Vision-language-action (VLA) policies perform well on fixed-instruction robotic manipulation benchmarks, but their ability to adapt to instruction changes during execution remains understudied. We introduce the Dynamic Task Update Benchmark (DTU-Bench), evaluating 40 task revisions across seven update types and three execution stages using LIBERO, a simulated robotic manipulation benchmark. We compare performance when a new instruction is given before execution starts versus during execution, and examine whether the new task instructions are followed. Across 13 representative VLA configurations, average task success is 95.8% on the original object-manipulation tasks, compared with only 1.6% when the instruction changes which object to manipulate during execution. Controlled diagnostics show that policies often complete the original task before the updated one, and that their responses depend on the robot's physical state. We further test whether a simple scripted controller that releases the grasped object and moves the arm back helps robots respond to instruction changes. This improves success from 2% to 38% for π0.5 and from 8% to 48% for DM0.5, but can cause unwanted object motion. These findings reveal limitations that fixed-instruction benchmarks and task-success metrics alone can overlook in evaluating robotic manipulation. Project page: https://dtu-bench.github.io/",
+     "published": "2026-11-25",
+     "comment": "",
+     "score": 13.4,
+     "routes": [
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "learn": 3,
+      "data": 1
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": true,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出DTU-Bench，基于LIBERO构建覆盖7类任务更新、3个执行阶段的40个任务修订，对比执行前与执行中下达新指令下13种VLA配置的适应表现并检验是否遵循新指令。<br><b>✨ 亮点</b> 原始对象操作任务平均成功率95.8%，执行中改变操作对象仅1.6%；脚本化释放物体并回退机械臂使π0.5从2%升至38%、DM0.5从8%升至48%，但会引入非预期物体运动。<br><b>💡 启发</b> 运行时指令切换需结合机器人物理状态进行重规划；释放物体与回退等安全恢复动作可迁移到动态人机协作和长程操作。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.34778",
+     "title": "Toward Agentic Robotics: A Large-Scale Study of Harness Design for Robot-Use Agents",
+     "authors": [
+      "Yuxiang Lai",
+      "Jike Zhong",
+      "Yu-Jhe Li",
+      "Lan Wang",
+      "Chengzhi Liu",
+      "Youbao Tang",
+      "Ming Li",
+      "Xi Xiao",
+      "Xiaofeng Yang",
+      "Liang Zhao",
+      "Zheda Mai",
+      "Ruixi Fan"
+     ],
+     "url": "https://arxiv.org/abs/2611.34778",
+     "abstract": "Recent vision-language models (VLMs) can act as robot-use agents that understand diverse scenes and control robots through policy code and tools. However, they predict 3D gripper poses poorly even with extended reasoning, struggling with precise manipulation. Vision-language-action (VLA) and world-action (WAM) models are the opposite: they execute fast, smooth control on trained tasks, yet fail under domain shifts or when tasks require long-horizon memory and reasoning. Agentic robots therefore combine VLM reasoning and perception with precise VLA/WAM control through a policy harness. Yet harness design spans thousands of configurations, shifting success by tens of points with the same models. Moreover, testing even one design takes thousands of rollouts at high API and GPU cost, so prior works often commit to a single design chosen from few alternatives. To guide harness design, we evaluate over 470,000 rollouts across eight simulation benchmarks, six VLMs, and 15 VLA/WAM checkpoints. Seven controlled studies show effective harnesses must adapt to both VLM and VLA/WAM capabilities. Our findings specify what structure the VLM's policy code needs, where VLA manipulation needs help from tools and policy code, and when to involve the VLM at test time. The reference recipe X-Harness shows that these findings compose without weight updates, lifting base policies up to $+42.8$ points across memory, reasoning, and domain shifts.",
+     "published": "2026-11-25",
+     "comment": "",
+     "score": 13.0,
+     "routes": [
+      "learn",
+      "data",
+      "grasp"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 3,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 对机器人用智能体的策略编排（policy harness）开展大规模受控研究，系统评估VLM推理感知与VLA/WAM精确控制如何结合，并提炼出需同时适配二者能力、无需权重更新的X-Harness参考配方。<br><b>✨ 亮点</b> 覆盖8个仿真基准、6个VLM和15个VLA/WAM检查点，完成超47万次rollout，X-Harness在记忆、推理和域偏移场景将基础策略最高提升42.8分。<br><b>💡 启发</b> 自适应编排VLM推理与VLA控制；工具调用与测试时按需介入VLM。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.34655",
+     "title": "Nav4Manip: From Navigation to Dexterous Mobile Manipulation through Co-Evolution",
+     "authors": [
+      "Yusen Feng",
+      "Zixi Kang",
+      "Zhijun Yin",
+      "Changxiao Liu",
+      "Tianhong Gao",
+      "Jiazhao Zhang",
+      "Jiahang Liu",
+      "Libin Liu",
+      "Zhizheng Zhang",
+      "He Wang"
+     ],
+     "url": "https://arxiv.org/abs/2611.34655",
+     "abstract": "Dexterous mobile manipulation is essential for robots to perform useful tasks in complex, unstructured environments. However, existing systems face two challenges. First, navigation remains too coarse for downstream manipulation, which often requires a precise base position and approach orientation rather than merely reaching a meter-scale goal region. Second, navigation and manipulation are commonly trained in isolation, lacking a feedback loop that enables the two capabilities to co-evolve. These limitations prevent current systems from reliably executing long-horizon dexterous mobile-manipulation tasks in real-world environments. To address them, we introduce Nav4Manip, a bidirectionally coupled co-evolution system for long-horizon dexterous mobile manipulation. It comprises two complementary architectures: Nav4Manip-N learns long-horizon navigation and refines its policy through manipulation feedback, while Nav4Manip-M trains a world-action model (WAM) for downstream dexterous manipulation. We train Nav4Manip-N in three stages: multi-task co-tuning learns navigation behavior and manipulation-aware affordance prediction; rejection sampling fine-tuning (RFT) rejects low-quality policy-generated paths and fine-tunes the model on retained trajectories; and reinforcement learning from AI feedback (RLAIF) uses counterfactual preferences to further improve navigation decisions. To support this framework, we establish the Nav-N-Manip benchmark and construct Nav4Manip-Pairs from benchmark rollouts, providing large-scale paired navigation--manipulation trajectories and affordance supervision. Extensive experiments on public vision-language navigation (VLN) benchmarks and Nav-N-Manip demonstrate state-of-the-art performance, while real-world evaluations show that Nav4Manip completes diverse dexterous mobile-manipulation tasks. Project website: https://nav4manip.github.io/.",
+     "published": "2026-11-25",
+     "comment": "",
+     "score": 13.0,
+     "routes": [
+      "learn",
+      "data",
+      "affordance"
+     ],
+     "route_hits": {
+      "affordance": 1,
+      "learn": 2,
+      "data": 2
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出双向耦合协同进化系统Nav4Manip，用Nav4Manip-N经多任务协同调优、拒绝采样微调和AI反馈强化学习学习长程导航并由操作反馈闭环精炼，同时用Nav4Manip-M的世界-动作模型支撑下游灵巧操作。<br><b>✨ 亮点</b> 在公开VLN基准和Nav-N-Manip上达到SOTA，并在真实世界完成多样灵巧移动操作任务。<br><b>💡 启发</b> 面向下游操作的精确基座位姿与接近方向；操作反馈、反事实偏好和配对轨迹监督驱动的导航-操作协同进化。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-25",
    "papers": [
