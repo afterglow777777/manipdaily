@@ -1,6 +1,85 @@
 {
- "generated_at": "2026-11-26 16:47",
+ "generated_at": "2026-11-27 16:57",
  "days": [
+  {
+   "date": "2026-11-27",
+   "papers": [
+    {
+     "id": "arxiv:2611.34884",
+     "title": "FineDex: Bridging Fine-Grained Human-Object Interaction Generation to Dexterous Humanoid Manipulation",
+     "authors": [
+      "Yujia Zeng",
+      "Yuxin Chen",
+      "Yuzhen Song",
+      "Runhan Huang",
+      "Chensheng Peng",
+      "Yiyang Shao",
+      "Koushil Sreenath",
+      "Masayoshi Tomizuka",
+      "Yilun Du"
+     ],
+     "url": "https://arxiv.org/abs/2611.34884",
+     "abstract": "Dexterity is, at its core, finger-level control, yet existing dexterous manipulation and human-object interaction (HOI) generation methods rarely let one specify how an interaction is performed: five-fingered hands are often reduced to grippers, or finger usage is copied from individual human demonstrations. We present FineDex, a framework that makes finger-level intent both expressible and executable. FineDex learns coordinated human body, hand, and object motions that follow fine-grained instructions on hand selection, individual fingers, and contacts with articulated objects. To bridge generation and execution, FineDex leverages generated interactions as actionable priors for an agent that discovers physically feasible contact strategies through practice in a physics-based digital twin. By adapting at test time without per-instance retraining, FineDex generalizes across fine-grained instructions and object configurations. Experiments demonstrate state-of-the-art HOI generation quality and fine-grained controllability, substantial improvements in dexterous manipulation success, and successful deployment on a real dexterous humanoid robot.",
+     "published": "2026-11-25",
+     "comment": "Project page: https://finedex.github.io/",
+     "score": 11.0,
+     "routes": [
+      "grasp",
+      "learn",
+      "data"
+     ],
+     "route_hits": {
+      "grasp": 1,
+      "learn": 1,
+      "data": 1
+     },
+     "top_pis": [
+      "yilun du"
+     ],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": false,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> FineDex学习协调人体、手与物体运动以遵循手选择、单指和关节物体接触的细粒度指令，并将生成交互作为可操作先验，在物理数字孪生中通过实践发现可行接触策略，测试时自适应且无需逐实例重训。<br><b>✨ 亮点</b> 在HOI生成质量与细粒度可控性上达到SOTA，灵巧操作成功率显著提升，并成功部署到真实灵巧人形机器人。<br><b>💡 启发</b> 生成式HOI作为物理执行先验；测试时自适应实现跨细粒度指令与物体配置泛化；可迁移至人形机器人灵巧操作与数字孪生训练。",
+     "summary_source": "deepseek"
+    },
+    {
+     "id": "arxiv:2611.34925",
+     "title": "One Ocean, Many Tasks: A Data-Grounded Simulation Suite and Benchmark for Marine Robotics",
+     "authors": [
+      "Shuaijun Liu",
+      "Qifu Wen",
+      "Xingwei Chen",
+      "Xinwen Hu",
+      "Feiyang You",
+      "Sijia Chen",
+      "Ningxin Su"
+     ],
+     "url": "https://arxiv.org/abs/2611.34925",
+     "abstract": "Simulation is essential for marine robotics, yet existing platforms often trade off between visually realistic worlds, high-throughput experimentation, and ocean-condition realism grounded in real data. We present OneOcean, a data-grounded simulation suite and benchmark built around a unified spatiotemporal ocean-environment product that harmonizes bathymetry with data-driven currents and tides, with optional pollution fields for cleanup-related evaluation. On top of this environment representation, OneOcean defines a task ladder spanning navigation and station-keeping under currents, waypoint and route following, depth-profile tracking, area scanning, pipeline inspection, and multi-agent coordination, including formation transit, fish protection and patrol (herding), and surface pollution localization, containment, and cleanup. The suite supports multi-agent settings with 2-10 vehicles. Our simulator supports three to six Degrees of Freedom (DoF) and produces standardized metrics and reproducible run manifests, enabling consistent aggregation across tasks, difficulties, and scaling settings. Experiments across dataset variants and scenes systematically stress planning and control under data-grounded disturbances and reveal trade-offs among heuristic baselines, Behavior Cloning (BC), and a Large Language Model (LLM)-based planner.",
+     "published": "2026-11-25",
+     "comment": "17 pages, 9 figures, 21 tables, including appendices",
+     "score": 11.0,
+     "routes": [
+      "data",
+      "learn"
+     ],
+     "route_hits": {
+      "learn": 1,
+      "data": 3
+     },
+     "top_pis": [],
+     "orgs": [],
+     "venue": "",
+     "quant": false,
+     "solid": true,
+     "relevant": true,
+     "contribution": "<b>🎯 贡献</b> 提出OneOcean数据驱动海洋仿真套件与基准，统一水深、数据驱动流潮及可选污染场，并构建覆盖导航、站点保持、路径跟踪、深度剖面、区域扫描、管线巡检和多智能体协同的任务阶梯，提供标准化指标与可复现运行清单。<br><b>✨ 亮点</b> 支持2-10个载具和3-6自由度，覆盖多类海洋任务，并在数据驱动扰动下系统比较启发式、行为克隆与LLM规划器，揭示三者权衡。<br><b>💡 启发</b> 数据驱动海况仿真与标准化任务阶梯可迁移到海洋环境监测、管线巡检和污染应急清理；多智能体协同评测可为LLM规划器与学习/经典基线对照提供统一平台。",
+     "summary_source": "deepseek"
+    }
+   ]
+  },
   {
    "date": "2026-11-26",
    "papers": [
